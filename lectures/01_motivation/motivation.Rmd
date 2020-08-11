@@ -1,0 +1,334 @@
+---
+title: "Motivation"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#reproducible-research)'
+tldr: "Why we should be motivated to improve reproducibility in our research"
+recording: ""
+reading: "reproducible-research"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature: 
+      titleSlideClass: ["left", "middle", "inverse"]
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+# define a class for a block of text with mono spaced print
+extra_css <- list(
+  ".monobox" = list(
+    display = "inline-block", 
+    width = "90%",
+    height = "400px",
+    padding = "5px",
+    border = "1px solid #012169",
+    `background-color` = "#d9d9d6",
+    `font-family` = "Courier Prime",
+    `align-items` = "left",
+    `vertical-align` = "middle"
+  ),
+  ".small" =  list(`font-size` = "80%"),
+  "ul li" = list(`margin-bottom` = "10px")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px
+}
+</style>
+
+# An email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			<br>
+			<br> After review, we found that some data may have been 
+			mislabeled. Could you re-run the analyses and update numbers in 
+			Tables 1-3 and re-create Figure 2?
+			<br>
+			<br> We would like to submit this paper by the end of the week.
+			<br>
+			<br> Best wises, 
+			<br> Every collaborator ever
+		]
+	]
+]
+
+???
+
+Very commonly in collaborations, the data change. It could be 
+due to errors, more data being added, etc... The goal of this class 
+is to make it so you do not fill with dread when you receive such an 
+e-mail.
+
+We are working toward a world where you download the new data,
+type one command and voila! No by-hand entering numbers into tables. 
+No copy-pasting from R/SAS/STATA to Word. Just one click.
+
+---
+
+# Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			<br>
+			<br> The data will be finalized tomorrow and we need to have 
+			new Tables to the DSMB report in three days. Sorry about that.
+			<br>
+			<br> Best wises, 
+			<br> Every collaborator ever
+		]
+	]
+]
+
+
+???
+
+
+To prepare for situations like this, project organization is key. 
+We will discuss strategies for 
+preparing fast-turnaround projects. But just because we are turning
+projects around quickly, does not mean we are not working carefully. 
+By having a set, reproducible workflow in place before data acquisition, 
+we can have the best of both worlds. Careful analysis planning and 
+execution AND fast delivery.
+
+---
+
+# Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			<br>
+			<br> IT just updated R to the latest version on my computer 
+			and your analysis code no longer runs. I get lots of strange 
+			error messages about compilers and package versions. What gives?
+			<br>
+			<br> Best wises, 
+			<br> Every collaborator ever
+		]
+	]
+]
+
+???
+
+Collaborative projects with multiple people developing and running
+code can be challenging to manage. We'll discuss the tools that make 
+this easier to achieve. 
+
+---
+
+# Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			<br>
+			<br> I finally managed to debug all the compilation errors, but 
+			now when I re-run the code, I get completely different results. 
+			I'm starting to panic. Help!
+			<br>
+			<br> Best wises, 
+			<br> Every collaborator ever
+		]
+	]
+]
+
+???
+
+Software version control is another big challenge, particularly as 
+more modern learning techniques (e.g., machine learning) are applied. 
+Small changes in an algorithm, in how random seeds are set, etc... can 
+lead to possibly large changes in down-stream analyses. We'll discuss
+containerization tools that make all of these problems tractable. 
+
+---
+
+# Reproducibility
+
+
+```{r repro-fig, echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, dpi=300}
+source("repro_fig.R")
+my_sci_figure(exps_diffs)
+```
+.center[
+	.small[
+		Working terminology (figure produced using scifigure R package)
+	]
+]
+
+???
+
+There are many definitions of reproducibility/replicability/etc... See
+the [class readings](https://benkeser.github.io/info550/readings#reproducible-research) for more. 
+
+We will focus on building analyses that satisfy the reproducibility 
+definition outlined above. Could a different analyst sit down with your code, 
+execute it and get exactly the same results?
+
+Reproducibility is a *minimal* standard. Just because something is 
+*reproducible* does not necessarily imply that it is *correct*. The 
+code may have bugs. The methods may be poorly behaved. But reproducibility 
+is likely correlated with correctness -- if you are careful enough to 
+make everything reproducible, you're probably more likely to be careful
+in designing the analysis in the first place. 
+
+We will use replicability to mean a new experiment using the same methods
+coming to the same conclusions. 
+
+Generalizability refers to taking conclusions from your study population
+and generalizing them to a new population. 
+
+---
+
+# Why should I care?
+
+* Careful coding means = more likely to produce __correct results__.
+* In the long run, you will __save (a lot of) time__.
+* Higher impact of your science.
+* Avoid embarrassment on a public stage. 
+
+???
+
+Doing reproducible science is time consuming, but is ultimately time-saving.
+As you practice these tools more and more, they will start to become
+habits. I do analyses now in a day or so (and at much higher quality) now
+that would take me a (frustrating) week seven or eight years ago. 
+
+One of my great fears as an academic is being accused of intentionally 
+doing bad science. Leaving a paper trail that any one else can follow is
+a bit intimidating -- we all make mistakes. Reproducible work indicates 
+that any mistakes made were likely honest.
+
+---
+class: title-slide, center, inverse, middle
+background-color: #84754e
+
+*You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.*
+<div> - Karen Cranston
+
+---
+
+# Levels of reproducibility
+
+* Are the tables and figures reproducible using the code?
+* Are the tables and figures reproducible using the code __with minimal user effort__?
+* Does the code __actually do__ what's written in Methods?
+* Does the code make clear __why__ certain decisions were made?
+	* Why did you exclude this variable? 
+	* Why do you choose these tuning parameters?
+* Can the code be used on other data?
+* Can the code be extended to do more?
+
+???
+
+Reproducibility is not black and white. The ideal is not easy to 
+achieve, nor is it necessarily warranted on every project. This is a lifelong
+process of understanding what level of reproducibility is required for 
+each project. 
+
+
+# Basic principles
+
+* Get data in its "raw-est" form possible
+* __Document__ where/when you got the data
+* Be as __self-sufficient__ as possible
+* __Everything via code__
+	* with sufficient documentation!
+* __Everything automated__
+	* with sufficient documentation! 
+
+???
+
+The goal is end-to-end reproducibility. In many situations, 
+*you* will be the person with the most data 
+management experience. Reproducibility can easily be undermined
+by e.g., a collaborator who is manually extracting data from an 
+online data base and copy-pasting it into a .csv for you. 
+
+Solution: Code the download process! Automate data pulls! Document
+how you're doing it!
+
+---
+
+# Things to avoid
+
+* Open a file to re-save as `.csv`. 
+* Open a data file and manually edit. 
+* Pasting results into the text of a manuscript.
+* Copy-paste-edit code into GUI
+* Copy-paste-edit tables
+* Copy-paste-adjust figures
+
+???
+
+All of these actions are problematic. Each introduces the possibility
+of inconsistencies or errors and is not reproducible in the sense 
+that we mean. 
+
+---
+class: title-slide, center, inverse, middle
+background-color: #007dba
+
+*If you do anything "by hand" once, you'll have to do it 100 times.*
+<div> - Karl Broman
+
+---
+
+## Tools for reproducible research
+
+* Unix command line
+* git and online repositories (e.g., GitHub)
+* Markdown, RMarkdown, Latex, Knitr
+* GNU Make
+* R packages
+* Containers (e.g., Docker)
+* `bash`, `R`, `python` (`ruby`, `perl`, `html`)
+
+???
+
+In this class, we'll be learning to operate almost exclusively on 
+the command line. Soon, [this will be you](https://tenor.com/8IZG.gif). 
+
+Git will make your life easier by handling version control. No more
+directories with 200 copies of the same file with different dates!
+
+RMarkdown + knitr are great tools for generating reproducible reports (or
+course notes...). 
+
+GNU Make is for automation and for documenting dependencies between 
+files. 
+
+`R` packages are a useful way to wrap up code, documentation, and dependencies
+on other `R` packages. 
+
+Containers make it possible to achieve full reproducibility rather 
+painlessly, by wrapping all needed software (down to the OS!) up into a 
+"container". 
+
+Knowing some `bash` is necessary to operate at the command line and 
+generally useful for scripting. `R` is becoming (or already is) a standard 
+software for analysis. `python` is also becoming quite popular for analysis, 
+but goes much beyond. Other languages are great, but not totally necessary.
+
+---
+class: title-slide, center, inverse, middle
+background-color: #487f84
+
+*The most important tool is the mindset, when starting, that the end product will be reproducible.*
+<div> - Keith Baggerly

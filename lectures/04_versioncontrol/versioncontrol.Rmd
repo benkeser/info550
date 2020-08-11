@@ -1,0 +1,1012 @@
+---
+title: "Version control using git and GitHub"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#git-and-github)'
+tldr: "Stop saving fifty copies of the same file with different names."
+recording: ""
+reading: "git"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLines: true
+      highlightLanguage: bash
+---
+
+background-color: #007dba
+class: title-slide, center, inverse, middle
+
+<img src="final.gif" style="width: 60%" />
+
+???
+
+Don't be like this guy. 
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+# define a class for a block of text with mono spaced print
+extra_css <- list(
+  ".monobox" = list(
+    display = "inline-block", 
+    padding = "5px",
+    width = "100%",
+    border = "1px solid #012169",
+    `background-color` = "#d9d9d6",
+    `font-family` = "Courier Prime",
+    `align-items` = "left",
+    `vertical-align` = "middle"
+  ),
+  ".small" =  list(`font-size` = "75%"),
+  ".gold" = list(`color` = "#f2a900"), 
+  ".white" = list(`color` = "#FFFFFF"),
+  ".large" =  list(`font-size` = "150%"),
+  "ul li" = list(`margin-bottom` = "10px"),
+  ".red" = list(color = "#DC143C",
+                `font-weight` = "600"),
+  ".bottom-col-pad" = list(`margin-bottom` = "175px"),
+  ".remark-code-line-highlighted" = list(border = "2px solid #f2a900",
+                                         "background-color" = "#002451"),
+  ".transparentbox" = list(
+   opacity = "0.8",
+   border = "1px solid black",
+   `background-color` = "#ffffff",
+   filter = "alpha(opacity=80)"
+  )
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+
+  extra_css = extra_css
+)
+
+# check if on mac 
+system("export OSTYPE")
+on_mac <- grepl("darwin", system2("echo", "$OSTYPE", stdout = TRUE))
+```
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px
+}
+</style>
+
+---
+
+### Why formal version control?
+
+* Painlessly revert to older versions of a document
+  * Uh oh, everything broke, revert! Revert!
+
+* See history of changes made to a document
+  * What did I do that broke everything?
+
+* Try new things out without breaking things that work
+
+* Collaborate with multiple people 
+
+* Expected skill in modern data science
+
+* It's required for this course
+
+???
+
+Formal version control has a somewhat steep learning curve, but 
+in the end, it is worth it. 
+
+Version control is __most useful__ for coding projects. It can be used
+for purposes beyond that (e.g., manuscript collaboration). However, in my 
+experience, Google docs/Sharepoint/etc... (for Word docs) and OverLeaf
+(for Latex docs) are easier for manuscript collaboration, though I have
+worked with collaborators on manuscripts using GitHub. 
+
+The biggest point here is that knowing your way around git/GitHub is 
+an expected job market skill for data scientist positions. Knowing at least
+the basics is critical.
+
+We will also use it from here on out for assignments in class, so better to 
+get used to it now. 
+
+---
+
+### Terminology
+
+* __Repository__ 
+  * a directory of (ideally) plain-text files included in a project
+
+* __Commit__ 
+  * a unique flag for a particular state of your project
+
+* __History__
+  * a history of all of the commits for a project
+
+???
+
+We'll see that a repository is literally just a directory that includes
+a particular (hidden) subfolder that the git program interacts with. 
+
+If you've ever used Dropbox (or similar), a commit is like the version 
+history that you can view on Dropbox. However, rather than automatically
+remembering a version of a file __every time you save the file__ (what
+Dropbox does), we need to explicitly give a command to git to make a 
+commit and a commit can include multiple files. So it really is a version
+history for a __project__ rather than a version history for an individual 
+file (though it's also that). 
+
+---
+
+### Example repository
+
+.center[![An example GitHub repository](repos.png)]
+
+???
+
+This is a repository of the code that builds a piece of software
+for a recent research project (one that inspired much of the contents
+of this course!). It is a directory of files, in this case, hosted on
+GitHub. The README.md file describes the contents of the folder. 
+
+---
+
+### Example commit
+
+.center[![An example GitHub commit](commit.png)]
+
+???
+
+If you view a commit on GitHub, you can easily see what lines 
+were modified -- the old version appears in red and the new version
+in green. This can be very useful for targeted debugging of software.
+
+---
+
+### Example history
+
+.center[![History of commits](history.png)]
+
+???
+
+One of the beauties of git is that your entire commit history can 
+be viewed. You can see how a project evolves over time, revert to 
+any point in its history. If it is a software repository, you can 
+easily access past versions of software. Etc...
+
+---
+
+### Git
+
+__git__ is a formal system for version control.
+
+* developed by Linus Torvalds, the developer of Linux
+* can be used to track any content, but intended for __plain text files__
+  * source code, data analysis code, manuscripts, websites, presentations 
+
+Why git?
+* fast, offline, good at merging changes, industry standard
+
+???
+
+Git was originally developed to manage the source code for Linux.
+
+Most features of git are aimed towards tracking changes made to plain
+text code. It's not very useful to look at the raw source code of a 
+`.pdf` or `.docx` file. Though these files can definitely still be tracked
+by git. 
+
+I use git for all my software projects, most all data analysis projects, 
+some manuscripts (see previous comments), and for managing this courses 
+website.
+
+Git uses very clever caching systems, which make it incredibly fast and 
+lightweight (i.e., doesn't eat up all your computer's memory). It works
+offline (Dropbox does not).
+
+---
+
+### Basic git workflow
+
+* Make modifications to files. Save files.
+* `git status`
+  * shows what files have changed since your last commit
+* `git add` 
+  * tell git which files to add to this commit
+* `git commit -m "I fixed so many things!"`
+  * make a commit with a message `-m`
+* `git push origin master`
+  * `push` the `master` branch to the `origin` remote
+
+???
+
+These are the git commands you will use 90-95\% of the time (unless you 
+are heavily involved in collaborative production of software). We will talk 
+through each of these steps in depth and what they mean.
+
+---
+
+### Configuring git
+
+The first time you use `git`, you will need to configure. 
+
+```{bash git-config, eval = FALSE}
+# set user name
+git config --global user.name "Jane Doe"
+# set email
+git config --global user.email "janedoe@emory.edu"
+```
+
+* Other options to consider:
+  * `core.editor` controls which editor is used
+  * `core.excludesFile` controls file types that are ignored (more later) 
+  * all options [in docs](https://git-scm.com/docs/git-config)
+
+---
+
+### Initialize repository
+
+```{bash rm-existing, echo = FALSE, message = FALSE, warning = FALSE}
+# a piece of code to remove this directory if it exists
+if [ -d ~/tmp_gitdir ]; then rm -rf ~/tmp_gitdir; fi
+```
+Before workflow, we'll use `git init` to set up a repository.
+
+```{bash git-init}
+# make a directory (tmp_gitdir is "git repository")
+mkdir ~/tmp_gitdir
+# move into directory
+cd ~/tmp_gitdir
+# initialize repository
+git init
+```
+
+```{bash show-gitfile, highlight.output=4}
+# see what it did
+ls -lha ~/tmp_gitdir
+```
+
+???
+
+All the information about a repository is stored in this `.git` directory. 
+Don't ask me how. It's just magic, as far as I can tell.
+
+---
+
+### Produce some files 
+```{r set-root-dir, echo = FALSE}
+knitr::opts_knit$set(root.dir = "~/tmp_gitdir")
+```
+
+```{bash git-status, tidy=TRUE, tidy.opts=list(width.cutoff=80)}
+# make a README.md file from the command line
+echo "## My first repository" >> README.md
+echo "This is just a toy repository for demonstration." >> README.md
+
+# make a silly bash script
+echo "#! /bin/bash" >> silly_shell.sh
+echo "echo 'Hello world!'" >> silly_shell.sh
+
+# check what has changed
+git status
+```
+
+???
+
+The `echo` commands here are making two files: `README.md` and `silly_shell.sh`.
+These are just meant to provide examples of files you might create for a 
+coding project. 
+
+We use `git status` to list what has changed since our last commit. 
+
+At this point all we see is that there are "Untracked files" in the `tmp_gitdir`
+directory. This means that there are files in the directory that we have not
+yet told `git` that we want to track.
+
+---
+
+### Add files to a commit
+
+```{bash git-add1, highlight.output=5}
+# add the README to the commit
+git add README.md
+git status
+```
+
+We have now .gold[staged] `README.md` to be committed. 
+
+???
+
+Staging just means that we are getting ready to make a commit, but nothing
+has yet been committed. 
+
+---
+
+### Make a commit
+
+```{bash git-commit1}
+# make a commit
+git commit -m "added README to repo"
+```
+
+* `-m` provides a message as to what the commit contains
+  * __try__ to make these messages meaningful
+* the commit is assigned a unique alpha-numeric code
+
+???
+
+Without `-m`, git will spawn a text editor and force you to type something.
+
+You can use wildcards when committing files 
+* `git add *` will add all files (except those starting with `.`)
+* `git add *.R` will add all files with `.R` extension
+* etc...
+
+Try to use frequent small commits. If you are constantly committing ten 
+different files with changes that accomplish ten different goals, then it
+sort of defeats the purpose of versioning. 
+
+It's difficult in the midst of big coding projects to always use meaningful 
+commit messages, but it is worth it to try your hardest.
+  * If you dig through my commit history, you may find lots of `blah`, `fix`,
+  `fix again`, `fix for the last time?` messages -- this is not good practice. 
+  Do as I say, not as I do...
+  * If you can tolerate adult language, [Commit Logs from Last Night](http://www.commitlogsfromlastnight.com/) is good for a few laughs. 
+
+Again, `git` is most useful for storing code. Commit the source code, but 
+consider whether you really need to considered derived files (images, pdfs, 
+etc...). It's OK to do so, but generally "frowned upon". 
+
+---
+
+### Viewing history of commits
+
+A history of commits can be viewed using `git log`.  
+
+```{bash git-log}
+# view history of commits
+git log
+```
+
+???
+
+This can useful for retrieving the commit number. 
+
+---
+
+class: center, middle
+background-color: #006c5b
+background-image: url(honnold.jpg)
+background-size: contain
+
+.pull-left[.transparentbox[.small[*Using a commit is like using anchors when climbing to catch you if you fall. Commits play a similar role: if you make a mistake, you can't fall past the previous commit. Coding without commits is like free-climbing: you can travel much faster in the short-term, but the long-term chances of catastrophic failure are high! But you want to be judicious in your use of commits. Committing too frequently will slow your progress; use more commits when you're in dangerous territory. Commits are also helpful to others, because they show your journey, not just the destination.*
+<div> - Hadley Wickham (not pictured)]]
+]
+
+---
+
+
+### `.gitignore`
+
+A `.gitignore` file tells `git` which files you __do not__ want to track. 
+
+```{bash make-gitignore}
+# make a sandbox folder
+mkdir sandbox
+# add a (blank) file to it
+touch sandbox/a_test_file.sh
+# make a .gitignore file that ignores a sandbox folder
+echo "sandbox/*" >> .gitignore
+# check status of repo 
+git status
+```
+
+* Note that `sandbox/` and contents are not detected by `git`.
+  * but `.gitignore` itself is
+
+???
+
+`.gitignore` files are useful for several purposes:
+* ignored derived output files (e.g., images)
+* include a `sandbox` directory with embarrassing code that I don't want others to see
+* ignoring stupid files that your computer makes for reasons I don't understand (like `_DS.Store` files that Macs love to produce for some reason)
+
+I think it's a good idea to track your .gitignore file as part of your repository.
+
+---
+
+### Breakout exercise
+
+* Add `silly_shell.sh` and commit.
+* Add another line to `README.md`.
+  * Either use `echo ... >> README.md` or edit by hand
+* Stage `README.md` for commit, check `git status`, commit the change.
+* Rename `silly_shell.sh` to `my_silly_shell.sh` (hint `git mv`).
+* Stage `my_silly_shell.sh` for commit, check `git status`, commit the change. 
+* Remove `my_silly_shell.sh` from repository (hint `git rm`).
+* Stage commit, check `git status`, commit
+
+???
+
+The goal here is to get you familiar with what commits can look like. We've 
+seen what it looks like when we add a file, now we're seeing what it looks like when
+* file is modified
+* file is renamed
+* file is deleted
+
+Note that `rm` and `mv` alone are __not sufficient__ for getting rid of files 
+from a git repo. 
+
+---
+
+### Branching
+
+* A key feature of __git__ is the ability to develop __branches__.
+  * Keep working code available on GitHub
+  * Try something new that might break things
+  * When working, __merge__ the code back to main branch
+
+```{bash branching}
+# make a branch called devel
+git branch devel
+# checkout that branch
+git checkout devel
+# see all branches
+git branch
+```
+
+???
+
+Recall that when we pushed to GitHub, we specified `master`. Now we see 
+why. The main 
+
+A shortcut to create and checkout a branch is `git checkout -b devel`
+
+---
+
+### Branching
+
+On the `devel` branch, we can modify files in the repository.
+
+```{bash modify-files}
+# add a line to README and commit
+echo "Some cool new info for the README!" >> README.md
+git add README.md 
+git commit -m "update the README"
+```
+
+```{bash cat-readme, highlight.output=3}
+# look at contents of README
+cat README.md
+```
+
+---
+
+### Branching
+
+When we switch back to the `master` branch, changes are "gone."
+
+```{bash look-master}
+# switch back to master
+git checkout master
+```
+
+```{bash look-readme}
+# look at contents of README
+cat README.md
+```
+
+---
+
+### Merging
+
+* When we're satisfied with changes, we `merge` branches.
+
+```{bash merge-devel}
+# **!! on the master branch !!**
+git merge devel
+```
+
+```{bash check-merge, highlight.output=3}
+cat README.md
+```
+
+---
+
+### Branching
+
+* Branches are a name for a __particular commit__ and its __ancestors__
+
+.pull-left[
+.center[
+  .monobox[.left[
+      A---C---E (master)
+      <br> |
+      <br> B---D------F (new-idea)
+    ]
+  ]
+]
+
+```{bash check-merge1, eval = FALSE}
+git checkout master
+git merge new-idea
+```
+.center[
+  .monobox[.left[
+      A---C---E---G (master)
+      <br> | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /
+      <br> B---D------F (new-idea)
+    ]
+  ]
+]
+
+]
+
+.pull-right[
+.bottom-col-pad[
+  * `master` = `A`,`C`,`E`
+* `new-idea` = `A`, `B`, `D`, `F`
+]
+
+  * `master` = `A`, `B`, `C`, `D`, `E`, `F`, `G`
+  * `new-idea` = `A`, `B`, `D`, `F`
+]
+
+---
+
+### Branching
+
+* You can continue developing on each of these branches. 
+
+.center[
+  .monobox[.left[
+      A---C---E---G---H---I (master)
+      <br> | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /
+      <br> B---D------F---J---K (new-idea)
+    ]
+  ]
+]
+  * `master` = `A`, `B`, `C`, `D`, `E`, `F`, `G`, `H`, `I`
+  * `new-idea` = `A`, `B`, `D`, `F`, `J`, `K`
+
+???
+
+Branching can get as complex as you want/need. Helpful to remember
+that a branch is just a history of commits. 
+
+---
+
+### Merge conflicts
+
+* What if commits on different branches affect same code?
+
+```{bash, create-conflict1-mac, eval = on_mac, echo = on_mac}
+git checkout devel
+# replace a word in README
+sed -i "" 's/cool/great/g' README.md
+git add README.md
+git commit -m "great info, not cool info."
+```
+
+```{bash, create-conflict1-notmac, eval = !on_mac, echo = !on_mac}
+git checkout devel
+# replace a word in README
+sed -i 's/cool/great/g' README.md
+git add README.md
+git commit -m "great info, not cool info."
+```
+
+```{bash, cat-it-devel}
+cat README.md
+```
+
+???
+
+The most common place I run into merge conflicts is in collaborative
+projects, where it happens all the time. 
+
+If you are on Mac OSX, you need to change the `sed` command to 
+`sed -i "" 's/cool/great/g' README.md`. 
+
+---
+
+### Merge conflicts
+
+```{bash, create-conflict2-mac, eval = on_mac, echo = on_mac}
+git checkout master
+sed -i "" 's/cool/excellent/g' README.md
+git add README.md
+git commit -m "excellent info, not cool info."
+```
+
+```{bash, create-conflict2-notmac, eval = !on_mac, echo = !on_mac}
+git checkout master
+sed -i 's/cool/excellent/g' README.md
+git add README.md
+git commit -m "excellent info, not cool info."
+```
+
+```{bash, cat-it-master}
+cat README.md
+```
+* There is now a conflict between `devel` and `master`!
+
+---
+
+### Merge conflicts
+
+* Merging `devel` into `master` results in an error.
+
+```{bash, create-conflict3, error = TRUE}
+git merge devel
+```
+
+---
+
+### Merge conflicts
+
+* text between `<<<<<<` and `=======` is `master` code
+* text between `======` and `>>>>>>>` is `devel` code
+
+```{bash, cat-it-conflict}
+cat README.md
+```
+
+???
+
+This occurs because both branches edited the same code. What happens now 
+is git edits all files that have merge conflicts and indicates where
+the conflicts occur using the `<<<` `===` `>>>` symbols. 
+
+You can search files on these symbols to quickly identify all merge conflicts.
+
+---
+
+### Merge conflicts
+
+* We need to edit `README.md` to resolve conflicts. 
+
+```{bash, fix-conflict-mac, eval = on_mac, echo = on_mac}
+# remove lines 3-5 and 7
+sed -i "" '3,5d;7d' README.md
+cat README.md
+```
+
+```{bash, fix-conflict-notmac, eval = !on_mac, echo = !on_mac}
+# remove lines 3-5 and 7
+sed -i '3,5d;7d' README.md
+cat README.md
+```
+
+* Now we can successfully complete the merge.
+
+```{bash, merge-fixed-conflicts}
+git add README.md
+git commit -m "fixed merge conflicts"
+```
+
+???
+
+Here, it looks like we decided that we liked the `devel` version of `README.md`
+better, so we delete the `master` code (and the `<<<`, `===`, `>>>` lines), 
+add and commit the result. 
+
+Checkout `git log --graph` to see how git is thinking about this. 
+
+---
+
+### GitHub
+
+GitHub is an online host for git repositories. 
+
+Publish your software/code in a truly open source way. 
+* E.g., not behind journal paywalls
+
+GitHub is a de facto social network site for programmers.
+* See what friends are working on, collaborate on projects
+
+???
+
+GitHub is a website that hosts git repositories. It has a nice graphical
+user interface for exploring repositories and collaborating. We'll 
+learn how to do many git operations from the command line, but it's nice
+to know that many things can also be done in a web browser, for collaborators
+who may be scared of the command line. 
+
+GitHub provides an appealing way of publishing code associated with published
+projects. It gives you space to provide a nicely formatted README, make the 
+code easily downloadable for anyone. You can even add a digital object
+identifier (e.g., through [Zenodo](https://zenodo.org/)).
+
+Public repositories are free on GitHub and you can upgrade to pro account
+if you want unlimited private repositories (\$7 a month, I think). There are
+also options for student accounts that allow limited number of private 
+repositories. 
+
+[Bitbucket](https://bitbucket.org) is an alternative that allows unlimited 
+private repositories.
+
+---
+
+### Why GitHub?
+
+Online backup for your code. 
+
+Provides an appealing GUI for git. 
+* Look through code and history
+* Track issues, create to do lists, etc...
+
+Community-oriented collaborative coding projects.
+* See a typo in someone's code? Fix it!
+* Find a bug in someone's code? Fix it! (or at least report it)
+
+???
+
+Services like Dropbox provide continuous online back-up of saved file, as
+we've said, git only provides back up at certain points. GitHub allows
+for this backup to go online. I.e., if your computer blows up, you'll still
+be able to pull down your coding project. 
+
+Personally, I use git within Dropbox folders. I hardly ever use Dropbox to 
+revert to saved versions of files, because I save files after every sentence
+I type out of habit. However, I very often use git revert when developing 
+code. 
+
+---
+
+### GitHub
+
+* Create an account 
+* Click + (upper right), New repository
+* Give it a name and description
+* __Do not__ initialize with a `README`
+
+```{bash add-origin, eval = FALSE}
+# replace username with your user name and repo with 
+# your repository name
+git remote add origin https://github.com/username/repo
+# push the repository
+git push -u origin master
+```
+
+???
+
+Here we are setting a `remote` for our repository, i.e., an online 
+location that we (presumably) want to keep up to date with our local 
+repository. 
+* the `-u` option is only needed the first time you push; it sets the 
+"upstream" remote branch
+  * once it is set `git push` will assume that's where you want to `push`
+* remotes can be viewed using `git remote -v`
+
+The `git remote` command just adds lines to the `.git/config` file. 
+* If you mess up, just edit that file
+
+You may be prompted to enter your GitHub user name and password when you
+`git push`. It is worth setting up an `ssh key`, which is described in 
+our video tutorials. 
+
+Technically, `origin` is just a nickname for the remote location. However,
+it is convention to call the original source of code (i.e., main directory
+from which code originated) the `origin`. 
+
+---
+
+### Issues and pull requests
+
+* Bug in someone's code?
+  * File an __issue__ 
+  * But __PLEASE__ read documentation/contributing guidelines first!
+
+* Even better: submit a __pull request__!
+  * Fork the repo on GitHub
+  * `git clone` to download to local machine
+  * Modify code
+  * `commit` changes
+  * `git push` back to GitHub
+  * Submit a pull request
+
+???
+
+* First, find the repository on github and click "Fork". This will copy
+the repository to your GitHub account. 
+* Use `git clone https://github.com/username/repo` to download your forked
+version of the repository to your local computer. 
+  * `git clone` automatically sets this GitHub repo as `origin`
+* Modify code on your local computer. Make sure it works. 
+* `git add` and `git commit`. Make sure your commit messages are informative. Remember, now somebody else will definitely be looking at them.
+* `git push` your changes to GitHub. 
+* Go to *your* GitHub repo and click "Pull Requests" and "New pull request"
+
+More in-depth description of this workflow can be viewed [here](https://happygitwithr.com/fork-and-clone.html). Of note:
+* consider submitting a pull request from non-`master` branch
+* this allows you to free up `master` to track the original repo remotely
+  * i.e., set an upstream branch
+  * if owner makes changes to original repo, you'll need to integrate those into your pull request branch. Easier to do that from a non-`master` branch
+
+---
+
+### Pull requests
+
+Suggested workflow for testing out pull request:
+```{bash, git-fetch-demo, eval = FALSE}
+# add friend's repo as a remote branch
+git remote add friend git://github.com/friend/repo
+# downloads friend's branch, but do not yet merge it
+git fetch friend master
+# view all local and remote branches
+git branch -a
+# checkout friends remote branch
+git checkout remotes/friend/master
+# make a local branch based on friend's repo
+git checkout -b friend
+# test out the branch; make sure it works as expected
+[...]
+# checkout local master, merge, push
+git checkout master
+git merge friend
+git push origin master
+```
+
+???
+
+If you trust your friend, you can use `git pull friend master`. 
+* `git pull` does a `git fetch` and `git merge` all in one.
+
+I use `git pull` when I'm working on the same repository from two different
+computers (e.g., my laptop and a remote computer) to keep code tracked between 
+the two. If you have Dropbox, then this is not needed, as Dropbox will 
+automatically sync. 
+
+Best practice is to use `git fetch` always. 
+
+---
+
+### Useful git tricks
+
+* Help! I have __too many commits__!
+  * Use `--amend` to make work in progress (`WIP`) local commits.
+
+```{bash git-amend, eval = FALSE}
+# assume project starts in functional state
+# make a small change to project
+[...]
+# commit current changes under WIP heading BUT DON'T PUSH!
+git add * && git commit -m "WIP"
+# make more changes
+[...]
+# amend past commit
+git commit --amend --no-edit
+# make more changes
+[...]
+# amend past commit
+git commit --amend --no-edit
+...
+# push only after confirming everything works
+git commit --amend -m "awesome new feature that fixes everything"
+git push origin master
+```
+
+???
+
+The benefit of this is that as far as git and GitHub are concerned, you just
+made a single commit. However, it is frowned upon to "rewrite git history"; 
+that is, amending commits once they have been published to GitHub, because
+presumably somebody could have `pulled` that code already. However, adopting 
+this workflow locally is OK. 
+
+I personally just maintain an embarrassingly large number of commits 🤷‍♂️. 
+
+---
+
+### Useful git tricks
+
+Help! I was in the middle of my `amends` and __everything broke__.
+* Use `git reset` to fall back
+* Resets files to their state at the most recent commit
+
+```{bash git-reset, eval = FALSE}
+# assume project starts in functional state
+# make a small change to project
+[...]
+# commit current changes under WIP heading BUT DON'T PUSH!
+git add * && git commit -m "WIP"
+# make more changes
+[...]
+# amend past commit
+git commit --amend --no-edit
+# make more changes
+[...]
+# !!! UH OH EVERYTHING BROKE !!! #
+git reset --hard
+```
+
+---
+
+### Useful git tricks
+
+Help! I tried to `pull` but got this error.
+
+```{bash pull-error, eval = FALSE}
+## To https://github.com/username/repo.git
+##  ! [rejected]        master -> master (fetch first)
+## error: failed to push some refs to 'https://github.com/YOU/REPO.git'
+## hint: Updates were rejected because the remote contains work that you do
+## hint: not have locally. This is usually caused by another repository pushing
+## hint: to the same ref. You may want to first integrate the remote changes
+## hint: (e.g., 'git pull ...') before pushing again.
+## hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+* Your local branch and the branch on GitHub have __diverged__. 
+  * `fetch`/`merge` or `pull` changes from GitHub then `push` 
+
+???
+
+This can happen frequently when multiple people are pushing to the same location. 
+This can be avoided by:
+* being the first to push
+* using branches judiciously 
+* getting in the habit of `pull`ing every time you start to work, and `push`ing everytime you finish
+
+--- 
+
+### Git tricks
+
+Help! I need to `pull` but I have local work!
+* E.g., I wanted to `push` but have __diverged__.
+
+* Simplest case:
+  * `git pull` will "just work", i.e., you haven't __diverged__
+
+* More complicated case:
+  * `commit` your local work
+  * `fetch` remote branch, `merge`, resolve conflicts, `push`
+
+* `git stash` can sometimes be used
+
+???
+
+This is a very common situation. Ideally, there will be no conflicts 
+and you can just `pull` down the new repo without affecting your code at
+all. But remember `git pull` will try to `fetch` AND `merge` with a new 
+commit. So you may get kicked into a text editor to enter a message 
+explaining the "reason for the merge." Beyond that you may also have merge 
+conflicts that will need to be resolved, as discussed previously. 
+
+`git stash` can sometimes be useful. I use it when I'm lazy and I don't 
+really care about overwriting my local changes with what's in the repo. 
+This happens often when I'm working on a remote computer and I've made trivial
+changes to scripts (like `chmod +x` or similar) that I've forgotten about. 
+It's fast to type `git stash && git pull && chmod +x *` then to do something 
+more clever.
+
+---
+
+### Breakout exercise
+
+Download <a href="exercise/github_exercise.Rmd" download>`github_exercise`</a>.
+* With your breakout partner, follow the instructions.
+* Determine who is User A and who is User B.
+* Practice the workflows we've just learned!
+
+---
+
+background-color: #84754e
+class: title-slide, center, inverse, middle
+
+*Open source means everyone can see my stupid
+mistakes.*
+<div> 
+
+*Version control means everyone can see every stupid
+mistake I’ve ever made.*
+<div> - Karl Broman
+
+???
+
+If you store your code on GitHub, everyone can see everything there is
+and everything that ever was. You may be shy or embarrassed about your
+code, __but__ probably no one is looking and if they are, that is a 
+good thing!

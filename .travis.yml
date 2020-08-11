@@ -1,0 +1,69 @@
+sudo: required
+
+# try python language
+language: python
+
+# github credentials
+env:
+  global:
+  - secure: "Ms8w4viJnzr4BzAkv6J79mzkFwbjPnOsNBzwD4ug43jIs2tfmBzz/KVfH5FIB+Fq6RBcy+717ivQGGjnt92CJBK7M73ugmM/LEkOKE4ebAColxbxYa06zWPEc2CVy/jbPsa7UV1FwduZyUiUlLZpc+/t1sTKGczJz28tpwvBdq7zUdXiDknoCHqZRXJoY7TSy3NQhqo0NcJsbO1Nk3aF0ygKNazuBHb10qIxax0FWckqTyfXQ25UDuWuyL/SneWv2Ak7uB8b7kUrOVEj2pFghCAsgIan9EdKJJm9OseqG1e+PR6iNU570BhnsDsOPmndjv1utJLJiOCs7XZVBwPvEZBHmoHbXWYyJDMLDYCf1naWgFe8hRCUKXrgkIVJVCcXvZSZNGKb3uBReBF+2JmjVW86KLqKelb7MTv07lP8bHwcx9dNST0A6sIrYSvI2WnAJ8wNgTm8bmYQxuTQiZw0KWLJTDdMkW7X5ypJPCv0eFiNg0ZBdgGOkqoAHjSrPaO7mQhHkxQeHC2dBq8Bie+rk/MbVKNqiIvoJnLSVi6sT0qjyqJK4i71DBOVHpVxxT6keS4qw6HeHFO2pprNCa39gneql8PX0ss8lV+NbOO2Iu27FPIk//ikalYSul7dzlRwSPIniVZHajr9GxACSbobVH3ZyLJUTrG72WjegOPzrVw="
+
+# clone whole git trees
+git:
+  depth: false
+
+# only build on pushes of master branch
+branches:
+  only:
+   - master
+
+# installing R and R packages
+addons:
+  apt:
+    sources:
+    - r-packages-precise
+    packages:
+    - r-base-dev  
+    - r-recommended
+    - pandoc
+
+pandoc_version: 2.3.1
+
+# cache the library for faster builds
+cache:
+  directories:
+    - ~/Rlib
+
+# install the package and dependencies:
+# - create directory for R libraries (if not already exists)
+# - create .Renviron with location of R libraries
+# - define R repository in .Rprofile
+# - install devtools if not already installed
+# - install covr if not already installed
+# - update all installed packages
+# - install package with dependencies
+install:
+  - mkdir -p ~/Rlib
+  - echo 'R_LIBS=~/Rlib' > .Renviron
+  - echo 'options(repos = "http://cran.rstudio.com")' > .Rprofile
+  - Rscript -e 'if(!"rmarkdown" %in% rownames(installed.packages())) { install.packages("rmarkdown", dependencies = TRUE) }'
+  - Rscript -e 'if(!"xaringan" %in% rownames(installed.packages())) { install.packages("xaringan", dependencies = TRUE) }'
+  - Rscript -e 'if(!"xaringanthemer" %in% rownames(installed.packages())) { install.packages("xaringanthemer", dependencies = TRUE) }'
+  - Rscript -e 'if(!"tinytex" %in% rownames(installed.packages())) { install.packages("tinytex", dependencies = TRUE) }'
+  - Rscript -e 'if(!"scifigure" %in% rownames(installed.packages())) { install.packages("scifigure", dependencies = TRUE) }'
+  - Rscript -e 'if(!"grid" %in% rownames(installed.packages())) { install.packages("grid", dependencies = TRUE) }'
+  - Rscript -e 'if(!"remotes" %in% rownames(installed.packages())) { install.packages("remotes", dependencies = TRUE) }'
+  - Rscript -e 'if(!"icon" %in% rownames(installed.packages())) { remotes::install_github("ropenscilabs/icon") }'
+  - Rscript -e 'tinytex::install_tinytex()'
+  - Rscript -e 'tinytex::tinytex_root()'
+  - sudo apt install python3-pip
+  - pip3 --version
+  - pip install pyyaml
+
+before_script:
+- chmod +x ./website/_build.sh
+- chmod +x ./website/_deploy.sh
+
+script:
+- ./website/_build.sh
+- ./website/_deploy.sh

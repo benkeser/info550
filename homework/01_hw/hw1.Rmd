@@ -1,0 +1,31 @@
+---
+title: "Homework 1"
+due: "2020/08/27"
+submit: "https://canvas.emory.edu/"
+output: pdf_document
+---
+
+1. Install a text editor of your choice and learn hot keys for all of the following commands:
+
+* save, save all open files
+* open file
+* undo/redo
+* go to particular line of code
+* highlight a word/the next word/the line
+* highlight all instances of a word
+* copy/cut/paste words/lines
+* duplicate lines
+
+2. Write a paragraph or two description of your workflow for the class project. Your description should include:
+
+* a summary of what data will be used;
+* what analyses will be performed on the data;
+* what the output of the analysis will contain;
+* software that you need to complete your workflow. 
+
+3. Install the following software on your computer (all clickable links):
+
+* [R version 4.0.2](https://cloud.r-project.org/)
+* If you are a Windows user, install [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)
+* Install [homebrew](https://brew.sh/)
+* [Mac users, upgrade bash to the latest version and set it as default shell following instructions here](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba)

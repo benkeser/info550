@@ -1,0 +1,176 @@
+---
+title: "Text editors"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#text-editors)'
+tldr: "Good text editors make your life a lot easier."
+recording: ""
+reading: "text-editors"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature: 
+      titleSlideClass: ["left", "middle", "inverse"]
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+# define a class for a block of text with mono spaced print
+extra_css <- list(
+  ".monobox" = list(
+    display = "inline-block", 
+    width = "90%",
+    height = "400px",
+    padding = "5px",
+    border = "1px solid #012169",
+    `background-color` = "#d9d9d6",
+    `font-family` = "Courier Prime",
+    `align-items` = "left",
+    `vertical-align` = "middle"
+  ),
+  ".small" =  list(`font-size` = "80%"),
+  ".large" =  list(`font-size` = "150%"),
+  "ul li" = list(`margin-bottom` = "10px")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px
+}
+</style>
+
+# Important principle 
+
+.center[
+  .large[
+    Don't touch that mouse!
+  ]
+]
+
+???
+
+Pointing-and-clicking is not reproducible! 
+
+Moreover, every time you have to reach for the mouse, there's a 
+loss of efficiency. Saving 1 second on something you do 50 times a
+day means saving about five hours per year. You're going to be writing
+code the rest of your career. Ten years from now, do you want to look
+back and realize you spent two days of time reaching to and from your mouse?
+
+---
+
+# Choosing an editor
+
+A good editor...
+* does not require pointing and clicking;
+* makes it easy to get code to `R` (or a terminal, etc...);
+* has syntax highlighting;
+* indents code automatically;
+* simultaneously view code across files; 
+* has a full suite of (customizable) hot keys.
+
+Microsoft Word is not a good editor. 
+
+???
+
+The choice of an editor is personal. Some people take the choice of editor
+far too seriously (like on the next slide, where my distaste for RStudio will
+undoubtedly spill over). Most editors these days can be customized in myriad ways, 
+such that the difference between editors is becoming smaller. 
+
+---
+
+# Good editors
+
+* [__atom__](https://atom.io/)
+* [__Sublime Text__](https://www.sublimetext.com/)
+* [__Notepad++__](https://notepad-plus-plus.org/downloads/)
+* [__vim__](https://www.vim.org/)
+* [__emacs__](https://www.gnu.org/software/emacs/)
+
+I use Sublime Text 97% and vim 3%. 
+* Work remotely? Know *at least some* vim or emacs.
+
+RStudio is an OK editor for `R`-related tasks. 
+* There are better options (in my opinion). 
+
+???
+
+See [course readings](https://benkeser.github.io/info550/readings#text-editors) for more resources. 
+
+---
+
+# Hot keys
+
+Make yourself start using them now!
+* Not just in your text editor.
+* Moving between browser tabs, applications, etc...
+* Don't touch that mouse!
+
+???
+
+Your work productivity hinges on how fast you can operate a computer. 
+Force yourself to learn to be more efficient. It's frustrating at first --
+I can't tell you how many times I've googled "sublime hotkey for ...". 
+But make it part of your routine. 
+
+---
+
+# Hot keys
+
+Know how to:
+* save, save all (and do, __after every command__!)
+* open file (better: navigate open file directory panel)
+* undo/redo
+* move between tabs/panes/applications
+* highlight a word/the next word/the line
+* highlight all instances of a word
+* copy/cut/paste words/lines
+* duplicate lines
+
+???
+
+I compulsively hit the hot key for save when I'm typing anywhere. Learn to 
+do that and you'll save yourself a lot of pain. 
+
+Be annoyed every time you have to touch your mouse. Ask yourself, "What was
+I trying to do when I had to touch the mouse? Can I automate that?" 
+
+As you become more advanced, start shaving off even more time -- "Is there a 
+way I could do this command with two keys instead of one?" Learn new hotkeys!
+Customize your hotkeys (if your editor allows). 
+
+If you use sublime text, learn to navigate through the command palette 
+(super+shift+p), type one or two letters of command.
+
+---
+
+# Hot keys
+
+Know how to...
+* find/replace text in a file/folder
+* find/replace text in a folder
+* cursor to start/end of current line
+* comment out lines/sections
+* write your own hotkeys (editor permitting)
+
+---
+class: title-slide, center, inverse, middle
+background-color: #487f84
+
+*Don't stress over picking an editor. Commit to one and spend your time really learning how to use it effectively.*
+
+???
+
+Unless you've done a lot of coding in the past, you probably won't really know
+the difference when you start out anyway. My arbitrary recommendations:
+- easiest path? Notepad++
+- best middle ground path? Sublime Text
+- feeling adventurous? vim
