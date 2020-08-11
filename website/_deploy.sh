@@ -4,6 +4,8 @@
 git config --global user.email "benkeser@emory.edu"
 git config --global user.name "David Benkeser"
 git config --global http.postBuffer 100000000
+git config credential.helper "store --file=.git/credentials"
+echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
 # clone the repository
 git clone -b gh-pages \
