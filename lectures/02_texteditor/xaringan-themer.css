@@ -266,6 +266,10 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   align-items: left;
   vertical-align: middle;
 }
+.red {
+  color: #DC143C;
+  font-weight: 600;
+}
 .small {
   font-size: 80%;
 }

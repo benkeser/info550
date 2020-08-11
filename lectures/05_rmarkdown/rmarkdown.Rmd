@@ -69,9 +69,9 @@ As a <del>statistician</del> __data scientist__, you must effectively convey res
 __Solutions__: 
 * email with attachments
 * LaTex pdf
-* __Rmarkdown__
+* __R Markdown__
 
-Why __R markdown__?
+Why __R Markdown__?
 * Human readable source
 * Highly reproducible reports
 * Output html instead of pdf
@@ -360,7 +360,7 @@ the (exported, in case you care) function `render`.
 
 ### Breakout exercise 1
 
-Download <a href="examples/example.Rmd" download>`example.Rmd`</a>. 
+Download <a href="https://raw.githubusercontent.com/benkeser/info550/gh-pages/lectures/05_rmarkdown/examples/example.Rmd" download>`example.Rmd`</a>. 
 * Render the document as is from the command line.
 * Without changing `example.Rmd`, render it as an `ioslides_presentation` that is saved as `example_presentation.html`. 
 * Add additional options in the yaml header (e.g., change font size, or code highlighting), render the document again and see what changes. 

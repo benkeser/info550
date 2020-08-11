@@ -16,7 +16,8 @@ description: |
     execute the workflows in a containerized environment using 
     <a href='https://www.docker.com/'>Docker</a>, and execute the workflow in a cloud 
     environment using <a href='https://aws.amazon.com/'>Amazon Web Services</a> 
-    <a href='https://aws.amazon.com/ec2/'>EC2</a> and <a href='https://aws.amazon.com/s3/'>S3</a> services). Along the way, we will 
+    <a href='https://aws.amazon.com/ec2/'>EC2</a> and <a href='https://aws.amazon.com/s3/'>S3</a> services. 
+    Along the way, we will 
     cover a few other tools for data science including best coding practices, basic 
     <a href='https://www.python.org/'>python</a>, 
     software unit testing, and <a href='https://travis-ci.com/'>continuous integration services</a>. 
