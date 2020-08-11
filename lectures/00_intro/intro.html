@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Front Matter</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics" />
+    <link href="intro_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+# Front Matter
+### David Benkeser, PhD MPH<br> <span style="font-size: 50%;"> Emory University<br> Department of Biostatistics and Bioinformatics </span>
+### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a>
+
+---
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 25px
+}
+&lt;/style&gt;
+
+# Basics
+
+* __Course website__: https://benkeser.github.io/info550
+* __Meeting__: Thursdays 3:15 - 5:05pm
+* __Attendance policy__: In-person attendance possible for first half of semester. In-person attendance is __not required__ but synchronous attendance in Zoom sessions is __strongly encouraged__.
+
+You are encouraged to follow along with code demonstrations on your laptop during class. 
+
+???
+
+Most material for class will be made available via the course website. 
+The website is hosted on GitHub and all materials are available at the 
+GitHub repository (https://github.com/benkeser/info550). 
+
+Classes will be a mix of lectures and interactive exercises. Synchronous 
+attendance is strongly encouraged. 
+
+---
+
+# Learning objectives
+
+* Understand why automation is a key element of reproducible data science.
+* Operate capably and comfortably at the command line.
+* Implement best practices for version control and open source projects.
+* Produce reproducible workflows for data cleaning, analysis and report generation  using the suite of tools learned in the class.
+* Create simple R packages.
+* Build Docker containers and use them to develop containerized workflows.
+* Understand basic uses of bash and python. 
+* Utilize Jupyter notebooks.
+* Utilize AWS cloud computing services for computation and storage.
+
+---
+
+# What INFO550 is
+
+A class to...
+* make your science more reproducible;
+* increase the impact of your work by making your code accessible and readable;
+* survey tools in modern data science;
+* make your life easier. 
+
+???
+
+The goal is to teach best practices that we should strive for in our 
+work and to provide motivation and brief introduction to the tools that 
+enable us to make that happen. 
+
+---
+
+# What INFO550 is
+
+All of the things that I had to teach myself in grad school and beyond that 
+have proven helpful in my research.
+
+???
+
+I am not a true computer scientist (and it's not particularly close!). 
+I don't know everything, and my approach won't always be the most effective. 
+Please offer me suggestions along the way!
+
+---
+
+# What INFO550 is not
+
+A class...
+* on machine learning; 
+* where the "right" answer is *somewhere* in the slides; 
+* that extensively covers any one area in great depth.
+
+???
+
+We will not discuss statistical methodology, though I may at 
+times show some basic statistics to illustrate software. 
+
+Learning these tools requires practice and (often a great deal of) 
+frustration -- it's part of the process. Thankfully, there is a 
+large online community that you can access if you know how. Learning
+to google efficiently is surprisingly important. 
+
+---
+
+# The wrong attitude
+
+.center[*Other students may be okay with searching the internet for help with R coding, but that's not very helpful for all students.*]
+.center[\- A disgruntled student]
+
+???
+
+Quote from a review of a previous course.
+
+No one writes perfect code. Code breaks. And there's no one in the world
+who immediately understands every error message to crop up. You must be 
+willing to take the initiative to figure it out. 
+
+Learning to efficiently fix broken code is almost as important as learning
+how to write good code in the first place. 
+
+---
+
+# Project
+
+Throughout the semester, you will develop a project. 
+* Ideally, something related to your own work. 
+
+Project must: 
+* involve data manipulation (download, cleaning);
+* data analysis (summary statistics or figures OK);
+* report summarizing analysis (including plot and table).
+
+Homework most weeks will be to develop an aspect of the project. 
+* A peer will grade you on how easy it is to run your code. 
+
+???
+
+If you do not have access to a real data project at this point, that is 
+OK. Try to think about the types of projects you expect to handle and 
+develop a project that "looks like" that. What types of tables/figures
+are typically produced in your field? Build an automatic script for making
+a clean table 1. Build an automatic script for making the results of `glm`
+look nice. Fancy statistics are not required. 
+
+An overarching goal of the course is to make you write code that other 
+people (or yourself, at a future date) can use. Thus, you will be graded 
+precisely on how well your code is documented/how easy it is for another 
+person to use it. 
+
+---
+
+# Slides
+
+The slides are created using the [xaringan](https://slides.yihui.org/xaringan/#1) package. 
+
+To print the notes as a .pdf (allegedly works best using Chrome):
+
+* scroll through all slides so content loads;
+* File: Print (or `super + p`): Destination: Save as PDF.
+
+The slides contain additional "presenter" notes. 
+
+* Makes the material more self-contained. 
+* Makes sure I do not forget to tell you important things.
+* To view, enter *Presenter Mode* by pressing `p`.
+
+???
+
+`super` means `Cntrl` on Windows and `Command` on Mac
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
