@@ -199,7 +199,7 @@ The [RSPH Honor Code](http://www.sph.emory.edu/cms/current_students/enrollment_s
 | 9/17  | GNU Makefiles                    |
 | 9/24  | Best coding practices            |
 | 10/1  | R packages                       |
-| 10/8  | Containerization (more time?)    |
+| 10/8  | Containerization                 |
 | 10/15 | Continuous integration services  |
 | 10/22 | Intro to python                  |
 | 10/29 | Jupyter notebooks                |

@@ -986,7 +986,7 @@ more clever.
 
 ### Breakout exercise
 
-Download <a href="exercise/github_exercise.Rmd" download>`github_exercise`</a>.
+Download <a href="exercise/github_exercise.md" download>`github_exercise`</a>.
 * With your breakout partner, follow the instructions.
 * Determine who is User A and who is User B.
 * Practice the workflows we've just learned!
