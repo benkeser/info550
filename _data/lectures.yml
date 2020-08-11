@@ -1,0 +1,36 @@
+- dirname: 00_intro
+  filename: intro
+  reading: ''
+  recording: ''
+  title: Front Matter
+  tldr: Everything you need to know about the course.
+- dirname: 01_motivation
+  filename: motivation
+  reading: reproducible-research
+  recording: ''
+  title: Motivation
+  tldr: Why we should be motivated to improve reproducibility in our research
+- dirname: 02_texteditor
+  filename: texteditor
+  reading: text-editors
+  recording: ''
+  title: Text editors
+  tldr: Good text editors make your life a lot easier.
+- dirname: 03_commandline
+  filename: commandline
+  reading: text-editors
+  recording: ''
+  title: Unix command line
+  tldr: The command line may look scary, but it is your friend.
+- dirname: 04_versioncontrol
+  filename: versioncontrol
+  reading: git
+  recording: ''
+  title: Version control using git and GitHub
+  tldr: Stop saving fifty copies of the same file with different names.
+- dirname: 05_rmarkdown
+  filename: rmarkdown
+  reading: r-markdown
+  recording: ''
+  title: R Markdown for reproducible reports
+  tldr: Writing reproducible reports has never been easier.
