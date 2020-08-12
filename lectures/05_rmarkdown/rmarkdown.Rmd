@@ -31,7 +31,7 @@ extra_css <- list(
   ".small" =  list(`font-size` = "80%"),
   ".large" =  list(`font-size` = "150%"),
   "ul li" = list(`margin-bottom` = "10px"),
-  ".red" = list(color = "#DC143C",
+  ".red" = list(color = "#da291c",
                 `font-weight` = "600"),
   ".remark-code-line-highlighted" = list(border = "2px solid #f2a900",
                                          `background-color` = "#002451"),

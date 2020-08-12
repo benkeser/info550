@@ -1,0 +1,10 @@
+---
+title: "Analysis Report"
+output: html_document
+---
+
+```{r, read-data, echo = FALSE}
+data <- read.table("data.txt", header = TRUE)
+```
+
+There were `r nrow(data)` data points with mean `r mean(data$X)`.
