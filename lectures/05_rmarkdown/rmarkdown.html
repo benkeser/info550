@@ -181,7 +181,7 @@ The value of the variable I created is `r my_variable`.
 This renders as 
 
 .clearbox[
-The value of the variable I created is -0.220234.
+The value of the variable I created is 0.5476944.
 ]
 
 No more copy and pasting results into text!
@@ -354,7 +354,7 @@ This renders as
 .clearbox[
 Here is some plain text in my document explaining what I did.
 
-The value of the variable I created is -0.220234.
+The value of the variable I created is 0.5476944.
 ]
 
 ???
@@ -469,13 +469,13 @@ The most relevant options are `fig.height`, `fig.width`, and `fig.cap`.
 
 There are several options for making tables in R Markdown.
 * just print a data.frame or matrix
-	* + easy, - monospaced format
+	* \+ easy, - monospaced format
 * [`knitr::kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
-	* + easy, nice looking, - not 100\% flexible
+	* \+ easy, nice looking, - not 100% flexible
 * [`xtable::xtable`](https://www.rdocumentation.org/packages/xtable/versions/1.8-4/topics/xtable)
-	* + highly customizable, - only for pdfs (LaTex based)
+	* \+ highly customizable, - only for pdfs (LaTex based)
 * [`pander::pander`](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)
-	* + default tables for different `R` classes
+	* \+ default tables for different `R` classes
 * [`stargazer::stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
 
 ???
@@ -489,7 +489,7 @@ Think about whether there is a need for really nicely formatted tables or whethe
 ### Referencing
 
 The [`bookdown` package](https://bookdown.org/) allows for table/figure referencing. 
-* use e.g., `option: bookdown::html_document2()`
+* use e.g., `output: bookdown::html_document2()`
 
 ````markdown
 As we see in Figure \@ref(fig:make-a-plot), there is no relationship.

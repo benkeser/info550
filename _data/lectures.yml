@@ -34,3 +34,9 @@
   recording: ''
   title: R Markdown for reproducible reports
   tldr: Writing reproducible reports has never been easier.
+- dirname: 06_make
+  filename: make
+  reading: gnu-makefiles
+  recording: ''
+  title: GNU Make
+  tldr: Make is a program for organizing projects and dependencies in code.

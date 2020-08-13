@@ -1,0 +1,135 @@
+---
+title: "GNU Make"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-markdown)'
+tldr: "Make is a program for organizing projects and dependencies in code."
+recording: ""
+reading: "gnu-makefiles"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLanguage: rmarkdown
+      highlightLines: false
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+extra_css <- list(
+  ".clearbox" = list(
+    display = "inline-block", 
+    width = "100%",
+    padding = "5px",
+    border = "1px solid #012169",
+    `background-color` = "#d9d9d6",
+    `align-items` = "left",
+    `vertical-align` = "middle"
+  ),
+  ".small" =  list(`font-size` = "80%"),
+  ".large" =  list(`font-size` = "150%"),
+  "ul li" = list(`margin-bottom` = "10px"),
+  ".red" = list(color = "#DC143C",
+                `font-weight` = "600"),
+  ".remark-code-line-highlighted" = list(border = "2px solid #f2a900",
+                                         `background-color` = "#002451"),
+  ".code-box" = list(display = "inline-block", 
+    width = "95%",
+    `line-height` = "0.5em",
+    padding = "5px",
+    `font-size` = "80%",
+    `background-color` = "#f6f6f6",
+    `align-items` = "left",
+    `font-family` = "Courier Prime",
+    border = "1px solid black")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px
+}
+</style>
+
+### Why GNU Make?
+
+GNU Make is a program often used for compiling software. 
+* Building up many dependent pieces of software.
+
+But that's exactly __what data analysis is__! 
+* Analysis report &#8592; tables and figures &#8592; code &#8592; data
+
+GNU Make is a formal system for:
+* automating a workflow
+  * just type `make` and hit enter!
+* documenting a workflow
+* documenting dependencies among data, code, results.
+
+???
+
+If you can effectively use `Make`, you are living the reproducible dream. 
+Literally you will just go to the command line and type `make` and your
+whole analysis will be off and running. Data get updated? Swap in the 
+new data set and `make`. Change the code for Figure 1? `make`.
+
+It takes time to get to this level, but this is the goal of 
+reproducible data science. 
+
+Remember, everything that we're doing is about making our lives easier 
+*in the long run*. It might be convenient in the short term to:
+* keep all your code in one long file,
+* open the file and interactively execute code,
+* copy/paste results.
+
+But in the long run, you'll have to 
+* sift through 1000s of lines of code every time you want to make a small change,
+* remember the exact sequence of code that you executed six months or a year ago,
+* copy/paste results 100 times!
+
+---
+
+### How does it work?
+
+In your project directory, you'll have a plain text `Makefile`.
+
+````markdown
+# comments use #'s
+# here's a recipe for target1 
+target: dependency1 dependency2
+[TAB] action1
+[TAB] action2
+
+# here's a recipe for dependency1
+dependency1: dependency3 
+[TAB] action3
+[TAB] action4 
+````
+
+At the command line, in the project directory, we type 
+
+```{bash, eval = FALSE}
+make target
+```
+
+---
+
+### How does it work?
+
+GNU Make logic is as follows:
+.clearbox[.small[
+I want to ensure `target` is up to date. I will look at when `dependency1` and `dependency2` were last updated. If it was after `target` was last updated (or if no dependencies), 
+or if there are no prerequisites, or if target does not exist—then I will execute the recipe.
+]]
+
+
+

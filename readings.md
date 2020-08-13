@@ -81,6 +81,14 @@ permalink: /readings/
 
 ## GNU Makefiles
 
+* [GNU Make home page](https://www.gnu.org/software/make/)
+* [Software carpentry's Make tutorial](http://swcarpentry.github.io/git-novice/)
+* [Karl Broman's minimal make](https://kbroman.org/minimal_make/)
+* [make manual](https://www.gnu.org/software/make/manual/make.html)
+* [GNU Make for Reproducible Data Analysis](http://zmjones.com/make/)
+* [Makefiles for R/LaTeX projects](https://robjhyndman.com/hyndsight/makefiles/)
+* [Example Makefile for R package](https://github.com/benkeser/drtmle/blob/master/Makefile)
+* [Managing Projects with GNU Make](https://www.oreilly.com/openbook/make3/book/)
 
 ## Best coding practices
 
