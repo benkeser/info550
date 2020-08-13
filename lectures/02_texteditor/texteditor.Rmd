@@ -27,7 +27,7 @@ extra_css <- list(
     `align-items` = "left",
     `vertical-align` = "middle"
   ),
-  ".red" = list(color = "#DC143C",
+  ".red" = list(color = "#da291c",
                 `font-weight` = "600"),
   ".small" =  list(`font-size` = "80%"),
   ".large" =  list(`font-size` = "150%"),

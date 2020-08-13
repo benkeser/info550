@@ -82,7 +82,7 @@ permalink: /readings/
 ## GNU Makefiles
 
 * [GNU Make home page](https://www.gnu.org/software/make/)
-* [Software carpentry's Make tutorial](http://swcarpentry.github.io/git-novice/)
+* [Software carpentry's Make tutorial](https://swcarpentry.github.io/make-novice/)
 * [Karl Broman's minimal make](https://kbroman.org/minimal_make/)
 * [make manual](https://www.gnu.org/software/make/manual/make.html)
 * [GNU Make for Reproducible Data Analysis](http://zmjones.com/make/)

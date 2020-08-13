@@ -1,0 +1,69 @@
+---
+title: "Biomarker Analysis"
+output: html_document
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, read-and-merge-data}
+data_clin <- read.table("clinical.txt", header = TRUE)
+data_biom <- read.table("biomarkers.txt", header = TRUE)
+data_merge <- merge(data_clin, data_biom)
+```
+
+```{r, round-fn}
+good_round <- function(x, digits = 2, pval = FALSE){
+	# just use round otherwise
+	stopifnot(digits > 1)
+	stopifnot(length(digits) == 1)
+	if(pval){
+		stopifnot(x >= 0 & x <= 1)
+	}
+	tmp <- sprintf(paste0("%.", digits, "f"), x)
+    zero <- paste0("0.", paste0(rep("0", digits), collapse = ""))
+    tmp[tmp == paste0("-", zero)] <- zero
+    if(pval & tmp == zero){
+    	tmp <- paste0("<0.", paste0(rep("0", digits - 1), collapse = ""), "1", 
+    	              collapse = "")
+    }
+    return(tmp)
+}
+```
+
+# Executive summary 
+
+```{r exec-summary-stats}
+n <- nrow(data_merge)
+n_female <- sum(data_merge$sexf)
+mean_age <- good_round(mean(data_merge$age))
+sd_age <- good_round(sd(data_merge$age))
+```
+
+There were `r n` observations successfully merged. There were `r n_female` females in the study and the average age was `r mean_age` (sd `r sd_age`). 
+
+# Biomarker analysis
+
+Some summary plots are shown below. 
+
+```{r, figure-1}
+# plot of biom1 by age and biom2 by age
+layout(t(1:2))
+plot(y = data_merge$biom1, x = data_merge$age,
+     xlab = "Age", ylab = "Biomarker 1",
+     col = data_merge$sexf + 1, pch = 19)
+legend(title = "Sex", col = c(1, 2), 
+       legend = c("Male", "Female"),
+       pch = 19,
+       x = "topleft")
+plot(y = data_merge$biom2, x = data_merge$age,
+     xlab = "Age", ylab = "Biomarker 2",
+     col = data_merge$sexf + 1, pch = 19)
+```
+
+```{r, figure-2}
+# plot of biom1 vs. biom 2
+plot(y = data_merge$biom1, x = data_merge$biom2,
+     xlab = "Biomarker2", ylab = "Biomarker 1")
+```

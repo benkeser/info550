@@ -43,7 +43,7 @@ extra_css <- list(
   ".white" = list(`color` = "#FFFFFF"),
   ".large" =  list(`font-size` = "150%"),
   "ul li" = list(`margin-bottom` = "10px"),
-  ".red" = list(color = "#DC143C",
+  ".red" = list(color = "#da291c",
                 `font-weight` = "600"),
   ".bottom-col-pad" = list(`margin-bottom` = "175px"),
   ".remark-code-line-highlighted" = list(border = "2px solid #f2a900",

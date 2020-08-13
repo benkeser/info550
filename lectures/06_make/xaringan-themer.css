@@ -274,7 +274,11 @@ ul li {
   margin-bottom: 10px;
 }
 .red {
-  color: #DC143C;
+  color: #da291c;
+  font-weight: 600;
+}
+.green {
+  color: #348338;
   font-weight: 600;
 }
 .remark-code-line-highlighted {
