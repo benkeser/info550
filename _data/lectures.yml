@@ -40,3 +40,9 @@
   recording: ''
   title: GNU Make
   tldr: Make is a program for organizing projects and dependencies in code.
+- dirname: 07_organization
+  filename: organization
+  reading: project-organization
+  recording: ''
+  title: Project organization
+  tldr: Consistently organize your projects now. You will thank yourself later.
