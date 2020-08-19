@@ -90,7 +90,16 @@ permalink: /readings/
 * [Example Makefile for R package](https://github.com/benkeser/drtmle/blob/master/Makefile)
 * [Managing Projects with GNU Make](https://www.oreilly.com/openbook/make3/book/)
 
+## Project organization
+
+* [Tidy Data](https://doi.org/10.18637/jss.v059.i10)
+* [A Quick Guide to Organizing Computational Biology Projects](https://doi.org/10.1371/journal.pcbi.1000424)
+* [Some Simple Guidelines for Effective Data Management](https://doi.org/10.1890/0012-9623-90.2.205)
+* [Nine simple ways to make it easier to (re)use your data](https://ojs.library.queensu.ca/index.php/IEE/article/view/4608/0)
+
 ## Best coding practices
+
+* [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
 
 
 ## R packages

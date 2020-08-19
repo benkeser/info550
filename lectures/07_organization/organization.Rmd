@@ -1,0 +1,345 @@
+---
+title: "Project organization"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#project-organization)'
+tldr: "Consistently organize your projects now. You will thank yourself later."
+recording: ""
+reading: "project-organization"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLanguage: rmarkdown
+      highlightLines: false
+---
+
+background-color: #007dba
+class: title-slide, center, inverse, middle
+
+*File organization and naming are powerful weapons against chaos.*
+<div> [Jenny Bryan](https://jennybryan.org/)
+
+???
+
+Project organization may seem a rather dull/pedantic topic for a data science class, but it is actually very important!
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+extra_css <- list(
+  ".small" =  list(`font-size` = "80%"),
+  ".large" =  list(`font-size` = "150%"),
+  "ul li" = list(`margin-bottom` = "10px"),
+  ".red" = list(color = "#da291c",
+                `font-weight` = "600"),
+  ".green" = list(color = "#348338",
+                `font-weight` = "600"),
+  ".code-box" = list(display = "inline-block", 
+    width = "95%",
+    `line-height` = "1em",
+    padding = "5px",
+    `font-size` = "80%",
+    `background-color` = "#f6f6f6",
+    `align-items` = "left",
+    `font-family` = "Courier Prime",
+    border = "1px solid black"),
+  "ul" = list(`margin-bottom` = "0.5em",
+              `margin-top` = "0.5em"),
+  "p" = list(`margin-bottom` = "0.25em")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px
+}
+</style>
+
+
+---
+
+### Basic principles
+
+* .red[Put everything in one version-controlled directory.]
+* Develop your own system. 
+* Be consistent, but look for ways to improve.
+  * naming conventions, file structure, `make` structure
+* Raw data are sacred. Keep them separate from everything else. 
+* Separate code and data.
+* Use `make` files and/or READMEs to document dependencies.
+* No spaces in file names. 
+* Use meaningful file names.
+* Use YYYY-MM-DD date formatting.
+* .red[No relative paths.]
+
+???
+
+There is not one correct way to organize a project, but there are many incorrect ways. Over time you will develop your own system for doing so. We'll discuss a few frameworks that may be helpful. 
+
+The biggest thing is to commit to using the same structure for as long as its working for you. As you are working on many projects, be self-aware during the process. Are you consistently losing track of certain types of files? Are there gaps in the workflow that make things hard to reproduce? What can you do to fill in the gaps?
+
+Organization might not seem like a big deal now, but remember your career is just getting started. Expect to work on 2-20 different projects a year for the rest of your working life. The number of projects you will work on is staggering! You need a way to keep track.
+
+---
+
+background-color: #84754e
+class: title-slide, center, inverse, middle
+
+*You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.*
+<div> [Karen Cranston](http://kcranston.github.io/)
+
+???
+
+This is as much for preserving your own sanity as it is about being reproducible (though it is about that too). There's a (big) upfront cost here, but in the end it is worth it. 
+
+---
+
+### What to organize?
+
+It is probably useful to have a system for organizing:
+* data analysis projects;
+* first-author papers;
+* talks.
+
+The systems should adhere to the same general principles, but different requirements may necessitate different structures. 
+
+.red[Think about organization of a project from the outset!]
+
+???
+
+Thinking about project organization from the outset is the most important thing. Map out (e.g., as comments in a README) how you see the project developing. Even if things change over time, it's good to have a structure in place from the beginning. 
+
+This pertains to project directories in particular, but also to your hard drive in general. I made the mistake of organizing projects by institution (UW, Berkeley, Emory), but am now regretting that. What about projects that weren't finished when I got to Emory? What about projects that I continued developing once I got here. It's a mess. Don't be like me. 
+
+---
+
+### Collaborative projects
+
+Collaborative projects present a greater challenge. 
+* Not everyone is comfortable with LaTeX or git or ...
+
+I don't have a great solution for this. 
+* Google drive/Word online helps to a certain extent, but you lose in other areas (reference management, math typesetting)
+* [Overleaf](http://overleaf.com/) has gotten much better for LaTeX
+
+Some advice: 
+* Address organization from the outset.
+* Ideally, bring people on board to your (version controlled, reproducible) system.
+* Keep open lines of communication (especially if using GitHub)
+
+???
+
+There's almost always some pain associated with working in close collaboration with someone else on a project. The most important thing is to commit to being organized from the outset. And to agree on what that means. 
+
+Even if some elements of the project are outside your control, you can try to bring in elements to your workflow. 
+* E.g., if you receive comments with tracked changes from a colleague, incorporate them into the document, add a commit message describing who's edits they were.
+
+If working on a shared GitHub repo, keep open lines of communication, e.g., short emails (or [slack](https://slack.com/) messages, etc...), "Just pushed `x`..."
+
+
+---
+
+### Example data analysis project
+
+.code-box[
+analysis/ <br>
+&nbsp;&nbsp;&nbsp; raw_data/ <br>
+&nbsp;&nbsp;&nbsp; data/ <br>
+&nbsp;&nbsp;&nbsp; R/ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R/00_clean_data.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R/01_fit_models.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R/02_make_figures.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R/03_summarize_results.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R/04_report.Rmd <br>
+&nbsp;&nbsp;&nbsp; figs/ <br>
+&nbsp;&nbsp;&nbsp; sandbox/ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sandbox/exploratory.R <br>
+&nbsp;&nbsp;&nbsp; ref_papers/ <br>
+&nbsp;&nbsp;&nbsp; Makefile <br>
+&nbsp;&nbsp;&nbsp; README.md
+]
+
+???
+
+Some notes:
+* separate raw data and processed data
+* separate folder for figures (could possible move R code for figures there)
+* `sandbox` is where I like to keep messy stuff that I'm trying out but never want to see the light of day
+* informative file names for `R` scripts broken down into logical steps of a workflow
+* `.gitignore` would include
+  * definitely: `figs/*`, `ref_papers/*`
+  * possibly: `raw_data`/`data` (if sensitive), `sandbox` (if informal)
+
+The `00`, `01`, ... number system is something that many people use because it helps create a sortable file system. It generally works, but some workflows don't really logically follow this sort of convention (e.g., things can happen in parallel).  
+
+---
+
+### Example paper organization
+
+.code-box[
+paper/ <br>
+&nbsp;&nbsp;&nbsp; analysis/ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analysis/README.md <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analysis/00_clean_data.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analysis/01_fit_models.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analysis/02_make_figures.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analysis/sandbox <br>
+&nbsp;&nbsp;&nbsp; sim/ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim/README.md <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim/helper_functions.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim/sim_script.R <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim/run_sim_script.sh <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim/sandbox <br>
+&nbsp;&nbsp;&nbsp; figs/ <br>
+&nbsp;&nbsp;&nbsp; notes/ <br>
+&nbsp;&nbsp;&nbsp; ref_papers/ <br>
+&nbsp;&nbsp;&nbsp; submitted/ <br>
+&nbsp;&nbsp;&nbsp; revision/ <br>
+&nbsp;&nbsp;&nbsp; final/ <br>
+&nbsp;&nbsp;&nbsp; README.md <br>
+&nbsp;&nbsp;&nbsp; Makefile <br>
+&nbsp;&nbsp;&nbsp; my_paper.tex <br>
+&nbsp;&nbsp;&nbsp; my_refs.bib 
+]
+
+???
+
+Biostat methods papers often have three components: math, simulation, data analysis (prove your method works mathematically, show that it works on fake data, show it can be used on real data). Often these papers must be prepared using LaTeX. Here's an example directory of such a paper.
+
+Some notes:
+* separate READMEs for main project, `/analysis`, `/sim`
+* if you submit to arxiv, medRxiv etc..., include that link somewhere you can easily find, e.g., in main README. 
+* `/notes` contains random musings ("what would happen if...") and un-prettified math (e.g., pictures of my white board taken with a cell phone -- very high tech); could also include key emails from collaborators (easier to find while working on project)
+* `submitted` might include the compiled pdf that was submitted to the journal and a README that indicates which commit contained the submitted version of the repo. Similar story for `revision` and `final`. 
+* LaTeX produces lots of ugly files when it compiles documents (`.aux`, `.bbl`), in your `make paper` statement, remove those at the end.
+
+--- 
+
+### Example talk organization
+
+.code-box[
+jsm2020_talk/ <br>
+&nbsp;&nbsp;&nbsp; R/ <br>
+&nbsp;&nbsp;&nbsp; figs/ <br>
+&nbsp;&nbsp;&nbsp; README.md <br>
+&nbsp;&nbsp;&nbsp; Makefile <br>
+&nbsp;&nbsp;&nbsp; my_talk.Rmd <br>
+&nbsp;&nbsp;&nbsp; my_refs.bib 
+]
+
+???
+
+Similar story here as with a paper. I have primarily used beamer (LaTeX) for talks in the past, but after this course, may be making the move to xaringan slides. 
+
+Depending on how often you give a talk, you might consider:
+* naming folder after talk subject rather than conference/talk location
+* including an `old` folder that contains past versions of the talk given at previous locations (or could just tag GitHub repo at certain points)
+
+---
+
+### Example class organization
+
+See the [class GitHub repository](https://github.com/benkeser/info550)!
+
+---
+
+### Organizing data
+
+Raw data are sacred... but may be a mess. 
+* You'll be surprised (and disheartened) by how many color-coded excel sheets you'll get in your life.
+
+Tempting to edit raw data by hand. .red[Don't!]
+* Everything scripted!
+
+Use meta-data files to describe raw and cleaned data.
+* structure as data (e.g., `.csv` so easy to read)
+
+???
+
+The generation of the raw data may be the one thing out of your control in an analysis. But from the time the data are passed on to you, everything that happens should be reproducible. 
+
+This can be painful. For many projects, 90% of time might be devoted to wrangling raw data into a format that is usable. Save yourself from the danger of having to re-do all those painful bits when (not if) the data change.
+
+---
+
+### Organizing data
+
+Hadley Wickham [defined the notion of tidy data](https://doi.org/10.18637/jss.v059.i10). 
+* Each variable forms a column.
+* Each observation forms a row.
+* Each observational unit forms a table. 
+
+.code-box[
+| ptid | day | age | drug | out |
+|------|-----|-----|------|-----|
+| 1    | 1   | 28  | 0    | 0   |
+| 1    | 2   | 28  | 0    | 1   |
+| 2    | 1   | 65  | 0    | 0   |
+| 2    | 2   | 65  | 1    | 1   |
+| 3    | 1   | 34  | 0    | 0   |
+| 3    | 2   | 34  | -    | 1   |
+]
+
+???
+
+I am asking you to read this paper for homework. It's a worthwhile read. Hadley's packages like `dplyr` are very useful if you want to take the time to learn them. I probably should do that myself one day...
+
+---
+
+### Exploring data
+
+One of the first things we'll often do is open the data and start poking around.
+* Could be informal, "getting to know you."
+* Could be more formal, "see if anything looks interesting."
+
+This is often done in an ad-hoc way:
+* entering commands directly into R;
+* making and saving plots "by hand"; 
+* etc...
+
+.red[Slow down and document.]
+* Your future self will thank you!
+
+???
+
+You want to avoid situations like:
+* need to recreate a plot that you made "by hand" and saved "by hand";
+* figuring out why you removed certain observations;
+* trying to remember what variables had an interesting relationship that you wanted to follow up on later.
+
+### Exploring data
+
+Write out a set of comments describing what you are try to accomplish and fill in code from there. 
+* I do this for every coding project.
+  * Data analysis, methods coding, package development
+
+Leave a search-able comment tag by code to return to later
+* I use e.g., `# TO DO: add math expression to labels; make colors prettier`.
+
+Sets "the bones" of a formal analysis in place while allowing for some creative flow. 
+
+???
+
+From the outset, stop and think about what you want to do. Start filling in details from there. That simple approach will increase efficiency and reproducibility. 
+
+### Exploring data
+
+Other helpful ideas for formalizing exploratory data analysis:
+* `.Rhistory` files
+  * all the commands used in an R session
+* Informal `.Rmd` documents. 
+  * easy way to organize code and comments into readable format
+* `save` intermediate objects and workspaces
+  * and document what they contain! 
+* `knitr::spin` 
+  * writing `.R` scripts with rendered-able comments 
