@@ -96,10 +96,21 @@ permalink: /readings/
 * [A Quick Guide to Organizing Computational Biology Projects](https://doi.org/10.1371/journal.pcbi.1000424)
 * [Some Simple Guidelines for Effective Data Management](https://doi.org/10.1890/0012-9623-90.2.205)
 * [Nine simple ways to make it easier to (re)use your data](https://ojs.library.queensu.ca/index.php/IEE/article/view/4608/0)
+* [Stanford library best practices for file naming](https://library.stanford.edu/research/data-management-services/data-best-practices/best-practices-file-naming)
+* [Stanford library guide to metadata](https://library.stanford.edu/research/data-management-services/data-best-practices/creating-metadata)
 
-## Best coding practices
+
+## Coding Style
 
 * [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
+* [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+* [tidyverse style guide](https://style.tidyverse.org/index.html)
+* [The Elements of Programming Style](https://www.amazon.com/Elements-Programming-Style-2nd/dp/0070342075)
+* [The Practice of Programming](https://www.amazon.com/gp/product/020161586X?ie=UTF8&tag=7210-20)
+* [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+* [10 tips for writing cleaner code](https://www.makeuseof.com/tag/10-tips-writing-cleaner-better-code/)
+* [15 Rules for Writing Quality Code](https://www.informit.com/articles/article.aspx?p=2223710)
+* [Best Practices for Writing R Code](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/index.html)
 
 
 ## R packages

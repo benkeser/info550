@@ -286,7 +286,7 @@ echo "This is just a toy repository for demonstration." >> README.md
 
 # make a silly bash script
 echo "#! /bin/bash" >> silly_shell.sh
-echo "echo 'Hello world!'" >> silly_shell.sh
+echo "echo 'Hello world'" >> silly_shell.sh
 
 # check what has changed
 git status
