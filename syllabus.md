@@ -29,13 +29,15 @@ __INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
 * __PHONE__: (404)712-9975
 * __SCHOOL ADDRESS OR MAILBOX LOCATION__: GCR 1518-002-3AA
-* __OFFICE HOURS__: TBA
+* __OFFICE HOURS__: Tuesdays 9-10am
+* __OFFICE HOUR LOCATION__: [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422418)
 
 __TEACHING ASSISTANT INFORMATION__: 
 
 * __NAME__: Sohail Nizam 
 * __EMAIL__: sohail.nizam@emory.edu
-* __OFFICE HOURS__: TBA
+* __OFFICE HOURS__: Mondays 9-10am
+* __OFFICE HOUR LOCATION__: [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422432)
  
 
 ## COURSE DESCRIPTION
@@ -111,11 +113,16 @@ If you have questions about the suitability of a project, please contact the pro
 
 ## GRADING
 
-Each week, an assignment will be given to develop a new aspect of the analysis pipeline. Each student will be responsible for turning in a weekly update of their pipeline. Submissions will occur in the form of a tagged GitHub repository online.
+Grades will consist of 70% written homework assignments and 30% participation. 
 
-Each week, every student will be assigned to peer review another student’s submission and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.
+Most weeks, classes will include breakout sessions where students will work
+problems together. Participation grades will be assigned by your breakout group
+members as part of the weekly homework assignment. Individuals attending
+asynchronously (or who miss a class) will be required to submit code for
+breakout exercises as part of the written homework assignment. 
 
-__Example assignment__:
+Many homework assignments will be geared towards developing a new aspect of the analysis
+pipeline. Each week, every student will be assigned to peer review another student’s submission and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below. __Example assignment__:
 
 Write an Rmarkdown script that performs your analysis and generates an html report detailing the results. Include a README that describes (1) the process needed to compile the report; (2) any packages that need to be installed to compile the report; (3) the expected output of the report. Push your repository to your GitHub account and tag the final release "hw2."
 

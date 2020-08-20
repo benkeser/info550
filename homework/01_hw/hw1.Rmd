@@ -1,11 +1,16 @@
 ---
 title: "Homework 1"
 due: "2020/08/27"
-submit: "https://canvas.emory.edu/"
+submit: "https://canvas.emory.edu/courses/75677/assignments/376966"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
 output: pdf_document
 ---
 
-1. Install a text editor of your choice and learn hot keys for all of the following commands:
+Questions 1 and 2 below require no submission. Question 3 should be typed up __in your new editor of choice__ and [submitted via Canvas](https://canvas.emory.edu/courses/75677/assignments/376966) as __a plain text file__ (file extension .txt). No Microsoft Word!
+
+1. Install a text editor of your choice and look up the hot keys for all of the following commands:
 
 * save, save all open files
 * open file
@@ -16,16 +21,16 @@ output: pdf_document
 * copy/cut/paste words/lines
 * duplicate lines
 
-2. Write a paragraph or two description of your workflow for the class project. Your description should include:
-
-* a summary of what data will be used;
-* what analyses will be performed on the data;
-* what the output of the analysis will contain;
-* software that you need to complete your workflow. 
-
-3. Install the following software on your computer (all clickable links):
+2. Install the following software on your computer:
 
 * [R version 4.0.2](https://cloud.r-project.org/)
 * If you are a Windows user, install [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)
 * Install [homebrew](https://brew.sh/)
-* [Mac users, upgrade bash to the latest version and set it as default shell following instructions here](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba)
+* Mac users, upgrade bash to the latest version and set it as default shell following instructions [here](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba)
+
+3. Write a paragraph or two description of your workflow for the class project. Your description should include:
+
+* a summary of what data will be used;
+* what analyses will be performed on the data;
+* what the output of the analysis will contain;
+* software (including packages) that you need to complete your workflow. 

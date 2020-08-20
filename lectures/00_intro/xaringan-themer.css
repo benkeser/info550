@@ -252,3 +252,28 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: var(--black);
 }
 
+
+
+/* Extra CSS */
+ul {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+p {
+  margin-bottom: 0.25em;
+}
+ul li {
+  margin-bottom: 10px;
+}
+a {
+  color: #007dba;
+}
+a:hover {
+  text-decoration: underline;
+}
+.green {
+  color: #348338;
+}
+.red {
+  color: #da291c;
+}

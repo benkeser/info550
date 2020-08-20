@@ -272,3 +272,9 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 ul li {
   margin-bottom: 10px;
 }
+a {
+  color: #007dba;
+}
+a:hover {
+  text-decoration: underline;
+}
