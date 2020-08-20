@@ -31,7 +31,9 @@ extra_css <- list(
                 `font-weight` = "600"),
   ".small" =  list(`font-size` = "80%"),
   ".large" =  list(`font-size` = "150%"),
-  "ul li" = list(`margin-bottom` = "10px")
+  "ul li" = list(`margin-bottom` = "10px"),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline")
 )
 
 style_mono_accent(
@@ -44,11 +46,11 @@ style_mono_accent(
 ```
 <style type="text/css">
 .remark-slide-content {
-    font-size: 25px
+    font-size: 23px
 }
 </style>
 
-# Important principle 
+## Important principle 
 
 .center[
   .large[
@@ -68,7 +70,7 @@ back and realize you spent two days of time reaching to and from your mouse?
 
 ---
 
-# Choosing an editor
+## Choosing an editor
 
 A good editor...
 * does not require pointing and clicking;
@@ -89,13 +91,13 @@ such that the difference between editors is becoming smaller.
 
 ---
 
-# Good editors
+## Good editors
 
-* [__atom__](https://atom.io/)
-* [__Sublime Text__](https://www.sublimetext.com/)
-* [__Notepad++__](https://notepad-plus-plus.org/downloads/)
-* [__vim__](https://www.vim.org/)
-* [__emacs__](https://www.gnu.org/software/emacs/)
+* [atom](https://atom.io/)
+* [Sublime Text](https://www.sublimetext.com/)
+* [Notepad++](https://notepad-plus-plus.org/downloads/)
+* [vim](https://www.vim.org/)
+* [emacs](https://www.gnu.org/software/emacs/)
 
 I use Sublime Text 97% and vim 3%. 
 * Work remotely? Know *at least some* vim or emacs.
@@ -109,7 +111,7 @@ See [course readings](https://benkeser.github.io/info550/readings#text-editors) 
 
 ---
 
-# Hot keys
+## Hot keys
 
 Make yourself start using them now!
 * Not just in your text editor.
@@ -125,7 +127,7 @@ But make it part of your routine.
 
 ---
 
-# Hot keys
+## Hot keys
 
 Know how to:
 * save, save all (and do, __after every command__!)
@@ -154,7 +156,7 @@ If you use sublime text, learn to navigate through the command palette
 
 ---
 
-# Hot keys
+## Hot keys
 
 Know how to...
 * find/replace text in a file/folder

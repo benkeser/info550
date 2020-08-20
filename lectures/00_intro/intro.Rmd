@@ -14,40 +14,78 @@ output:
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
+extra_css <- list(
+    "ul" = list(`margin-bottom` = "0.5em",
+      `margin-top` = "0.5em"),
+  	"p" = list(`margin-bottom` = "0.25em"),
+	"ul li" = list(`margin-bottom` = "10px"),
+	"a" = list(color = "#007dba"),
+	"a:hover" = list("text-decoration" = "underline"),
+	".green" = list(color = "#348338"),
+	".red" = list(color = "#da291c")
+)
+
 style_mono_accent(
   base_color = "#012169",
   header_font_google = google_font("DM Sans"),
   text_font_google   = google_font("DM Sans", "400", "400i"),
-  code_font_google   = google_font("Courier Prime")
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
 )
 ```
 
 <style type="text/css">
 .remark-slide-content {
-    font-size: 25px
+    font-size: 22px
 }
 </style>
 
-# Basics
+## Basics
 
-* __Course website__: https://benkeser.github.io/info550
+* __Course website__: https://bit.ly/info550
 * __Meeting__: Thursdays 3:15 - 5:05pm
+* __Location__: CNR Auditorium or [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422010)
 * __Attendance policy__: In-person attendance possible for first half of semester. In-person attendance is __not required__ but synchronous attendance in Zoom sessions is __strongly encouraged__.
 
-You are encouraged to follow along with code demonstrations on your laptop during class. 
+Please read [the full syllabus](https://benkeser.github.io/info550/syllabus).
 
 ???
 
-Most material for class will be made available via the course website. 
-The website is hosted on GitHub and all materials are available at the 
-GitHub repository (https://github.com/benkeser/info550). 
+Most material for class will be made available via the course website. The website is hosted on GitHub and all materials are available at the GitHub repository (https://github.com/benkeser/info550). 
 
-Classes will be a mix of lectures and interactive exercises. Synchronous 
-attendance is strongly encouraged. 
+Classes will be a mix of lectures and interactive exercises. Synchronous attendance is strongly encouraged. 
 
 ---
 
-# Learning objectives
+## Etiquette
+
+Please __interrupt me__ to ask questions. 
+* Too hard to pay attention to Zoom window. 
+* I will __try__ to remember to repeat questions.  
+
+Please feel free to ask __any question__ you like. 
+* Clarification questions are __always welcome__.
+* Enrichment questions will be answered __time-permitting__.
+	* Come to office hours!
+
+I encourage you to leave your camera on during class, but not required. 
+* At least during breakout sessions would be nice. 
+
+---
+
+## Office hours
+
+__David's office hours__
+* Tuesdays 9-10am 
+* [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422418)
+
+__Sohail's office hours__
+* Mondays 9-10am
+* [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422432)
+
+---
+
+## Learning objectives
 
 * Understand why automation is a key element of reproducible data science.
 * Operate capably and comfortably at the command line.
@@ -61,13 +99,13 @@ attendance is strongly encouraged.
 
 ---
 
-# What INFO550 is
+## What INFO550 is
 
 A class to...
-* make your science more reproducible;
-* increase the impact of your work by making your code accessible and readable;
-* survey tools in modern data science;
-* make your life easier. 
+* make your science more __reproducible__;
+* increase scientific impact by making code __accessible__ and __readable__;
+* __survey tools__ in modern data science;
+* __make your life easier__. 
 
 ???
 
@@ -77,7 +115,7 @@ enable us to make that happen.
 
 ---
 
-# What INFO550 is
+## What INFO550 is
 
 All of the things that I had to teach myself in grad school and beyond that 
 have proven helpful in my research.
@@ -90,7 +128,7 @@ Please offer me suggestions along the way!
 
 ---
 
-# What INFO550 is not
+## What INFO550 is .red[not]
 
 A class...
 * on machine learning; 
@@ -109,7 +147,7 @@ to google efficiently is surprisingly important.
 
 ---
 
-# The wrong attitude
+## The wrong attitude
 
 .center[*Other students may be okay with searching the internet for help with R coding, but that's not very helpful for all students.*]
 .center[\- A disgruntled student]
@@ -127,36 +165,135 @@ how to write good code in the first place.
 
 ---
 
-# Project
+## Grading
 
-Throughout the semester, you will develop a project. 
-* Ideally, something related to your own work. 
+This is a __letter graded__ course. 
+* 70% from homework assignments
+* 30% from participation
 
-Project must: 
-* involve data manipulation (download, cleaning);
-* data analysis (summary statistics or figures OK);
-* report summarizing analysis (including plot and table).
+Homeworks will be a mix of project-related assignments, software installations, and other tasks. 
 
-Homework most weeks will be to develop an aspect of the project. 
-* A peer will grade you on how easy it is to run your code. 
+Participation based on peer-graded breakout groups (next slide). 
+
+---
+
+## Breakout groups
+
+During class, we will have __breakout groups__ for in-class exercises.
+* Learning to code alone is frustrating.
+
+Based on pre-semester poll responses, I will __try__ to mix skill levels.
+* Groups will change weekly.
+
+Participation will be __graded as part of the homework__ as follows:
+* Asynchronous students turn in code from breakout exercises.
+* Synchronous students provide peer grades on their homework:
+	* 0 = not present or did not say anything
+	* 1 = present, but did not participate 
+	* 2 = present, participated
 
 ???
 
-If you do not have access to a real data project at this point, that is 
-OK. Try to think about the types of projects you expect to handle and 
-develop a project that "looks like" that. What types of tables/figures
-are typically produced in your field? Build an automatic script for making
-a clean table 1. Build an automatic script for making the results of `glm`
-look nice. Fancy statistics are not required. 
+One question on the homework each week that we have a breakout session will be:
+* if attending synchronously, provide a grade for each student from your breakout group. As such, please start out the first breakout session of each week with short introductions and record your breakout group members' names;
+* if attending asynchronously (or have to miss a class), provide your code from the breakout exercise. 
 
-An overarching goal of the course is to make you write code that other 
-people (or yourself, at a future date) can use. Thus, you will be graded 
-precisely on how well your code is documented/how easy it is for another 
+Notes on grading scale:
+* 0 = just turned on their Zoom and walked away
+* 1 = just said their name in breakout group and walked away 
+* 2 = almost anything else
+
+What "participation" means can vary based on the group and the assignment. What I am trying to avoid is people attending "synchronously", but not paying attention/engaging with material at all.
+* There may be cases when everyone in a breakout group is able to finish the exercise on their own. In which case, a short conversation, *"Did everyone manage to get it working?" "Yes." "Yes." "Yes."* is sufficient for participation.
+
+The breakout exercises will often require going beyond what is in the course notes (i.e., searching the internet for a solution).
+* Try things on your own, but chat with each other about your process. Share the resources that you find. 
+* Share screens/code with class mates. 
+* If you are an advanced user in a topic, take a minute to explain why something works.
+
+---
+
+## Breakout groups
+
+I see two ways of facilitating breakout groups.
+
+.pull-left[
+__Option A__
+* Fill out a weekly survey indicating in-person/online attendance
+* Online students together
+* In-person students together
+
+.green[+] In-person interaction
+
+.red[-] Harder to sort on expertise
+
+.red[-] Weekly survey
+]
+
+.pull-right[
+__Option B__
+* All in-person students log-in via Zoom 
+* All groups in Zoom breakout rooms
+
+.green[+] No surveys
+
+.green[+] Equally divide expertise
+
+.red[-] No in-person interaction
+]
+---
+
+### Breakout group poll
+
+<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
+
+---
+
+### Breakout group poll results
+
+<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dxE9pxrTiPkYOaDemtSYG?preview=true&controls=none" width="100%" height="500px" frameborder="0">
+
+---
+
+## Class composition
+
+This class is __very diverse__.  
+
+From pre-course survey, it is clear that 
+* some topics are familiar to many students, but brand new to others;
+* some topics are new for almost everyone.
+
+Bear that in mind and be kind to other students (and your professor). 
+
+---
+
+## Project
+
+Throughout the semester, you will __develop a project__. 
+* Ideally, something related to your own work. 
+
+Project must: 
+* involve data __manipulation__ (download, cleaning);
+* data __analysis__ (summary statistics or figures OK);
+* use some __downloadable software__ beyond base R (e.g., `R` packages); 
+* __report__ summarizing analysis (including __plot and table__).
+
+Homework most weeks will be to __develop an aspect__ of the project. 
+* Often, a peer will grade you on how easy it is to run your code. 
+
+Data resources
+* [UCI](https://archive.ics.uci.edu/), [kaggle](https://www.kaggle.com/datasets), [SEER](https://seer.cancer.gov/data/), [Harvard Dataverse](https://dataverse.harvard.edu/)
+
+???
+
+If you do not have access to a real data project at this point, that is OK. Try to think about the types of projects you expect to handle and develop a project that "looks like" that. What types of tables/figures are typically produced in your field? Build an automatic script for making a clean table 1. Build an automatic script for making the results of `glm` look nice. Fancy statistics are not required. 
+
+An overarching goal of the course is to make you write code that other people (or yourself, at a future date) can use. Thus, you will be graded precisely on how well your code is documented/how easy it is for another 
 person to use it. 
 
 ---
 
-# Slides
+## Slides
 
 The slides are created using the [xaringan](https://slides.yihui.org/xaringan/#1) package. 
 
@@ -174,4 +311,3 @@ The slides contain additional "presenter" notes.
 ???
 
 `super` means `Cntrl` on Windows and `Command` on Mac
-
