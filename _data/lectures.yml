@@ -1,8 +1,8 @@
 - dirname: 00_intro
   filename: intro
-  reading: 80c891b4-8c79-4980-a875-ac1d01402c38
-  recording: ''
-  recording_url: Front-Matter
+  reading: ''
+  recording: 80c891b4-8c79-4980-a875-ac1d01402c38
+  recording_url: front-matter
   start: 0:0:0
   title: Front Matter
   tldr: Everything you need to know about the course.
@@ -10,7 +10,7 @@
   filename: motivation
   reading: reproducible-research
   recording: 80c891b4-8c79-4980-a875-ac1d01402c38
-  recording_url: Motivation
+  recording_url: motivation
   start: 0:45:20
   title: Motivation
   tldr: Why we should be motivated to improve reproducibility in our research.
@@ -18,7 +18,7 @@
   filename: texteditor
   reading: text-editors
   recording: 80c891b4-8c79-4980-a875-ac1d01402c38
-  recording_url: Text-editors
+  recording_url: text-editors
   start: '1:07:56'
   title: Text editors
   tldr: Good text editors make your life a lot easier.
@@ -26,7 +26,7 @@
   filename: commandline
   reading: command-line
   recording: ''
-  recording_url: Unix-command-line
+  recording_url: unix-command-line
   start: 0:0:0
   title: Unix command line
   tldr: The command line may look scary, but it is your friend.
@@ -34,7 +34,7 @@
   filename: versioncontrol
   reading: git
   recording: ''
-  recording_url: Version-control-using-git-and-GitHub
+  recording_url: version-control-using-git-and-github
   start: 0:0:0
   title: Version control using git and GitHub
   tldr: Stop saving fifty copies of the same file with different names.
@@ -42,7 +42,7 @@
   filename: rmarkdown
   reading: r-markdown
   recording: ''
-  recording_url: R-Markdown-for-reproducible-reports
+  recording_url: r-markdown-for-reproducible-reports
   start: 0:0:0
   title: R Markdown for reproducible reports
   tldr: Writing reproducible reports has never been easier.
@@ -50,7 +50,7 @@
   filename: make
   reading: gnu-makefiles
   recording: ''
-  recording_url: GNU-Make
+  recording_url: gnu-make
   start: 0:0:0
   title: GNU Make
   tldr: Make is a program for organizing projects and dependencies in code.
@@ -58,7 +58,7 @@
   filename: organization
   reading: project-organization
   recording: ''
-  recording_url: Project-organization
+  recording_url: project-organization
   start: 0:0:0
   title: Project organization
   tldr: Consistently organize your projects now. You will thank yourself later.
