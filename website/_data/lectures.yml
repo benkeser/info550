@@ -1,6 +1,73 @@
-- dirname: 01_intro
-  filename: tryxang
+- dirname: 00_intro
+  filename: intro
+  reading: ''
+  recording: ''
+  recording_url: Front-Matter
+  start: 0:0:0
+  title: Front Matter
+  tldr: Everything you need to know about the course.
+- dirname: 01_motivation
+  filename: motivation
   reading: reproducible-research
   recording: ''
-  title: Reproducible research
-  tldr: Boy this sure is great!
+  recording_url: Motivation
+  start: 0:0:0
+  title: Motivation
+  tldr: Why we should be motivated to improve reproducibility in our research.
+- dirname: 02_texteditor
+  filename: texteditor
+  reading: text-editors
+  recording: ''
+  recording_url: Text-editors
+  start: 0:0:0
+  title: Text editors
+  tldr: Good text editors make your life a lot easier.
+- dirname: 03_commandline
+  filename: commandline
+  reading: command-line
+  recording: ''
+  recording_url: Unix-command-line
+  start: 0:0:0
+  title: Unix command line
+  tldr: The command line may look scary, but it is your friend.
+- dirname: 04_versioncontrol
+  filename: versioncontrol
+  reading: git
+  recording: ''
+  recording_url: Version-control-using-git-and-GitHub
+  start: 0:0:0
+  title: Version control using git and GitHub
+  tldr: Stop saving fifty copies of the same file with different names.
+- dirname: 05_rmarkdown
+  filename: rmarkdown
+  reading: r-markdown
+  recording: ''
+  recording_url: R-Markdown-for-reproducible-reports
+  start: 0:0:0
+  title: R Markdown for reproducible reports
+  tldr: Writing reproducible reports has never been easier.
+- dirname: 06_make
+  filename: make
+  reading: gnu-makefiles
+  recording: ''
+  recording_url: GNU-Make
+  start: 0:0:0
+  title: GNU Make
+  tldr: Make is a program for organizing projects and dependencies in code.
+- dirname: 07_organization
+  filename: organization
+  reading: project-organization
+  recording: ''
+  recording_url: Project-organization
+  start: 0:0:0
+  title: Project organization
+  tldr: Consistently organize your projects now. You will thank yourself later.
+- dirname: 08_codestyle
+  filename: codestyle
+  reading: coding-style
+  recording: ''
+  recording_url: Coding-in-style
+  start: 0:0:0
+  title: Coding in style
+  tldr: Write your code for humans to read. No one else will read it, but you might,
+    later.

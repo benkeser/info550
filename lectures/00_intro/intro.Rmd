@@ -4,7 +4,7 @@ author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory Univ
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550)'
 tldr: "Everything you need to know about the course."
 recording: ""
-reading: ""
+reading: "80c891b4-8c79-4980-a875-ac1d01402c38"
 start: "0:0:0"
 output:
   xaringan::moon_reader:

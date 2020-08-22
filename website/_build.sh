@@ -34,8 +34,9 @@ do
 	Rscript -e "setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
 done
 
-#--------------------------------------------------------
-# build new/changed lectures and homeworks from Rmd 
-#--------------------------------------------------------
-# run python script
+# make a directory for recording information
+mkdir -p ${TRAVIS_BUILD_DIR}/website/_recordings
+
+# run python script to populate lecture and homework data
 ${TRAVIS_BUILD_DIR}/website/make_lecture_data.py ${TRAVIS_BUILD_DIR}
+

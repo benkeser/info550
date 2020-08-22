@@ -25,7 +25,7 @@ The lectures are produced using [xaringan slides](https://slides.yihui.org/xarin
 {% if lectures.recording == "" %}
 <i class="fas fa-video-slash"></i>
 {% else %}
-<a href="{{lectures.recording}}"><i class="fas fa-video"></i></a>
+<a href="{{ site.url | slice: 0, num }}{{ site.baseurl }}/recordings/{{ lectures.recording_url }}"><i class="fas fa-video"></i></a>
 {% endif %}
 
 </strong> 
