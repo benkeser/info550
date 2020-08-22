@@ -4,6 +4,7 @@ author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory Univ
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#text-editors)'
 tldr: "The command line may look scary, but it is your friend."
 recording: ""
+start: "0:0:0"
 reading: "command-line"
 output:
   xaringan::moon_reader:
