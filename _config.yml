@@ -40,6 +40,12 @@ address: |
     1518 Clifton Rd. NE
     Atlanta, GA 30322
 
+# Use collection to manage records
+collections: 
+    recordings:
+        output: true
+        permalink: /:collection/:name
+
 # Build settings
 markdown: kramdown
 

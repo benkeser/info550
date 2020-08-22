@@ -20,6 +20,11 @@ def get_yaml(f):
   readline = iter(readline.__next__, '---\n')
   return ''.join(readline)
 
+# function to convert time_str to seconds
+def get_sec(time_str):
+  h, m, s = time_str.split(':')
+  return int(h) * 3600 + int(m) * 60 + int(s)
+
 # saves a file in the _data folder of the site that contains
 # appropriately formatted yaml data for the lecture or homework
 # page. 
@@ -30,6 +35,7 @@ def get_yaml(f):
 # - title = title of lecture
 # - tldr = tl;dr printed below lecture
 # - recording = link to recording; can be ""
+# - start = time that lecture starts in video recording
 # - reading = hyphen-separated header from the readings page (see readings.md for 
 #     these headings)
 # for homeworks:
@@ -74,8 +80,25 @@ def make_data(site_dir, which_data):
          "title" : config['title'],
          "tldr" : config['tldr'],
          "recording" : config['recording'],
-         "reading" : config['reading']
+         "start" : config['start'],
+         "reading" : config['reading'],
+         "recording_url" : ''.join(x if x.isalnum() else '-' for x in config['title'])
       }
+      # writing _recordings file
+      text_list = ["---", "layout: default", "---", 
+      '<iframe src="https://rsph.hosted.panopto.com/Panopto/Pages/Embed.aspx?id='+
+      config['recording']+
+      '&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start='+
+      str(get_sec(config['start']))+
+      '&interactivity=all" height="100" width="720" style="border: 1px solid #012169;" allowfullscreen allow="autoplay"></iframe>'
+      ]
+      save_file = os.path.join(top_dir, "website", "_recordings/", config['title']+".md")
+      out_file = open(save_file, "w")
+      for line in text_list:
+        # write line to output file
+        out_file.write(line)
+        out_file.write("\n")
+      out_file.close()
     elif which_data == "homework":
       this_dict = { 
          "filename" : os.path.splitext(rmd_file[0])[0], 
