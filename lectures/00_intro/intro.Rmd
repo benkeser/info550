@@ -242,8 +242,10 @@ __Option B__
 
 .red[-] No in-person interaction
 ]
+
 ---
 
+<!--
 ### Breakout group poll
 
 <iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
@@ -255,6 +257,7 @@ __Option B__
 <iframe src="https://www.polleverywhere.com/multiple_choice_polls/dxE9pxrTiPkYOaDemtSYG?preview=true&controls=none" width="100%" height="500px" frameborder="0">
 
 ---
+-->
 
 ## Class composition
 
