@@ -82,7 +82,7 @@ def make_data(site_dir, which_data):
          "recording" : config['recording'],
          "start" : config['start'],
          "reading" : config['reading'],
-         "recording_url" : ''.join(x if x.isalnum() else '-' for x in config['title'])
+         "recording_url" : ''.join(x if x.isalnum() else '-' for x in config['title']).lower()
       }
       # writing _recordings file
       text_list = ["---", "layout: default", "---", 
@@ -90,7 +90,7 @@ def make_data(site_dir, which_data):
       config['recording']+
       '&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start='+
       str(get_sec(config['start']))+
-      '&interactivity=all" height="100" width="720" style="border: 1px solid #012169;" allowfullscreen allow="autoplay"></iframe>'
+      '&interactivity=all" height="750" width="900" style="border: 5px solid #b58500;" allowfullscreen allow="autoplay"></iframe>'
       ]
       save_file = os.path.join(top_dir, "website", "_recordings/", config['title']+".md")
       out_file = open(save_file, "w")
