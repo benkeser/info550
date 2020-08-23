@@ -86,11 +86,13 @@ def make_data(site_dir, which_data):
       }
       # writing _recordings file
       text_list = ["---", "layout: default", "---", 
+      '<div class="container">'
       '<iframe src="https://rsph.hosted.panopto.com/Panopto/Pages/Embed.aspx?id='+
       config['recording']+
       '&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start='+
       str(get_sec(config['start']))+
-      '&interactivity=all" height="450" width="720" style="border: 5px solid #b58500;" allowfullscreen allow="autoplay"></iframe>'
+      '&interactivity=all" style="border: 5px solid #b58500;" allowfullscreen allow="autoplay"></iframe>',
+      '</div>'
       ]
       save_file = os.path.join(top_dir, "website", "_recordings/", config['title']+".md")
       out_file = open(save_file, "w")
