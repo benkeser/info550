@@ -87,7 +87,7 @@ def make_data(site_dir, which_data):
       # writing _recordings file
       text_list = ["---", "layout: default", "---", 
       '<div class="container">'
-      '<iframe src="https://rsph.hosted.panopto.com/Panopto/Pages/Embed.aspx?id='+
+      '<iframe class="responsive-iframe" src="https://rsph.hosted.panopto.com/Panopto/Pages/Embed.aspx?id='+
       config['recording']+
       '&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start='+
       str(get_sec(config['start']))+
