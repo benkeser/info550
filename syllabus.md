@@ -204,8 +204,8 @@ The [RSPH Honor Code](http://www.sph.emory.edu/cms/current_students/enrollment_s
 |-------|----------------------------------|
 | 8/20  | Motivation, text editor          |
 | 8/27  | Command line basics              |
-| 9/3   | Version control using Git/GitHub |
-| 9/10  | Markdown, pandoc, R Markdown     |
+| 9/3   | R Markdown 					   |
+| 9/10  | Version control using Git/GitHub |
 | 9/17  | GNU Makefiles                    |
 | 9/24  | Best coding practices            |
 | 10/1  | R packages                       |

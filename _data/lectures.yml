@@ -30,15 +30,7 @@
   start: 0:0:0
   title: Unix command line
   tldr: The command line may look scary, but it is your friend.
-- dirname: 04_versioncontrol
-  filename: versioncontrol
-  reading: git
-  recording: ''
-  recording_url: version-control-using-git-and-github
-  start: 0:0:0
-  title: Version control using git and GitHub
-  tldr: Stop saving fifty copies of the same file with different names.
-- dirname: 05_rmarkdown
+- dirname: 04_rmarkdown
   filename: rmarkdown
   reading: r-markdown
   recording: ''
@@ -46,6 +38,14 @@
   start: 0:0:0
   title: R Markdown for reproducible reports
   tldr: Writing reproducible reports has never been easier.
+- dirname: 05_versioncontrol
+  filename: versioncontrol
+  reading: git
+  recording: ''
+  recording_url: version-control-using-git-and-github
+  start: 0:0:0
+  title: Version control using git and GitHub
+  tldr: Stop saving fifty copies of the same file with different names.
 - dirname: 06_make
   filename: make
   reading: gnu-makefiles

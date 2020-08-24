@@ -21,11 +21,11 @@ class: left, middle, inverse, title-slide
 
 &lt;style type="text/css"&gt;
 .remark-slide-content {
-    font-size: 25px
+    font-size: 22px
 }
 &lt;/style&gt;
 
-# Operating systems
+## Operating systems
 
 * Windows
   * Not programmer friendly
@@ -42,7 +42,7 @@ We'll learn to interact with our computer like it's a Unix OS.
 
 ---
 
-# Some terminology
+## Some terminology
 
 __Shell__
 * user interface for interacting with a computer
@@ -70,7 +70,7 @@ We will instead rely on the CLI to run all our programs. We will focus on
 
 ---
 
-# Some terminology
+## Some terminology
 
 __Shell script__
 * plain text file designed to be run by the shell
@@ -89,7 +89,7 @@ scripting all aspects of data cleaning, analysis, and report generation.
 
 ---
 
-# Terminal
+## Terminal
 
 If Windows, use [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) for Windows
 * Or other Linux distribution (e.g., [Debian](https://www.microsoft.com/en-us/p/debian/9msvkqc78pk6?rtc=1&amp;activetab=pivot:overviewtab))
@@ -116,7 +116,7 @@ preference, then I'd stick to that.
 
 ---
 
-# Terminal
+## Terminal
 
 .center[![A view of Terminal in Mac OSX](terminal.png)]
 
@@ -130,7 +130,7 @@ shell (and you want it to be) this can be changed in Terminal settings.
 
 ---
 
-# Moving around directories
+## Moving around directories
 
 | __Command__   | __Action__                   |
 |:-------------:|------------------------------|
@@ -178,7 +178,7 @@ the same relative structure, then code with relative paths should still work.
 
 ---
 
-# Adding/removing files
+## Adding/removing files
 
 | __Command__     | __Action__                   |
 |:---------------:|------------------------------|
@@ -189,7 +189,7 @@ the same relative structure, then code with relative paths should still work.
 
 ---
 
-# Commands structure
+## Commands structure
 
 .center[`command [-option(s)] [argument(s)]`]
 
@@ -212,7 +212,7 @@ as `ls -l -a`.
 
 ---
 
-# Solving computing problems
+## Solving computing problems
 
 * `man [command]` 
 * Google (with `site:stackoverflow.com`?)
@@ -299,7 +299,7 @@ across multiple machines.
 
 ---
 
-# Redirects and pipes
+## Redirects and pipes
 
 | __Command__     | __Action__                              |
 |:---------------:|-----------------------------------------|
@@ -368,7 +368,7 @@ difficult to remember. I often have to Google to remind myself how it works.
 
 ---
 
-# Wild cards
+## Wild cards
 
 | __Command__     | __Action__                              |
 |:---------------:|-----------------------------------------|
@@ -388,7 +388,7 @@ ls [a-e]_file.txt
 
 ---
 
-# Moving around command line
+## Moving around command line
 
 | __Key stroke__         | __Action__                              |
 |:----------------------:|-----------------------------------------|
@@ -406,7 +406,7 @@ If you take nothing else from this page, remember to use `tab`!
 
 ---
 
-# Variables
+## Variables
 
 Variables are 
 * assigned using `=` ;
@@ -436,7 +436,7 @@ Remember the command structure: `a = 12` gets interpreted as "run command
 
 ---
 
-# More tools
+## More tools
 
 `$(command)` executes `command` and returns its output.
 
@@ -466,7 +466,7 @@ how its value changes.
 
 ---
 
-# More tools
+## More tools
 
 Using `for` loops:
 
@@ -499,7 +499,7 @@ Note the use of `{1..5}` to generate a sequence
 
 ---
 
-# Shell scripts
+## Shell scripts
 
 All scripts will start with a __shebang__. 
 * `#!` followed by file path to program that executes code.
@@ -525,7 +525,7 @@ folders in your `PATH` for an executable named `bash`.
 
 ---
 
-# Shell scripts
+## Shell scripts
 
 Example bash script:
 
@@ -552,7 +552,7 @@ Congrats, you've written your first shell script!
 
 ---
 
-# Shell scripts
+## Shell scripts
 
 Tell the shell that it is allowed to execute `first_script.sh`
 
@@ -578,7 +578,7 @@ After you run the script, notice that the variables created inside the script,
 ---
 
 
-# File permissions
+## File permissions
 
 If you run `ls -l`, the far left column shows file permissions:
 * e.g., `-rw-r--r--` or `drwxr-xr-x`
