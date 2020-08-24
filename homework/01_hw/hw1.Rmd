@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-due: "2020/08/27"
+due: "2020/08/31"
 submit: "https://canvas.emory.edu/courses/75677/assignments/376966"
 header-includes:
   - \usepackage{hyperref}
