@@ -248,7 +248,7 @@ git config --global user.email "janedoe@emory.edu"
 
 ### Initialize repository
 
-```{bash rm-existing, echo = FALSE, message = FALSE, warning = FALSE}
+```{bash rm-existing, include = FALSE, message = FALSE, warning = FALSE}
 # a piece of code to remove this directory if it exists
 if [ -d ~/tmp_gitdir ]; then rm -rf ~/tmp_gitdir; fi
 ```
