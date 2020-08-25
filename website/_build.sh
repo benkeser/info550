@@ -27,9 +27,8 @@ do
 	Rscript -e "setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
 	# grab bash code from slides if it exists
 	BASH_FILE_NAME="$(echo "${FILE_NAME}" | cut -f 1 -d '.').bash"
-	cd ${TRAVIS_BUILD_DIR}/${FILE_PATH}/
 	if [ -f "./.grab-bash" ]; then
-        awk -F ', *' '/^```$/{p = 0} p; /```{bash/ && !/ (include)/{print "\n###", $2, "###"; p=1}' ${FILE_NAME} > $BASH_FILE_NAME
+        awk -F ', *' '/^```$/{p = 0} p; /```{bash/ && !/ (include)/{print "\n###", $2, "###"; p=1}' ${TRAVIS_BUILD_DIR}/${FILE_PATH}/${FILE_NAME} > ${TRAVIS_BUILD_DIR}/${FILE_PATH}/$BASH_FILE_NAME
 	fi	
 done
 
