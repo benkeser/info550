@@ -28,7 +28,7 @@ do
 	# grab bash code from slides if it exists
 	BASH_FILE_NAME="$(echo "${FILE_NAME}" | cut -f 1 -d '.').bash"
 	if [ -f "./.grab-bash" ]; then
-        awk -F ', *' '/^```$/{p = 0} p; /```{bash/ && !/ (include)/{print "\n###", $2, "###"; p=1}' ${TRAVIS_BUILD_DIR}/${FILE_PATH}/${FILE_NAME} > ${TRAVIS_BUILD_DIR}/${FILE_PATH}/$BASH_FILE_NAME
+        awk -F ', *' '/^```$/{p = 0} p; /```{bash/ && !/ (include)/{print "\n###", $2, "###"; p=1}' ${TRAVIS_BUILD_DIR}/${FILE_PATH}/${FILE_NAME} > ${TRAVIS_BUILD_DIR}/${FILE_PATH}/${BASH_FILE_NAME}
 	fi	
 done
 
