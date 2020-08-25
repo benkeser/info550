@@ -1,7 +1,6 @@
 old_git/*
 lectures/**/*.html
 lectures/**/*.css
-lectures/**/*.bash
 lectures/**/*_files
 homework/**/*.html
 homework/**/*.pdf
