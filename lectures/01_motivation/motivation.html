@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Motivation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics" />
+    <link href="motivation_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+# Motivation
+### David Benkeser, PhD MPH<br> <span style="font-size: 50%;"> Emory University<br> Department of Biostatistics and Bioinformatics </span>
+### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a> <br> <i class="fas  fa-book "></i> <a href="https://benkeser.github.io/info550/readings#reproducible-research">.white[Additional reading]</a>
+
+---
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 22px
+}
+&lt;/style&gt;
+
+## An email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			&lt;br&gt;
+			&lt;br&gt; After review, we found that some data may have been 
+			mislabeled. Could you re-run the analyses and update numbers in 
+			Tables 1-3 and re-create Figure 2?
+			&lt;br&gt;
+			&lt;br&gt; We would like to submit this paper by the end of the week.
+			&lt;br&gt;
+			&lt;br&gt; Best wises, 
+			&lt;br&gt; Every collaborator ever
+		]
+	]
+]
+
+???
+
+Very commonly in collaborations, the data change. It could be 
+due to errors, more data being added, etc... The goal of this class 
+is to make it so you do not fill with dread when you receive such an 
+e-mail.
+
+We are working toward a world where you download the new data,
+type one command and voila! No by-hand entering numbers into tables. 
+No copy-pasting from R/SAS/STATA to Word. Just one click.
+
+---
+
+## Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			&lt;br&gt;
+			&lt;br&gt; The data will be finalized tomorrow and we need to have 
+			new Tables to the DSMB report in three days. Sorry about that.
+			&lt;br&gt;
+			&lt;br&gt; Best wises, 
+			&lt;br&gt; Every collaborator ever
+		]
+	]
+]
+
+
+???
+
+
+To prepare for situations like this, project organization is key. 
+We will discuss strategies for 
+preparing fast-turnaround projects. But just because we are turning
+projects around quickly, does not mean we are not working carefully. 
+By having a set, reproducible workflow in place before data acquisition, 
+we can have the best of both worlds. Careful analysis planning and 
+execution AND fast delivery.
+
+---
+
+## Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			&lt;br&gt;
+			&lt;br&gt; IT just updated R to the latest version on my computer 
+			and your analysis code no longer runs. I get lots of strange 
+			error messages about compilers and package versions. What gives?
+			&lt;br&gt;
+			&lt;br&gt; Best wises, 
+			&lt;br&gt; Every collaborator ever
+		]
+	]
+]
+
+???
+
+Collaborative projects with multiple people developing and running
+code can be challenging to manage. We'll discuss the tools that make 
+this easier to achieve. 
+
+---
+
+## Another email you'll receive
+
+.center[
+	.monobox[
+		.left[
+			David, 
+			&lt;br&gt;
+			&lt;br&gt; I finally managed to debug all the compilation errors, but 
+			now when I re-run the code, I get completely different results. 
+			I'm starting to panic. Help!
+			&lt;br&gt;
+			&lt;br&gt; Best wises, 
+			&lt;br&gt; Every collaborator ever
+		]
+	]
+]
+
+???
+
+Software version control is another big challenge, particularly as 
+more modern learning techniques (e.g., machine learning) are applied. 
+Small changes in an algorithm, in how random seeds are set, etc... can 
+lead to possibly large changes in down-stream analyses. We'll discuss
+containerization tools that make all of these problems tractable. 
+
+---
+
+## Reproducibility
+
+
+![](motivation_files/figure-html/repro-fig-1.png)&lt;!-- --&gt;
+.center[
+	.small[
+		Working terminology (figure produced using [scifigure](https://cran.r-project.org/web/packages/scifigure/vignettes/Visualizing_Scientific_Replication.html) R package)
+	]
+]
+
+???
+
+There are many definitions of reproducibility/replicability/etc... See
+the [class readings](https://benkeser.github.io/info550/readings#reproducible-research) for more. 
+
+We will focus on building analyses that satisfy the reproducibility 
+definition outlined above. Could a different analyst sit down with your code, 
+execute it and get exactly the same results?
+
+Reproducibility is a *minimal* standard. Just because something is 
+*reproducible* does not necessarily imply that it is *correct*. The 
+code may have bugs. The methods may be poorly behaved. But reproducibility 
+is likely correlated with correctness -- if you are careful enough to 
+make everything reproducible, you're probably more likely to be careful
+in designing the analysis in the first place. 
+
+We will use replicability to mean a new experiment using the same methods
+coming to the same conclusions. 
+
+Generalizability refers to taking conclusions from your study population
+and generalizing them to a new population. 
+
+---
+
+## Why should I care?
+
+* Careful coding means more likely to produce __correct results__.
+* In the long run, you will __save (a lot of) time__.
+* Higher __impact__ of your science.
+* __Avoid embarrassment__ on a public stage. 
+
+???
+
+Doing reproducible science is time consuming, but is ultimately time-saving.
+As you practice these tools more and more, they will start to become
+habits. I do analyses now in a day or so (and at much higher quality) now
+that would take me a (frustrating) week seven or eight years ago. 
+
+One of my great fears as an academic is being accused of intentionally 
+doing bad science. Leaving a paper trail that any one else can follow is
+a bit intimidating -- we all make mistakes. Reproducible work indicates 
+that any mistakes made were likely honest.
+
+---
+class: title-slide, center, inverse, middle
+background-color: #84754e
+
+*You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.*
+&lt;div&gt; - Karen Cranston
+
+---
+
+## Levels of reproducibility
+
+* Are the tables and figures reproducible using the code?
+* Are the tables and figures reproducible using the code __with minimal user effort__?
+* Does the code __actually do__ what's written in Methods?
+* Does the code make clear __why__ certain decisions were made?
+	* Why did you exclude this variable? 
+	* Why do you choose these tuning parameters?
+* Can the code be used on other data?
+* Can the code be extended to do more?
+
+???
+
+Reproducibility is not black and white. The ideal is not easy to 
+achieve, nor is it necessarily warranted on every project. This is a lifelong
+process of understanding what level of reproducibility is required for 
+each project. 
+
+
+## Basic principles
+
+* Get data in its "raw-est" form possible
+* __Document__ where/when you got the data
+* Be as __self-sufficient__ as possible
+* __Everything via code__
+	* with sufficient documentation!
+* __Everything automated__
+	* with sufficient documentation! 
+
+???
+
+The goal is end-to-end reproducibility. In many situations, 
+*you* will be the person with the most data 
+management experience. Reproducibility can easily be undermined
+by e.g., a collaborator who is manually extracting data from an 
+online data base and copy-pasting it into a .csv for you. 
+
+Solution: Code the download process! Automate data pulls! Document
+how you're doing it!
+
+---
+
+## Things to avoid
+
+* Open a file to re-save as `.csv`. 
+* Open a data file and manually edit. 
+* Pasting results into the text of a manuscript.
+* Copy-paste-edit code into GUI
+* Copy-paste-edit tables
+* Copy-paste-adjust figures
+
+???
+
+All of these actions are problematic. Each introduces the possibility
+of inconsistencies or errors and is not reproducible in the sense 
+that we mean. 
+
+---
+class: title-slide, center, inverse, middle
+background-color: #007dba
+
+*If you do anything "by hand" once, you'll have to do it 100 times.*
+&lt;div&gt; - Karl Broman
+
+???
+
+So true. 
+
+---
+
+## Tools for reproducible research
+
+* Unix command line
+* git and online repositories (e.g., GitHub)
+* Markdown, RMarkdown, Latex, Knitr
+* GNU Make
+* R packages
+* Containers (e.g., Docker)
+* `bash`, `R`, `python` (`ruby`, `perl`, `html`)
+
+???
+
+In this class, we'll be learning to operate almost exclusively on 
+the command line. Soon, [this will be you](https://tenor.com/8IZG.gif). 
+
+Git will make your life easier by handling version control. No more
+directories with 200 copies of the same file with different dates!
+
+RMarkdown + knitr are great tools for generating reproducible reports (or
+course notes...). 
+
+GNU Make is for automation and for documenting dependencies between 
+files. 
+
+`R` packages are a useful way to wrap up code, documentation, and dependencies
+on other `R` packages. 
+
+Containers make it possible to achieve full reproducibility rather 
+painlessly, by wrapping all needed software (down to the OS!) up into a 
+"container". 
+
+Knowing some `bash` is necessary to operate at the command line and 
+generally useful for scripting. `R` is becoming (or already is) a standard 
+software for analysis. `python` is also becoming quite popular for analysis, 
+but goes much beyond. Other languages are great, but not totally necessary.
+
+---
+class: title-slide, center, inverse, middle
+background-color: #487f84
+
+*The most important tool is the mindset, when starting, that the end product will be reproducible.*
+&lt;div&gt; - Keith Baggerly
+
+???
+
+If you don't know who Keith Baggerly is, [read this reproducibility horror story](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3474449/).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

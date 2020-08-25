@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>GNU Make</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics" />
+    <link href="make_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+# GNU Make
+### David Benkeser, PhD MPH<br> <span style="font-size: 50%;"> Emory University<br> Department of Biostatistics and Bioinformatics </span>
+### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a> <br> <i class="fas  fa-book "></i> <a href="https://benkeser.github.io/info550/readings#gnu-makefiles">.white[Additional reading]</a>
+
+---
+
+
+
+
+
+
+
+&lt;!-- Zip up everything in /example so available for download link --&gt;
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 25px
+}
+&lt;/style&gt;
+
+### Why GNU Make?
+
+GNU Make is a program often used for compiling software. 
+* Building up many dependent pieces of software.
+
+But that's exactly __what data analysis is__! 
+* Analysis report &amp;#8592; tables and figures &amp;#8592; code &amp;#8592; data
+
+GNU Make is a formal system for:
+* automating a workflow
+  * just type `make` and hit enter!
+* documenting a workflow
+* documenting dependencies among data, code, results.
+
+???
+
+If you can effectively use `Make`, you are living the reproducible dream. 
+Literally you will just go to the command line and type `make` and your
+whole analysis will be off and running. Data get updated? Swap in the 
+new data set and `make`. Change the code for Figure 1? `make`.
+
+It takes time to get to this level, but this is the goal of 
+reproducible data science. 
+
+Remember, everything that we're doing is about making our lives easier 
+*in the long run*. It might be convenient in the short term to:
+* keep all your code in one long file,
+* open the file and interactively execute code,
+* copy/paste results.
+
+But in the long run, you'll have to 
+* sift through 1000s of lines of code every time you want to make a small change,
+* remember the exact sequence of code that you executed six months or a year ago,
+* copy/paste results 100 times!
+
+---
+
+### How does it work?
+
+In your project directory, you'll have a plain text `Makefile`.
+
+````markdown
+# here's a recipe for target
+target: prereq
+[TAB] action1
+[TAB] action2
+````
+
+* use `#` for comments.
+* `target` and `prereq` are filenames.
+* `action1` and `action2` are commands.
+* `[TAB]` denotes that you need tab rather than multiple spaces.
+
+At the command line, in the project directory, we type 
+
+
+```bash
+make
+```
+
+???
+
+If you ever see the error `Makefile:3: *** missing separator.  Stop.`, you forgot to use tabs.
+
+This is going to be an annoying aspect of this lecture -- copying and pasting code from the slides to a text editor is not guaranteed to respect tabs. 
+
+---
+
+### How does it work?
+
+GNU Make logic:
+* Want to update `target`, which depends on `prereq`. 
+* Does `target` exist? 
+  * If  &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, execute `action1`, `action2`
+  * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, has `prereq` changed since `target` was last updated?
+      * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, execute `action`s. 
+      * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, take no action, `target` is already up to date.
+
+__What if `prereq` itself depends on other files?__
+
+---
+
+### Graph of dependencies 
+
+````markdown
+# here's a recipe for target
+target: prereq
+[TAB] action1
+[TAB] action2
+
+# here's a recipe for prereq
+prereq: prereq2
+[TAB] action3
+````
+
+If we type `make`, we will make `target`, the first entry in `Makefile`.
+* Or, equivalently, `make target`.
+* But, we can also use `make prereq`.
+
+???
+
+If we `make prereq`, the logic is the same as before. We check for existence of `prereq` if it doesn't exist, we take `action3`. If it does, we check whether `prereq2` has been updated. If so, we take `action3`. If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, then `prereq` is already up to date.
+
+---
+
+### Graph of dependencies 
+
+`make prereq` logic:
+* Want to update `prereq`, which depends on `prereq2`. 
+* Does `prereq` exist? 
+  * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, execute `action3`
+  * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, has `prereq2` changed since `prereq` was last updated?
+      * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, execute `action3`. 
+      * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, take no action, `prereq` is already up to date.
+
+Same as before, but now for `prereq` rather than `target`. 
+
+---
+
+### Graph of dependencies
+
+`make`/`make target` logic: .small[
+* Want to update `target`, which depends on `prereq`.
+  *  Need to update `prereq`, which depends on `prereq2`. 
+    * Does `prereq` exist? 
+      * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, execute `action3`
+      * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, has `prereq2` changed since `prereq` was last updated?
+          * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, execute `action3`. 
+          * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, take no action, `prereq` is already up to date.
+  * Does `target` exist? 
+      * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, execute `action1`, `action2`.
+      * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, has `prereq` changed since `target` was last updated?
+          * If &lt;em style="color:#348338";&gt;yes&lt;/em&gt;, execute `action1`, `action2`.
+          * If &lt;em style="color:#da291c";&gt;no&lt;/em&gt;, take no action `target` is already up to date.
+]
+
+---
+
+### Example
+
+Consider the files in &lt;a href="example.zip" download&gt;`example.zip`&lt;/a&gt;.
+
+
+```bash
+ls
+```
+
+```
+## cleandata.R
+## Makefile
+## raw_data.txt
+## report.Rmd
+## tmp_Makefile
+```
+
+
+```bash
+cat Makefile
+```
+
+```
+## # rule for making report  
+## report.html: data.txt report.Rmd
+## 	Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
+## 
+## # rule for cleaning data
+## data.txt: cleandata.R raw_data.txt
+## 	chmod +x cleandata.R &amp; \
+## 	Rscript cleandata.R
+```
+
+???
+
+In general, I will encourage you to have separate folders for R code and raw/processed data, but for now let's allow bad habits.
+
+We see that `Makefile` ultimately wants to compile `report.html` using R Markdown. The html report is generated from the `report.Rmd` script and additionally depends on the data set `data.txt`, which itself has depends on `cleandata.R` and `raw_data.txt`. `data.txt` is made by executing the `cleandata.R` script. In the next slide we'll see the contents.
+
+---
+
+### Example
+
+Let's pause for a moment on the structure of the rule
+
+````markdown
+data.txt: cleandata.R raw_data.txt
+    chmod +x cleandata.R &amp;&amp; \
+    Rscript cleandata.R
+````
+
+* `make` executes each action in a separate shell
+  * `cd dir` on one line, execute file in `dir` on next; .red[will not work!]
+* from docs: .red[cannot] expect actions to be performed in sequence
+* use `&amp;&amp; \` breaks commands over multiple lines
+  * commands separated by `&amp;&amp;` run synchronously with each running only if the last does not fail
+  * `\` is an escape character; bash ignores the new line
+
+---
+
+### Example
+
+`cleandata.R`
+
+
+```r
+#! /usr/bin/env Rscript
+
+# read data
+raw_data &lt;- read.csv("raw_data.txt", header = TRUE)
+
+# remove NAs
+data &lt;- raw_data[!is.na(raw_data), , drop = FALSE]
+
+# save data
+write.table(data, "data.txt", quote = FALSE, row.names = FALSE)
+```
+
+* Removes missing data and saves as `data.txt`.
+* `make data.txt` results in a cleaned data set being saved. 
+
+???
+
+The idea here is to illustrate what a typical `make` workflow could look like. Obviously data cleaning in real life is more complex than this. 
+
+---
+
+### Example
+
+`report.Rmd`
+
+````markdown
+---
+title: "Analysis Report"
+output: html_document
+---
+
+```{r, read-data, echo = FALSE}
+data &lt;- read.table("data.txt", header = TRUE)
+```
+
+There were `r nrow(data)` data points with mean `r mean(data$X)`.
+````
+
+* reads in `data.txt`, reports simple summary statistics
+
+???
+
+Of course, we could have included everything in the `.Rmd` document. In this simple example, there's really not a price to pay for that. However, as the complexity of the analysis increases, there becomes more of a price to pay:
+* the `report.Rmd` document itself is difficult to read
+* if something breaks, its harder to debug where
+* finding specific lines of code becomes difficult
+
+In the next chapter, we'll discuss project management and why it's a good idea to split up workflows into multiple chunks. 
+
+---
+
+### Breakout exercise
+
+* Add a script `make_fig1.R` to the `exercise` directory.
+  * Read in `data.txt` 
+  * Save `.png` of a histogram of the data (see below)
+* Add a `make` rule for `fig1.png`.
+* Update the `report.Rmd` to include `fig1.png` (see below).
+* Update `make` rule for `report.html`
+* Compile `report.html` using `make`
+
+
+```r
+# assuming you want a histogram of x
+png("fig1.png")
+hist(x)
+dev.off()
+```
+
+````markdown
+![Figure 1](fig1.png)
+````
+
+---
+
+### `PHONY` rules
+
+Sometimes we wish to add rules that do not create files. 
+
+````markdown
+# rule for making report  
+report.html: data.txt report.Rmd
+    Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
+
+# rule for cleaning data
+data.txt: cleandata.R raw_data.txt
+    chmod +x cleandata.R &amp; \
+    Rscript cleandata.R
+
+# clean up directory
+clean:
+    rm report.html data.txt
+````
+
+???
+
+Can be nice to clean up the working directory to recreate all output of the workflow explicitly. 
+
+Notice `clean` has no dependencies. 
+
+---
+
+### `PHONY` rules
+
+
+
+
+```bash
+make report.html
+```
+
+```
+## chmod +x cleandata.R &amp; \
+## Rscript cleandata.R
+## Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
+```
+
+
+```bash
+make clean
+ls
+```
+
+```
+## rm report.html data.txt
+## cleandata.R
+## Makefile
+## raw_data.txt
+## report.Rmd
+## tmp_Makefile
+```
+
+---
+
+### `PHONY` rules
+
+Works fine .red[as long as there's no file named] `clean`.
+
+
+```bash
+touch clean
+make clean
+```
+
+```
+## make: 'clean' is up to date.
+```
+
+In this case, we need to tell `make` that clean is a `PHONY`. 
+
+````markdown
+# clean up directory
+.PHONY: clean
+clean:
+    rm report.html data.txt
+````
+
+???
+
+Something to be aware of. You can generally leave off `PHONY` but good to know about it. For example, I could see a `make docs` command and a `docs` folder containing documentation. 
+
+---
+
+### Automatic variable names
+
+Code can be shortened using special characters.
+* In a rule, 
+  * `$@` can be used in place of the target;
+  * `$^` can be used in place of all dependencies;
+  * `$&lt;` can be used in place of the first dependency.
+
+````markdown
+# rule for making report  
+report.html: data.txt report.Rmd
+    Rscript -e "rmarkdown::render('report.Rmd', output_name = '$@', quiet = TRUE)"
+
+# rule for cleaning data
+data.txt: cleandata.R raw_data.txt
+    chmod +x $&lt; &amp; \
+    Rscript $&lt;
+````
+
+---
+
+### Pattern Rules
+
+What if we want rules for multiple figures?
+* A general rule of coding: .red[don't repeat yourself]. 
+
+````markdown
+# rule for figure 1
+fig1.png: make_fig1.R data.txt
+    Rscript make_fig1.R
+
+# rule for figure 2
+fig2.png: make_fig2.R data.txt
+    Rscript make_fig2.R
+
+...
+````
+
+???
+
+If you ever find yourself copy/pasting code and changing one number per line, ask yourself if there's a smarter way to do things.
+
+---
+
+### Pattern Rules
+
+To simplify, we can use __pattern rules__.
+* `%` is a wildcard
+* `$*` references the matched part of the target
+  * e.g., if we say `make fig1.png` then `$*` evaluates to `fig1`.
+
+````markdown
+# rule for making figures
+%.png: make_%.R data.txt
+    Rscript $*.R
+
+# PHONY rule for all figures
+.PHONY: figs
+figs: fig1.png fig2.png
+````
+
+If we execute `make figs`, we will make `fig1.png` and `fig2.png` according to the rule for making figures.
+
+.small[line 3 above could equivalently be written `Rscript $&lt;.R`]
+
+---
+
+### Documenting rules
+
+
+
+It can be useful to create `help` targets in your Makefiles.
+
+````markdown
+.PHONY help
+help:
+    @echo "report.html : Generate final analysis report."
+    @echo "data.txt    : Clean raw_data.txt by removing NAs."
+    @echo "fig1.png    : Make a histogram of X."
+````
+
+Then we can execute
+
+
+```bash
+make help
+```
+
+```
+## report.html : Generate final analysis report.
+## data.txt    : Clean raw data by removing NAs.
+## fig1.png    : Make a histogram of X.
+## clean       : Remove cleaned data and report.
+```
+
+???
+
+In `make`, adding `@` in front of a command means that the command statement is not printed out. 
+
+---
+
+### Self-documenting rules
+
+Every time we add/remove rule, we need to add an action to `help`.
+
+We can be .green[more clever] about this. 
+
+````markdown
+.PHONY: help
+help: Makefile
+  @sed -n 's/^##//p' $&lt;
+````
+
+A lot to unpack here:
+* a rule that depends on `Makefile` itself
+* use bash `sed` to look in `Makefile` (i.e., `$&lt;`) for the string `##` and print every line on which that string is found. 
+* `-n` means that the `##` themselves will not be printed 
+
+---
+
+### Self-documenting rules
+
+````markdown
+## report.html  : Generate final analysis report.
+# using the cleaned data, generate the report
+report.html: data.txt report.Rmd
+    Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
+
+## data.txt     : Clean raw_data.txt by removing NAs.
+data.txt: cleandata.R raw_data.txt
+    chmod +x cleandata.R &amp; \
+    Rscript cleandata.R
+
+## fig1.png     : Make a histogram of X.
+fig1.png: make_fig1.R data.txt
+    Rscript make_fig1.R
+
+## clean        : Remove compiled report and cleaned data.
+clean:
+    rm report.html data.txt
+
+.PHONY: help
+help: Makefile
+    @sed -n 's/^##//p' $&lt;
+````
+
+???
+
+Note that you can still make comments that do not appear in `help` by using a single `#`. 
+
+It seems possible that with a slightly more complex call to `sed`, you could even automate grabbing the name of the target for the help file. Though this is not entirely straightforward and wouldn't really represent that much time savings. Nevertheless, if someone figures out how to do it, let me know! 
+
+---
+
+### Final notes on make
+
+* If you name your make file `something_else`, you can use `make -f something_else`.
+
+* Can be helpful to have an `all: target1 target2 target3` at the top of your `Makefile`.
+  * That way typing `make` builds everything.
+
+* You can get quite fancy with `make`. 
+  * Define [variables](https://swcarpentry.github.io/make-novice/06-variables/index.html)
+  * Define [functions](https://swcarpentry.github.io/make-novice/07-functions/index.html)
+
+---
+
+### Breakout exercise
+
+* Download &lt;a href="exercise.zip" download&gt;`exercise.zip`&lt;/a&gt;, which contains
+  * `clinical.txt`, a made up clinical data set
+  * `biomarkers.txt`, a made up data set consisting of two biomarkers
+  * `biom_report.Rmd`, a made up R Markdown report
+* Analyze `biom_report.Rmd` to understand what it is doing
+* Create a more legible workflow based on `make`. 
+* Goals:
+  * make `biom_report.Rmd` more human readable;
+  * separate data cleaning and figure construction; 
+  * document dependencies in `Makefile`.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-blue",
+"highlightLanguage": "rmarkdown",
+"highlightLines": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
