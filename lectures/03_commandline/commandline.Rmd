@@ -264,7 +264,7 @@ a worthwhile investment.
 
 ---
 
-## Breakout exercise
+## Breakout exercise 1
 
 Execute the following code:
 ```{bash, exercise1, eval = FALSE}
@@ -284,6 +284,22 @@ touch another_tmp/another_tmp_file
   * remove `tmp_file`
   * rename `another_tmp_file` to `such_a_cool_file`
   * remove `tmp` directory *and* all its contents
+
+???
+
+~ 7 minutes.
+
+---
+
+### Breakout 1 poll
+
+<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
+
+---
+
+### Breakout 1 poll results
+
+<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">
 
 ---
 
@@ -340,7 +356,7 @@ Here, output means "stdout" and input means "stdin".
 
 ---
 
-### To bash or not to bash
+## To bash or not to bash
 
 ```{bash, hamlet, eval = FALSE}
 # download hamlet text from web and save 
@@ -374,20 +390,34 @@ follow any re-directs.
 
 ---
 
-## Breakout exercise
+## Breakout exercise 2
 
-In your breakout group, figure out how to write one line of code to execute each of the following. 
+In your breakout group, write bash code that executes each of the following. 
 * find "To be, or not to be" and write the contents of this monologue to a file `speech.txt` (hint: the speech is 35 lines)
 * make a file called `greatest_hits.txt` that includes:
   * the "To be, or not to be" speech
   * the line that includes "know not what we may be"
   * all lines that include the word "doubts" or "Doubts"
-* replaces all instances of the string "doubt" with "uncertainty" (hint: `sed`)
+* replaces all instances of the string "doubts" with "uncertainties" in your `greatest_hits.txt` file (hint: `sed` or `awk`)
 
 ???
 
-`sed` is more flexible than `grep`, but I find the syntax very cryptic and
+`sed` and `awk` are more flexible than `grep`, but I find the syntax very cryptic and
 difficult to remember. I often have to Google to remind myself how it works.
+
+~ 10-15 min
+
+---
+
+### Breakout 2 poll
+
+<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
+
+---
+
+### Breakout 2 poll results
+
+<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">
 
 ---
 
@@ -628,15 +658,30 @@ Some common values summarized below:
 
 ---
 
-## Breakout exercise
+## Breakout exercise 3
 
 Write a script that 
 * uses `curl` to download the text of __Romeo and Juliet__ from Project Gutenberg
-  * https://bit.ly/romeo_juliet_txt ;
+  * http://www.gutenberg.org/files/1112/1112.txt ;
 * counts the number of lines for characters Romeo ("Rom."), Juliet ("Jul."), and the Apothecary ("Apoth."); 
-* saves a plain text file for each of these characters that says:
+* saves a plain text file that for each of these characters says:
   * "`[character]` has `[num]` lines".
 
 __Hints__: use `for` loops; recall how to "escape" `.`
 
 
+???
+
+~ 15 min.
+
+---
+
+### Breakout 3 poll
+
+<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
+
+---
+
+### Breakout 3 poll results
+
+<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">

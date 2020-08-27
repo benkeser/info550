@@ -1,0 +1,43 @@
+---
+title: "Homework 2"
+due: "2020/09/03"
+submit: "https://canvas.emory.edu/courses/75677"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+Nothing required to be turned in for question 1. For question 2, submit your R script as plain text. For question 3, submit your bash code as plain text (if asynchronous) or submit your grades for each student in the following format:
+
+* Susy Student = 2
+* Cam Classmate = 2
+* Danny Scientist = 0
+
+
+
+1. Install the following software:
+
+* if on a Mac, install [Xcode command line tools](http://railsapps.github.io/xcode-command-line-tools.html)
+	* confirm proper installation by checking `which make`
+* [`rmarkdown`](https://cran.r-project.org/web/packages/rmarkdown/index.html) R package
+* [`pandoc`](https://pandoc.org/installing.html), using homebrew, and ensure that the directory containing `pandoc` is in your `PATH`.
+	* confirm by checking `which pandoc`
+
+2. Write an R script that begins to analyze the data for your project. For now the script could do very simple things. The only requirements for this assignment are that you read in data and `print` out something about the data. For example, the script could
+
+* read in your data, and `print` the number of observations and the number of missing values for each variable
+* read in your data, perform some data cleaning, save a cleaned data set, `print` a message indicating where the file was saved.
+
+The point of this problem is not *what* the R script does, just that it *does something* and prints something. However, it would likely be beneficial to start writing a script that does *something* that will eventually be used by your report. 
+
+Once your R script is written: 
+
+* add the appropriate shebang to use the `Rscript` executable to run your script from the command line;
+* make your script executable using `chmod`;
+* execute your script from the command line and confirm it executes as expected;
+* execute your script from the command line redirecting output of the script to a file called `script_out.Rout`. 
+
+3. If you attended class synchronously, give participation grades to your classmates (0 = was not present/did not say anything, 1 = present, but didn't say anything, 2 = anything else). If you attended class asynchronously, include your code for each of the breakout exercises. 
+
+
