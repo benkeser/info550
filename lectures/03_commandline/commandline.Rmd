@@ -667,7 +667,7 @@ Write a script that
 * saves a plain text file that for each of these characters says:
   * "`[character]` has `[num]` lines".
 
-__Hints__: use `for` loops; recall how to "escape" `.`
+__Hints__: use `for` loops
 
 
 ???
