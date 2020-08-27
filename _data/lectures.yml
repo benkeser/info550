@@ -62,3 +62,12 @@
   start: 0:0:0
   title: Project organization
   tldr: Consistently organize your projects now. You will thank yourself later.
+- dirname: 08_codestyle
+  filename: codestyle
+  reading: coding-style
+  recording: ''
+  recording_url: coding-in-style
+  start: 0:0:0
+  title: Coding in style
+  tldr: Write your code for humans to read. No one else will read it, but you might,
+    later.
