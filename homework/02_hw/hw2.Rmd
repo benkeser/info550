@@ -1,7 +1,7 @@
 ---
 title: "Homework 2"
 due: "2020/09/03"
-submit: "https://canvas.emory.edu/courses/75677"
+submit: "https://canvas.emory.edu/courses/75677/assignments/381694"
 header-includes:
   - \usepackage{hyperref}
   - \hypersetup{colorlinks=true,urlcolor=blue}
