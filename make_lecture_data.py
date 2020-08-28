@@ -122,9 +122,30 @@ def make_data(site_dir, which_data):
     f.write(yaml_contents)
     f.close()
 
-
 # run function on inputted directory
 input_dir = sys.argv[1]
 
 make_data(input_dir, "lecture")
 make_data(input_dir, "homework")
+
+# make pages for additional videos
+video_links = {
+  "vim-survival-guide" : "16e493ae-2574-4eb9-b48e-ac2501201b59"
+}
+
+for key in video_links:
+  text_list = ["---", "layout: default", "---", 
+  '<div class="container">'
+  '<iframe class="responsive-iframe" src="https://rsph.hosted.panopto.com/Panopto/Pages/Embed.aspx?id='+
+  video_links[key]+
+  '&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0'+
+  '&interactivity=all" style="border: 5px solid #b58500;" allowfullscreen allow="autoplay"></iframe>',
+  '</div>'
+  ]
+  save_file = os.path.join(input_dir, "website", "_recordings/", key + ".md")
+  out_file = open(save_file, "w")
+  for line in text_list:
+    # write line to output file
+    out_file.write(line)
+    out_file.write("\n")
+  out_file.close()
