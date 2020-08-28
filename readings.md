@@ -32,7 +32,7 @@ permalink: /readings/
 	* [Notepad++ cheatsheet](http://www.cheat-sheets.org/saved-copy/Notepad++_Cheat_Sheet.pdf)
 	* [User manual](https://npp-user-manual.org/docs/getting-started/)
 * [__vim__](https://www.vim.org/)
-	* [INFO 550 vim survival guide](/recordings/vim-survival-guide)
+	* [INFO 550 vim survival guide](/info550/recordings/vim-survival-guide)
 	* [Vim Tips Wiki](https://vim.fandom.com/wiki/Vim_Tips_Wiki)
 	* [Popular vim commands](https://www.keycdn.com/blog/vim-commands)
 	* [vim tutorial](https://www.openvim.com/)
