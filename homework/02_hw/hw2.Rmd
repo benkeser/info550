@@ -1,6 +1,6 @@
 ---
 title: "Homework 2"
-due: "2020/09/03"
+due: "2020/09/09"
 submit: "https://canvas.emory.edu/courses/75677/assignments/381694"
 header-includes:
   - \usepackage{hyperref}
@@ -8,10 +8,10 @@ header-includes:
 output: pdf_document
 ---
 
-Nothing required to be turned in for question 1. For question 2, submit your R script as plain text. For question 3, submit your bash code as plain text (if asynchronous) or submit your grades for each student in the following format:
+Nothing required to be turned in for question 1. For question 2, submit your R code as plain text. For question 3, submit your bash code for breakout exercises 1, 2, and 3 (if asynchronous) or submit your grade for each student's participation in your breakout group __for class on 2020/09/03__ (if synchronous) in the following format:
 
-* Susy Student = 2
-* Cam Classmate = 2
+* Susy Student = 1
+* Cam Classmate = 1
 * Danny Scientist = 0
 
 
@@ -38,6 +38,6 @@ Once your R script is written:
 * execute your script from the command line and confirm it executes as expected;
 * execute your script from the command line redirecting output of the script to a file called `script_out.Rout`. 
 
-3. If you attended class synchronously, give participation grades to your classmates (0 = was not present/did not say anything, 1 = present, but didn't say anything, 2 = anything else). If you attended class asynchronously, include your code for each of the breakout exercises. 
+3. If you attended class synchronously, give participation grades to your classmates (0 = not present/did not say anything, 1 = present). If you attended class asynchronously, include your code for each of the breakout exercises. 
 
 
