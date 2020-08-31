@@ -120,6 +120,12 @@ permalink: /readings/
 
 ## R packages
 
+* [Hadley Wickham's R packages book](http://r-pkgs.had.co.nz/)
+* [Jeff Leek's R package tutorial](https://github.com/jtleek/rpackages)
+* [Karl Broman's R package primer](https://kbroman.org/pkg_primer/)
+* [Jenny Bryan's Write your first R package](https://stat545.com/package-slides.html)
+* [CRAN R package tutorial](Creating R Packages: A Tutorial)
+
 
 ## Docker
 
