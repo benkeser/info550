@@ -104,6 +104,9 @@ permalink: /readings/
 
 ## Coding Style
 
+* [Software carpentry: Creating R Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/)
+* [R for Data Science: Functions](https://r4ds.had.co.nz/functions.html)
+* [DataCamp: A Tutorial on Using Functions in R!](https://www.datacamp.com/community/tutorials/functions-in-r-a-tutorial)
 * [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
 * [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 * [tidyverse style guide](https://style.tidyverse.org/index.html)
