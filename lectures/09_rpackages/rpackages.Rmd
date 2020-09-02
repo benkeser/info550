@@ -1,0 +1,639 @@
+---
+title: "Writing R packages"
+author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-packages)'
+tldr: "SAS maintainers HATE them. This one weird trick will allow you to distribute your software for free."
+recording: ""
+start: "0:0:0"
+reading: "r-packages"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLanguage: rmarkdown
+      highlightLines: false
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+extra_css <- list(
+  ".small" =  list(`font-size` = "80%"),
+  ".large" =  list(`font-size` = "130%"),
+  "ul li" = list(`margin-bottom` = "10px"),
+  ".red" = list(color = "#da291c",
+                `font-weight` = "600"),
+  ".green" = list(color = "#348338",
+                `font-weight` = "600"),
+  ".code-box" = list(display = "inline-block", 
+    width = "95%",
+    `line-height` = "1.2em",
+    padding = "5px",
+    `font-size` = "80%",
+    `background-color` = "#f6f6f6",
+    `align-items` = "left",
+    `font-family` = "Courier Prime",
+    border = "1px solid black"),
+  "ul" = list(`margin-bottom` = "0.5em",
+              `margin-top` = "0.5em"),
+  "p" = list(`margin-bottom` = "0.25em"),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 22px
+}
+</style>
+
+## R packages
+
+Packages are one the most important features of `R`.
+* 14 base packages (e.g., `stats`, `utils`)
+* 15 recommended packages (e.g., `lattice`)
+
+The [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN) hosts all other packages. 
+* >10,000 packages
+* Where packages come from using `install.packages`
+* Automated testing on *many* systems keeps `R` stable
+
+Distributing R packages on GitHub is also common nowadays.
+* `devtools` package function `install_github` makes installs easy
+* Possible to enable *some* automated checking
+  * Continuous integration services (more later)
+
+???
+
+Distributing code via GitHub is a minimal standard in modern (reproducible) data science. One step up is to package that code in a way that makes it easier to use (and has standard documentation) and put on GitHub. One step up from that is to put the code on CRAN.
+
+---
+
+## R packages
+
+__Installed R packages__ are just a __directory__ with a certain structure.
+
+See __where packages live__ on your computer.
+* Your answer will be different than mine.
+
+```{r, show-libpath}
+.libPaths()
+```
+
+Poke around the folders! See what's in there.
+* Don't edit files though...
+
+This lecture covers how to set up code that can be __bundled__ into an R package that you can __install__. 
+
+???
+
+It can be instructive to compare the contents of an installed package vs. the source code (e.g., that lives in a GitHub repo).
+
+A few layers here:
+* source code -- all the code that will eventually make up your package
+* a "built" package -- everything needed to install your package bundled up
+* an "installed" package -- that directory in your `.libPath` that you can load into `R` using `library`
+
+---
+
+## Why write a package?
+
+If you're a methodologist, almost the __only way__ for your work to have __impact__.
+* No one is going to code up your method from scratch.
+
+But there are __many other reasons__ to write R packages:
+* distribute your R code __and__ documentation;
+* distribute __data__ and __software__ accompanying a paper;
+* keep track of all the little functions __you__ reuse all the time.
+
+Plus, it's .green[not that hard]!
+
+???
+
+Putting a few R functions that you regularly use in your day to day life into a package will make it vastly easier to re-use code. No need to publish your package. Just keep one around for personal use. 
+
+---
+
+## `wesanderson` package
+
+.pull-left[
+```{r, fig.width=45}
+library(wesanderson)
+wes_palette("Royal1")
+wes_palette("Royal2")
+```
+]
+
+.pull-right[.center[
+<img src="royal.jpg" alt="Royal Tennenbaum's cover" style="height:300px;">
+]]
+
+???
+
+See? R packages don't have to be big and important. Just some pieces of code that are useful. This package just defines some visually appealing color palettes from Wes Anderson movies and has >7,000 monthly downloads. 
+
+---
+
+## `wesanderson` package
+
+.pull-left[.center[
+```{r, fig.width=45}
+wes_palette("Zissou1")
+```
+<img src="zissou.jpg" alt="Life Aquatic cover" style="height:300px;">
+]
+]
+
+.pull-right[.center[
+```{r, fig.width=45}
+wes_palette("FantasticFox1")
+```
+<img src="fox.jpg" alt="Fantastic Mr. Fox cover" style="height:300px;">
+]]
+
+???
+
+My personal favorite is Moonrise Kingdom.
+
+---
+
+## `wesanderson` package
+
+[What's inside](https://github.com/karthik/wesanderson)?
+
+.code-box[
+wesanderson/ <br>
+&nbsp;&nbsp;&nbsp; DESCRIPTION <br>
+&nbsp;&nbsp;&nbsp; NAMESPACE <br> <br>
+&nbsp;&nbsp;&nbsp; R/colors.R <br>
+&nbsp;&nbsp;&nbsp; R/globals.R <br>
+&nbsp;&nbsp;&nbsp; R/wesanderson.R <br><br>
+&nbsp;&nbsp;&nbsp; man/heatmap.Rd <br>
+&nbsp;&nbsp;&nbsp; man/wes_palette.Rd <br>
+&nbsp;&nbsp;&nbsp; man/wes_palettes.Rd <br>
+&nbsp;&nbsp;&nbsp; man/wesanderson.Rd <br><br>
+&nbsp;&nbsp;&nbsp; data/heatmap.rda <br><br>
+&nbsp;&nbsp;&nbsp; .Rbuildignore <br>
+&nbsp;&nbsp;&nbsp; LICENSE <br>
+&nbsp;&nbsp;&nbsp; README.Rmd <br>
+&nbsp;&nbsp;&nbsp; README.md <br>
+&nbsp;&nbsp;&nbsp; .travis.yml <br>
+]
+
+???
+
+I'm ignoring a few files here (like `.gitignore`, which you already know about) and a few things that I'll mention later. 
+
+---
+
+## `DESCRIPTION`
+
+.code-box[
+Package: wesanderson<br>
+Title: A Wes Anderson Palette Generator<br>
+Description: Palettes generated mostly from 'Wes Anderson' movies.<br>
+Date: 2018-03-29<br>
+Version: 0.3.6.9000<br>
+Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"),<br>
+    email = "karthik.ram@gmail.com", comment = c(ORCID = "0000-0002-0233-1757")),<br>
+&nbsp;&nbsp;person("Hadley", "Wickham", role = "aut",
+    email = "h.wickham@gmail.com"),<br>
+&nbsp;&nbsp;person("Clark", "Richards", role = "ctb",
+    email = "crichards@whoi.edu"),<br>
+&nbsp;&nbsp;person("Aaron", "Baggett", role = "ctb",
+    email = "aaronbaggett@gmail.com"))<br>
+Depends: <br>
+&nbsp;&nbsp; R (>= 3.0)<br>
+License: MIT + file LICENSE<br>
+LazyData: true<br>
+Suggests:<br>
+&nbsp;&nbsp; ggplot2
+URL: https://github.com/karthik/wesanderson <br>
+BugReports: https://github.com/karthik/wesanderson/issues<br>
+RoxygenNote: 6.0.1
+]
+
+???
+
+Everything should be fairly self-explanatory. There's strictly more included in this `DESCRIPTION` than necessary (for example, I've never used `Date` myself).
+
+---
+
+## `DESCRIPTION`
+
+  .center[![Wes Anderson package page on CRAN](cran.png)]
+
+???
+
+This is how information from the `DESCRIPTION` file is rendered on CRAN. Note there is a slight difference in version from what's on GitHub to what's on CRAN (more later). 
+
+---
+
+## Using functions in other packages
+
+Important parts of the `DESCRIPTION`:
+* `Depends`: indicate dependency on a particular version of R.
+* `Imports`: packages that are needed by your package
+* `Suggests`: packages that are not required, but are used somewhere in the package
+  * like in your examples or vignette
+
+???
+
+`Depends` is sometimes used to indicate that other packages need to be loaded to use your package, but this is uncommon nowadays 
+
+We will soon see how to handle `Import`ed functions. 
+
+A vignette is like a package tutorial. It will also be described in more detail soon. 
+
+## `NAMESPACE`
+
+.code-box[
+
+\# Generated by roxygen2: do not edit by hand <br> <br>
+
+S3method(print,palette) <br>
+export(wes_palette)<br>
+export(wes_palettes)<br>
+importFrom(grDevices,rgb)<br>
+importFrom(graphics,image)<br>
+importFrom(graphics,par)<br>
+importFrom(graphics,rect)<br>
+importFrom(graphics,text)<br>
+
+]
+
+Ensures packages __play nicely__ with each other. 
+* Avoid naming conflicts, etc...
+
+A bit cryptic, but very to __automatically generate__ using `roxygen2` package. 
+
+???
+
+Creating `NAMESPACE` files used to be a huge pain point of `R` package writing; now it's trivial with `roxygen2`.
+
+---
+
+## `R` directory
+
+The `R` directory contains all the code for your __package's contents__.
+* Defines all the objects that will be loaded into `R` when we run `library(package)`
+
+[Browse full contents](https://github.com/karthik/wesanderson/tree/master/R) of `wesanderson`. 
+* Find where `wes_palettes` is defined.
+
+```{r}
+wes_palettes[1:3]
+```
+
+--- 
+
+## `man` directory
+
+The `man` directory contains all your documentation files.
+* Defines the docs shown when we run `?some_function`.
+
+[Browse full contents](https://github.com/karthik/wesanderson/tree/master/man) of `wesanderson`.
+
+The formatting is annoying, but `roxygen2` makes it trivial to make these files.
+
+---
+
+## `roxygen2`
+
+```{r, show-roxygen-docs}
+#' Compute a difference in quantiles (one sentence describing what your fn does)
+#' 
+#' This function returns the difference between two quantiles of a given vector 
+#' (a more detailed description of what the function is and how
+#' it works).
+#'
+#' @param x A \code{numeric} vector
+#' @param q1 Quantile 1
+#' @param q2 Quantile 2
+#'
+#' @return The difference between quantile \code{q2} and quantile \code{q1}.
+#'
+#' @importFrom stats quantile
+#' @export
+#' 
+#' @examples
+#' x <- rnorm(25)
+#' quant_diff(x, 0.25, 0.75)
+
+quant_diff <- function(x, q1, q2){
+  quants <- stats::quantile(x, p = c(q1, q2))
+  return(quants[2] - quants[1])
+}
+```
+
+???
+
+Some notes on what's going on here:
+* This code is included in your `.R` files.
+* Each line starts with the `\#'` character.
+* There can be multiple functions defined in one file. Just put a comment block like this one before each function.
+* The description of `q1` and `q2` could probably be better (e.g., say they need to be numeric?)
+
+To understand the various options, it's easiest to first look at what's generated when this is run through `roxygen2`.
+
+---
+
+## `roxygen2`
+
+.center[![Screen shot of document generated from code on previous slide](exampledocs.png)]
+
+???
+
+Some more notes:
+* The first sentence is what goes in the header
+* The next paragraph is the description
+* Arguments are populated by the `@param` tags, which use style `argument description of argument`
+* The `@return` is used to describe the format of the output
+* Note the use of `\code{some words}` to get "some words" to render in monospaced font
+* If you're submitting to CRAN, `@examples` need to run fast (<5 secs)
+  * If submitting to CRAN, you might want to [look into](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html#functions) `\dontrun{}`, `\dontshow{}` and `donttest{}`
+
+---
+
+## `roxygen2`
+
+If you look at `NAMESPACE` for this fake package, it now looks like this:
+
+.code-box[
+\# Generated by roxygen2: do not edit by hand <br><br>
+
+export(quant_diff)<br>
+importFrom(stats,quantile)
+]
+
+???
+
+Some notes here:
+* The `@export` tag makes the function `quant_diff` visible to users. Export external functions that you want users to interact with. 
+* If you do not put `@export` then the function will be "invisible". 
+  * To view the function you have to use `package:::function` (not the __three__ semicolons)
+* The `@importFrom` command says that your package wants to use a function from another package.
+  * Here `quantile` is a function in the `stats` package
+  * Good practice to write `stats::quantile` in your package code
+  * If you `@importFrom`, then you need to include the package in your `Imports` line of your `DESCRIPTION`
+
+---
+
+## Data
+
+Reasons why you might include data in a package:
+* The data themselves are interesting
+* Toy data to demonstrate your code
+  * E.g., in `wesanderson`, the `heatmap` data
+
+In general, data go in the `/data` folder. Shocking!
+* Data should be an `.RData` object (or similar)
+* E.g., created in `R` using the `save(file = ...)` function
+
+If you include data, include `LazyData: true` in your `DESCRIPTION`.
+
+???
+
+`LazyData` means the data are not loaded into `R` memory unless specifically requested. 
+
+---
+
+## Documenting data
+
+Data are documented in a similar way as code.
+
+```{r, eval = FALSE}
+#' Header for your data set
+#'
+#' A great data set that will be so useful.
+#'
+#' @format A data frame with X rows and Y columns:
+#' \describe{
+#'   \item{column1}{an interesting feature}
+#'   \item{column2}{another interesting feature}
+#'   ...
+#' }
+#' @source \url{http://whereyodatafrom.com}
+"name_of_data"
+```
+
+???
+
+If the name of your data set is `name_of_data`, this help file can be accessed using `?name_of_data`. 
+
+Note the use of `\describe`, which creates an itemized list in the documentation. This can also be useful for documenting function output as well.
+
+---
+
+## Documentation
+
+.center[
+.large[Documentation > Usability > Statistical superiority > Speed] <br> <br> 
+<img src="homer.gif" alt="Homer Simpson does not understand your documentation" style="height:300px;">
+]
+
+???
+
+Modified from [Jeff Leek's R package tutorial](https://github.com/jtleek/rpackages). He places speed over statistical superiority, but I tend to disagree. I'd rather wait longer to get a better answer than have a bad answer right now... but only to a point.
+
+Assume that Homer Simpson is going to be using your package and document accordingly. 
+
+---
+
+## Other package contents
+
+`.Rbuildignore`
+* If you have files in your package folder that you want to ignore when its built, include them here. 
+
+`README`
+* Include a README for your GitHub repo.
+
+`.travis.yml`
+* A yaml file that configures some automatic testing of your package that is triggered whenever you push your code to GitHub. 
+
+???
+
+Easiest to write your `README` in R markdown with `github_document` as output. 
+
+---
+
+## `Makefile`
+
+Here's a basic `Makefile` for `R` packages:
+
+.code-box[
+.small[
+README.md: README.Rmd <br>
+&nbsp;&nbsp; Rscript -e "rmarkdown::render('README.Rmd', output_file = 'README.md')" <br> 
+
+doc: <br>
+&nbsp;&nbsp; Rscript -e "devtools::document()" <br>
+
+build: <br>
+&nbsp;&nbsp; Rscript -e "devtools::build()" <br>
+
+install: <br> 
+&nbsp;&nbsp; Rscript -e "devtools::install()" <br>
+
+check:<br> 
+&nbsp;&nbsp; Rscript -e "devtools::check()" <br>
+
+test: <br>
+&nbsp;&nbsp; Rscript -e "devtools::test()" <br>
+
+site: README.md <br>
+&nbsp;&nbsp; Rscript -e "pkgdown::build_site()" <br>
+
+]
+]
+
+???
+
+The most important things here for personal use are:
+* `README.md` - make the README for GitHub
+* `doc` - create the package documents
+* `build` - build the package, which creates a tarball (i.e., compressed file with extension `.tar.gz`) of the package that can be installed, or submitted to CRAN
+  * same as running `R CMD BUILD` at the command line
+* `install` - install the package to your local machine, so you can try it out
+  * same as running `R CMD BUILD` and `R CMD INSTALL` at the command line
+
+The additional ones for producing packages for CRAN are: 
+* `check` - checks the packages for problems in its construction
+* `test` - runs unit tests (more later)
+* `site` - uses `pkgdown` to create a pretty looking website for the package
+
+---
+
+## `load_all`
+
+A typical work flow for creating a package:
+* write source code
+* check if it works by running an example
+* fix broken source code?
+* check if it works by running an example
+* actually fix broken source code?
+* check if it works...
+
+It would be very annoying to build and install your package each time.
+
+`devtools::load_all` to the rescue!
+* Reads all your packages functions into `R`'s memory
+* Just like `source`, but for a whole package
+
+???
+
+I think I'd written probably 3 large R packages before someone told me about `load_all` 😩
+
+---
+
+## Package vignettes
+
+A __package vignette__ is a tutorial for your package. 
+* Guide users (or you, later) through __how the code works__. 
+
+Make a `/vignettes` subdirectory that includes a `.Rmd` file. Include the following in the YAML header.
+
+```{r, show-yaml-header, eval = FALSE}
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Intro to RSkittleBrewer}
+    %\VignetteEngine{knitr::rmarkdown}
+    \usepackage[utf8](inputenc)
+```
+
+* Load the package in the first code chunk.
+* In `DESCRIPTION`, include 
+  * `Suggests: knitr, rmarkdown` 
+  * `VignetteBuilder: knitr`.
+
+???
+
+If you submit the package to CRAN, links to the vignettes will be listed on web page for the package. You might also refer to them in your `README` file.
+
+You can check out some of my package vignettes [here](https://github.com/benkeser/drtmle/blob/master/vignettes/using_drtmle.Rmd) (or [rendered prettily](https://benkeser.github.io/drtmle/articles/using_drtmle.html)) or [here](https://github.com/benkeser/drord/blob/master/vignettes/using_drord.Rmd) (or [rendered prettily](https://benkeser.github.io/drord/articles/using_drord.html)).
+
+Within R, you can use the `vignette` function to view the available vignettes for a package and to open a particular vignette. 
+
+---
+
+## Misc: versioning
+
+If you're just building a package for your own use, ignore this.
+
+If you're building a package for distribution:
+* The version should increase with subsequent releases of a package
+  * "release" is used loosely here
+* A version number consists of three numbers, `<major>.<minor>.<patch>`
+* An in-development package has four numbers `<major>.<minor>.<patch>.<development.version>` 
+  * Starting at `9000`.
+
+???
+
+These are just general guidelines, but good to be aware of standard practice if you are releasing R packages to the world. 
+
+A major change would be something that potentially breaks old code (though, try not to do this suddenly or people will get pissed at you) or huge new feature sets are added. 
+
+A minor change is when small features are added (e.g., now you can customize plot labels; Wes Anderson released a new movie, etc...). 
+
+Patches are for very minor bug fixes.
+
+Once you have released something on CRAN, then bump the version of the GitHub repository to include `.9000` at the end, so it's very clear whether users are using a CRAN released package or a GitHub one. 
+
+---
+
+## Misc.: license
+
+If you are publishing code, you need to include a license. 
+* Read more about them [here](https://blog.codinghorror.com/pick-a-license-any-license/).
+
+There's a huge, [annoying debate](https://www.google.com/search?q=bsd+vs+gpl) about which to use.
+* tldr: pick between [MIT](https://en.wikipedia.org/wiki/MIT_License) and [GPL3](https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3)
+  * MIT = do what you want, don't sue me
+  * GPL3 = do what you want, don't sue me, don't use for proprietary software
+
+Probably if you get to a point where the distinctions matter, you'll have come to a better understanding of the nuances. 
+* Or someone in your company's legal department will.
+
+???
+
+Recent versions of `bash` are distributed under GPL, which is why Apple ships with old versions of `bash` and is moving to `zsh`. 
+
+---
+
+## Misc.: making code citable
+
+[Get](https://guides.github.com/activities/citable-code/) a [doi](https://doi.org) for your code to make it citable.
+* E.g., using a service like [Zenodo](https://zenodo.org/)
+
+DOI = Digital Object Identifier
+* a string of numbers, letters and symbols used to __permanently link__ to an article/code/etc.. on the internet.
+
+Good for increasing your scientific impact. 
+* Get credit for your software/data products!
+
+---
+
+## Misc.: helpful packages
+
+The [`assertthat`](https://github.com/hadley/assertthat) package is useful for checking inputs to functions. 
+* Don't let users break your functions by inputting crazy values!
+
+If you are going to be doing serious software development, you need to understand [unit testing](https://en.wikipedia.org/wiki/Unit_testing)
+* In `R`, use [`testthat`](https://testthat.r-lib.org/) package.
+* Report code coverage (e.g., [codecov](https://codecov.io/)) using [`covr`](https://cran.r-project.org/web/packages/covr/)
+  * See e.g., [drtmle](https://github.com/benkeser/drtmle) package for set up and examples. 
+
+???
+
+If we have time, we'll discuss unit testing in depth. 
