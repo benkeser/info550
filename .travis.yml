@@ -38,8 +38,8 @@ install:
   dependencies = TRUE) }'
 - Rscript -e 'if(!"remotes" %in% rownames(installed.packages())) { install.packages("remotes",
   dependencies = TRUE) }'
-- Rscript -e 'if(!"icon" %in% rownames(installed.packages())) { remotes::install_github("ropenscilabs/icon")
-  }'
+- Rscript -e 'if(!"icon" %in% rownames(installed.packages())) { remotes::install_github("ropenscilabs/icon")}'
+- Rscript -e 'if(!"wesanderson" %in% rownames(installed.packages())) { install.packages("wesanderson", dependencies = TRUE) }'
 - Rscript -e 'tinytex::install_tinytex()'
 - Rscript -e 'tinytex::tinytex_root()'
 - sudo apt install python3-pip
