@@ -54,6 +54,9 @@ permalink: /readings/
 * [Some Essential Unix Commands](http://www.english.upenn.edu/~curran/205-505/unix.html)
 * [bash FAQ](http://mywiki.wooledge.org/BashFAQ)
 * [Command line murder mystery](https://github.com/veltman/clmystery)
+* [Tutorial video: How to Run Linux/Bash on Windows 10 Using Windows Subsystem for Linux](https://www.youtube.com/watch?v=xzgwDbe7foQ)
+* [Bash tutorial videos](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+* [Using Brew on Windows 10 with Windows Subsystem for Linux](https://medium.com/@edwardbaeg9/using-homebrew-on-windows-10-with-windows-subsystem-for-linux-wsl-c7f1792f88b3)
 
 ## git and GitHub
 
@@ -125,7 +128,12 @@ permalink: /readings/
 * [Karl Broman's R package primer](https://kbroman.org/pkg_primer/)
 * [Jenny Bryan's Write your first R package](https://stat545.com/package-slides.html)
 * [CRAN R package tutorial](Creating R Packages: A Tutorial)
-
+* [`pkgdown`: Make pretty websites for your packages](https://pkgdown.r-lib.org/)
+* [`roxygen2` vignette](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html)
+* [`testthat` package](https://testthat.r-lib.org/)
+* [`assertthat` package](https://github.com/hadley/assertthat)
+* [Pick a license, any license](https://blog.codinghorror.com/pick-a-license-any-license/)
+* [`roxygen2` documentation](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)
 
 ## Docker
 
