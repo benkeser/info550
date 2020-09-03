@@ -34,7 +34,9 @@ extra_css <- list(
   ".large" =  list(`font-size` = "150%"),
   "ul li" = list(`margin-bottom` = "10px"),
   ".red" = list(color = "#da291c",
-                `font-weight` = "600")
+                `font-weight` = "600"),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline")
 )
 
 style_mono_accent(

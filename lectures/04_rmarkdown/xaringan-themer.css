@@ -277,6 +277,10 @@ ul li {
   color: #da291c;
   font-weight: 600;
 }
+.green {
+  color: #348338;
+  font-weight: 600;
+}
 .remark-code-line-highlighted {
   border: 2px solid #f2a900;
   background-color: #002451;
@@ -291,4 +295,10 @@ ul li {
   align-items: left;
   font-family: Courier Prime;
   border: 1px solid black;
+}
+a {
+  color: #007dba;
+}
+a:hover {
+  text-decoration: underline;
 }

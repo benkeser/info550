@@ -279,3 +279,9 @@ ul li {
   color: #da291c;
   font-weight: 600;
 }
+a {
+  color: #007dba;
+}
+a:hover {
+  text-decoration: underline;
+}

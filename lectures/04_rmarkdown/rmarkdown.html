@@ -22,7 +22,7 @@ class: left, middle, inverse, title-slide
 
 &lt;style type="text/css"&gt;
 .remark-slide-content {
-    font-size: 25px
+    font-size: 22px
 }
 &lt;/style&gt;
 
@@ -69,13 +69,13 @@ aspects of html include:
 
 ### R Markdown
 
-R Markdown is developed by RStudio
+R Markdown is developed by [RStudio](https://rstudio.com/).
 * __R__ : it can incorporate `R` code chunks
 	* but also `python`, `bash`, ...
 * __Markdown__ : based on markdown syntax
 	* but also LaTex, html, ...
 
-No more running code, copy paste results. 
+No more .red[copy and paste] for results. 
 * All automated! 
 * Don't touch that mouse!
 
@@ -131,7 +131,7 @@ A key design element of Markdown is its readability. The plain text
 files are imminently readable with various extra commands and markup associated
 with LaTex or html. 
 
-Many websites allow text input in Markdown (e.g., GitHub comments, reddit). 
+Many websites allow text input in Markdown (e.g., GitHub comments, Stack Overflow, reddit, jekyll blogs, wordpress websites, ...). 
 
 ---
 
@@ -181,7 +181,7 @@ The value of the variable I created is `r my_variable`.
 This renders as 
 
 .clearbox[
-The value of the variable I created is -0.1863949.
+The value of the variable I created is 1.6234481.
 ]
 
 No more copy and pasting results into text!
@@ -198,9 +198,9 @@ All inline code needs to be on a single line.
 
 R Markdown documents begin with a __yaml header__. 
 * "meta-data" for the document
-* options that control how the document is rendered
+* options that control __how the document is rendered__
 
-A basic yaml header:
+A basic __yaml header__:
 
 ````markdown
 ---
@@ -243,11 +243,10 @@ output:
 
 ???
 
-I am constantly messing up yaml syntax and chasing down mysterious errors. 
-Once you have a header you like, I recommend sticking with it unless you have
-serious cause to change it. 
+I am constantly messing up yaml syntax and chasing down mysterious errors. Once you have a header you like, I recommend sticking with it unless you have serious cause to change it. 
 
 There are almost endless options for customizing the looks of documents.
+* Some are native to the type of document being rendered (e.g., LaTex-specific options)
 
 ---
 
@@ -270,36 +269,33 @@ further documentation):
 
 ### knitr and pandoc
 
-* `rmarkdown`
+* [`rmarkdown`](https://rmarkdown.rstudio.com/)
 	* an `R` package that converts `.Rmd` to different file types
 	* an `R` interface to `pandoc`
 
-* `pandoc`
+* [`pandoc`](https://pandoc.org/)
 	* a general purpose document converter
 	* command line tool, no GUI
+  * `brew install pandoc`
 
-* `knitr`
+* [`knitr`](https://yihui.org/knitr/)
 	* an `R` package that executes code chunks
 	* "knits" results back to document
 
 ???
 
-It's useful to understand which program is doing what in case you 
-need to chase down errors. 
+It's useful to understand which program is doing what in case you need to chase down errors. 
 
-Also, note that you need `pandoc` to render R Markdown. If you have R 
-Studio installed, `pandoc` comes with it. Otherwise, you need to do a separate
-installation. 
+Also, note that you need `pandoc` to render R Markdown. If you have R Studio installed, `pandoc` comes with it. Otherwise, you need to do a separate installation (e.g., using `brew` or `apt`)
 
 ---
 
 ### Rendering
 
-The "easiest" way to render documents is click "Knit" in RStudio
+The "easiest" way to render documents is click "Knit" in RStudio.
 * Don't touch that mouse!
 
-We will be rendering documents from the command line as follows.
-
+We will be rendering documents from the __command line__.
 
 
 ```bash
@@ -311,31 +307,40 @@ See the [`render` documentation](https://rmarkdown.rstudio.com/docs/reference/re
 
 ???
 
-Here we are calling `Rscript` (the R executable for scripts) from the command 
-line. This starts a new session of `R` and executes the command
-`rmarkdown::render('example.Rmd')`, which creates the document `example.html`.
+Here we are calling `Rscript` (the R executable for scripts) from the command line. This starts a new session of `R` and executes the command `rmarkdown::render('example.Rmd')`, which creates the document `example.html`.
 
-The `::` syntax in the `R` command says, "in the `rmarkdown` package use 
-the (exported, in case you care) function `render`. 
-* Allows us to avoid loading the library
+The `::` syntax in the `R` command says, "in the `rmarkdown` package use the (exported, see R packages lecture) function `render`. 
+* Allows us to avoid the extra line of code to load the library
 * e.g., you could also run `Rscript -e "library(rmarkdown); render('example.Rmd')"`, but its more typing. 
 
 ---
 
 ### Breakout exercise 1
 
-Download &lt;a href="https://raw.githubusercontent.com/benkeser/info550/gh-pages/lectures/05_rmarkdown/examples/example.Rmd" download&gt;`example.Rmd`&lt;/a&gt;. 
+Download &lt;a href="https://raw.githubusercontent.com/benkeser/info550/gh-pages/lectures/04_rmarkdown/examples/example.Rmd" download&gt;`example.Rmd`&lt;/a&gt;. 
 * Render the document as is from the command line.
 * Without changing `example.Rmd`, render it as an `ioslides_presentation` that is saved as `example_presentation.html`. 
-* Add additional options in the yaml header (e.g., change font size, or code highlighting), render the document again and see what changes. 
+* Add __some additional options__ in the yaml header (e.g., change font size, or code highlighting), render the document again and see what changes. 
 * In the __Executive Summary__ section, add inline code that reports the number of rows and columns in the `mtcars` data set. Render to make sure it works. 
+
+---
+
+### Breakout 1 poll
+
+&lt;iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0"&gt;
+
+---
+
+### Breakout 1 poll results
+
+&lt;iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&amp;controls=none" width="100%" height="500px" frameborder="0"&gt;
 
 ---
 
 ### Code chunk options
 
-* Add short labels explaining what chunks do.
-* Include options to control how code chunks behave.
+* Add short __labels__ explaining what chunks do.
+* Include __options__ to control how code chunks behave.
 
 ````markdown
 Here is some plain text in my document explaining what I did.
@@ -354,7 +359,7 @@ This renders as
 .clearbox[
 Here is some plain text in my document explaining what I did.
 
-The value of the variable I created is -0.1863949.
+The value of the variable I created is 1.6234481.
 ]
 
 ???
@@ -372,7 +377,7 @@ Here we'll go over just a few. For a full list see
 
 ### Code chunk options
 
-Option values can be any valid `R` expression. For example,
+Option values can be __any valid `R` expression__. For example,
 
 ````markdown
 Here is some plain text in my document explaining what I did.
@@ -412,12 +417,19 @@ If `should_i_print == FALSE`, this renders as
 Here is some plain text in my document explaining what I did.
 ]
 
+???
+
+When might you use this?
+* You are writing a script that analyzes several outcomes. Set an option for a report that allows the user to decide which outcomes they are interested in.
+* Writing code for outlier diagnosis, *if outliers are present*. If not, do nothing.
+* ...
+
 ---
 
 ### Code chunk options
 
 
-Common options for controlling display of results.
+Common options for __controlling display__ of results.
 
 | Option    | Action                                              |
 |:----------|:----------------------------------------------------|
@@ -432,7 +444,7 @@ Common options for controlling display of results.
 
 ### Code chunk options
 
-Change default options using code chunk at the top of the `.Rmd`.
+Change __default options__ using code chunk at the top of the `.Rmd`.
 
 ````markdown
 ```{r, setup, include=FALSE}
@@ -446,7 +458,7 @@ knitr::opts_chunk$set(
 
 ### Figures
 
-Figures produced by R code will be placed after the code chunk from which they were generated. 
+Figures produced by R code will be placed __after the code chunk__ from which they were generated. 
 
 ````markdown
 ```{r, make-a-plot}
@@ -467,15 +479,15 @@ The most relevant options are `fig.height`, `fig.width`, and `fig.cap`.
 
 ### Tables
 
-There are several options for making tables in R Markdown.
+There are several options for __making tables in R Markdown__.
 * just print a data.frame or matrix
-	* \+ easy, - monospaced format
+	* .green[\+] easy, .red[-] monospaced format
 * [`knitr::kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
-	* \+ easy, nice looking, - not 100% flexible
+	* .green[\+] easy, nice looking, .red[-] not 100% flexible
 * [`xtable::xtable`](https://www.rdocumentation.org/packages/xtable/versions/1.8-4/topics/xtable)
-	* \+ highly customizable, - only for pdfs (LaTex based)
+	* .green[\+] highly customizable, .red[-] only for pdfs (LaTex based)
 * [`pander::pander`](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)
-	* \+ default tables for different `R` classes
+	* .green[\+] default tables for different `R` classes
 * [`stargazer::stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
 
 ???
@@ -488,8 +500,8 @@ Think about whether there is a need for really nicely formatted tables or whethe
 
 ### Referencing
 
-The [`bookdown` package](https://bookdown.org/) allows for table/figure referencing. 
-* use e.g., `output: bookdown::html_document2()`
+The [`bookdown` package](https://bookdown.org/) allows for __table/figure referencing__. 
+* use e.g., `output: bookdown::html_document2`
 
 ````markdown
 As we see in Figure \@ref(fig:make-a-plot), there is no relationship.
@@ -523,7 +535,7 @@ A few notes:
 
 ### Rounding
 
-Automating rounding can be annoying, but definitely do it!
+Automating __rounding__ can be annoying, .red[but definitely do it]!
 * `round` drops 0s 
 * `sprintf` is better
 
@@ -596,10 +608,10 @@ your collaborators will thank you.
 	* e.g., `~/my_folder/that_you/dont_have/`
 * Keep all code and data in one directory
 	* e.g., a GitHub repo
-* If you must use absolute paths, define variables with directories at the top of your document and describe fully in `README`.
+* If you must use absolute paths, __define variables with directories__ at the top of your document and describe fully in `README`.
 	* e.g., `save_dir = ~/my_folder`
 * For anything with randomness, `set.seed`!
-* Include a final chunk that displays the output of `getwd()` and `devtools::session_info()`.
+* Include a __final chunk__ that displays the output of `getwd()` and `devtools::session_info()`.
 	* information about your system to help others reproduce
 * Use `Make` files to help users understand construction
 	* next lecture
@@ -613,6 +625,18 @@ Working again off `example.Rmd`:
 * add inline code in Executive Summary to describe conclusion;
 * add code to chunk `make-scatter` that produces a scatter plot and modify options until it looks good;
 * add code to chunk `make-table` and modify until it looks good (make sure you round!).
+
+---
+
+### Breakout 2 poll
+
+&lt;iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0"&gt;
+
+---
+
+### Breakout 2 poll results
+
+&lt;iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&amp;controls=none" width="100%" height="500px" frameborder="0"&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
