@@ -73,6 +73,7 @@ permalink: /readings/
 
 ## R Markdown
 
+* [Installing `rmarkdown` on WSL](/info550/recordings/installing-r-wsl)
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 * [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
 * [R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
