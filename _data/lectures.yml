@@ -71,12 +71,3 @@
   title: Coding in style
   tldr: Write your code for humans to read. No one else will read it, but you might,
     later.
-- dirname: 09_rpackages
-  filename: rpackages
-  reading: r-packages
-  recording: ''
-  recording_url: writing-r-packages
-  start: 0:0:0
-  title: Writing R packages
-  tldr: SAS maintainers HATE them. This one weird trick will allow you to distribute
-    your software for free.
