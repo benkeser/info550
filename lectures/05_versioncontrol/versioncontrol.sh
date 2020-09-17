@@ -5,7 +5,7 @@ git config --global user.name "Jane Doe"
 # set email
 git config --global user.email "janedoe@emory.edu"
 
-### git-init} ###
+### git-init } ###
 # make a directory (tmp_gitdir is "git repository")
 mkdir ~/tmp_gitdir
 # move into directory
@@ -34,15 +34,15 @@ git status
 git add README.md
 git status
 
-### git-commit1} ###
+### git-commit1 } ###
 # make a commit
 git commit -m "added README to repo"
 
-### git-log} ###
+### git-log } ###
 # view history of commits
 git log
 
-### make-gitignore} ###
+### make-gitignore } ###
 # make a sandbox folder
 mkdir sandbox
 # add a (blank) file to it
@@ -52,7 +52,7 @@ echo "sandbox/*" >> .gitignore
 # check status of repo 
 git status
 
-### branching} ###
+### branching } ###
 # make a branch called devel
 git branch devel
 # checkout that branch
@@ -60,7 +60,7 @@ git checkout devel
 # see all branches
 git branch
 
-### modify-files} ###
+### modify-files } ###
 # add a line to README and commit
 echo "Some cool new info for the README!" >> README.md
 git add README.md 
@@ -70,15 +70,15 @@ git commit -m "update the README"
 # look at contents of README
 cat README.md
 
-### look-master} ###
+### look-master } ###
 # switch back to master
 git checkout master
 
-### look-readme} ###
+### look-readme } ###
 # look at contents of README
 cat README.md
 
-### merge-devel} ###
+### merge-devel } ###
 # **!! on the master branch !!**
 git merge devel
 
@@ -89,55 +89,46 @@ cat README.md
 git checkout master
 git merge new-idea
 
-### create-conflict1-mac ###
+### create-conflict ###
 git checkout devel
 # replace a word in README
+# if on mac use this version of sed
 sed -i "" 's/cool/great/g' README.md
-git add README.md
-git commit -m "great info, not cool info."
-
-### create-conflict1-notmac ###
-git checkout devel
-# replace a word in README
+# if on linux use this version
 sed -i 's/cool/great/g' README.md
 git add README.md
 git commit -m "great info, not cool info."
 
-### cat-it-devel} ###
+### cat-it-devel } ###
 cat README.md
 
-### create-conflict2-mac ###
+### create-conflict-again ###
 git checkout master
+# if on mac use this version of sed
 sed -i "" 's/cool/excellent/g' README.md
-git add README.md
-git commit -m "excellent info, not cool info."
-
-### create-conflict2-notmac ###
-git checkout master
+# if on linux use this version
 sed -i 's/cool/excellent/g' README.md
 git add README.md
 git commit -m "excellent info, not cool info."
 
-### cat-it-master} ###
+### cat-it-master } ###
 cat README.md
 
 ### create-conflict3 ###
 git merge devel
 
-### cat-it-conflict} ###
+### cat-it-conflict } ###
 cat README.md
 
-### fix-conflict-mac ###
+### fix-conflict ###
 # remove lines 3-5 and 7
+# if on mac use this version of sed
 sed -i "" '3,5d;7d' README.md
-cat README.md
-
-### fix-conflict-notmac ###
-# remove lines 3-5 and 7
+# if on linux use this version of sed
 sed -i '3,5d;7d' README.md
 cat README.md
 
-### merge-fixed-conflicts} ###
+### merge-fixed-conflicts } ###
 git add README.md
 git commit -m "fixed merge conflicts"
 

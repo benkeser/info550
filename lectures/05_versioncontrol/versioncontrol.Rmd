@@ -256,7 +256,7 @@ if [ -d ~/tmp_gitdir ]; then rm -rf ~/tmp_gitdir; fi
 ```
 Before workflow, we'll use `git init` to set up a repository.
 
-```{bash, git-init}
+```{bash, git-init }
 # make a directory (tmp_gitdir is "git repository")
 mkdir ~/tmp_gitdir
 # move into directory
@@ -328,7 +328,7 @@ has yet been committed.
 
 ### Make a commit
 
-```{bash, git-commit1}
+```{bash, git-commit1 }
 # make a commit
 git commit -m "added README to repo"
 ```
@@ -367,7 +367,7 @@ etc...). It's OK to do so, but generally "frowned upon".
 
 A history of commits can be viewed using `git log`.  
 
-```{bash, git-log}
+```{bash, git-log }
 # view history of commits
 git log
 ```
@@ -394,7 +394,7 @@ background-size: contain
 
 A `.gitignore` file tells `git` which files you __do not__ want to track. 
 
-```{bash, make-gitignore}
+```{bash, make-gitignore }
 # make a sandbox folder
 mkdir sandbox
 # add a (blank) file to it
@@ -450,7 +450,7 @@ from a git repo.
   * Try something new that might break things
   * When working, __merge__ the code back to main branch
 
-```{bash, branching}
+```{bash, branching }
 # make a branch called devel
 git branch devel
 # checkout that branch
@@ -472,7 +472,7 @@ A shortcut to create and checkout a branch is `git checkout -b devel`
 
 On the `devel` branch, we can modify files in the repository.
 
-```{bash, modify-files}
+```{bash, modify-files }
 # add a line to README and commit
 echo "Some cool new info for the README!" >> README.md
 git add README.md 
@@ -490,12 +490,12 @@ cat README.md
 
 When we switch back to the `master` branch, changes are "gone."
 
-```{bash, look-master}
+```{bash, look-master }
 # switch back to master
 git checkout master
 ```
 
-```{bash, look-readme}
+```{bash, look-readme }
 # look at contents of README
 cat README.md
 ```
@@ -506,7 +506,7 @@ cat README.md
 
 * When we're satisfied with changes, we `merge` branches.
 
-```{bash, merge-devel}
+```{bash, merge-devel }
 # **!! on the master branch !!**
 git merge devel
 ```
@@ -614,7 +614,7 @@ git add README.md
 git commit -m "great info, not cool info."
 ```
 
-```{bash, cat-it-devel}
+```{bash, cat-it-devel }
 cat README.md
 ```
 
@@ -657,7 +657,7 @@ git add README.md
 git commit -m "excellent info, not cool info."
 ```
 
-```{bash, cat-it-master}
+```{bash, cat-it-master }
 cat README.md
 ```
 * There is now a conflict between `devel` and `master`!
@@ -679,7 +679,7 @@ git merge devel
 * text between `<<<<<<` and `=======` is `master` code
 * text between `======` and `>>>>>>>` is `devel` code
 
-```{bash, cat-it-conflict}
+```{bash, cat-it-conflict }
 cat README.md
 ```
 
@@ -723,7 +723,7 @@ cat README.md
 
 * Now we can successfully complete the merge.
 
-```{bash, merge-fixed-conflicts}
+```{bash, merge-fixed-conflicts }
 git add README.md
 git commit -m "fixed merge conflicts"
 ```
