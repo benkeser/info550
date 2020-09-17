@@ -1,7 +1,7 @@
 ---
 title: "Version control using git and GitHub"
 author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#git-and-github)'
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#git-and-github) <br> `r icon::fa("code")` <a href="versioncontrol.sh" download="versioncontrol.sh" style="color:white">Code chunks</a> '
 tldr: "Stop saving fifty copies of the same file with different names."
 recording: ""
 start: "0:0:0"
@@ -234,7 +234,7 @@ through each of these steps in depth and what they mean.
 
 The first time you use `git`, you will need to configure. 
 
-```{bash git-config, eval = FALSE}
+```{bash, git-config, eval = FALSE}
 # set user name
 git config --global user.name "Jane Doe"
 # set email
@@ -250,13 +250,13 @@ git config --global user.email "janedoe@emory.edu"
 
 ### Initialize repository
 
-```{bash rm-existing, include = FALSE, message = FALSE, warning = FALSE}
+```{bash rm-existing, echo = FALSE, include = FALSE, message = FALSE, warning = FALSE}
 # a piece of code to remove this directory if it exists
 if [ -d ~/tmp_gitdir ]; then rm -rf ~/tmp_gitdir; fi
 ```
 Before workflow, we'll use `git init` to set up a repository.
 
-```{bash git-init}
+```{bash, git-init}
 # make a directory (tmp_gitdir is "git repository")
 mkdir ~/tmp_gitdir
 # move into directory
@@ -265,7 +265,7 @@ cd ~/tmp_gitdir
 git init
 ```
 
-```{bash show-gitfile, highlight.output=4}
+```{bash, show-gitfile, highlight.output=4}
 # see what it did
 ls -lha ~/tmp_gitdir
 ```
@@ -282,7 +282,7 @@ Don't ask me how. It's just magic, as far as I can tell.
 knitr::opts_knit$set(root.dir = "~/tmp_gitdir")
 ```
 
-```{bash git-status, tidy=TRUE, tidy.opts=list(width.cutoff=80)}
+```{bash, git-status, tidy=TRUE, tidy.opts=list(width.cutoff=80)}
 # make a README.md file from the command line
 echo "## My first repository" >> README.md
 echo "This is just a toy repository for demonstration." >> README.md
@@ -311,7 +311,7 @@ yet told `git` that we want to track.
 
 ### Add files to a commit
 
-```{bash git-add1, highlight.output=5}
+```{bash, git-add1, highlight.output=5}
 # add the README to the commit
 git add README.md
 git status
@@ -328,7 +328,7 @@ has yet been committed.
 
 ### Make a commit
 
-```{bash git-commit1}
+```{bash, git-commit1}
 # make a commit
 git commit -m "added README to repo"
 ```
@@ -367,7 +367,7 @@ etc...). It's OK to do so, but generally "frowned upon".
 
 A history of commits can be viewed using `git log`.  
 
-```{bash git-log}
+```{bash, git-log}
 # view history of commits
 git log
 ```
@@ -394,7 +394,7 @@ background-size: contain
 
 A `.gitignore` file tells `git` which files you __do not__ want to track. 
 
-```{bash make-gitignore}
+```{bash, make-gitignore}
 # make a sandbox folder
 mkdir sandbox
 # add a (blank) file to it
@@ -450,7 +450,7 @@ from a git repo.
   * Try something new that might break things
   * When working, __merge__ the code back to main branch
 
-```{bash branching}
+```{bash, branching}
 # make a branch called devel
 git branch devel
 # checkout that branch
@@ -472,14 +472,14 @@ A shortcut to create and checkout a branch is `git checkout -b devel`
 
 On the `devel` branch, we can modify files in the repository.
 
-```{bash modify-files}
+```{bash, modify-files}
 # add a line to README and commit
 echo "Some cool new info for the README!" >> README.md
 git add README.md 
 git commit -m "update the README"
 ```
 
-```{bash cat-readme, highlight.output=3}
+```{bash, cat-readme, highlight.output=3}
 # look at contents of README
 cat README.md
 ```
@@ -490,12 +490,12 @@ cat README.md
 
 When we switch back to the `master` branch, changes are "gone."
 
-```{bash look-master}
+```{bash, look-master}
 # switch back to master
 git checkout master
 ```
 
-```{bash look-readme}
+```{bash, look-readme}
 # look at contents of README
 cat README.md
 ```
@@ -506,12 +506,12 @@ cat README.md
 
 * When we're satisfied with changes, we `merge` branches.
 
-```{bash merge-devel}
+```{bash, merge-devel}
 # **!! on the master branch !!**
 git merge devel
 ```
 
-```{bash check-merge, highlight.output=3}
+```{bash, check-merge, highlight.output=3}
 cat README.md
 ```
 
@@ -531,7 +531,7 @@ cat README.md
   ]
 ]
 
-```{bash check-merge1, eval = FALSE}
+```{bash, check-merge1, eval = FALSE}
 git checkout master
 git merge new-idea
 ```
@@ -584,6 +584,20 @@ that a branch is just a history of commits.
 
 * What if commits on different branches affect same code?
 
+<!-- 
+  Include an extra code chunk to grab this bash
+```{bash, create-conflict, include = FALSE, error = TRUE, eval = FALSE}
+git checkout devel
+# replace a word in README
+# if on mac use this version of sed
+sed -i "" 's/cool/great/g' README.md
+# if on linux use this version
+sed -i 's/cool/great/g' README.md
+git add README.md
+git commit -m "great info, not cool info."
+```
+-->
+
 ```{bash, create-conflict1-mac, eval = on_mac, echo = on_mac}
 git checkout devel
 # replace a word in README
@@ -615,6 +629,19 @@ If you are on Mac OSX, you need to change the `sed` command to
 ---
 
 ### Merge conflicts
+
+<!-- 
+  Include an extra code chunk to grab this bash
+```{bash, create-conflict-again, include = FALSE, error = TRUE, eval = FALSE}
+git checkout master
+# if on mac use this version of sed
+sed -i "" 's/cool/excellent/g' README.md
+# if on linux use this version
+sed -i 's/cool/excellent/g' README.md
+git add README.md
+git commit -m "excellent info, not cool info."
+```
+-->
 
 ```{bash, create-conflict2-mac, eval = on_mac, echo = on_mac}
 git checkout master
@@ -669,6 +696,18 @@ You can search files on these symbols to quickly identify all merge conflicts.
 ### Merge conflicts
 
 * We need to edit `README.md` to resolve conflicts. 
+
+<!--
+
+```{bash, fix-conflict, include = FALSE, error = TRUE}
+# remove lines 3-5 and 7
+# if on mac use this version of sed
+sed -i "" '3,5d;7d' README.md
+# if on linux use this version of sed
+sed -i '3,5d;7d' README.md
+cat README.md
+```
+-->
 
 ```{bash, fix-conflict-mac, eval = on_mac, echo = on_mac}
 # remove lines 3-5 and 7
@@ -765,7 +804,7 @@ code.
 * Give it a name and description
 * .red[Do not initialize] with a `README`
 
-```{bash add-origin, eval = FALSE}
+```{bash, add-origin, eval = FALSE}
 # replace username with your user name and repo with 
 # your repository name
 git remote add origin https://github.com/username/repo
@@ -871,7 +910,7 @@ Best practice is to use `git fetch` always.
 * Help! I have __too many commits__!
   * Use `--amend` to make work in progress (`WIP`) local commits.
 
-```{bash git-amend, eval = FALSE}
+```{bash, git-amend, eval = FALSE}
 # assume project starts in functional state
 # make a small change to project
 [...]
@@ -909,7 +948,7 @@ Help! I was in the middle of my `amends` and __everything broke__.
 * Use `git reset` to fall back
 * Resets files to their state at the most recent commit
 
-```{bash git-reset, eval = FALSE}
+```{bash, git-reset, eval = FALSE}
 # assume project starts in functional state
 # make a small change to project
 [...]
@@ -931,7 +970,7 @@ git reset --hard
 
 Help! I tried to `pull` but got this error.
 
-```{bash pull-error, eval = FALSE}
+```{bash, pull-error, eval = FALSE}
 ## To https://github.com/username/repo.git
 ##  ! [rejected]        master -> master (fetch first)
 ## error: failed to push some refs to 'https://github.com/YOU/REPO.git'
