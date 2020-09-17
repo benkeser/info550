@@ -30,7 +30,7 @@ Don't be like this guy.
 
 &lt;style type="text/css"&gt;
 .remark-slide-content {
-    font-size: 25px
+    font-size: 22px
 }
 &lt;/style&gt;
 
@@ -232,9 +232,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 12K
-## drwxrwxr-x  3 travis travis 4.0K Sep 11 17:23 .
-## drwxr-x--- 33 travis travis 4.0K Sep 11 17:23 ..
-*## drwxrwxr-x  7 travis travis 4.0K Sep 11 17:23 .git
+## drwxrwxr-x  3 travis travis 4.0K Sep 17 13:18 .
+## drwxr-x--- 33 travis travis 4.0K Sep 17 13:18 ..
+*## drwxrwxr-x  7 travis travis 4.0K Sep 17 13:18 .git
 ```
 
 ???
@@ -329,7 +329,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) dba9ec2] added README to repo
+## [master (root-commit) 25034f8] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -375,9 +375,9 @@ git log
 ```
 
 ```
-## commit dba9ec216e2585e850d64ab89d0cb4a403162e77
+## commit 25034f876bce3eb001cbded0a9f3889ce8406527
 ## Author: Travis CI User &lt;travis@example.org&gt;
-## Date:   Fri Sep 11 17:23:37 2020 +0000
+## Date:   Thu Sep 17 13:18:34 2020 +0000
 ## 
 ##     added README to repo
 ```
@@ -509,7 +509,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 9d4e51b] update the README
+## [devel 54f3192] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -565,7 +565,7 @@ git merge devel
 ```
 
 ```
-## Updating dba9ec2..9d4e51b
+## Updating 25034f8..54f3192
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -665,7 +665,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 8c78dd2] great info, not cool info.
+## [devel 2626d45] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -704,7 +704,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 38b68ca] excellent info, not cool info.
+## [master 8f58582] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -797,7 +797,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master c966d72] fixed merge conflicts
+## [master 32a53f4] fixed merge conflicts
 ```
 
 ???
@@ -812,12 +812,12 @@ Checkout `git log --graph` to see how git is thinking about this.
 
 ### GitHub
 
-GitHub is an online host for git repositories. 
+[GitHub](https://github.com) is an __online host__ for git repositories. 
 
-Publish your software/code in a truly open source way. 
-* E.g., not behind journal paywalls
+Publish your software/code in a truly __open source__ way. 
+* E.g., not behind .red[journal paywalls]
 
-GitHub is a de facto social network site for programmers.
+GitHub is a __de facto social network__ site for programmers.
 * See what friends are working on, collaborate on projects
 
 ???
@@ -845,13 +845,13 @@ private repositories.
 
 ### Why GitHub?
 
-Online backup for your code. 
+Online __backup__ for your code. 
 
-Provides an appealing GUI for git. 
+Provides an __appealing GUI__ for git. 
 * Look through code and history
 * Track issues, create to do lists, etc...
 
-Community-oriented collaborative coding projects.
+Community-oriented __collaborative__ coding projects.
 * See a typo in someone's code? Fix it!
 * Find a bug in someone's code? Fix it! (or at least report it)
 
@@ -874,7 +874,7 @@ code.
 * Create an account 
 * Click + (upper right), New repository
 * Give it a name and description
-* __Do not__ initialize with a `README`
+* .red[Do not initialize] with a `README`
 
 
 ```bash
@@ -920,7 +920,7 @@ from which code originated) the `origin`.
   * Modify code
   * `commit` changes
   * `git push` back to GitHub
-  * Submit a pull request
+  * Submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
 ???
 
@@ -948,8 +948,8 @@ Suggested workflow for testing out pull request:
 
 ```bash
 # add friend's repo as a remote branch
-git remote add friend git://github.com/friend/repo
-# downloads friend's branch, but do not yet merge it
+git remote add friend https://github.com/friend/repo
+# downloads friend's branch, but do not merge it yet
 git fetch friend master
 # view all local and remote branches
 git branch -a
