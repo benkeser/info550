@@ -1,11 +1,11 @@
 
-### eval = FALSE} ###
+### git-config ###
 # set user name
 git config --global user.name "Jane Doe"
 # set email
 git config --global user.email "janedoe@emory.edu"
 
-###  ###
+### git-init} ###
 # make a directory (tmp_gitdir is "git repository")
 mkdir ~/tmp_gitdir
 # move into directory
@@ -13,11 +13,11 @@ cd ~/tmp_gitdir
 # initialize repository
 git init
 
-### highlight.output=4} ###
+### show-gitfile ###
 # see what it did
 ls -lha ~/tmp_gitdir
 
-### tidy=TRUE ###
+### git-status ###
 # make a README.md file from the command line
 echo "## My first repository" >> README.md
 echo "This is just a toy repository for demonstration." >> README.md
@@ -29,20 +29,20 @@ echo "echo 'Hello world'" >> silly_shell.sh
 # check what has changed
 git status
 
-### highlight.output=5} ###
+### git-add1 ###
 # add the README to the commit
 git add README.md
 git status
 
-###  ###
+### git-commit1} ###
 # make a commit
 git commit -m "added README to repo"
 
-###  ###
+### git-log} ###
 # view history of commits
 git log
 
-###  ###
+### make-gitignore} ###
 # make a sandbox folder
 mkdir sandbox
 # add a (blank) file to it
@@ -52,7 +52,7 @@ echo "sandbox/*" >> .gitignore
 # check status of repo 
 git status
 
-###  ###
+### branching} ###
 # make a branch called devel
 git branch devel
 # checkout that branch
@@ -60,32 +60,32 @@ git checkout devel
 # see all branches
 git branch
 
-###  ###
+### modify-files} ###
 # add a line to README and commit
 echo "Some cool new info for the README!" >> README.md
 git add README.md 
 git commit -m "update the README"
 
-### highlight.output=3} ###
+### cat-readme ###
 # look at contents of README
 cat README.md
 
-###  ###
+### look-master} ###
 # switch back to master
 git checkout master
 
-###  ###
+### look-readme} ###
 # look at contents of README
 cat README.md
 
-###  ###
+### merge-devel} ###
 # **!! on the master branch !!**
 git merge devel
 
-### highlight.output=3} ###
+### check-merge ###
 cat README.md
 
-### eval = FALSE} ###
+### check-merge1 ###
 git checkout master
 git merge new-idea
 
@@ -141,7 +141,7 @@ cat README.md
 git add README.md
 git commit -m "fixed merge conflicts"
 
-### eval = FALSE} ###
+### add-origin ###
 # replace username with your user name and repo with 
 # your repository name
 git remote add origin https://github.com/username/repo
@@ -166,7 +166,7 @@ git checkout master
 git merge friend
 git push origin master
 
-### eval = FALSE} ###
+### git-amend ###
 # assume project starts in functional state
 # make a small change to project
 [...]
@@ -185,7 +185,7 @@ git commit --amend --no-edit
 git commit --amend -m "awesome new feature that fixes everything"
 git push origin master
 
-### eval = FALSE} ###
+### git-reset ###
 # assume project starts in functional state
 # make a small change to project
 [...]
@@ -200,7 +200,7 @@ git commit --amend --no-edit
 # !!! UH OH EVERYTHING BROKE !!! #
 git reset --hard
 
-### eval = FALSE} ###
+### pull-error ###
 ## To https://github.com/username/repo.git
 ##  ! [rejected]        master -> master (fetch first)
 ## error: failed to push some refs to 'https://github.com/YOU/REPO.git'

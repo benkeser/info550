@@ -13,7 +13,7 @@ class: left, middle, inverse, title-slide
 
 # Version control using git and GitHub
 ### David Benkeser, PhD MPH<br> <span style="font-size: 50%;"> Emory University<br> Department of Biostatistics and Bioinformatics </span>
-### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a> <br> <i class="fas  fa-book "></i> <a href="https://benkeser.github.io/info550/readings#git-and-github">.white[Additional reading]</a>
+### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a> <br> <i class="fas  fa-book "></i> <a href="https://benkeser.github.io/info550/readings#git-and-github">.white[Additional reading]</a> <br> <i class="fas  fa-code "></i> <a href="versioncontrol.sh" download="versioncontrol.sh" style="color:white">Code chunks</a>
 
 ---
 
@@ -232,9 +232,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 12K
-## drwxrwxr-x  3 travis travis 4.0K Sep 17 13:18 .
-## drwxr-x--- 33 travis travis 4.0K Sep 17 13:18 ..
-*## drwxrwxr-x  7 travis travis 4.0K Sep 17 13:18 .git
+## drwxrwxr-x  3 travis travis 4.0K Sep 17 13:46 .
+## drwxr-x--- 33 travis travis 4.0K Sep 17 13:46 ..
+*## drwxrwxr-x  7 travis travis 4.0K Sep 17 13:46 .git
 ```
 
 ???
@@ -329,7 +329,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) 25034f8] added README to repo
+## [master (root-commit) df3e9a1] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -375,9 +375,9 @@ git log
 ```
 
 ```
-## commit 25034f876bce3eb001cbded0a9f3889ce8406527
+## commit df3e9a145527b8b36e7bd3797fe95b152ee51813
 ## Author: Travis CI User &lt;travis@example.org&gt;
-## Date:   Thu Sep 17 13:18:34 2020 +0000
+## Date:   Thu Sep 17 13:46:31 2020 +0000
 ## 
 ##     added README to repo
 ```
@@ -509,7 +509,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 54f3192] update the README
+## [devel f40c3df] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -565,7 +565,7 @@ git merge devel
 ```
 
 ```
-## Updating 25034f8..54f3192
+## Updating df3e9a1..f40c3df
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -652,6 +652,11 @@ that a branch is just a history of commits.
 
 * What if commits on different branches affect same code?
 
+&lt;!-- 
+  Include an extra code chunk to grab this bash
+
+--&gt;
+
 
 
 
@@ -665,7 +670,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 2626d45] great info, not cool info.
+## [devel 3eb40c0] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -692,6 +697,11 @@ If you are on Mac OSX, you need to change the `sed` command to
 
 ### Merge conflicts
 
+&lt;!-- 
+  Include an extra code chunk to grab this bash
+
+--&gt;
+
 
 
 
@@ -704,7 +714,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 8f58582] excellent info, not cool info.
+## [master e9b4fae] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -773,6 +783,11 @@ You can search files on these symbols to quickly identify all merge conflicts.
 
 * We need to edit `README.md` to resolve conflicts. 
 
+&lt;!--
+
+
+--&gt;
+
 
 
 
@@ -785,7 +800,6 @@ cat README.md
 ```
 ## ## My first repository
 ## This is just a toy repository for demonstration.
-## Some great new info for the README!
 ```
 
 * Now we can successfully complete the merge.
@@ -797,7 +811,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 32a53f4] fixed merge conflicts
+## [master d5602d9] fixed merge conflicts
 ```
 
 ???
