@@ -39,6 +39,8 @@ extra_css <- list(
     `align-items` = "left",
     `vertical-align` = "middle"
   ),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline"),
   ".small" =  list(`font-size` = "75%"),
   ".gold" = list(`color` = "#f2a900"), 
   ".white" = list(`color` = "#FFFFFF"),
@@ -72,7 +74,7 @@ on_mac <- grepl("darwin", system2("echo", "$OSTYPE", stdout = TRUE))
 ```
 <style type="text/css">
 .remark-slide-content {
-    font-size: 25px
+    font-size: 22px
 }
 </style>
 
@@ -699,12 +701,12 @@ Checkout `git log --graph` to see how git is thinking about this.
 
 ### GitHub
 
-GitHub is an online host for git repositories. 
+[GitHub](https://github.com) is an __online host__ for git repositories. 
 
-Publish your software/code in a truly open source way. 
-* E.g., not behind journal paywalls
+Publish your software/code in a truly __open source__ way. 
+* E.g., not behind .red[journal paywalls]
 
-GitHub is a de facto social network site for programmers.
+GitHub is a __de facto social network__ site for programmers.
 * See what friends are working on, collaborate on projects
 
 ???
@@ -732,13 +734,13 @@ private repositories.
 
 ### Why GitHub?
 
-Online backup for your code. 
+Online __backup__ for your code. 
 
-Provides an appealing GUI for git. 
+Provides an __appealing GUI__ for git. 
 * Look through code and history
 * Track issues, create to do lists, etc...
 
-Community-oriented collaborative coding projects.
+Community-oriented __collaborative__ coding projects.
 * See a typo in someone's code? Fix it!
 * Find a bug in someone's code? Fix it! (or at least report it)
 
@@ -761,7 +763,7 @@ code.
 * Create an account 
 * Click + (upper right), New repository
 * Give it a name and description
-* __Do not__ initialize with a `README`
+* .red[Do not initialize] with a `README`
 
 ```{bash add-origin, eval = FALSE}
 # replace username with your user name and repo with 
@@ -806,7 +808,7 @@ from which code originated) the `origin`.
   * Modify code
   * `commit` changes
   * `git push` back to GitHub
-  * Submit a pull request
+  * Submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
 ???
 
@@ -833,8 +835,8 @@ More in-depth description of this workflow can be viewed [here](https://happygit
 Suggested workflow for testing out pull request:
 ```{bash, git-fetch-demo, eval = FALSE}
 # add friend's repo as a remote branch
-git remote add friend git://github.com/friend/repo
-# downloads friend's branch, but do not yet merge it
+git remote add friend https://github.com/friend/repo
+# downloads friend's branch, but do not merge it yet
 git fetch friend master
 # view all local and remote branches
 git branch -a

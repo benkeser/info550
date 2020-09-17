@@ -61,6 +61,7 @@ permalink: /readings/
 ## git and GitHub
 
 * [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+* [Oh Sh*t, Git!?!](https://ohshitgit.com/)
 * [Karl Broman's git/github guide](https://kbroman.org/github_tutorial/)
 * [Pro Git](https://git-scm.com/book/en/v2)
 * [Software carpentry notes on git](https://github.com/swcarpentry/DEPRECATED-boot-camps/blob/master/version-control/git/git-and-github/instructor_notes.md)
@@ -144,6 +145,8 @@ permalink: /readings/
 * [Docker Tutorial](https://docker-curriculum.com/)
 * [List of Docker Resources](https://docs.docker.com/get-started/resources/)
 * [Play With Docker in Your Browser](https://labs.play-with-docker.com/)
+* [Dockerfile cheat sheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+* 
 
 
 ## Continuous integration

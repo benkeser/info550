@@ -14,7 +14,7 @@ rm ${TRAVIS_BUILD_DIR}/website/syllabus_mod.md
 #--------------------------------------------------------
 
 # finds all .Rmd lecture files
-RMD_LECTURE_FILES=$(find "lectures" -type f -name "*.Rmd")
+RMD_LECTURE_FILES=$(find "lectures" -maxdepth 2 -type f -name "*.Rmd")
 # finds all .Rmd homework files
 RMD_HOMEWORK_FILES=$(find "homework" -type f -name "*.Rmd")
 
