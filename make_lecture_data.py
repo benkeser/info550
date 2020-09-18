@@ -82,6 +82,7 @@ def make_data(site_dir, which_data):
          "recording" : config['recording'],
          "start" : config['start'],
          "reading" : config['reading'],
+         "breakoutsoln" : config['breakoutsoln'],
          "recording_url" : ''.join(x if x.isalnum() else '-' for x in config['title']).lower()
       }
       # writing _recordings file

@@ -181,7 +181,7 @@ The value of the variable I created is `r my_variable`.
 This renders as 
 
 .clearbox[
-The value of the variable I created is -1.340137.
+The value of the variable I created is -0.305396.
 ]
 
 No more copy and pasting results into text!
@@ -359,7 +359,7 @@ This renders as
 .clearbox[
 Here is some plain text in my document explaining what I did.
 
-The value of the variable I created is -1.340137.
+The value of the variable I created is -0.305396.
 ]
 
 ???
@@ -484,6 +484,8 @@ There are several options for __making tables in R Markdown__.
 	* .green[\+] easy, .red[-] monospaced format
 * [`knitr::kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
 	* .green[\+] easy, nice looking, .red[-] not 100% flexible
+* [`gt`](https://gt.rstudio.com/)
+  * .green[\+] tidyverse compatible syntax, highly flexible, .red[-] only html for now
 * [`xtable::xtable`](https://www.rdocumentation.org/packages/xtable/versions/1.8-4/topics/xtable)
 	* .green[\+] highly customizable, .red[-] only for pdfs (LaTex based)
 * [`pander::pander`](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)
@@ -492,7 +494,7 @@ There are several options for __making tables in R Markdown__.
 
 ???
 
-I find `kable` sufficient for 90\% of my report needs and `xtable` for creating tables for LaTex manuscripts. 
+I find `kable` sufficient for 90\% of my report needs and `xtable` for creating tables for LaTex manuscripts. `gt` looks like it will soon become industry standard, as all things tidyverse tend to do. 
 
 Think about whether there is a need for really nicely formatted tables or whether raw output is OK. Whose the audience?
 

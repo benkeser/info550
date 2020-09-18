@@ -6,6 +6,7 @@ tldr: "Stop saving fifty copies of the same file with different names."
 recording: ""
 start: "0:0:0"
 reading: "git"
+breakoutsoln: ""
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css

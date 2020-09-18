@@ -1,0 +1,78 @@
+---
+title: "Miles per gallon versus number of cylinders"
+author: "INFO550 student"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output: html_document
+---
+
+<!-- 
+	Change output: html_document to output: ioslides_presentation to 
+	render as ioslides presentation.
+	Change the name of the output file by running e.g.,
+	Rscript -e "rmarkdown::render('example.Rmd', output = 'newtitle.html')"
+-->
+
+<!--
+	Breakout exercise 2:
+	Add a code chunk that suppresses all code chunks from appearing
+	in the rendered document.
+-->
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Executive summary
+
+```{r, load-data}
+# load mtcars data
+data(mtcars)
+```
+
+<!--
+	Breakout exercise 1:
+	Add inline code below that counts the number of rows and columns
+	in each data set. 
+-->
+
+There are `r nrow(mtcars)` observations in the data set, with `r ncol(mtcars)` features measured on each.
+
+<!--
+	Breakout exercise 2:
+	Insert inline code below that renders as "positive" if the estimated 
+	Pearson correlation between mpg and cyl is >0 and "negative" if the 
+	Pearson correlation is less than or equal to 0. 
+-->
+
+```{r, compute-cor}
+cor_mpg_cyl <- cor(mtcars$mpg, mtcars$cyl)
+cor_pos <- cor_mpg_cyl > 0
+```
+
+Overall, we found a `r ifelse(cor_pos, "positive", "negative")` relationship between miles per gallon and number of cylinders.
+
+## Analysis
+
+We analyzed the relationship between miles per gallon (`mpg`) and number of 
+cylinders (`cyl`). A scatterplot is shown below.
+
+```{r, make-scatter, fig.width = 8, fig.height = 8}
+# Breakout exercise 2:
+# add code to create a scatter plot of mpg ~ cyl
+# adjust fig.width, fig.height, other options to make it legible
+# in the rendered document
+plot(mtcars$mpg ~ mtcars$cyl)
+```
+
+A summary of the miles per gallon stratified by cylinders is shown in the Table below. 
+
+```{r, make-table}
+# get summary statistics by number of cylinders
+summary_by_cyl <- by(mtcars, mtcars$cyl, function(x) summary(x$mpg))
+stratified_summary <- Reduce(rbind, summary_by_cyl)
+row.names(stratified_summary) <- c(4, 6, 8)
+
+# Breakout exercise 2:
+# make a table of stratified summary object
+knitr::kable(stratified_summary, digits = 2)
+```
