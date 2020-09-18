@@ -1,0 +1,29 @@
+---
+title: "Homework 3"
+due: "2020/09/24"
+submit: "https://canvas.emory.edu/courses/75677/assignments/381694"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+Nothing required to be turned in for question 1. For question 2, submit your R markdown code as a plain text file with a .Rmd extension. For question 3, submit your code for breakout exercises 1, 2, and 3 (if asynchronous) or submit your grade for each student's participation in your breakout group __for class on 2020/09/17__ (if synchronous) in a comment at the end of your Rmd file in the following format:
+
+* Susy Student = 1
+* Cam Classmate = 1
+* Danny Scientist = 0
+
+Remember if you are using `output: html_document`, then the start of a comment is indicated by `<!--` and the end of comment is indicated by `-->`. 
+
+
+1. If you do not already have a GitHub account, [sign up for one](https://github.com/).
+
+2. Start writing an R Markdown script for your project. The script can output whatever format you would like. For now, make sure that your script:
+* does some sort of data cleaning;
+* creates a nice looking table OR a figure (eventually, we'll need both);
+* includes plain text description of the analysis and/or results.
+
+It will benefit you to start thinking about what someone else would need to do in order to reproduce your script. Next week, we will be putting this script + data onto GitHub and asking your classmates to download it and run it themselves.
+
+3. If you attended class synchronously, give participation grades to your classmates (0 = not present/did not say anything, 1 = present). If you attended class asynchronously, include your code for each of the breakout exercises from the R Markdown lecture.
