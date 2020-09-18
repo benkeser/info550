@@ -6,6 +6,7 @@ tldr: "Write your code for humans to read. No one else will read it, but you mig
 recording: ""
 start: "0:0:0"
 reading: "coding-style"
+breakoutsoln: ""
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css

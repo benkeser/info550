@@ -5,6 +5,7 @@ date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.
 tldr: "Everything you need to know about the course."
 recording: "80c891b4-8c79-4980-a875-ac1d01402c38"
 reading: ""
+breakoutsoln: ""
 start: "0:0:0"
 output:
   xaringan::moon_reader:

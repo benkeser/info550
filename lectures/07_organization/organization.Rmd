@@ -6,6 +6,7 @@ tldr: "Consistently organize your projects now. You will thank yourself later."
 recording: ""
 start: "0:0:0"
 reading: "project-organization"
+breakoutsoln: ""
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css

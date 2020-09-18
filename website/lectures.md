@@ -19,6 +19,9 @@ The lectures are produced using [xaringan slides](https://slides.yihui.org/xarin
 <span class = "postlower">
 <strong>tl;dr:</strong> {{ lectures.tldr }}</span>
 <strong style="font-size:100%; font-family: 'DM Sans', sans-serif; float:right; padding-right: .5em">
+{% if lectures.breakoutsoln != "" %}
+<a href="{{ site.url | slice: 0, num }}{{ site.baseurl }}/lectures/{{ lectures.dirname }}/breakoutsoln/{{ lectures.breakoutsoln }}"><i class="fas fa-lightbulb"></i></a>
+{% endif %}
 	<a href="https://github.com/{{ site.githubdir}}/tree/master/lectures/{{ lectures.dirname }}"><i class="fab fa-github"></i></a>&nbsp;&nbsp;
 <a href="https://github.com/{{ site.githubdir}}/tree/master/lectures/{{ lectures.dirname }}/{{ lectures.filename}}.Rmd"><i class="fab fa-r-project"></i></a>&nbsp;&nbsp;
 <a href="{{ site.url | slice: 0, num }}{{ site.baseurl }}/readings#{{ lectures.reading }}"><i class="fas fa-book"></i></a>&nbsp;&nbsp;

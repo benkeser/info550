@@ -6,6 +6,7 @@ tldr: "The command line may look scary, but it is your friend."
 recording: "5689e128-8637-4d82-9f41-ac24013eafc8"
 start: "0:0:0"
 reading: "command-line"
+breakoutsoln: ""
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
