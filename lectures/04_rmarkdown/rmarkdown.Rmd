@@ -3,7 +3,7 @@ title: "R Markdown for reproducible reports"
 author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-markdown)'
 tldr: "Writing reproducible reports has never been easier."
-recording: ""
+recording: "58f108d5-2913-4024-8478-ac32013de1ef"
 start: "0:0:0"
 reading: "r-markdown"
 breakoutsoln: "example.Rmd"

@@ -1,0 +1,173 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Homework 2},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+\title{Homework 2}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+Nothing required to be turned in for question 1. For question 2, submit
+your R code as plain text. For question 3, submit your bash code for
+breakout exercises 1, 2, and 3 (if asynchronous) or submit your grade
+for each student's participation in your breakout group \textbf{for
+class on 2020/09/03} (if synchronous) in the following format:
+
+\begin{itemize}
+\tightlist
+\item
+  Susy Student = 1
+\item
+  Cam Classmate = 1
+\item
+  Danny Scientist = 0
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Install the following software:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  if on a Mac, install
+  \href{http://railsapps.github.io/xcode-command-line-tools.html}{Xcode
+  command line tools}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    confirm proper installation by checking \texttt{which\ make}
+  \end{itemize}
+\item
+  \href{https://cran.r-project.org/web/packages/rmarkdown/index.html}{\texttt{rmarkdown}}
+  R package
+\item
+  \href{https://pandoc.org/installing.html}{\texttt{pandoc}}, using
+  homebrew, and ensure that the directory containing \texttt{pandoc} is
+  in your \texttt{PATH}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    confirm by checking \texttt{which\ pandoc}
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Write an R script that begins to analyze the data for your project.
+  For now the script could do very simple things. The only requirements
+  for this assignment are that you read in data and \texttt{print} out
+  something about the data. For example, the script could
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  read in your data, and \texttt{print} the number of observations and
+  the number of missing values for each variable
+\item
+  read in your data, perform some data cleaning, save a cleaned data
+  set, \texttt{print} a message indicating where the file was saved.
+\end{itemize}
+
+The point of this problem is not \emph{what} the R script does, just
+that it \emph{does something} and prints something. However, it would
+likely be beneficial to start writing a script that does
+\emph{something} that will eventually be used by your report.
+
+Once your R script is written:
+
+\begin{itemize}
+\tightlist
+\item
+  add the appropriate shebang to use the \texttt{Rscript} executable to
+  run your script from the command line;
+\item
+  make your script executable using \texttt{chmod};
+\item
+  execute your script from the command line and confirm it executes as
+  expected;
+\item
+  execute your script from the command line redirecting output of the
+  script to a file called \texttt{script\_out.Rout}.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  If you attended class synchronously, give participation grades to your
+  classmates (0 = not present/did not say anything, 1 = present). If you
+  attended class asynchronously, include your code for each of the
+  breakout exercises.
+\end{enumerate}
+
+\end{document}
