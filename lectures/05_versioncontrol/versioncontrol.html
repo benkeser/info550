@@ -232,9 +232,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 12K
-## drwxrwxr-x  3 travis travis 4.0K Sep 23 15:10 .
-## drwxr-x--- 33 travis travis 4.0K Sep 23 15:10 ..
-*## drwxrwxr-x  7 travis travis 4.0K Sep 23 15:10 .git
+## drwxrwxr-x  3 travis travis 4.0K Sep 24 18:19 .
+## drwxr-x--- 33 travis travis 4.0K Sep 24 18:19 ..
+*## drwxrwxr-x  7 travis travis 4.0K Sep 24 18:19 .git
 ```
 
 ???
@@ -329,7 +329,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) bf7d2cb] added README to repo
+## [master (root-commit) b660f46] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -375,9 +375,9 @@ git log
 ```
 
 ```
-## commit bf7d2cb6b8c6fbdd59b42917b8b0650378793f0d
+## commit b660f4633442e2a5a2080ebae04778d9df07ad10
 ## Author: Travis CI User &lt;travis@example.org&gt;
-## Date:   Wed Sep 23 15:10:15 2020 +0000
+## Date:   Thu Sep 24 18:19:24 2020 +0000
 ## 
 ##     added README to repo
 ```
@@ -489,9 +489,6 @@ git branch
 
 ???
 
-Recall that when we pushed to GitHub, we specified `master`. Now we see 
-why. The main 
-
 A shortcut to create and checkout a branch is `git checkout -b devel`
 
 ---
@@ -509,7 +506,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel e347f59] update the README
+## [devel 44258f9] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -565,7 +562,7 @@ git merge devel
 ```
 
 ```
-## Updating bf7d2cb..e347f59
+## Updating b660f46..44258f9
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -670,7 +667,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 9b282a4] great info, not cool info.
+## [devel 61bb9c6] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -714,7 +711,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 5f81686] excellent info, not cool info.
+## [master f6be654] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -811,7 +808,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 83111fb] fixed merge conflicts
+## [master 8a3e1a3] fixed merge conflicts
 ```
 
 ???
@@ -836,24 +833,13 @@ GitHub is a __de facto social network__ site for programmers.
 
 ???
 
-GitHub is a website that hosts git repositories. It has a nice graphical
-user interface for exploring repositories and collaborating. We'll 
-learn how to do many git operations from the command line, but it's nice
-to know that many things can also be done in a web browser, for collaborators
-who may be scared of the command line. 
+GitHub is a website that hosts git repositories. It has a nice graphical user interface for exploring repositories and collaborating. We'll learn how to do many git operations from the command line, but it's nice to know that many things can also be done in a web browser, for collaborators who may be scared of the command line. 
 
-GitHub provides an appealing way of publishing code associated with published
-projects. It gives you space to provide a nicely formatted README, make the 
-code easily downloadable for anyone. You can even add a digital object
-identifier (e.g., through [Zenodo](https://zenodo.org/)).
+GitHub provides an appealing way of publishing code associated with published projects. It gives you space to provide a nicely formatted README, make the code easily downloadable for anyone. You can even add a digital object identifier (e.g., through [Zenodo](https://zenodo.org/)).
 
-Public repositories are free on GitHub and you can upgrade to pro account
-if you want unlimited private repositories (\$7 a month, I think). There are
-also options for student accounts that allow limited number of private 
-repositories. 
+Public repositories are free on GitHub and you can upgrade to pro account if you want unlimited private repositories ($7 a month, I think, or maybe cheaper since Microsoft took over?). There are also options for student accounts that allow limited number of private repositories. 
 
-[Bitbucket](https://bitbucket.org) is an alternative that allows unlimited 
-private repositories.
+[Bitbucket](https://bitbucket.org) is an alternative that allows unlimited private repositories.
 
 ---
 
@@ -926,12 +912,12 @@ from which code originated) the `origin`.
 
 * Bug in someone's code?
   * File an __issue__ 
-  * But __PLEASE__ read documentation/contributing guidelines first!
+  * But __PLEASE__ read documentation first!
 
 * Even better: submit a __pull request__!
   * Fork the repo on GitHub
   * `git clone` to download to local machine
-  * Modify code
+  * Modify code (read contributing guidelines first!)
   * `commit` changes
   * `git push` back to GitHub
   * Submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
@@ -1119,7 +1105,7 @@ more clever.
 
 ### Breakout exercise
 
-Download &lt;a href="exercise/github_exercise.md" download&gt;`github_exercise`&lt;/a&gt;.
+Download &lt;a href="github_exercise.md" download&gt;`github_exercise`&lt;/a&gt;.
 * With your breakout partner, follow the instructions.
 * Determine who is User A and who is User B.
 * Practice the workflows we've just learned!
