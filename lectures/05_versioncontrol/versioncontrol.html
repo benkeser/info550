@@ -232,9 +232,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 12K
-## drwxrwxr-x  3 travis travis 4.0K Oct  1 18:09 .
-## drwxr-x--- 33 travis travis 4.0K Oct  1 18:09 ..
-*## drwxrwxr-x  7 travis travis 4.0K Oct  1 18:09 .git
+## drwxrwxr-x  3 travis travis 4.0K Oct  1 18:20 .
+## drwxr-x--- 33 travis travis 4.0K Oct  1 18:20 ..
+*## drwxrwxr-x  7 travis travis 4.0K Oct  1 18:20 .git
 ```
 
 ???
@@ -329,7 +329,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) a59c0e2] added README to repo
+## [master (root-commit) b86da1c] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -375,9 +375,9 @@ git log
 ```
 
 ```
-## commit a59c0e24eb561bd5f16870ea6dc588f8b21be7f6
+## commit b86da1c70faab96c69966763770387f354431182
 ## Author: Travis CI User &lt;travis@example.org&gt;
-## Date:   Thu Oct 1 18:09:24 2020 +0000
+## Date:   Thu Oct 1 18:20:14 2020 +0000
 ## 
 ##     added README to repo
 ```
@@ -506,7 +506,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 0087c96] update the README
+## [devel 76fa5e7] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -562,7 +562,7 @@ git merge devel
 ```
 
 ```
-## Updating a59c0e2..0087c96
+## Updating b86da1c..76fa5e7
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -640,8 +640,7 @@ git merge new-idea
 
 ???
 
-Branching can get as complex as you want/need. Helpful to remember
-that a branch is just a history of commits. 
+Branching can get as complex as you want/need. Helpful to remember that a branch is just a history of commits. 
 
 ---
 
@@ -667,7 +666,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 780d75f] great info, not cool info.
+## [devel b3a014a] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -684,11 +683,9 @@ cat README.md
 
 ???
 
-The most common place I run into merge conflicts is in collaborative
-projects, where it happens all the time. 
+The most common place I run into merge conflicts is in collaborative projects, where it happens all the time. 
 
-If you are on Mac OSX, you need to change the `sed` command to 
-`sed -i "" 's/cool/great/g' README.md`. 
+If you are on Mac OSX, you need to change the `sed` command to `sed -i "" 's/cool/great/g' README.md`. 
 
 ---
 
@@ -711,7 +708,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master aff9f64] excellent info, not cool info.
+## [master 60ed438] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -768,9 +765,7 @@ cat README.md
 
 ???
 
-This occurs because both branches edited the same code. What happens now 
-is git edits all files that have merge conflicts and indicates where
-the conflicts occur using the `&lt;&lt;&lt;` `===` `&gt;&gt;&gt;` symbols. 
+This occurs because both branches edited the same code. What happens now is git edits all files that have merge conflicts and indicates where the conflicts occur using the `&lt;&lt;&lt;` `===` `&gt;&gt;&gt;` symbols. 
 
 You can search files on these symbols to quickly identify all merge conflicts.
 
@@ -808,14 +803,12 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 2473b2a] fixed merge conflicts
+## [master 100e87b] fixed merge conflicts
 ```
 
 ???
 
-Here, it looks like we decided that we liked the `devel` version of `README.md`
-better, so we delete the `master` code (and the `&lt;&lt;&lt;`, `===`, `&gt;&gt;&gt;` lines), 
-add and commit the result. 
+Here, it looks like we decided that we liked the `devel` version of `README.md` better, so we delete the `master` code (and the `&lt;&lt;&lt;`, `===`, `&gt;&gt;&gt;` lines), add and commit the result.  
 
 Checkout `git log --graph` to see how git is thinking about this. 
 
@@ -857,15 +850,9 @@ Community-oriented __collaborative__ coding projects.
 
 ???
 
-Services like Dropbox provide continuous online back-up of saved file, as
-we've said, git only provides back up at certain points. GitHub allows
-for this backup to go online. I.e., if your computer blows up, you'll still
-be able to pull down your coding project. 
+Services like Dropbox provide continuous online back-up of saved file, as we've said, git only provides back up at certain points. GitHub allows for this backup to go online. I.e., if your computer blows up, you'll still be able to pull down your coding project. 
 
-Personally, I use git within Dropbox folders. I hardly ever use Dropbox to 
-revert to saved versions of files, because I save files after every sentence
-I type out of habit. However, I very often use git revert when developing 
-code. 
+Personally, I use git within Dropbox folders. I hardly ever use Dropbox to revert to saved versions of files, because I save files after every sentenceI type out of habit. However, I very often use git revert when developing code. 
 
 ---
 
@@ -887,9 +874,7 @@ git push -u origin master
 
 ???
 
-Here we are setting a `remote` for our repository, i.e., an online 
-location that we (presumably) want to keep up to date with our local 
-repository. 
+Here we are setting a `remote` for our repository, i.e., an online location that we (presumably) want to keep up to date with our local repository. 
 * the `-u` option is only needed the first time you push; it sets the 
 "upstream" remote branch
   * once it is set `git push` will assume that's where you want to `push`
@@ -898,13 +883,9 @@ repository.
 The `git remote` command just adds lines to the `.git/config` file. 
 * If you mess up, just edit that file
 
-You may be prompted to enter your GitHub user name and password when you
-`git push`. It is worth setting up an `ssh key`, which is described in 
-our video tutorials. 
+You may be prompted to enter your GitHub user name and password when you `git push`. It is worth setting up an `ssh key`, which is described in our video tutorials. 
 
-Technically, `origin` is just a nickname for the remote location. However,
-it is convention to call the original source of code (i.e., main directory
-from which code originated) the `origin`. 
+Technically, `origin` is just a nickname for the remote location. However, it is convention to call the original source of code (i.e., main directory from which code originated) the `origin`. 
 
 ---
 
@@ -970,10 +951,7 @@ git push origin master
 If you trust your friend, you can use `git pull friend master`. 
 * `git pull` does a `git fetch` and `git merge` all in one.
 
-I use `git pull` when I'm working on the same repository from two different
-computers (e.g., my laptop and a remote computer) to keep code tracked between 
-the two. If you have Dropbox, then this is not needed, as Dropbox will 
-automatically sync. 
+I use `git pull` when I'm working on the same repository from two different computers (e.g., my laptop and a remote computer) to keep code tracked between  the two. If you have Dropbox, then this is not needed, as Dropbox will  automatically sync. 
 
 Best practice is to use `git fetch` always. 
 
@@ -1007,11 +985,7 @@ git push origin master
 
 ???
 
-The benefit of this is that as far as git and GitHub are concerned, you just
-made a single commit. However, it is frowned upon to "rewrite git history"; 
-that is, amending commits once they have been published to GitHub, because
-presumably somebody could have `pulled` that code already. However, adopting 
-this workflow locally is OK. 
+The benefit of this is that as far as git and GitHub are concerned, you just made a single commit. However, it is frowned upon to "rewrite git history"; that is, amending commits once they have been published to GitHub, because presumably somebody could have `pulled` that code already. However, adopting this workflow locally is OK. 
 
 I personally just maintain an embarrassingly large number of commits 🤷‍♂️. 
 
@@ -1063,8 +1037,7 @@ Help! I tried to `pull` but got this error.
 
 ???
 
-This can happen frequently when multiple people are pushing to the same location. 
-This can be avoided by:
+This can happen frequently when multiple people are pushing to the same location. This can be avoided by:
 * being the first to push
 * using branches judiciously 
 * getting in the habit of `pull`ing every time you start to work, and `push`ing everytime you finish
@@ -1087,19 +1060,9 @@ Help! I need to `pull` but I have local work!
 
 ???
 
-This is a very common situation. Ideally, there will be no conflicts 
-and you can just `pull` down the new repo without affecting your code at
-all. But remember `git pull` will try to `fetch` AND `merge` with a new 
-commit. So you may get kicked into a text editor to enter a message 
-explaining the "reason for the merge." Beyond that you may also have merge 
-conflicts that will need to be resolved, as discussed previously. 
+This is a very common situation. Ideally, there will be no conflicts and you can just `pull` down the new repo without affecting your code atall. But remember `git pull` will try to `fetch` AND `merge` with a new commit. So you may get kicked into a text editor to enter a message explaining the "reason for the merge." Beyond that you may also have merge conflicts that will need to be resolved, as discussed previously. 
 
-`git stash` can sometimes be useful. I use it when I'm lazy and I don't 
-really care about overwriting my local changes with what's in the repo. 
-This happens often when I'm working on a remote computer and I've made trivial
-changes to scripts (like `chmod +x` or similar) that I've forgotten about. 
-It's fast to type `git stash &amp;&amp; git pull &amp;&amp; chmod +x *` then to do something 
-more clever.
+`git stash` can sometimes be useful. I use it when I'm lazy and I don't really care about overwriting my local changes with what's in the repo. This happens often when I'm working on a remote computer and I've made trivialchanges to scripts (like `chmod +x` or similar) that I've forgotten about. It's fast to type `git stash &amp;&amp; git pull &amp;&amp; chmod +x *` then to do something more clever.
 
 ---
 
@@ -1125,10 +1088,19 @@ mistake I’ve ever made.*
 
 ???
 
-If you store your code on GitHub, everyone can see everything there is
-and everything that ever was. You may be shy or embarrassed about your
-code, __but__ probably no one is looking and if they are, that is a 
-good thing!
+If you store your code on GitHub, everyone can see everything there is and everything that ever was. You may be shy or embarrassed about your code, __but__ probably no one is looking and if they are, that is a good thing!
+
+---
+
+### git/GitHub poll
+
+&lt;iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0"&gt;
+
+---
+
+### git/GitHub poll results
+
+&lt;iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&amp;controls=none" width="100%" height="500px" frameborder="0"&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
