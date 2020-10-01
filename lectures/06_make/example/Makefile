@@ -4,5 +4,5 @@ report.html: data.txt report.Rmd
 
 # rule for cleaning data
 data.txt: cleandata.R raw_data.txt
-	chmod +x cleandata.R & \
+	chmod +x cleandata.R && \
 	Rscript cleandata.R

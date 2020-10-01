@@ -199,7 +199,7 @@ cat Makefile
 ## 
 ## # rule for cleaning data
 ## data.txt: cleandata.R raw_data.txt
-## 	chmod +x cleandata.R &amp; \
+## 	chmod +x cleandata.R &amp;&amp; \
 ## 	Rscript cleandata.R
 ```
 
@@ -322,7 +322,7 @@ report.html: data.txt report.Rmd
 
 # rule for cleaning data
 data.txt: cleandata.R raw_data.txt
-    chmod +x cleandata.R &amp; \
+    chmod +x cleandata.R &amp;&amp; \
     Rscript cleandata.R
 
 # clean up directory
@@ -348,7 +348,7 @@ make report.html
 ```
 
 ```
-## chmod +x cleandata.R &amp; \
+## chmod +x cleandata.R &amp;&amp; \
 ## Rscript cleandata.R
 ## Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
 ```
@@ -413,7 +413,7 @@ report.html: data.txt report.Rmd
 
 # rule for cleaning data
 data.txt: cleandata.R raw_data.txt
-    chmod +x $&lt; &amp; \
+    chmod +x $&lt; &amp;&amp; \
     Rscript $&lt;
 ````
 
@@ -529,7 +529,7 @@ report.html: data.txt report.Rmd
 
 ## data.txt     : Clean raw_data.txt by removing NAs.
 data.txt: cleandata.R raw_data.txt
-    chmod +x cleandata.R &amp; \
+    chmod +x cleandata.R &amp;&amp; \
     Rscript cleandata.R
 
 ## fig1.png     : Make a histogram of X.
