@@ -347,7 +347,7 @@ report.html: data.txt report.Rmd
 
 # rule for cleaning data
 data.txt: cleandata.R raw_data.txt
-    chmod +x cleandata.R & \
+    chmod +x cleandata.R && \
     Rscript cleandata.R
 
 # clean up directory
@@ -421,7 +421,7 @@ report.html: data.txt report.Rmd
 
 # rule for cleaning data
 data.txt: cleandata.R raw_data.txt
-    chmod +x $< & \
+    chmod +x $< && \
     Rscript $<
 ````
 
@@ -537,7 +537,7 @@ report.html: data.txt report.Rmd
 
 ## data.txt     : Clean raw_data.txt by removing NAs.
 data.txt: cleandata.R raw_data.txt
-    chmod +x cleandata.R & \
+    chmod +x cleandata.R && \
     Rscript cleandata.R
 
 ## fig1.png     : Make a histogram of X.
