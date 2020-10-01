@@ -47,7 +47,9 @@ extra_css <- list(
     `background-color` = "#f6f6f6",
     `align-items` = "left",
     `font-family` = "Courier Prime",
-    border = "1px solid black")
+    border = "1px solid black"),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline")
 )
 
 style_mono_accent(
@@ -70,7 +72,7 @@ knitr::opts_knit$set(root.dir = 'example')
 zip ../example.zip *
 zip ../exercise.zip ../exercise/*
 # copy origin makefile
-cp Makefile tmp_Makefile
+cp Makefile ../tmp_Makefile
 ```
 
 <style type="text/css">
@@ -467,7 +469,7 @@ figs: fig1.png fig2.png
 
 If we execute `make figs`, we will make `fig1.png` and `fig2.png` according to the rule for making figures.
 
-.small[line 3 above could equivalently be written `Rscript $<.R`]
+.small[line 3 above could equivalently be written `Rscript $<`]
 
 ---
 
@@ -491,6 +493,7 @@ help:
     @echo "report.html : Generate final analysis report."
     @echo "data.txt    : Clean raw_data.txt by removing NAs."
     @echo "fig1.png    : Make a histogram of X."
+    @echo -e "clean    : Remove cleaned data and report."
 ````
 
 Then we can execute
@@ -586,6 +589,6 @@ It seems possible that with a slightly more complex call to `sed`, you could eve
 
 
 ```{bash, reset-Makefile, include = FALSE}
-mv tmp_Makefile Makefile
+mv ../tmp_Makefile Makefile
 rm -rf clean
 ```

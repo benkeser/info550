@@ -15,6 +15,7 @@ For this assignment please turn in to Canvas a plain text file with your GitHub 
 Your repository will be peer-graded for its clarity. You will be asked to download one of your classmates' repository and try to run their code. 
 
 Some hints:
+
 * Avoid absolute paths. Note that if you run an `R` session from the command line, then the working directory for the session is whatever folder `R` was run from. 
 * When peer grading, don't chase down package install errors. If they happen, note them for your classmate, but no need to try harder.
 * If the `Rmd` file errors, note the error in your grading. 

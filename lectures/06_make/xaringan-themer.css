@@ -296,3 +296,9 @@ ul li {
   font-family: Courier Prime;
   border: 1px solid black;
 }
+a {
+  color: #007dba;
+}
+a:hover {
+  text-decoration: underline;
+}
