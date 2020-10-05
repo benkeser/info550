@@ -69,7 +69,7 @@ style_mono_accent(
 </style>
 
 ```{bash, make-zip, include = FALSE}
-zip example_project.zip ./example_project/*
+zip -r example_project ./example_project/*
 ```
 
 ## The problem
