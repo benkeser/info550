@@ -1,0 +1,15 @@
+---
+title: "A fascinating mtcars graph"
+author: "David Benkeser"
+output: html_document
+---
+
+## Executive summary
+
+We looked at the `mtcars` data for the ten-thousandth time. 
+
+## Figure
+
+We made a great figure below.
+
+![](../figs/barchart.png)

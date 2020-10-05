@@ -999,15 +999,3 @@ mistake I’ve ever made.*
 ???
 
 If you store your code on GitHub, everyone can see everything there is and everything that ever was. You may be shy or embarrassed about your code, __but__ probably no one is looking and if they are, that is a good thing!
-
----
-
-### git/GitHub poll
-
-<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
-
----
-
-### git/GitHub poll results
-
-<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">

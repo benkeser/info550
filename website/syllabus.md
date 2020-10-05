@@ -203,16 +203,16 @@ The [RSPH Honor Code](http://www.sph.emory.edu/cms/current_students/enrollment_s
 | Date  | Topics                           |
 |-------|----------------------------------|
 | 8/20  | Motivation, text editor          |
-| 8/27  | Command line basics              |
-| 9/3   | R Markdown 					   |
-| 9/10  | Version control using Git/GitHub |
-| 9/17  | GNU Makefiles                    |
-| 9/24  | Best coding practices            |
-| 10/1  | R packages                       |
-| 10/8  | Containerization                 |
-| 10/15 | Continuous integration services  |
-| 10/22 | Intro to python                  |
-| 10/29 | Jupyter notebooks                |
-| 11/5  | Cloud computing and storage      |
-| 11/12 | Cluster computing                |
-| 11/19 |                                  |
+| 8/27  | Command line                     |
+| 9/3   | Command line 					   |
+| 9/10  | R Markdown					   |
+| 9/17  | R Markdown                       |
+| 9/24  | Version control using Git/GitHub |
+| 10/1  | Git/GitHub + GNU Make            |
+| 10/8  | GNU Make 						   |
+| 10/15 | Best coding practices            |
+| 10/22 | Docker    					   |
+| 10/29 | Docker 						   |
+| 11/5  | Cloud computing				   |
+| 11/12 | R packages					   |
+| 11/19 | Intro to python/jupyter notebooks|
