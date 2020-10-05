@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Docker for reproducible research</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics" />
+    <link href="docker_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+# Docker for reproducible research
+### David Benkeser, PhD MPH<br> <span style="font-size: 50%;"> Emory University<br> Department of Biostatistics and Bioinformatics </span>
+### INFO550<br><br><i class="fas  fa-link "></i> <a href="https://bit.ly/info550">.white[bit.ly/info550]</a> <br> <i class="fas  fa-book "></i> <a href="https://benkeser.github.io/info550/readings#docker">.white[Additional reading]</a>
+
+---
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 22px
+}
+&lt;/style&gt;
+
+
+
+## The problem
+
+Trying to run someone else's code.
+
+.code-box[
+\&gt; library(ggplot2) &lt;br&gt;
+.red[Error in library(ggplot2) : there is no package called ‘ggplot2’] &lt;br&gt;
+\&gt; install.packages("ggplot2") &lt;br&gt;
+.red[configure: error: no acceptable C compiler found in $PATH] &lt;br&gt; 
+]
+
+...so you Google the error, install `gcc`, re-install the package. 😕
+
+.code-box[
+\&gt; library(xgboost) &lt;br&gt;
+.red[Error in library(xgboost) : there is no package called ‘xgboost’] &lt;br&gt;
+\&gt; install.packages("xgboost") &lt;br&gt; 
+.red[package ‘xgboost’ is not available (for R version 3.2.0)]
+]
+
+...so you update `R`. 😠
+
+---
+
+## The problem
+
+.code-box[
+\&gt; install.packages("xgboost") &lt;br&gt;
+.red[make: *** [xgboost.so] Error 127] &lt;br&gt; 
+.red[ERROR: compilation failed for package 'xgboost']
+]
+
+...so you google this compilation error, fix and install package. 😡
+
+.code-box[
+\&gt; library(ggplot2) &lt;br&gt;
+.red[Error in library(ggplot2) : there is no package called ‘ggplot2’] &lt;br&gt;
+]
+
+.center[.huge[🤬]]
+
+???
+
+Is this really reproducible if the barrier to reproducing is so high?
+
+---
+
+## Docker
+
+.large[Key principle: .red[Software is code!]]
+
+We have talked only about making *our* __code reproducible__. 
+* Running our code requires software. 
+* That software is built from code. 
+
+We want a way to package up all __analysis code AND software__. 
+* Reproduce the analysis in its entirety.
+  * On Windows, on Mac, in cloud, ...
+* No 🤬 required. 
+
+__Containerization__ gives us a way to do this. 
+* __Docker__ is a popular containerization program. 
+
+
+---
+
+## Docker
+
+Think of a Docker container as a __virtual machine__:
+* Has its own (Unix) operating system
+* Has its own file system 
+* Has its own software applications
+
+&lt;img src="inception2.gif" width="518px" style="display: block; margin: auto;" /&gt;
+
+???
+
+But it's actually much smarter, more lightweight than a virtual machine.
+
+---
+
+## Images vs. containers
+
+__Docker image__
+* source code, libraries, dependencies, tools, and other files needed to `run` a container.
+* a __blueprint__ for the environment in which you will execute your analysis.
+
+__Docker container__
+* created when we `run` an image. 
+* construct a run-time environment to execute your code.
+* or provide an interactive way to execute code.
+
+---
+
+## Docker
+
+How does it work?
+* Docker is an installed program.
+* Write `Dockerfile`, plain text that tells Docker what to put in image.
+* `build` the image. 
+* `run` the image (creating container) to execute code.
+
+&lt;img src="zoolander_short.gif" width="518px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Interactive Ubuntu container
+
+Download the latest version of __ubuntu__ image.
+
+.code-box[
+davidbenkeser$ docker pull ubuntu &lt;br&gt;&lt;br&gt; 
+Using default tag: latest&lt;br&gt;
+latest: Pulling from library/ubuntu&lt;br&gt;
+54ee1f796a1e: Pull complete &lt;br&gt;
+f7bfea53ad12: Pull complete &lt;br&gt;
+46d371e02073: Pull complete &lt;br&gt;
+b66c17bbf772: Pull complete &lt;br&gt;
+Digest: sha256:31dfb10d52ce76c5ca0aa19d10b3e6424b830729e32a89a7c6eee2cda2be67a5&lt;br&gt;
+Status: Downloaded newer image for ubuntu:latest&lt;br&gt;
+docker.io/library/ubuntu:latest
+]
+
+---
+
+## Interactive Ubuntu container
+
+Use `docker run` to start the container. 
+
+.code-box[
+davidbenkeser$ docker run -it ubuntu /bin/bash &lt;br&gt;
+root@45b43faa6154:/# 
+]
+
+* Note how the command prompt changes. 
+  * In a `bash` terminal __inside the container__. 
+* `-it` option specifies we want an __interactive__ session.
+* `/bin/bash` is the `command` to run in the container when it starts.
+  * i.e., open a `bash` terminal
+
+Time to explore! Poke around!
+* when finished, type `exit` and hit Return
+
+???
+
+You will see different numbers/letters after `@` in the command prompt. This is the __container id__.
+
+It's actually possible to leave off `/bin/bash` in the call here, since that is the __entry point__ for the container, but more on that later. 
+
+---
+
+## Interactive Ubuntu container
+
+.red[Containers are transient.]
+
+Create a new file in a container and `exit`.
+
+.code-box[
+davidbenkeser$ docker run -it ubuntu /bin/bash &lt;br&gt;
+root@45b43faa6154:/# touch home/new_file &lt;br&gt;
+root@45b43faa6154:/# ls home &lt;br&gt;
+new_file &lt;br&gt;
+root@45b43faa6154:/# exit
+]
+
+Start a new container -- `new_file` is not there!
+
+.code-box[
+davidbenkeser$ docker run -it ubuntu /bin/bash &lt;br&gt;
+root@5dc0f487aa56:/# ls home &lt;br&gt; 
+root@5dc0f487aa56:/#
+] 
+
+???
+
+Note the different container id in the command prompt. It's an entirely new system.
+
+---
+
+## `Dockerfile`
+
+How can we get software/code/other stuff into container?
+* Answer: `Dockerfile`
+
+A plain text file with all commands needed to build image.
+* Have their own (reasonably straightforward) syntax.
+
+If you can install it from the command line, you can install it in a container!
+
+---
+
+## `Dockerfile`
+
+Here's an example Dockerfile.
+
+.code-box[
+FROM ubuntu&lt;br&gt;&lt;br&gt;
+\# use apt to manage packages &lt;br&gt;
+RUN apt-get update&lt;br&gt;&lt;br&gt;
+\# install vim in container&lt;br&gt;
+RUN apt-get install vim&lt;br&gt;
+]
+
+* Save contents in plain text file named `Dockerfile`. 
+* `cd` to directory containing `Dockerfile`.
+
+.code-box[
+davidbenkeser$ docker build -t ubuntu_plus_vim . &lt;br&gt;
+... &lt;br&gt;
+Successfully built 3f3def993815 &lt;br&gt;
+Successfully tagged ubuntu_plus_vim:latest
+]
+
+???
+
+`apt-get` is the native package management system on Ubuntu. So far we've been using homebrew for that (so Mac OS and Ubuntu work the same). You could install homebrew in a Docker container if you prefer.
+
+The `-t` option to `docker build` sets a "tag". That is, how we will reference the container in the future.
+
+The argument to `docker build` is either:
+* a path to a folder that contains a file called `Dockerfile`
+* or a path to a `Dockerfile` with a different name.
+  * e.g., `docker build -t foo ./bar.Dockerfile`
+
+---
+
+## `Dockerfile`
+
+Common `Dockerfile` instructions
+
+| `INSTRUCTION` | Action                                 |
+|---------------|----------------------------------------|
+| [`FROM`](https://docs.docker.com/engine/reference/builder/#from)        | the parent image for your build        |
+| [`RUN`](https://docs.docker.com/engine/reference/builder/#run)         | run a command in a shell               |
+| [`COPY`](https://docs.docker.com/engine/reference/builder/#copy)        | copy file from a local folder to image |
+| [`ENV`](https://docs.docker.com/engine/reference/builder/#env)         | set an environment variable            |
+| [`WORKDIR`](https://docs.docker.com/engine/reference/builder/#workdir)     | set working directory for `RUN` commands|
+| [`CMD`](https://docs.docker.com/engine/reference/builder/#cmd)         | container "entry point"                |
+
+
+???
+
+Full details [here](https://docs.docker.com/engine/reference/builder/).
+
+There's actually no need to have `INSTRUCTION` be uppercase, but it's convention and makes for nicer formatting. 
+
+---
+
+## Notes on `Dockerfile`
+
+* All `Dockerfile`'s begin with `FROM`
+  * Any image you can find on DockerHub
+
+* Use `\` to break `RUN` commands over multiple lines.
+
+.code-box[
+RUN apt-get update; \\ &lt;br&gt; 
+apt-get install -y vim
+]
+
+* `COPY path/to/local/file /path/to/container/destination`
+  * absolute or relative path
+  * Relative paths in container relative to `WORKDIR`
+
+* `ENV` is like running `export var="value"` 
+
+---
+
+## Entry point
+
+The entry point (`CMD`) what executes by default when image is `run`.
+* For Ubuntu, this is `/bin/bash`.
+
+__Override__ entry point with a command __after container name__.
+* We'll see this momentarily in the breakout exercise.
+
+Use cases:
+* interactively run bash? 
+  * `CMD /bin/bash`
+* open R?
+  * `CMD ["R"]`
+* run whole analysis and produce report? 
+  * `CMD Rscript -e "rmarkdown::render(...)"`
+* others I haven't thought of?
+
+---
+
+## Breakout exercise 1
+
+* Create a silly local file
+
+.code-box[
+davidbenkeser$ echo "This file is silly" &gt; silly_file.txt
+]
+
+* In same directory, create a `Dockerfile` with the following contents.
+
+.code-box[
+FROM ubuntu&lt;br&gt;&lt;br&gt;
+\# make a working directory in container&lt;br&gt;
+RUN mkdir /working_directory&lt;br&gt;
+\# set working directory&lt;br&gt;
+WORKDIR /working_directory&lt;br&gt;
+\# copy silly_file.txt to working directory&lt;br&gt;
+COPY silly_file.txt ./&lt;br&gt;
+\# set an environment variable&lt;br&gt;
+ENV my_variable="123456789"&lt;br&gt;
+\# set entry point&lt;br&gt;
+CMD echo "Hello from your container"
+]
+
+---
+
+## Breakout exercise 1
+
+1. Build the image, `docker build -t br1 .`
+2. Run the container `docker run br1`.
+3. Run the container interactively `docker run -it br1 /bin/bash`
+  * Find `silly_file.txt`.
+  * Confirm `my_variable` is there: `echo $my_variable`.
+4. Modify the `Dockerfile`:
+  * Comment out the `WORKDIR` line in `Dockerfile` 
+  * Change the `CMD` to `echo` something else
+5. Repeat 2-3, replacing `br1` with `br2`
+
+---
+
+## DockerHub
+
+Earlier, we downloaded an Ubuntu image. Where did it come from?
+* [DockerHub](https://hub.docker.com/_/ubuntu?tab=tags)
+* GitHub for images!
+
+Many images. Many free, some not.
+* [Ubuntu](https://hub.docker.com/_/ubuntu)
+* [R/Rstudio](https://hub.docker.com/u/rocker/)
+* [nginx](https://hub.docker.com/_/nginx)
+* [many others](https://hub.docker.com/search?q=&amp;type=image)
+
+[Sign up](https://hub.docker.com/) for an account.
+
+---
+
+## Pushing to DockerHub
+
+Share your images by building locally and using `docker push`.
+* On the build, use `-t dock.hub.usr.name/repo.name:tag`
+
+For example, my dockerhub user name is `dbenkeser`.
+
+.code-box[
+davidbenkeser$ docker build -t dbenkeser/ubuntu_plus_vim .&lt;br&gt;
+...&lt;br&gt;
+davidbenkeser$ docker push dbenkeser/ubuntu_plus_vim &lt;br&gt;
+]
+
+If you do not specify a `tag`, default is `latest`.
+
+---
+
+## Viewing/removing containers/images
+
+`docker container ps`
+* list running containers
+* add `-a` option to see __all__ recently run containers
+
+`docker images`
+* list all downloaded images
+
+`docker image rm [id]`
+* replace `[id]` with code from `IMAGE ID` column of `docker images`
+
+`docker system prune`
+* remove all unused images and containers
+* add `-a` to remove everything
+
+???
+
+You definitely want to `prune` from time to time; images can start to take up quite a bit of your computer's memory. But just be aware that removing images and containers, future builds may take longer (because you will have to re-install the image for your build). 
+
+---
+
+## rocker images
+
+[R/Rstudio](https://hub.docker.com/u/rocker/) images are available from `rocker`. 
+* [`rocker/r-ubuntu:20.04`](https://hub.docker.com/r/rocker/r-ubuntu)
+  * only `R` installed with Ubuntu OS
+* [`rocker/rstudio`](https://hub.docker.com/r/rocker/rstudio)
+  * R Studio server version, more next slide
+* [`rocker/tidyverse`](https://hub.docker.com/r/rocker/tidyverse) 
+  * `rstudio` + `devtools` and `tidyverse` packages
+
+
+---
+
+## R Studio images
+
+The entry point for `rocker/rstudio` is to run R Studio server, a web browser interface to R Studio. 
+
+.code-box[
+davidbenkeser$ docker run -e PASSWORD="SECRET123" -p 8787:8787 rocker/rstudio&lt;br&gt;
+...&lt;br&gt;
+[services.d] done.
+]
+
+Open web browser and go to http://localhost:8787.
+* Username: rstudio, Password: `SECRET123`
+
+If `R` is desired, override the entry point.
+* .small[`docker run -e PASSWORD="ABCD" -it rocker/rstudio /bin/bash`]
+* Still need `PASSWORD`, or it will error. 
+
+???
+
+Add `-d` option to run command to have it run in the background
+
+I use `rstudio` image for teaching short courses.
+
+---
+
+## An `R` project workflow
+
+Download the &lt;a href='example_project.zip' download&gt;`example_project`&lt;/a&gt; folder.
+
+* `Dockerfile`
+  * installs an R package, copies files over, sets `CMD`.
+* `Makefile`
+  * rules for making a figure and the report.
+* `R/make_barchart.R`
+  * R script to make a bar chart
+* `R/report.Rmd` 
+  * R Markdown report source
+
+Build the container:
+.code-box[
+davidbenkeser$ docker build -t ex-proj .
+]
+
+---
+
+## An `R` project workflow
+
+__Typical workflow__ involves:
+* updating analysis code, running, ...
+* tweak figures, compile report, ...
+
+__Docker workflows__ are slightly more complicated.
+* different R version/packages between container and local?
+* update code locally, .red[rebuild container], run code in container, ...
+* tweak figures locally, .red[rebuild container], compile report in container, ...
+  * how to view report?
+
+Want to .green[update code locally] + have code .green[available instantly] in container. 
+
+---
+
+## Mounting directories
+
+We can do this using the `-v` option to `docker run`.
+* "Mounts" a __local directory__ to a __directory in the container__.
+* I.e., directory on local computer __appears in__ container. 
+
+For example: 
+* On local computer, project directory is at `/path/to/project/`.
+* In container, project directory is `/project/`.
+
+.code-box[
+davidbenkeser$ docker run -v /path/to/project/R:/project/R ex-proj
+]
+
+???
+
+With a directory mounted this way, you can update files on your local computer, save them, and run the updated code instantly in the container.
+
+You could consider mounting the whole project directory. It all depends on what your code is doing. 
+* E.g., if you are writing code for figures, you might want to update code that makes the figures locally, run code to make the figure in the container, open the saved figure file locally. So you could also mount the `project/figs` folder. 
+* Avoid situations where you're mounting (sub)directories that are not copied over to the container. 
+
+Remember, a mounted directory is only available to a __running container__.
+* Add a new file to `project/R` locally.
+* Available to use in container .red[for this instance only]. 
+* Remember to copy needed files in your `Dockerfile`.
+
+---
+
+## Mounting directories
+
+Mounted directories are also useful for __retrieving final output__.
+* Useful to create a separate folder to hold output. 
+
+In current setup of `ex-proj` container, report is saved to `/project`. 
+* In breakout exercise, you will modify this. 
+
+Why create separate output folder instead of using the `/project`? 
+* Mounting whole project directory unnecessarily exposes code to users.
+
+---
+
+## Environment variables
+
+A useful way to control the __run-time behavior__ of docker containers is to set __environment variables__ at runtime. 
+* Recall, this is done using `ENV` statements in `Dockerfile`. 
+* Define variables that can be referenced in `bash` or `R` scripts. 
+
+These will be available in any shell in the container. 
+* In `Dockerfile`: `ENV foo="bar"`
+* In container: `echo $foo`
+
+You can retrieve environment variables from with `R` using `Sys.getenv`.
+* In `Dockerfile`: `ENV foo="bar"`
+* In `R` in container: `Sys.getenv("foo")` 
+
+---
+
+## Environment variables
+
+Setting an `ENV` in `Dockerfile` is like giving a variable a default value.
+
+
+If in `Dockerfile`, `ENV foo="bar"` and we execute
+.code-box[
+davidbenkeser$ docker run some-container
+]
+the container will run with the value of `foo` set to `"bar"`. 
+
+If instead, we execute 
+.code-box[
+davidbenkeser$ docker run -e foo="notbar" some-container
+]
+the container will run with the value of `foo` set to `"notbar"`. 
+
+---
+
+## Breakout exercise 2
+
+1. Run the `ex-proj` container with the `/project/` folder mounted to a local directory. Examine the report generated. 
+2. Look at `example_project/R/make_barchart.R` and `Dockerfile` to see how the `ENV` variable `which_fig` is used. 
+3. Re-run the container using option `-e which_fig="..."` to produce a figure of gears vs. carb (replace `...` with the proper string).
+4. Modify the `Dockerfile` to add a separate directory for the output to the container. Modify the `Makefile` to write the html report to this directory. 
+5. Re-`build` and re-`run` the container with a local directory mounted to your new output directory in the container. 
+6. Change the `CMD` command so that the entry point is to `make` the report. 
+
+
+&lt;!--
+docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+--&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-blue",
+"highlightLanguage": "rmarkdown",
+"highlightLines": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

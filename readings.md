@@ -58,21 +58,6 @@ permalink: /readings/
 * [Bash tutorial videos](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
 * [Using Brew on Windows 10 with Windows Subsystem for Linux](https://medium.com/@edwardbaeg9/using-homebrew-on-windows-10-with-windows-subsystem-for-linux-wsl-c7f1792f88b3)
 
-## git and GitHub
-
-* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-* [Oh Sh*t, Git!?!](https://ohshitgit.com/)
-* [Connecting to GitHub with ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
-* [Karl Broman's git/github guide](https://kbroman.org/github_tutorial/)
-* [Pro Git](https://git-scm.com/book/en/v2)
-* [Software carpentry notes on git](https://github.com/swcarpentry/DEPRECATED-boot-camps/blob/master/version-control/git/git-and-github/instructor_notes.md)
-* [Git can facilitate greater reproducibility and increased transparency in science](https://scfbm.biomedcentral.com/articles/10.1186/1751-0473-8-7)
-* [Intro to Git for Scientists](http://karthik.github.io/git_intro/#/slide-title)
-* [git - the simple guide](http://rogerdudler.github.io/git-guide/)
-* [Resources to learn Git](http://try.github.io/)
-* [Github Tutorial](https://guides.github.com/activities/hello-world/)
-* [Git Handbook](https://guides.github.com/introduction/git-handbook/#basic-git)
-
 ## R Markdown
 
 * [Installing `rmarkdown` on WSL](/info550/recordings/installing-r-wsl)
@@ -86,6 +71,22 @@ permalink: /readings/
 * [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
 * [R Markdown chapter in R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
 * [R Markdown formats chapter in R for Data Science](https://r4ds.had.co.nz/r-markdown-formats.html)
+
+## git and GitHub
+
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+* [Oh Sh*t, Git!?!](https://ohshitgit.com/)
+* [Connecting to GitHub with ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+* [Video illustrating connecting to GitHub with ssh](https://www.youtube.com/watch?v=WgZIv5HI44o)
+* [Karl Broman's git/github guide](https://kbroman.org/github_tutorial/)
+* [Pro Git](https://git-scm.com/book/en/v2)
+* [Software carpentry notes on git](https://github.com/swcarpentry/DEPRECATED-boot-camps/blob/master/version-control/git/git-and-github/instructor_notes.md)
+* [Git can facilitate greater reproducibility and increased transparency in science](https://scfbm.biomedcentral.com/articles/10.1186/1751-0473-8-7)
+* [Intro to Git for Scientists](http://karthik.github.io/git_intro/#/slide-title)
+* [git - the simple guide](http://rogerdudler.github.io/git-guide/)
+* [Resources to learn Git](http://try.github.io/)
+* [Github Tutorial](https://guides.github.com/activities/hello-world/)
+* [Git Handbook](https://guides.github.com/introduction/git-handbook/#basic-git)
 
 ## GNU Makefiles
 
@@ -147,7 +148,6 @@ permalink: /readings/
 * [List of Docker Resources](https://docs.docker.com/get-started/resources/)
 * [Play With Docker in Your Browser](https://labs.play-with-docker.com/)
 * [Dockerfile cheat sheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
-* 
 
 
 ## Continuous integration
@@ -165,9 +165,4 @@ permalink: /readings/
 
 
 ## AWS
-
-
-
-
-
 

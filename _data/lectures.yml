@@ -90,3 +90,12 @@
   title: Writing R packages
   tldr: SAS maintainers HATE them. This one weird trick will allow you to distribute
     your software for free.
+- breakoutsoln: ''
+  dirname: 10_docker
+  filename: docker
+  reading: docker
+  recording: ''
+  recording_url: docker-for-reproducible-research
+  start: 0:0:0
+  title: Docker for reproducible research
+  tldr: Software is code, so ship software with your code for full reproducibility.
