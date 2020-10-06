@@ -219,7 +219,7 @@ Depends: <br>
 License: MIT + file LICENSE<br>
 LazyData: true<br>
 Suggests:<br>
-&nbsp;&nbsp; ggplot2
+&nbsp;&nbsp; ggplot2 <br>
 URL: https://github.com/karthik/wesanderson <br>
 BugReports: https://github.com/karthik/wesanderson/issues<br>
 RoxygenNote: 6.0.1
@@ -548,7 +548,7 @@ Make a `/vignettes` subdirectory that includes a `.Rmd` file. Include the follow
 ```{r, show-yaml-header, eval = FALSE}
 output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{Intro to RSkittleBrewer}
+    %\VignetteIndexEntry{Title of Your Vignette}
     %\VignetteEngine{knitr::rmarkdown}
     \usepackage[utf8](inputenc)
 ```
