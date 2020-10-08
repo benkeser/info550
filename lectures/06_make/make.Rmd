@@ -315,7 +315,7 @@ In the next chapter, we'll discuss project management and why it's a good idea t
 
 ### Breakout exercise
 
-* Add a script `make_fig1.R` to the `exercise` directory.
+* Add a script `make_fig1.R` to the `example` directory (from <a href="example.zip" download>`example.zip`</a>)
   * Read in `data.txt` 
   * Save `.png` of a histogram of the data (see below)
 * Add a `make` rule for `fig1.png`.
