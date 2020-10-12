@@ -82,7 +82,7 @@ style_mono_accent(
 * No spaces in file names. 
 * Use meaningful file names.
 * Use YYYY-MM-DD date formatting.
-* .red[No relative paths.]
+* .red[No absolute paths.]
 
 ???
 
