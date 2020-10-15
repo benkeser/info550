@@ -70,7 +70,7 @@ knitr::opts_knit$set(root.dir = 'example')
 
 ```{bash, make-zip, include = FALSE}
 zip ../example.zip *
-zip ../exercise.zip ../exercise/*
+zip -r ../exercise.zip ../exercise/*
 # copy origin makefile
 cp Makefile ../tmp_Makefile
 ```

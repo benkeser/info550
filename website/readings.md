@@ -43,6 +43,8 @@ permalink: /readings/
 	* [Emacs Keys Basics](http://ergoemacs.org/emacs/emacs_keys_basics.html)
 	* [Emacs tutorial (video)](https://www.youtube.com/watch?v=Iagbv974GlQ)
 * [__micro__](https://micro-editor.github.io/)
+* [__VSCode__](https://code.visualstudio.com/)
+	* [R and VSCode](https://renkun.me/2019/12/11/writing-r-in-vscode-a-fresh-start/)
 
 ## Command line
 
@@ -107,7 +109,7 @@ permalink: /readings/
 * [Nine simple ways to make it easier to (re)use your data](https://ojs.library.queensu.ca/index.php/IEE/article/view/4608/0)
 * [Stanford library best practices for file naming](https://library.stanford.edu/research/data-management-services/data-best-practices/best-practices-file-naming)
 * [Stanford library guide to metadata](https://library.stanford.edu/research/data-management-services/data-best-practices/creating-metadata)
-
+* [`here` R package](https://here.r-lib.org/)
 
 ## Coding Style
 
@@ -148,6 +150,10 @@ permalink: /readings/
 * [List of Docker Resources](https://docs.docker.com/get-started/resources/)
 * [Play With Docker in Your Browser](https://labs.play-with-docker.com/)
 * [Dockerfile cheat sheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+* [Configure Windows Subsystem for Linux with Docker](https://docs.docker.com/docker-for-windows/wsl/)
+* [R Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/)
+* [An Introduction to Docker for R Users](https://colinfay.me/docker-r-reproducibility/)
+* [Using R via rocker](http://dirk.eddelbuettel.com/papers/chirug_nov2019_rocker.pdf)
 
 
 ## Continuous integration
