@@ -6,7 +6,7 @@ tldr: "Make is a program for organizing projects and dependencies in code."
 recording: "60178fc1-8131-45cd-a345-ac4701537188"
 start: "0:0:0"
 reading: "gnu-makefiles"
-breakoutsoln: "example_soln.zip"
+breakoutsoln: "make_soln.zip"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
