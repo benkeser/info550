@@ -1,0 +1,31 @@
+---
+title: "Biomarker Analysis"
+output: html_document
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("good_round.R")
+```
+
+# Executive summary
+
+```{r exec-summary-stats}
+data_merge <- read.table("../clean_data/clean_data.txt", header = TRUE)
+n <- nrow(data_merge)
+n_female <- sum(data_merge$sexf)
+mean_age <- good_round(mean(data_merge$age))
+sd_age <- good_round(sd(data_merge$age))
+```
+
+There were `r n` observations successfully merged. There were `r n_female` females in the study and the average age was `r mean_age` (sd `r sd_age`). 
+
+# Biomarker analysis
+
+Some summary plots are shown below. 
+
+![Scatter plot of age by biomarker](../figs/fig1.png)
+
+```{r, figure-2}
+knitr::include_graphics("../figs/fig2.png")
+```
