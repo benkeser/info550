@@ -1,0 +1,22 @@
+---
+title: "Homework 5"
+due: "2020/10/22"
+submit: "https://canvas.emory.edu/courses/75677/assignments/400220"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+For this assignment please turn in to Canvas a plain text file with your GitHub user name. You will then be assigned to peer grade another student's repository. 
+
+1. Update your GitHub repository to include an organized file structure following some of the principles we discussed in class. There's no right answer for how to do this, but you will be graded/judged by your peers on your organization system. 
+
+2. Update your GitHub repository to include a `Makefile`. Your `Makefile` should include these rules:
+* `make install`: install any `R` packages or software needed for your analysis
+* `make report`: produce the final report
+* `make help`: `echo` some helpful information about the `Makefile`
+
+You are free to structure the rest of the `Makefile` as it makes sense for your analysis. Update your `README` to reflect the changes that you made. 
+
+Your repository will be peer-graded for its clarity. You will be asked to download one of your classmates' repository and try to run their code. 
