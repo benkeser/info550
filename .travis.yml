@@ -15,6 +15,8 @@ addons:
 pandoc_version: 2.3.1
 before_install:
   - sudo apt-get update
+  - sudo apt-get remove r-base-core
+  - sudo apt-get remove r-base
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
   - sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran40/'
   - sudo apt-get -y install r-base r-base-dev
