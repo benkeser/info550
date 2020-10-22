@@ -1,0 +1,26 @@
+---
+title: "Homework 6"
+due: "2020/10/29"
+submit: ""
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+There is no physical homework to turn in this week, but your assignment is to download and configure Docker to be ready for next week's lecture. 
+
+1. Install docker. [Mac instructions here](https://docs.docker.com/docker-for-mac/install/). [Windows instructions with WSL backend](https://docs.docker.com/docker-for-windows/wsl/). 
+2. Sign up for a (docker hub account)[https://hub.docker.com/]. 
+3. Confirm that your docker install is working properly by executing the following code at the command line. 
+
+```
+docker run hello-world
+```
+
+4. Pull the following images before class: `ubuntu`, `rocker/rstudio` by executing the following code at the command line. 
+
+```
+docker pull ubuntu
+docker pull rocker/rstudio
+```
