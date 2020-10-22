@@ -10,13 +10,12 @@ branches:
   - master
 addons:
   apt:
-    sources:
-    - r-packages-precise
     packages:
-    - r-base-dev
-    - r-recommended
     - pandoc
 pandoc_version: 2.3.1
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install r-base
 cache:
   directories:
   - "~/Rlib"
