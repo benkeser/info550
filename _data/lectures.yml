@@ -94,7 +94,7 @@
   dirname: 10_docker
   filename: docker
   reading: docker
-  recording: ''
+  recording: f524f0a3-8ca8-4a08-8ed1-ac6400da9eb5
   recording_url: docker-for-reproducible-research
   start: 0:0:0
   title: Docker for reproducible research

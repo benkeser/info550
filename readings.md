@@ -155,10 +155,6 @@ permalink: /readings/
 * [An Introduction to Docker for R Users](https://colinfay.me/docker-r-reproducibility/)
 * [Using R via rocker](http://dirk.eddelbuettel.com/papers/chirug_nov2019_rocker.pdf)
 
-
-## Continuous integration
-
-
 ## Python
 
 * [Install Anaconda](https://docs.anaconda.com/anaconda/install/)
@@ -166,9 +162,12 @@ permalink: /readings/
 * [A Comprehensive Look at Basic Python](https://docs.python.org/3/tutorial/)
 * [A Brief Intro to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
 
-
-## Jupyter notebooks
-
-
 ## AWS
+
+* [Install `awscli` (version 2)]
+(https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+
+
+
+
 
