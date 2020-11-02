@@ -1,0 +1,24 @@
+---
+title: "Homework 7"
+due: "2020/11/23"
+submit: "https://canvas.emory.edu/courses/75677/assignments/405637"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+For this assignment please turn in to Canvas a plain text file with your GitHub user name and project repository name, as well as your DockerHub user name and project repository name. You will then be assigned to peer grade another student's repository. 
+
+1. Update your GitHub repository to include a `Dockerfile` that builds an image that can be used to execute your analysis. This image should: 
+* Include a well-organized project folder complete with all R code and data needed to execute your analysis
+* Include an entry point that `make`'s your report and saves it in a specified folder in the container
+You are otherwise free to structure your image however you'd like.
+
+2. Update your GitHub repository's `Makefile` to include a `make build` statement that builds the docker image.
+
+3. Update your GitHub repository's `README.md` to include instructions on downloading a built Docker image from DockerHub (i.e., tell your users how to `docker pull` your image). Also include instructions on retrieving the final report from the image (i.e., what directory in the image do you need to mount to a local directory to retrieve output?). 
+
+4. Build your Docker image locally and push it to DockerHub.
+
+Your repository will be peer-graded for its clarity in describing the process for running a container to retrieve output, and for your container's ability to run and generate a report.
