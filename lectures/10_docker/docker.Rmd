@@ -524,11 +524,11 @@ __Typical workflow__ involves:
 
 __Docker workflows__ are slightly more complicated.
 * different R version/packages between container and local?
-* update code locally, .red[rebuild container], run code in container, ...
-* tweak figures locally, .red[rebuild container], compile report in container, ...
+* update code locally, .red[rebuild image], run code in container, ...
+* tweak figures locally, .red[rebuild image], compile report in container, ...
   * how to view report?
 
-Want to .green[update code locally] + have code .green[available instantly] in container. 
+Want to .green[update code locally] + have code .green[available instantly] in container (without needing to rebuild image). 
 
 ---
 
