@@ -69,7 +69,7 @@ style_mono_accent(
 </style>
 
 ```{bash, make-zip, include = FALSE}
-zip -r example_project ./example_project/*
+zip -r example_project ./example_project/* -i \*
 ```
 
 ## The problem
@@ -543,7 +543,7 @@ For example:
 * In container, project directory is `/project/`.
 
 .code-box[
-davidbenkeser$ docker run -v /path/to/project/R:/project/R ex-proj
+davidbenkeser$ docker run -v /path/to/project/R:/project/R -it ex-proj
 ]
 
 ???
