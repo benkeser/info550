@@ -68,10 +68,6 @@ style_mono_accent(
 }
 </style>
 
-```{bash, make-zip, include = FALSE}
-zip -r example_project ./example_project/* -i \*
-```
-
 ## The problem
 
 Trying to run someone else's code.
