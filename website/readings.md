@@ -164,8 +164,7 @@ permalink: /readings/
 
 ## AWS
 
-* [Install `awscli` (version 2)]
-(https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+* [Install `awscli` (version 2)](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 
 
 
