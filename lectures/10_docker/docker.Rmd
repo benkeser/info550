@@ -6,7 +6,7 @@ tldr: "Software is code, so ship software with your code for full reproducibilit
 recording: "f524f0a3-8ca8-4a08-8ed1-ac6400da9eb5"
 start: "0:0:0"
 reading: "docker"
-breakoutsoln: ""
+breakoutsoln: "breakout2soln.zip"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
