@@ -1,0 +1,69 @@
+---
+title: Solution for breakout exercise 2
+output: html_document
+---
+
+### Zipped files
+
+In the zipped file there is a folder called `example_project_soln`, which contains the updated directory with solutions to the breakout exercise. Here, we provide some description of the solutions.  
+
+### Question 1
+
+1. Run the `ex-proj` container with the `/project/` folder mounted to a local directory. Examine the report generated. 
+
+__Solution__: Open a terminal and navigate (i.e., `cd`) to the original [`example_project` folder](https://benkeser.github.io/info550/lectures/10_docker/example_project.zip). The image can be built, the container run, and a report generated as follows.
+
+````
+davidbenkeser$ docker build -t ex-proj .
+davidbenkeser$ docker run -it -v ~/example_project:/project ex-proj
+root@i23ahs931t# make -C project report.html
+...
+root@i23ahs931t# exit
+davidbenkeser$
+````
+
+In the third line above, we have entered into the running container and are executing the `make` statement to build the report. You will need to change `~/example_project` to the file path to your `example_project` folder. Once you've exited the container, you should see a `report.html` file in your `example_project` folder. 
+
+### Questions 2/3
+
+2. Look at `example_project/R/make_barchart.R` and `Dockerfile` to see how the `ENV` variable `which_fig` is used. 
+3. Re-run the container using option `-e which_fig="..."` to produce a figure of gears vs. carb (replace `...` with the proper string).
+
+__Solution__: After finishing question 1, let's go ahead and get a clean version of `example_project` by removing the compiled report and figure file.
+
+````
+davidbenkeser$ rm report.html figs/*
+````
+
+Now, we can examine the code in `example_project/R/make_barchart.R` and see that the `which_fig` environment variable is being used to determine which chart we make. If we set `which_fig="gears_vs_cylinders"` (the default), then a plot of gears vs. cylinders is created. If instead we set `which_fig="gears_vs_carb"` a different figure will be produced. To see this, we can execute the following commands. 
+
+````
+davidbenkeser$ docker run -e which_fig="gears_vs_carb" -it -v ~/example_project:/project ex-proj
+root@192eth84as9# make -C project report.html
+...
+root@192eth84as9# exit
+````
+
+You will need to change `~/example_project` to the file path to your `example_project` folder. Once you've exited the container, you should see a `report.html` file in your `example_project` folder with a different plot than the original report compiled in question 1. 
+
+### Question 6
+
+6. Change the `CMD` command so that the entry point is to `make` the report. 
+
+__Solution__: Note that the `CMD` statement in `example_project_soln/Dockerfile` has been updated to a `make` statement. 
+
+### Question 4/5
+
+4. Modify the `Dockerfile` to add a separate directory for the output to the container. Modify the `Makefile` to write the html report to this directory.
+5. Re-`build` and re-`run` the container with a local directory mounted to your new output directory in the container. 
+
+__Solution__: We will now move into the `example_project_soln` folder included in the zip file to work with the updated `Dockerfile`. Comparing `example_project/Dockerfile` and `example_project_soln/Dockerfile`, we see that an additional `RUN` command has been added to create a `/project/output` directory. We have also modified the `make` rule for `report.html` so that `rmarkdown::render` stores the outputted report in this directory.
+
+We can build the image and run the container as follows (from the `example_project_soln` folder in terminal): 
+
+````
+davidbenkeser$ docker build -t ex-proj-soln .
+davidbenkeser$ docker run -v ~/example_project_soln:/project ex-proj-soln
+````
+
+You will need to change `~/example_project_soln` to the file path to your `example_project_soln` folder. Once you've exited the container, you should see a `report.html` file in your `example_project_soln/output` folder with a different plot than the original report compiled in question 1. Note that here we are not running the container interactively (no `-it` added to `docker run`) so the container runs the `CMD` command (a `make` command) and exits. 

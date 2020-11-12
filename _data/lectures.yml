@@ -99,3 +99,12 @@
   start: 0:0:0
   title: Docker for reproducible research
   tldr: Software is code, so ship software with your code for full reproducibility.
+- breakoutsoln: ''
+  dirname: 11_python
+  filename: python
+  reading: python
+  recording: ''
+  recording_url: intro-to-python
+  start: 0:0:0
+  title: Intro to python
+  tldr: Do you start counting at 0? Love to see pandas at the zoo? python is for you!

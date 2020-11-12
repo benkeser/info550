@@ -1,0 +1,73 @@
+---
+title: "Intro to python"
+author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#python)'
+tldr: "Do you start counting at 0? Love to see pandas at the zoo? python is for you!"
+recording: ""
+start: "0:0:0"
+reading: "python"
+breakoutsoln: ""
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLanguage: rmarkdown
+      highlightLines: false
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+extra_css <- list(
+  ".clearbox" = list(
+    display = "inline-block", 
+    width = "100%",
+    padding = "5px",
+    border = "1px solid #012169",
+    `background-color` = "#d9d9d6",
+    `align-items` = "left",
+    `vertical-align` = "middle"
+  ),
+  ".small" =  list(`font-size` = "80%"),
+  ".large" =  list(`font-size` = "150%"),
+  ".huge" =  list(`font-size` = "400%"),
+  "ul li" = list(`margin-bottom` = "10px"),
+  ".red" = list(color = "#da291c",
+                `font-weight` = "600"),
+  ".green" = list(color = "#348338",
+                `font-weight` = "600"),
+  ".remark-code-line-highlighted" = list(border = "2px solid #f2a900",
+                                         `background-color` = "#002451"),
+  ".code-box" = list(display = "inline-block", 
+    width = "95%",
+    `line-height` = "1.25em",
+    padding = "5px",
+    `font-size` = "80%",
+    `background-color` = "#f6f6f6",
+    `align-items` = "left",
+    `font-family` = "Courier Prime",
+    border = "1px solid black"),
+  "a" = list(color = "#007dba"),
+  "a:hover" = list("text-decoration" = "underline")
+)
+
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 22px
+}
+</style>
+
+## Python
+
+The class TA, Sohail Nizam, has put together a [tutorial script](pytutorial.py) for this lecture.
