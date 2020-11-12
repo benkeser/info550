@@ -172,7 +172,8 @@ permalink: /readings/
 
 * [Install `awscli` (version 2)](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * [Configuring `awscli`](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
-
+* [High level `s3` `awscli` commands](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html)
+* 
 
 
 
