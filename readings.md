@@ -161,10 +161,18 @@ permalink: /readings/
 * [Anaconda Package Management](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/)
 * [A Comprehensive Look at Basic Python](https://docs.python.org/3/tutorial/)
 * [A Brief Intro to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+* [Code Academy python courses](https://www.codecademy.com/catalog/language/python)
+* [Google's python class](https://developers.google.com/edu/python/)
+* [A byte of python](https://python.swaroopch.com/)
+* [tuts+: The best way to learn python](https://code.tutsplus.com/articles/the-best-way-to-learn-python--net-26288)
+* [Software Carpentry: Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
+
 
 ## AWS
 
 * [Install `awscli` (version 2)](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+* [Configuring `awscli`](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+
 
 
 
