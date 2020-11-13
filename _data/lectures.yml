@@ -108,7 +108,7 @@
   start: 0:0:0
   title: Intro to python
   tldr: Do you start counting at 0? Love to see pandas at the zoo? python is for you!
-- breakoutsoln: awseducate_setup.html
+- breakoutsoln: awseducate_setup
   dirname: 12_aws
   filename: aws
   reading: aws

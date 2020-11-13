@@ -6,7 +6,7 @@ tldr: "Jeff Bezos has a better computer than you and for the right price, he wil
 recording: ""
 start: "0:0:0"
 reading: "aws"
-breakoutsoln: "awseducate_setup.html"
+breakoutsoln: "awseducate_setup"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
