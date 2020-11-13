@@ -108,3 +108,13 @@
   start: 0:0:0
   title: Intro to python
   tldr: Do you start counting at 0? Love to see pandas at the zoo? python is for you!
+- breakoutsoln: awseducate_setup.html
+  dirname: 12_aws
+  filename: aws
+  reading: aws
+  recording: ''
+  recording_url: cloud-computing-using-aws
+  start: 0:0:0
+  title: Cloud computing using AWS
+  tldr: Jeff Bezos has a better computer than you and for the right price, he will
+    let you use it.
