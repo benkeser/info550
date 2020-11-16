@@ -64,7 +64,7 @@ Academia is now filled with tales of grad students inadvertently racking up thou
 
 .red[I am not a cloud computing expert]. I am barely even a novice.
 
-The goals of this lecture are to give you basics of:
+The goals of this lecture are to give you __basics__ of:
 * AWS command line interface `awscli`;
 * using EC2 (compute) and S3 (storage) services.
 
@@ -90,7 +90,8 @@ We need to first configure `awscli`, so that it knows your AWS credentials.
 
 &lt;br&gt; 
 
-Each session is three hours, at which point your credentials reset. 
+Each session is three hours, at which point your credentials reset.
+* Once your credentials expire, you'll have to remake your credentials file.
 * With a regular AWS account, you just set credentials once.
 
 ---
@@ -180,12 +181,12 @@ Additionally, you should [enable multi-factor authentication](https://docs.aws.a
 
 ## IAM Users
 
-IAM users are not enabled in AWS Educate starter accounts, but let's pause to discuss what they are and why they're important. 
+IAM users are __not enabled in AWS Educate__ starter accounts, but let's pause to discuss what they are and why they're important. 
 
 When you sign up for an AWS account, you create a __root user__, an account that can do whatever it wants in AWS. 
 
 It is [suggested](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) that you set up IAM users to specifically manage permissions. 
-* Even if you are the only one using the account.
+* Even if you are the __only one__ using the account.
 
 ???
 
@@ -219,7 +220,7 @@ $ chmod 400 ~/.ssh/aws_laptop_key.pem
 
 ## Security group
 
-We want to restrict access further to our cloud computer by restricting what IP addresses can log in to the machine. 
+We will __further restrict access__ by selecting what IP addresses can log in to the machine.
 * To do this, we set up a __security group__. 
 
 Run `aws ec2 describe-vpcs` and find `VpcId`. It will be something like `vpc-2d8c4750`. 
@@ -345,7 +346,7 @@ We're finally ready to run an instance!
 
 ````bash
 $ aws ec2 run-instances --image-id ami-0885b1f6bd170450c \
---count 1 --instance-type t2.micro \
+--count 1 --instance-type t2.large \
 --key-name aws_laptop_key \
 --security-group-ids sg-0af9981424cb188b1
 ````
@@ -435,15 +436,20 @@ Install programs, packages, etc... that you need.
 E.g., install `R` and `awscli` on Ubuntu:
 
 ````bash
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com \
+--recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+$ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 $ sudo apt-get update
-$ sudo apt-get -y r-base-dev
-$ sudo apt-get -y awscli
+$ sudo apt-get install -y r-base
+$ sudo apt-get install -y awscli
 ````
 
 Anything we have __installed via command line__ can be __installed on your image__. 
 * E.g., [install Docker on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ???
+
+The first two lines of the `bash` ensure that we are installing the most recent version of `R` for Ubuntu. From [here](https://linuxize.com/post/how-to-install-r-on-ubuntu-20-04/).
 
 More docs on installing `R` and R Studio server on AWS image.
 
@@ -459,10 +465,12 @@ How can we "save our workspace"?
 
 ````bash
 $ aws ec2 create-image --instance-id $instance_id \
---name "Ubuntu + R" --description "Base R install"
+--name "Ubuntu and R and awscli" --description "Base R and awscli"
+$ my_ami="ami-0b56ddda752b70ca2"
 ````
 
-This will return an `ImageID` that you can reference in the `--image-id` option of `aws ec2 run-instances`.
+This will return an `ImageID` that you can reference in the `--image-id` option of `aws ec2 run-instances`. 
+* Here, we save that as a local variable name `my_ami`.
 * It will also log you out of your image, but does not terminate it.
 
 ---
@@ -475,7 +483,7 @@ There are two steps to deleting a self-registered AMI:
 * __De-register__ the image.
 
 ````bash
-$ aws ec2 deregister-image --image-id XXX
+$ aws ec2 deregister-image --image-id $my_ami
 ````
 
 * __Delete the snapshot__. 
@@ -687,9 +695,106 @@ The final demo of the lecture is an automated `R` workflow.
 
 ## Creating S3 access IAM role
 
-One of the complicating features is getting your AWS credentials to your EC2 instance.
+One of the complications of using __AWS services__ on __AWS instances__ is getting your __AWS credentials__ to your instance.
+* E.g., from EC2 instance, copy files to S3 bucket
 
-Coming soon...
+.red[Treat your access/secret key like credit card information.]
+* Never on GitHub. Never move unencrypted over the wires.
+
+In the next few steps, we will be running commands to define [IAM roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for your instance. 
+* Makes your AWS credentials available on your instance.
+* Tells your instance what AWS services you are allowed to use. 
+
+Unfortunately, these steps look __more complicated than they are__...
+
+---
+
+## Creating S3 access IAM role
+
+__Step 1__: Create a __trust policy__, which specifies that AWS account members are allowed to assume a role.
+
+Copy the following text into a file called `ec2-role-trust-policy.json`.
+
+````json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "ec2.amazonaws.com" },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+````
+
+???
+
+[More info on the "version" line](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+
+If you get any "contains invalid Json" errors, check try typing the text by hand and using spaces and not tabs.
+
+---
+
+## Creating S3 access IAM role
+
+__Step 2__: Create an [IAM role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) called `s3access` and link to the trust policy that you created.
+
+````bash
+$ aws iam create-role --role-name s3access \
+--assume-role-policy-document file://ec2-role-trust-policy.json
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 3__: Create an access policy that allows permission to use S3 on the instance.
+
+Copy the following text into a file called `ec2-role-access-policy.json`.
+
+
+````json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:*"],
+      "Resource": ["*"]
+    }
+  ]
+}
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 4__: Attach the access policy to the IAM role. 
+
+````bash
+$ aws iam put-role-policy --role-name s3access \
+--policy-name S3-Permissions \
+--policy-document file://ec2-role-access-policy.json
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 5__: Create an instance profile named `s3access-profile` and add the `s3access` role to the `s3access-profile`.
+
+````bash
+$ aws iam create-instance-profile \
+--instance-profile-name s3access-profile
+$ aws iam add-role-to-instance-profile \
+--instance-profile-name s3access-profile --role-name s3access
+````
+
+We can now launch EC2 instances that have access to AWS S3! 
+* Include `--iam-instance-profile Name="s3access-profile"` in your `ec2 run-instances` command. 
+* We will see this in a couple slides.
 
 ---
 
@@ -718,10 +823,43 @@ Save this in a file called `auto_r_user_data.sh`
 
 ````bash
 #! /bin/bash
-aws s3 cp s3://dbenkesers-first-bucket 
+# copy script from s3
+aws s3 cp s3://dbenkesers-first-bucket/ec2_script.R ~/
+# execute script
+chmod +x ~/ec2_script.R
+~/ec2_script.R
+# copy script output to s3
+aws s3 cp ~/output.csv s3://dbenkesers-first-bucket
+# turn off instance
+sudo poweroff
 ````
 
-Coming soon...
+---
+
+## Automated R with EC2 and S3
+
+Now we can run an instance with our user data. A few important notes:
+* We are calling the AMI that we created where `R` and `awscli` are installed.
+* Note how we assign the `s3access` role.
+* Note how we set the behavior to terminate when we `exit`.
+
+````bash
+$ aws ec2 run-instances --image-id ami-0b56ddda752b70ca2 \
+--count 1 --instance-type t2.large \
+--key-name aws_laptop_key \
+--security-group-ids sg-0af9981424cb188b1 \
+--iam-instance-profile Name="s3access-profile" \
+--user-data file://auto_r_user_data.sh \
+--instance-initiated-shutdown-behavior terminate
+````
+
+After a few minutes, we should see `output.csv` in our S3 bucket.
+
+````bash
+$ aws s3 ls s3://dbenkesers-first-bucket
+2020-11-12 21:56:07        106 ec2_script.R
+2020-11-16 17:11:02        232 output.csv
+````
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
