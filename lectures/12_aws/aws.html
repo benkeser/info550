@@ -242,16 +242,16 @@ Here we're setting up a security group for EC2 VPC (as opposed to EC2 classic). 
 
 ## Security group
 
-We will add your current IP address to this security group as follows.
+We will __add your current IP address__ to this security group as follows.
 
-* Find your current IP address.
+* Find your __current IP address__.
 
 ````bash
 $ my_ip=$(curl https://checkip.amazonaws.com)
 $ echo $my_ip
 ````
 
-* Add to security group; change `group-id` to output from previous slide.
+* Add to __security group__; change `group-id` to output from previous slide.
 
 ````bash
 $ aws ec2 authorize-security-group-ingress \
@@ -270,20 +270,19 @@ If you were to try to access your instance from a different IP address, then it 
 ## Instances and AMIs
 
 An __Amazon Machine Image__ (AMI) is a template that contains a software configuration. 
-* Like a Docker image
+* Like a __Docker image__
 * What OS do you want? What software do you want?
 
 An __instance__ is a copy of the AMI running as a virtual server in the cloud.
-* Like a Docker container, but running on a big computer somewhere in Virginia or Ohio that is running multiple containers at the same time.
-* How many CPUs do you want? How much memory do you want?
+* Like a __Docker container__, but running on a big computer somewhere in Virginia or Ohio that is running multiple containers at the same time.
+* How many __CPUs__ do you want? How much __memory__ do you want?
 
 Once an instance is launched, you can __sign in to that instance__. 
 * Like interactively entering Docker container.
 
 ???
 
-There are important technical distinctions between a virtual machine and what Docker is, but some of the key ideas are the same. The basic idea is that the AMI tells AWS what you want your environment to look like in terms of OS and software, while the image additionally includes specifications like how much memory and how many CPUs you want to use. 
-* roughly (I think): AMI = software; instance = hardware
+There are important technical distinctions between a virtual machine and what Docker is, but some of the key ideas are the same. The AMI tells AWS what you want your environment to look like in terms of OS and software, while the image additionally includes specifications like how much memory and how many CPUs you want to use. 
 
 You can also configure instances to launch and run a script automatically, which we may get to in when we talk about `awscli`. 
 
@@ -297,10 +296,10 @@ There are an [incredible amount](https://aws.amazon.com/marketplace/) of AMIs av
 What __OS__ do you want? 
 * Recommend sticking for now with Ubuntu or similar.
 
-Remember: any software that you want beyond what is included in your AMI will have to be installed.
+Remember: any __software__ that you want beyond what is included in your AMI __will need to be installed__ on the instance.
 * Docker can be helpful here! 
   * But you'll have to configure docker, at least on EC2
-  * Check out [ECR](https://aws.amazon.com/ecr/) or [Batch](https://aws.amazon.com/batch/) for a Docker-oriented services. 
+  * [ECR](https://aws.amazon.com/ecr/) and [Batch](https://aws.amazon.com/batch/) are Docker-oriented services.
 
 ???
 
@@ -310,8 +309,10 @@ You can spend a lot of time chasing down compilers etc... AWS is basically handi
 
 ## Amazon Machine Images
 
-Since we will be spinning up instances from the command line, we will need the ID for the AMI that we'd like to use. Here are a few useful ones:
+Since we will be spinning up instances from the command line, we will need the ID for the AMI that we'd like to use. 
 
+
+Here are a few useful ones:
 * Ubuntu 20.4 
   * `ami-0885b1f6bd170450c` (64-bit x86)
 * Amazon Linux 2
@@ -334,7 +335,8 @@ How much __memory__ do you want?
 Do you need __GPUs__? Do you need really fast __read/write__? ...
 
 The __T2 series__ is a good starting point.
-* `t2.micro` available with free tier, but memory is small. `t2.large` is what I have most often used.
+* `t2.micro` available with free tier, but memory is small. 
+* `t2.large` is what I have often use for moderate computations.
 
 ???
 
@@ -391,7 +393,7 @@ $ ssh -i ~/.ssh/authorized_keys/aws_laptop_key.pem ubuntu@${public_ip}
 * `ubuntu` is the default user name for Ubuntu images.
 * For other images, try `ec2-user@...` or `root@...`.
 
-You will see a warning message: 
+You will see a __warning message__:
 
 ````markdown
 The authenticity of host 'XXX' can't be established.
@@ -399,7 +401,7 @@ ECDSA key fingerprint is XXX.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ````
 
-* type yes and hit enter
+* Type `yes` and hit enter.
 
 .green[You are now computing in the cloud!] 😎
 
@@ -407,12 +409,12 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 ## Terminating an instance
 
-You now have a virtual computer in the cloud. What next?
+You now have a __virtual computer in the cloud__. What next?
 
 * .red[Remember to turn it off when you're done!]
-  * Don't run this command yet, but it's the most important reminder, so I'm getting it out of the way.
-* .red[Instances DO NOT stop running when you exit out.]
-  * You have to explicitly turn it off.
+  * Don't run this command yet, but do remember to when we're done!
+* .red[Instances do not stop running when you sign out.]
+  * You have to __explicitly turn it off__ or specify this behavior.
 
 ````bash
 $ instance_id=$(aws ec2 describe-instances \
@@ -421,7 +423,7 @@ $ instance_id=$(aws ec2 describe-instances \
 $ aws ec2 terminate-instances --instance-ids $instance_id
 ````
 
-After some time, you can check to make sure `State` is `terminated`.
+After some time, check to make sure `State` is `terminated`.
 
 ````bash
 $ aws ec2 describe-instances
@@ -471,13 +473,13 @@ $ my_ami="ami-0b56ddda752b70ca2"
 
 This will return an `ImageID` that you can reference in the `--image-id` option of `aws ec2 run-instances`. 
 * Here, we save that as a local variable name `my_ami`.
-* It will also log you out of your image, but does not terminate it.
+* It will also __log out__ of your image, but __does not terminate__ it.
 
 ---
 
 ## Deleting an AMI
 
-There are two steps to deleting a self-registered AMI: 
+There are two steps to __deleting a self-registered AMI__: 
 * .red[Don't run these commands yet.] We'll use this AMI later.
 
 * __De-register__ the image.
@@ -556,11 +558,243 @@ ubuntu@$public_ip:~/hello_container.txt .
 * Remember to update `public_ip` to the address of the running image.
 * .red[Remember to terminate image when you've retrieved results!]
 
-How is this useful?
-* If we're careful, we can achieve .green[full reproducibility]!
+If we're careful, we can achieve .green[full reproducibility]!
 * Scripted build of AMI + automatic running of code.
+* Reproducible if we pay to store __AMI__. Docker image preferable.
 
 We will soon __automate retrieval__ of results __and termination__ of image. 
+
+---
+
+## S3 storage
+
+Simple Storage Service (S3) is a storage platform for AWS.
+* Create __buckets__ that you can upload files into. 
+* Push and pull files from local computer to AWS instance.
+* Different [classes of storage](https://aws.amazon.com/s3/storage-classes/) to suit needs.
+
+__Buckets__ are like file folders, but they are accessible via web address.
+* Bucket names must be __globally unique__ and DNS compliant.
+* But __buckets__ do not really have a file structure like a folder.
+
+We can make a bucket using `s3 mb`.
+
+````bash
+aws s3 mb s3://dbenkesers-first-bucket
+````
+
+---
+
+## S3 storage
+
+Many `aws s3` commands are similar to `bash`. 
+* `ls`, `mv`, `cp`, `rm`, ...
+* `rb` removes a bucket
+
+For example, we can copy local objects into a bucket.
+
+````bash
+$ aws s3 cp path/to/local/file s3://dbenkesers-first-bucket
+````
+
+Or, we can retrieve objects from a bucket to current working directory.
+
+````bash
+$ aws s3 cp s3://dbenkesers-first-bucket/file .
+````
+
+???
+
+The same `mv` and `cp` syntax can be used to move files between buckets.
+
+The idea of moving files is the same as with `scp` that we saw earlier.
+
+---
+
+## Automated R with EC2 and S3
+
+The final demo of the lecture is an automated `R` workflow.
+* Create `R` scripts to run a job locally.
+* Copy to S3 bucket.
+* Create a user-data `bash` script locally that
+	* runs `R` script;
+	* copies result to S3;
+	* exits from instance, causing termination.
+
+---
+
+## Creating S3 access IAM role
+
+One of the complications of using __AWS services__ on __AWS instances__ is getting your __AWS credentials__ to your instance.
+* E.g., from EC2 instance, copy files to S3 bucket
+
+.red[Treat your access/secret key like credit card information.]
+* Never on GitHub. Never move unencrypted over the wires.
+
+In the next few steps, we define an [IAM role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for your instance. 
+* Makes your __AWS credentials available__ on your instance.
+* Tells your instance __what AWS services__ you are allowed to use. 
+
+Unfortunately, these steps look __more complicated than they are__...
+
+???
+
+This is one of the things in AWS that is trivial to do via the Console (GUI), but a bit of a hassle to do via the command line. 
+
+---
+
+## Creating S3 access IAM role
+
+__Step 1__: Create a __trust policy__, which specifies that AWS account members are allowed to assume a role.
+
+Copy the following text into a file called `ec2-role-trust-policy.json`.
+
+````json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "ec2.amazonaws.com" },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+````
+
+???
+
+[More info on the "version" line](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+
+If you get any "contains invalid Json" errors, check try typing the text by hand and using spaces and not tabs.
+
+---
+
+## Creating S3 access IAM role
+
+__Step 2__: Create an [IAM role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) called `s3access` and link to the trust policy.
+
+````bash
+$ aws iam create-role --role-name s3access \
+--assume-role-policy-document file://ec2-role-trust-policy.json
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 3__: Create __access policy__ to grant permission for S3 on the instance.
+
+Copy the following text into a file called `ec2-role-access-policy.json`.
+
+
+````json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:*"],
+      "Resource": ["*"]
+    }
+  ]
+}
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 4__: Attach the access policy to the IAM role. 
+
+````bash
+$ aws iam put-role-policy --role-name s3access \
+--policy-name S3-Permissions \
+--policy-document file://ec2-role-access-policy.json
+````
+
+---
+
+## Creating S3 access IAM role
+
+__Step 5__: Create an instance profile named `s3access-profile` and add the `s3access` role to the `s3access-profile`.
+
+````bash
+$ aws iam create-instance-profile \
+--instance-profile-name s3access-profile
+$ aws iam add-role-to-instance-profile \
+--instance-profile-name s3access-profile --role-name s3access
+````
+
+We can now launch EC2 instances that __have access to S3__! 
+* Include `--iam-instance-profile Name="s3access-profile"` in your `ec2 run-instances` command. 
+* We will see this in a couple slides.
+
+---
+
+## Automated R with EC2 and S3
+
+Save this in a file called `ec2_script.R`:
+
+````R
+#! /usr/bin/Rscript
+ten_random_normals &lt;- rnorm(10)
+write.csv(ten_random_normals, file = "~/output.csv")
+````
+
+Copy to your S3 bucket:
+
+````bash
+$ aws s3 cp ec2_script.R s3://dbenkesers-first-bucket
+$ aws s3 ls dbenkesers-first-bucket
+````
+
+---
+
+## Automated R with EC2 and S3
+
+Save this in a file called `auto_r_user_data.sh`
+
+````bash
+#! /bin/bash
+# copy script from s3
+aws s3 cp s3://dbenkesers-first-bucket/ec2_script.R ~/
+# execute script
+chmod +x ~/ec2_script.R
+~/ec2_script.R
+# copy script output to s3
+aws s3 cp ~/output.csv s3://dbenkesers-first-bucket
+# turn off instance
+sudo poweroff
+````
+
+---
+
+## Automated R with EC2 and S3
+
+Now we can run an instance with our __user data__. 
+
+````bash
+$ aws ec2 run-instances --image-id $my_ami \
+--count 1 --instance-type t2.large \
+--key-name aws_laptop_key \
+--security-group-ids sg-0af9981424cb188b1 \
+--iam-instance-profile Name="s3access-profile" \
+--user-data file://auto_r_user_data.sh \
+--instance-initiated-shutdown-behavior terminate
+````
+
+* calling the __AMI__ that we created where `R` and `awscli` are installed;
+* assigning `s3access` role via `iam-instance-profile`;
+* __terminating instance__ on `shutdown` via `instance-init...-behavior`.
+
+After a few minutes, we should see `output.csv` in our S3 bucket.
+
+````bash
+$ aws s3 ls s3://dbenkesers-first-bucket
+2020-11-12 21:56:07        106 ec2_script.R
+2020-11-16 17:11:02        232 output.csv
+````
 
 ---
 
@@ -631,235 +865,8 @@ $ aws ec2 run-instances --image-id ami-0885b1f6bd170450c \
 --instance-market-options file://spot_options.json
 ````
 
-You can use `aws describe-instances` to get the public IP address and login as usual. 
+Use `aws describe-instances` to get __public IP address__ and login as usual. 
 * Note that the instance will .red[terminate after 60 minutes].
-
----
-
-## S3 storage
-
-Simple Storage Service (S3) is a storage platform for AWS.
-* Create __buckets__ that you can upload files into. 
-* Push and pull files from local computer to AWS instance.
-* Different [classes of storage](https://aws.amazon.com/s3/storage-classes/) to suit needs.
-
-__Buckets__ are like file folders, but they are accessible via web address.
-* Bucket names must be __globally unique__ and DNS compliant.
-* But __buckets__ do not really have a file structure like a folder.
-
-We can make a bucket using `s3 mb`.
-
-````bash
-aws s3 mb s3://dbenkesers-first-bucket
-````
-
----
-
-## S3 storage
-
-Many `aws s3` commands are similar to `bash`. 
-* `ls`, `mv`, `cp`, `rm`, ...
-* `rb` removes a bucket
-
-For example, we can copy local objects into a bucket.
-
-````bash
-$ aws s3 cp path/to/local/file s3://dbenkesers-first-bucket
-````
-
-Or, we can retrieve objects from a bucket to current working directory.
-
-````bash
-$ aws s3 cp s3://dbenkesers-first-bucket/file .
-````
-
-???
-
-The same `mv` and `cp` syntax can be used to move files between buckets.
-
-The idea of moving files is the same as with `scp` that we saw earlier.
-
----
-
-## Automated R with EC2 and S3
-
-The final demo of the lecture is an automated `R` workflow.
-* Create `R` scripts to run a job locally.
-* Copy to S3 bucket.
-* Create a user-data `bash` script locally that
-	* runs `R` script;
-	* copies result to S3;
-	* exits from instance, causing termination.
-
----
-
-## Creating S3 access IAM role
-
-One of the complications of using __AWS services__ on __AWS instances__ is getting your __AWS credentials__ to your instance.
-* E.g., from EC2 instance, copy files to S3 bucket
-
-.red[Treat your access/secret key like credit card information.]
-* Never on GitHub. Never move unencrypted over the wires.
-
-In the next few steps, we will be running commands to define [IAM roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for your instance. 
-* Makes your AWS credentials available on your instance.
-* Tells your instance what AWS services you are allowed to use. 
-
-Unfortunately, these steps look __more complicated than they are__...
-
----
-
-## Creating S3 access IAM role
-
-__Step 1__: Create a __trust policy__, which specifies that AWS account members are allowed to assume a role.
-
-Copy the following text into a file called `ec2-role-trust-policy.json`.
-
-````json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": { "Service": "ec2.amazonaws.com" },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-````
-
-???
-
-[More info on the "version" line](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-
-If you get any "contains invalid Json" errors, check try typing the text by hand and using spaces and not tabs.
-
----
-
-## Creating S3 access IAM role
-
-__Step 2__: Create an [IAM role](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) called `s3access` and link to the trust policy that you created.
-
-````bash
-$ aws iam create-role --role-name s3access \
---assume-role-policy-document file://ec2-role-trust-policy.json
-````
-
----
-
-## Creating S3 access IAM role
-
-__Step 3__: Create an access policy that allows permission to use S3 on the instance.
-
-Copy the following text into a file called `ec2-role-access-policy.json`.
-
-
-````json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["s3:*"],
-      "Resource": ["*"]
-    }
-  ]
-}
-````
-
----
-
-## Creating S3 access IAM role
-
-__Step 4__: Attach the access policy to the IAM role. 
-
-````bash
-$ aws iam put-role-policy --role-name s3access \
---policy-name S3-Permissions \
---policy-document file://ec2-role-access-policy.json
-````
-
----
-
-## Creating S3 access IAM role
-
-__Step 5__: Create an instance profile named `s3access-profile` and add the `s3access` role to the `s3access-profile`.
-
-````bash
-$ aws iam create-instance-profile \
---instance-profile-name s3access-profile
-$ aws iam add-role-to-instance-profile \
---instance-profile-name s3access-profile --role-name s3access
-````
-
-We can now launch EC2 instances that have access to AWS S3! 
-* Include `--iam-instance-profile Name="s3access-profile"` in your `ec2 run-instances` command. 
-* We will see this in a couple slides.
-
----
-
-## Automated R with EC2 and S3
-
-Save this in a file called `ec2_script.R`:
-
-````R
-#! /usr/bin/Rscript
-ten_random_normals &lt;- rnorm(10)
-write.csv(ten_random_normals, file = "~/output.csv")
-````
-
-Copy to your S3 bucket:
-
-````bash
-$ aws s3 cp ec2_script.R s3://dbenkesers-first-bucket
-$ aws s3 ls dbenkesers-first-bucket
-````
-
----
-
-## Automated R with EC2 and S3
-
-Save this in a file called `auto_r_user_data.sh`
-
-````bash
-#! /bin/bash
-# copy script from s3
-aws s3 cp s3://dbenkesers-first-bucket/ec2_script.R ~/
-# execute script
-chmod +x ~/ec2_script.R
-~/ec2_script.R
-# copy script output to s3
-aws s3 cp ~/output.csv s3://dbenkesers-first-bucket
-# turn off instance
-sudo poweroff
-````
-
----
-
-## Automated R with EC2 and S3
-
-Now we can run an instance with our user data. A few important notes:
-* We are calling the AMI that we created where `R` and `awscli` are installed.
-* Note how we assign the `s3access` role.
-* Note how we set the behavior to terminate when we `exit`.
-
-````bash
-$ aws ec2 run-instances --image-id ami-0b56ddda752b70ca2 \
---count 1 --instance-type t2.large \
---key-name aws_laptop_key \
---security-group-ids sg-0af9981424cb188b1 \
---iam-instance-profile Name="s3access-profile" \
---user-data file://auto_r_user_data.sh \
---instance-initiated-shutdown-behavior terminate
-````
-
-After a few minutes, we should see `output.csv` in our S3 bucket.
-
-````bash
-$ aws s3 ls s3://dbenkesers-first-bucket
-2020-11-12 21:56:07        106 ec2_script.R
-2020-11-16 17:11:02        232 output.csv
-````
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
