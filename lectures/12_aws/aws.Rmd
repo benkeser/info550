@@ -70,14 +70,14 @@ style_mono_accent(
 
 ## Why cloud computing?
 
-Computing/storing at scale
+__Computing/storing at scale__
 * Your laptop/desktop/local HPC cluster may not have enough memory to handle a big data set. 
 
-Customizable resources
+__Customizable resources__
 * Different analyses may have different computational needs.
 * Your analysis might require specific resources (e.g., GPU) that are not available locally.
 
-Compute from anywhere
+__Compute from anywhere__
 * Just need the internet!
 
 Web-based services, industry applications, ...
@@ -126,7 +126,7 @@ We need to first configure `awscli`, so that it knows your AWS credentials.
 
 1. [Login](https://www.awseducate.com/signin/SiteLogin) to your AWS Educate.
 
-2. Click "AWS Account" and sign into your starter account.
+2. Click __AWS Account__ and sign into your starter account.
 
 3. __DO NOT REFRESH/LEAVE THIS PAGE FOR THE REST OF THE LECTURE.__
 
