@@ -573,7 +573,7 @@ Save the contents below in a file called `my_user_data.sh`.
 
 ````bash
 #! /bin/bash
-echo "Hello from your container" > ~/hello_container.txt
+echo "Hello from AWS" > ~/hello.txt
 ````
 
 Now pass in `my_user_data.sh` in your `run-instances` command.
@@ -590,11 +590,11 @@ aws ec2 run-instances --image-id ami-0885b1f6bd170450c \
 
 ## Run script automatically
 
-After a couple minutes, you can retrieve `hello_container.txt`.
+After a couple minutes, you can retrieve `hello.txt`.
 
 ````bash
 scp -i ~/.ssh/aws_laptop_key.pem \
-ubuntu@$public_ip:~/hello_container.txt .
+ubuntu@$public_ip:~/hello.txt .
 ````
 
 * Remember to update `public_ip` to the address of the running image.
