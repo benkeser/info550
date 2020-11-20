@@ -431,7 +431,7 @@ Note all of these `describe-instances` commands will only work if this is your o
 You can now log in to your machine using `ssh`.
 
 ````bash
-$ ssh -i ~/.ssh/authorized_keys/aws_laptop_key.pem ubuntu@${public_ip}
+$ ssh -i ~/.ssh/aws_laptop_key.pem ubuntu@${public_ip}
 ````
 
 * `ubuntu` is the default user name for Ubuntu images.
@@ -575,7 +575,7 @@ Save the contents below in a file called `my_user_data.sh`.
 
 ````bash
 #! /bin/bash
-echo "Hello from AWS" > ~/hello.txt
+echo "Hello from AWS" > /home/ubuntu/hello.txt
 ````
 
 Now pass in `my_user_data.sh` in your `run-instances` command.
@@ -583,9 +583,9 @@ Now pass in `my_user_data.sh` in your `run-instances` command.
 ````bash
 aws ec2 run-instances --image-id ami-0885b1f6bd170450c \
 --count 1 --instance-type t2.micro \
---key-name aws_laptop_key \
+--key-name new_aws_laptop_key \
 --security-group-ids sg-0af9981424cb188b1 \
---user-data my_user_data.sh
+--user-data file://my_user_data.sh
 ````
 
 ---
@@ -596,7 +596,7 @@ After a couple minutes, you can retrieve `hello.txt`.
 
 ````bash
 scp -i ~/.ssh/aws_laptop_key.pem \
-ubuntu@$public_ip:~/hello.txt .
+ubuntu@$public_ip:/home/ubuntu/hello.txt .
 ````
 
 * Remember to update `public_ip` to the address of the running image.
@@ -783,7 +783,7 @@ Save this in a file called `ec2_script.R`:
 ````R
 #! /usr/bin/Rscript
 ten_random_normals <- rnorm(10)
-write.csv(ten_random_normals, file = "~/output.csv")
+write.csv(ten_random_normals, file = "/home/ubuntu/output.csv")
 ````
 
 Copy to your S3 bucket:
@@ -802,12 +802,12 @@ Save this in a file called `auto_r_user_data.sh`
 ````bash
 #! /bin/bash
 # copy script from s3
-aws s3 cp s3://dbenkesers-first-bucket/ec2_script.R ~/
+aws s3 cp s3://dbenkesers-first-bucket/ec2_script.R /home/ubuntu
 # execute script
-chmod +x ~/ec2_script.R
-~/ec2_script.R
+chmod +x /home/ubuntu/ec2_script.R
+/home/ubuntu/ec2_script.R
 # copy script output to s3
-aws s3 cp ~/output.csv s3://dbenkesers-first-bucket
+aws s3 cp /home/ubuntu/output.csv s3://dbenkesers-first-bucket
 # turn off instance
 sudo poweroff
 ````
