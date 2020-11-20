@@ -294,18 +294,6 @@ touch another_tmp/another_tmp_file
 
 ---
 
-### Breakout 1 poll
-
-<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
-
----
-
-### Breakout 1 poll results
-
-<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">
-
----
-
 ## `.bash_profile`
 
 `.bash_profile` is a plain text file that makes your life easier. 
@@ -409,18 +397,6 @@ In your breakout group, write bash code that executes each of the following.
 difficult to remember. I often have to Google to remind myself how it works.
 
 ~ 10-15 min
-
----
-
-### Breakout 2 poll
-
-<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
-
----
-
-### Breakout 2 poll results
-
-<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">
 
 ---
 
@@ -676,15 +652,3 @@ __Hints__: use `for` loops
 ???
 
 ~ 15 min.
-
----
-
-### Breakout 3 poll
-
-<iframe src="https://www.pollev.com/davidbenkese180" width="100%" height="500px" frameborder="0">
-
----
-
-### Breakout 3 poll results
-
-<iframe src="https://www.polleverywhere.com/multiple_choice_polls/dSPG7cHUA2zOIEhTiPHo9?preview=true&controls=none" width="100%" height="500px" frameborder="0">
