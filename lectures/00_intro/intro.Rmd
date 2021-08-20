@@ -6,7 +6,7 @@ tldr: "Everything you need to know about the course."
 recording: ""
 reading: ""
 breakoutsoln: ""
-start: ""
+start: "0:0:0"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
