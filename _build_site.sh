@@ -15,5 +15,4 @@ website/_build.sh
 website/_deploy.sh local
 
 # rm build_directory
-pwd
-rm -rf $TRAVIS_BUILD_DIR/../../../build_dir
+rm -rf ../../build_dir
