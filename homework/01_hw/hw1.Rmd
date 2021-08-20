@@ -1,7 +1,7 @@
 ---
 title: "Homework 1"
-due: "2020/08/31"
-submit: "https://canvas.emory.edu/courses/75677/assignments/376966"
+due: "2021/08/31"
+submit: "https://canvas.emory.edu/courses/94385/assignments/521388"
 header-includes:
   - \usepackage{hyperref}
   - \hypersetup{colorlinks=true,urlcolor=blue}
@@ -23,10 +23,7 @@ Questions 1 and 2 below require no submission. Question 3 should be typed up __i
 
 2. Install the following software on your computer:
 
-* [R version 4.0.2](https://cloud.r-project.org/)
-* If you are a Windows user, install [Ubuntu for Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)
-* Install [homebrew](https://brew.sh/)
-* Mac users, upgrade bash to the latest version and set it as default shell following instructions [here](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba)
+* TBD...
 
 3. Write a paragraph or two description of your workflow for the class project. Your description should include:
 
