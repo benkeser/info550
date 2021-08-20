@@ -4,7 +4,7 @@
 cd ..
 mkdir build_dir
 cd build_dir
-git clone https://github.com/benkeser/info550
+git clone -b master https://github.com/benkeser/info550
 cd info550 
 export TRAVIS_BUILD_DIR=$(pwd)
 
