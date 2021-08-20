@@ -1,65 +1,47 @@
----
-layout: page
-title: Syllabus Fall 2020
-permalink: /syllabus/
-header-includes:
-  - \usepackage{hyperref}
-  - \hypersetup{colorlinks=true,urlcolor=blue}
-output:
-  pdf_document
----
-
-[Download a pdf copy of syllabus](../syllabus.pdf)
+# INFO550 FALL 2021
 
 ## Basic information
 
 __DEPARTMENT:__ Biostatistics and Bioinformatics
-
 __COURSE NUMBER:__ INFO550                                          
-
 __COURSE TITLE__: Data Science Toolkit
-
 __CREDIT HOURS__: 2 
-
-__SEMESTER__: Fall 2020
-
-__CLASS HOURS AND LOCATION__: Thursdays 3:15PM - 5:05PM Claudia Nance Rollins Auditorium and Zoom
-
+__SEMESTER__: Fall 2021
+__CLASS HOURS AND LOCATION__: Thursdays 1:00PM - 2:50PM Grace Crum Rollins
+119 and Zoom (see [Canvas](https://canvas.emory.edu/courses/94385) for details)
 __INSTRUCTOR NAME:__ David Benkeser
-
-__INSTRUCTOR CONTACT INFORMATION__ 
-
+__INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
 * __PHONE__: (404)712-9975
 * __SCHOOL ADDRESS OR MAILBOX LOCATION__: GCR 1518-002-3AA
-* __OFFICE HOURS__: Tuesdays 9-10am
-* __OFFICE HOUR LOCATION__: [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422418)
+* __OFFICE HOURS__: TBA
 
-__TEACHING ASSISTANT INFORMATION__: 
-
+___TEACHING ASSISTANT INFORMATION__: 
 * __NAME__: Sohail Nizam 
 * __EMAIL__: sohail.nizam@emory.edu
-* __OFFICE HOURS__: Mondays 9-10am
-* __OFFICE HOUR LOCATION__: [Zoom](https://canvas.emory.edu/courses/75677/discussion_topics/422432)
+* __OFFICE HOURS__: TBA
  
 
 ## COURSE DESCRIPTION
 
-This course is an elective for Masters and PhD students interested in learning some fundamental tools used in modern data science. Together, the tools covered in the course will provide the ability to develop fully reproducible pipelines for data analysis, from data processing and cleaning to analysis to result tables and summaries. By the end of the course students will have learned the tools necessary to:
+This course is an elective for Masters and PhD students interested in learning
+several fundamental tools used in modern data science. Together, the tools
+covered in the course will provide the ability to develop fully reproducible pipelines for data analysis, from data processing and cleaning to analysis to result tables and summaries. By the end of the course students will have learned the tools necessary to:
+* develop reproducible workflows collaboratively using version control based on Git/GitHub; 
+* execute workflows on a local computer using command line operations, RMarkdown, and GNU Makefiles;
+* execute workflows in a containerized environment using Docker;
+* execute the workflow in a cloud environment using Amazon Web Services EC2 and S3 services. 
 
-* develop reproducible workflows collaboratively using version control based on [git](https://git-scm.com/)/[GitHub](https://github.com/); 
-* execute workflows on a local computer using command line operations, [R Markdown](https://rmarkdown.rstudio.com/), and [GNU Make](https://www.gnu.org/software/make/);
-* execute workflows in a containerized environment using [Docker](https://www.docker.com/);
-* execute the workflow in a cloud environment using [Amazon Web Services](https://aws.amazon.com/) [EC2](https://aws.amazon.com/ec2/) and [S3 services](https://aws.amazon.com/s3/). 
-
-Along the way, we will cover a few other tools for data science including best coding practices, basic [python](https://www.python.org/), software unit testing, and [continuous integration services](https://travis-ci.com/).
+Time-permitting, we may cover a additional tools for data science including best
+coding practices, basic python, Jupyter notebooks, software unit testing, and
+continuous integration services.
 
 
 ## PRE-REQUISITES
 
-Many topics covered will involve the [R programming language](https://www.r-project.org/) and so familiarity with R is needed (e.g., [BIOS 544](https://www.sph.emory.edu/departments/bios/documents/BIOS_544.pdf)/[545](https://www.sph.emory.edu/departments/bios/documents/BIOS_545.pdf) or similar level of competency). 
+Many topics covered will involve the R programming language and so familiarity with R is needed (e.g., [BIOS 544](https://www.sph.emory.edu/departments/bios/documents/BIOS_544.pdf)/[545](https://www.sph.emory.edu/departments/bios/documents/BIOS_545.pdf) or similar level of competency). 
 
-Necessary skills include: [installing packages](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages), reading data into R, basic [data cleaning in R](https://www.youtube.com/watch?v=6PVMJE3HBN0) (e.g., subsetting data, finding missing values, merging data), operating on data.frames (e.g., changing column names, row names, summarizing rows/columns of data using simple statistics), basic graphics (e.g., plot or [ggplot2](https://ggplot2.tidyverse.org/)).
+Necessary skills include: reading data into R, basic data cleaning in R (e.g., subsetting data, finding missing values, merging data), operating on data.frames (e.g., changing column names, row names, summarizing rows/columns of data using simple statistics), basic graphics (e.g., plot or ggplot2).
 
 Given the similarities between python and R, students with a background in python programming should also be equipped to succeed in the class, but will possibly require more effort to get up to speed with R.
 
@@ -72,7 +54,6 @@ Given the similarities between python and R, students with a background in pytho
 * Create simple R packages.
 * Build Docker containers and use them to develop containerized workflows.
 * Understand basic uses of bash and python.
-* Utilize Jupyter notebooks.
 * Utilize AWS cloud computing services for computation and storage.
  
 ## CONCENTRATION COMPETENCIES:
@@ -81,7 +62,15 @@ Given the similarities between python and R, students with a background in pytho
 * Identify software for the interface of data entry and statistical analysis
 * Assess individual data elements and display results effectively and appropriately
 * Apply standard statistical methods in the analysis of public health information
- 
+
+## ATTENDANCE POLICY
+
+The class will meet in-person (COVID-permitting) each week. Lectures will also
+be broadcast simultaneously via Zoom. Each lecture will be recorded and posted
+to the course website as soon as possible after class.
+
+Students are free to choose the attendance approach that best suits their
+learning style. However, __synchronous attendance is strongly encouraged__.
 
 ## EVALUATION
 
@@ -89,7 +78,7 @@ Students will be evaluated based weekly homework assignments. These assignments 
 
 Ideally, students enrolled in the course will have an existing analysis or data cleaning/visualization problem that they can use for the course (e.g., a thesis or dissertation project), so that the developments throughout the semester are specifically relevant to each student.
 
-## Project requirements
+### Project requirements
 
 Each project must involve the following three components (examples follow each separate component):
 
@@ -97,17 +86,17 @@ Each project must involve the following three components (examples follow each s
 * Data analysis – e.g., making a Table 1 with descriptive summaries of key elements of the data; fitting regression models that answer scientific questions of interest; training machine learning algorithm and summarizing performance.
 * Report writing – a report must be generated in the end that includes at least one table and at least one figure, along with writing.
 
-## FAQ on project selection:
+### FAQ on project selection:
 
 __Q__: *What if I don’t have a data set/workflow to use?*
 
 __A__: We will work with you to identify one. Possible examples could be based on a publicly available data set from an online data repository (e.g., [UCI ML library](https://archive.ics.uci.edu/ml/datasets.php) or [Kaggle](https://www.kaggle.com/datasets)). The workflow could involve producing a report that summarizes descriptive statistics and produces basic visualizations of the data, or one that involves fitting a ML algorithm to the data and summarizing its predictive performance.
 
-__Q__: *What if I have data, but I can’t make it public?*
+__Q__: What if I have data, but I can’t make it public?
 
 __A__: You can create a mock data set with similar format to your real data, but with made up values. You will produce a pipeline for analyzing the mock data and, since everything we do is reproducible, you can swap in your real data at a later date and still take advantage of the pipeline.
 
-__Q__: *Does the analysis need to involve complicated statistical methods?*
+__Q__: Does the analysis need to involve complicated statistical methods?
 
 __A__: No. Basic analyses are fine. The goal is not to evaluate the contents of the analysis itself, but rather whether the analysis, whatever it may be, can be executed in a reproducible way.
 
@@ -116,16 +105,10 @@ If you have questions about the suitability of a project, please contact the pro
 
 ## GRADING
 
-Grades will consist of 70% written homework assignments and 30% participation. 
+Each week, an assignment will be given to develop a new aspect of the analysis
+pipeline. We will often use peer grading to evaluate submissions and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.
 
-Most weeks, classes will include breakout sessions where students will work
-problems together. Participation grades will be assigned by your breakout group
-members as part of the weekly homework assignment. Individuals attending
-asynchronously (or who miss a class) will be required to submit code for
-breakout exercises as part of the written homework assignment. 
-
-Many homework assignments will be geared towards developing a new aspect of the analysis
-pipeline. Each week, every student will be assigned to peer review another student’s submission and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below. __Example assignment__:
+__Example assignment__:
 
 Write an Rmarkdown script that performs your analysis and generates an html report detailing the results. Include a README that describes (1) the process needed to compile the report; (2) any packages that need to be installed to compile the report; (3) the expected output of the report. Push your repository to your GitHub account and tag the final release "hw2."
 
@@ -148,15 +131,16 @@ The TA/professor will review each peer review and submission and assign a grade 
 
 __Grade scale__:
 
-* A = 93 -- 100%
-* A- = 90 -- 93%
-* B+ = 87 – 90%
-* B = 83 – 87%
-* B- = 80 – 83%
-* C = 65 – 80%
-* F = <65%
+A = 93 -- 100%
+A- = 90 -- 93%
+B+ = 87 – 90%
+B = 83 – 87%
+B- = 80 – 83%
+C = 65 – 80%
+F = <65%
 
-Final grades are not rounded and the lower limit of each letter grade is inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
+Final grades are not rounded and the lower limit of each letter grade is
+inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
 
  
 ## COURSE STRUCTURE
@@ -169,11 +153,15 @@ Example assignments are shown below along with the associated core competency.
 | Assignment | Competency |
 |------------|------------|
 | Properly install software for reproducible research: R, R Studio, homebrew (Mac), Git, text editor (e.g., Notepad++ or Sublime Text), LaTex, GNU make   | Identify software for the interface of data entry and statistical analysis |
-| Build a GitHub repository, tag a release of your code, and write a proper README file | Develop public health information systems to support public health efforts |
-| Develop an R Markdown document performing a reproducible statistical analysis and summarizing results visually | Apply standard statistical methods in the analysis of public health information Assess individual data elements and display results effectively and appropriately|
+| Build a GitHub repository, tag a release of your code, and write a proper README file | 
+Develop public health information systems to support public health efforts |
+| Develop an R Markdown document performing a reproducible statistical analysis and summarizing results visually | 
+Apply standard statistical methods in the analysis of public health information Assess individual data elements and display results effectively and appropriately|
 | Build a Docker container for running a fully reproducible analysis pipeline| Develop public health information systems to support public health efforts   |
-| Execute basic python commands in a Jupyter notebook. | Identify software for the interface of data entry and statistical analysis   |
-| Set up an EC2 instance and S3 bucket on AWS suitable for a reproducible data analysis in the cloud. | Develop public health information systems to support public health efforts |
+| Execute basic python commands in a Jupyter notebook. | 
+Identify software for the interface of data entry and statistical analysis   |
+| Set up an EC2 instance and S3 bucket on AWS suitable for a reproducible data analysis in the cloud. | 
+Develop public health information systems to support public health efforts |
 
 
 ## COURSE POLICIES
@@ -200,19 +188,20 @@ The [RSPH Honor Code](http://www.sph.emory.edu/cms/current_students/enrollment_s
 
 ## COURSE CALENDAR AND OUTLINE
 
+It is difficult to provide an exact schedule, as we will modify pace/content to
+reflect the needs of the class. Here is a rough outline of topics you might
+expect and when to expect them.
+
 | Date  | Topics                           |
 |-------|----------------------------------|
-| 8/20  | Motivation, text editor          |
-| 8/27  | Command line                     |
-| 9/3   | Command line 					   |
-| 9/10  | R Markdown					   |
-| 9/17  | R Markdown                       |
-| 9/24  | Version control using Git/GitHub |
-| 10/1  | Git/GitHub + GNU Make            |
-| 10/8  | GNU Make 						   |
-| 10/15 | Best coding practices            |
-| 10/22 | Docker    					   |
-| 10/29 | Docker 						   |
-| 11/5  | Cloud computing				   |
-| 11/12 | R packages					   |
-| 11/19 | Intro to python/jupyter notebooks|
+| 8/26  | Motivation, text editor          |
+| 9/2-9 | Command line basics              |
+| 9/9-16| R Markdown                       |
+| 9/23-30| Version control using Git/GitHub |
+| 9/30-10/7 |  GNU Makefiles                  |
+| 10/7-14 | Best coding practices/project organization |
+| 10/14-21| Amazon web services           |
+| 10/28-11/4 | Containerization            |
+| 11/11-18| Introduction to python      |
+| 11/18 | Jupyter notebooks        |
+| 12/2  | Additional topics |
