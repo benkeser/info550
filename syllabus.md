@@ -1,3 +1,16 @@
+---
+layout: page
+title: Syllabus Fall 2020
+permalink: /syllabus/
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output:
+  pdf_document
+---
+
+[Download a pdf copy of syllabus](../syllabus.pdf)
+
 # INFO550 FALL 2021
 
 ## Basic information
