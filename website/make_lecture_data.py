@@ -38,6 +38,8 @@ def get_sec(time_str):
 # - start = time that lecture starts in video recording
 # - reading = hyphen-separated header from the readings page (see readings.md for 
 #     these headings)
+# - breakoutsoln = file name that contains breakout solutions in the breakoutsoln 
+#     sub-directory of lecture directory
 # for homeworks:
 # - title = title of homework assignment
 # - due = due date of homework assignment
