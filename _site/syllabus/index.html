@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>INFO550: Syllabus Fall 2020</title>
+  <meta name="description" content="This course is an elective for Masters and PhD students at 
+<a href='https://www.sph.emory.edu/'>Emory University Rollins School of Public Health</a>. 
+The course covers some fundamental tools used in modern (reproducible) data science. 
+Together, these tools 
+provide the ability to develop fully reproducible pipelines for data 
+analysis. By the end of the course students will have learned the tools necessary to: 
+develop reproducible workflows collaboratively using version control based on 
+<a href='https://git-scm.com/'>git</a> and <a href='https://github.com/'>GitHub</a>, 
+execute these workflows on a local computer using command line operations, 
+<a href='https://rmarkdown.rstudio.com/'>R Markdown</a>, 
+and <a href='https://www.gnu.org/software/make/'>GNU Make</a>, 
+execute the workflows in a containerized environment using 
+<a href='https://www.docker.com/'>Docker</a>, and execute the workflow in a cloud 
+environment using <a href='https://aws.amazon.com/'>Amazon Web Services</a> 
+<a href='https://aws.amazon.com/ec2/'>EC2</a> and <a href='https://aws.amazon.com/s3/'>S3</a> services). Along the way, we will 
+cover a few other tools for data science including best coding practices, basic 
+<a href='https://www.python.org/'>python</a>, 
+software unit testing, and <a href='https://travis-ci.com/'>continuous integration services</a>. 
+">
+
+  <link rel="stylesheet" href="/info550/_css/main.css">
+  <link rel="canonical" href="http://localhost:4000/info550/syllabus/">
+  <link rel="alternate" type="application/rss+xml" title="INFO550" href="http://localhost:4000/info550/feed.xml" />
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.2.4' type='text/css' media='all' />
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:600italic,600,400,400italic' rel='stylesheet' type='text/css'>
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<meta property="og:image" content="http://course-website.svmiller.com/_images/works.png"/>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/info550/">INFO550</a>
+
+
+    <nav class="site-nav">
+
+      <a href="#" class="menu-icon menu.open">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>  
+
+    <div class="trigger"><h1>Main Navigation</h1>
+
+ <ul class="menu">
+
+<li><a class="page-link" href="/info550/syllabus/"><i class="fa fa-list-ul fa-lg"></i> Syllabus</a></li>
+<li><a class="page-link" href="/info550/lectures/"><i class="fas fa-book-reader"></i> Lectures</a></li>
+<li><a class="page-link" href="/info550/homework/"><i class="fas fa-question"></i> Homework</a></li>
+<li><a class="page-link" href="/info550/readings/"><i class="fas fa-book"></i> Readings </a></li>
+
+</ul>
+
+
+     </div>  
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Syllabus Fall 2020</h1>
+  </header>
+
+  <article class="post-content">
+    <p><a href="../syllabus.pdf">Download a pdf copy of syllabus</a></p>
+
+<h2 id="basic-information">Basic information</h2>
+
+<p><strong>DEPARTMENT:</strong> Biostatistics and Bioinformatics</p>
+
+<p><strong>COURSE NUMBER:</strong> INFO550</p>
+
+<p><strong>COURSE TITLE</strong>: Data Science Toolkit</p>
+
+<p><strong>CREDIT HOURS</strong>: 2</p>
+
+<p><strong>SEMESTER</strong>: Fall 2020</p>
+
+<p><strong>CLASS HOURS AND LOCATION</strong>: Thursdays 3:15PM - 5:05PM Claudia Nance Rollins Auditorium and Zoom</p>
+
+<p><strong>INSTRUCTOR NAME:</strong> David Benkeser</p>
+
+<p><strong>INSTRUCTOR CONTACT INFORMATION</strong></p>
+
+<ul>
+  <li><strong>EMAIL</strong>: benkeser@emory.edu</li>
+  <li><strong>PHONE</strong>: (404)712-9975</li>
+  <li><strong>SCHOOL ADDRESS OR MAILBOX LOCATION</strong>: GCR 1518-002-3AA</li>
+  <li><strong>OFFICE HOURS</strong>: TBA</li>
+</ul>
+
+<p><strong>TEACHING ASSISTANT INFORMATION</strong>:</p>
+
+<ul>
+  <li><strong>NAME</strong>: Sohail Nizam</li>
+  <li><strong>EMAIL</strong>: sohail.nizam@emory.edu</li>
+  <li><strong>OFFICE HOURS</strong>: TBA</li>
+</ul>
+
+<h2 id="course-description">COURSE DESCRIPTION</h2>
+
+<p>This course is an elective for Masters and PhD students interested in learning some fundamental tools used in modern data science. Together, the tools covered in the course will provide the ability to develop fully reproducible pipelines for data analysis, from data processing and cleaning to analysis to result tables and summaries. By the end of the course students will have learned the tools necessary to:</p>
+
+<ul>
+  <li>develop reproducible workflows collaboratively using version control based on <a href="https://git-scm.com/">git</a>/<a href="https://github.com/">GitHub</a>;</li>
+  <li>execute workflows on a local computer using command line operations, <a href="https://rmarkdown.rstudio.com/">R Markdown</a>, and <a href="https://www.gnu.org/software/make/">GNU Make</a>;</li>
+  <li>execute workflows in a containerized environment using <a href="https://www.docker.com/">Docker</a>;</li>
+  <li>execute the workflow in a cloud environment using <a href="https://aws.amazon.com/">Amazon Web Services</a> <a href="https://aws.amazon.com/ec2/">EC2</a> and <a href="https://aws.amazon.com/s3/">S3 services</a>.</li>
+</ul>
+
+<p>Along the way, we will cover a few other tools for data science including best coding practices, basic <a href="https://www.python.org/">python</a>, software unit testing, and <a href="https://travis-ci.com/">continuous integration services</a>.</p>
+
+<h2 id="pre-requisites">PRE-REQUISITES</h2>
+
+<p>Many topics covered will involve the <a href="https://www.r-project.org/">R programming language</a> and so familiarity with R is needed (e.g., <a href="https://www.sph.emory.edu/departments/bios/documents/BIOS_544.pdf">BIOS 544</a>/<a href="https://www.sph.emory.edu/departments/bios/documents/BIOS_545.pdf">545</a> or similar level of competency).</p>
+
+<p>Necessary skills include: <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages">installing packages</a>, reading data into R, basic <a href="https://www.youtube.com/watch?v=6PVMJE3HBN0">data cleaning in R</a> (e.g., subsetting data, finding missing values, merging data), operating on data.frames (e.g., changing column names, row names, summarizing rows/columns of data using simple statistics), basic graphics (e.g., plot or <a href="https://ggplot2.tidyverse.org/">ggplot2</a>).</p>
+
+<p>Given the similarities between python and R, students with a background in python programming should also be equipped to succeed in the class, but will possibly require more effort to get up to speed with R.</p>
+
+<h2 id="course-learning-objectives">COURSE LEARNING OBJECTIVES</h2>
+
+<ul>
+  <li>Understand why automation is a key element of reproducible data science.</li>
+  <li>Operate capably and comfortably at the command line.</li>
+  <li>Implement best practices for version control and open source projects.</li>
+  <li>Produce reproducible workflows for data cleaning, analysis and report generation  using the suite of tools learned in the class.</li>
+  <li>Create simple R packages.</li>
+  <li>Build Docker containers and use them to develop containerized workflows.</li>
+  <li>Understand basic uses of bash and python.</li>
+  <li>Utilize Jupyter notebooks.</li>
+  <li>Utilize AWS cloud computing services for computation and storage.</li>
+</ul>
+
+<h2 id="concentration-competencies">CONCENTRATION COMPETENCIES:</h2>
+
+<ul>
+  <li>Develop public health information systems to support public health efforts</li>
+  <li>Identify software for the interface of data entry and statistical analysis</li>
+  <li>Assess individual data elements and display results effectively and appropriately</li>
+  <li>Apply standard statistical methods in the analysis of public health information</li>
+</ul>
+
+<h2 id="evaluation">EVALUATION</h2>
+
+<p>Students will be evaluated based weekly homework assignments. These assignments will mostly be related to developing a single project over the course of the semester. Each student should pick an analysis or workflow that they want to develop into a reproducible pipeline. The assignments will be graded week-by-week and will develop into a fully reproducible pipeline that can be executed in a containerized environment both locally and on the cloud.</p>
+
+<p>Ideally, students enrolled in the course will have an existing analysis or data cleaning/visualization problem that they can use for the course (e.g., a thesis or dissertation project), so that the developments throughout the semester are specifically relevant to each student.</p>
+
+<h2 id="project-requirements">Project requirements</h2>
+
+<p>Each project must involve the following three components (examples follow each separate component):</p>
+
+<ul>
+  <li>Data manipulation – e.g., reading data from a file and cleaning the data; downloading data from the internet in an automated way; splitting data into training and test sets.</li>
+  <li>Data analysis – e.g., making a Table 1 with descriptive summaries of key elements of the data; fitting regression models that answer scientific questions of interest; training machine learning algorithm and summarizing performance.</li>
+  <li>Report writing – a report must be generated in the end that includes at least one table and at least one figure, along with writing.</li>
+</ul>
+
+<h2 id="faq-on-project-selection">FAQ on project selection:</h2>
+
+<p><strong>Q</strong>: <em>What if I don’t have a data set/workflow to use?</em></p>
+
+<p><strong>A</strong>: We will work with you to identify one. Possible examples could be based on a publicly available data set from an online data repository (e.g., <a href="https://archive.ics.uci.edu/ml/datasets.php">UCI ML library</a> or <a href="https://www.kaggle.com/datasets">Kaggle</a>). The workflow could involve producing a report that summarizes descriptive statistics and produces basic visualizations of the data, or one that involves fitting a ML algorithm to the data and summarizing its predictive performance.</p>
+
+<p><strong>Q</strong>: <em>What if I have data, but I can’t make it public?</em></p>
+
+<p><strong>A</strong>: You can create a mock data set with similar format to your real data, but with made up values. You will produce a pipeline for analyzing the mock data and, since everything we do is reproducible, you can swap in your real data at a later date and still take advantage of the pipeline.</p>
+
+<p><strong>Q</strong>: <em>Does the analysis need to involve complicated statistical methods?</em></p>
+
+<p><strong>A</strong>: No. Basic analyses are fine. The goal is not to evaluate the contents of the analysis itself, but rather whether the analysis, whatever it may be, can be executed in a reproducible way.</p>
+
+<p>If you have questions about the suitability of a project, please contact the professor.</p>
+
+<h2 id="grading">GRADING</h2>
+
+<p>Each week, an assignment will be given to develop a new aspect of the analysis pipeline. Each student will be responsible for turning in a weekly update of their pipeline. Submissions will occur in the form of a tagged GitHub repository online.</p>
+
+<p>Each week, every student will be assigned to peer review another student’s submission and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.</p>
+
+<p><strong>Example assignment</strong>:</p>
+
+<p>Write an Rmarkdown script that performs your analysis and generates an html report detailing the results. Include a README that describes (1) the process needed to compile the report; (2) any packages that need to be installed to compile the report; (3) the expected output of the report. Push your repository to your GitHub account and tag the final release “hw2.”</p>
+
+<p><strong>Example grading rubric</strong>:</p>
+
+<p>You have been assigned Student X for peer reviewer (GitHub user id: studentX). Clone the tagged release hw2 from the master branch of the repository studentX/info550 from GitHub. Please score your peer on the rubric below:</p>
+
+<ul>
+  <li>Were you able to successfully clone the repository? Yes = 1pt, No = 0pt
+    <ul>
+      <li>If No, describe what errors you encountered.</li>
+    </ul>
+  </li>
+  <li>Rate the README on its readability. Do you clearly understand the steps needed to compile the report? Clear = 3pt; Some aspects unclear = 2pt; Many aspects unclear = 1pt; No README/not at all clear = 0pt.
+    <ul>
+      <li>If some aspects rated as unclear, what were they?</li>
+    </ul>
+  </li>
+  <li>Did the report successfully compile? Yes, with no effort on my part = 3pt; Yes, with some effort on my part (e.g., changing file paths, anything that took &lt; 2 min.) = 2pt; No = 0pt.
+    <ul>
+      <li>If any effort was required, describe what you had to do. If not able to compile, describe the errors encountered.</li>
+    </ul>
+  </li>
+  <li>Did the report contain at least one figure and one table? Yes = 3pt; No = 0pt.</li>
+</ul>
+
+<p>The TA/professor will review each peer review and submission and assign a grade accordingly. Each student will receive a grade our of 10 points for their own pipeline (based on peer /TA review) and will receive an additional 10 points for completing their peer review on time. Thus, each assignment will be scored as a percentage of 20 total points. Each weekly assignment will be worth 10% of the final grade.</p>
+
+<p><strong>Grade scale</strong>:</p>
+
+<ul>
+  <li>A = 93 – 100%</li>
+  <li>A- = 90 – 93%</li>
+  <li>B+ = 87 – 90%</li>
+  <li>B = 83 – 87%</li>
+  <li>B- = 80 – 83%</li>
+  <li>C = 65 – 80%</li>
+  <li>F = &lt;65%</li>
+</ul>
+
+<p>Final grades are not rounded and the lower limit of each letter grade is inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.</p>
+
+<h2 id="course-structure">COURSE STRUCTURE</h2>
+
+<p>The course will be organized into weekly lectures consisting of a combination of electronic slides and demonstrations. Students are expected to ask and answer questions in class. Classes will contain regular breaks for small group breakouts where small assignments will be given for students to complete together. The idea of these breakouts is to engage with your classmates and work through coding exercises together. Exercises will often be structured in a way that forces your group to go beyond what is included in the class notes and seek help online to figure out how to complete. Students should bring a laptop to in person class and be prepared to follow along with demonstrations and breakout groups.</p>
+
+<p>Example assignments are shown below along with the associated core competency.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Competency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Properly install software for reproducible research: R, R Studio, homebrew (Mac), Git, text editor (e.g., Notepad++ or Sublime Text), LaTex, GNU make</td>
+      <td>Identify software for the interface of data entry and statistical analysis</td>
+    </tr>
+    <tr>
+      <td>Build a GitHub repository, tag a release of your code, and write a proper README file</td>
+      <td>Develop public health information systems to support public health efforts</td>
+    </tr>
+    <tr>
+      <td>Develop an R Markdown document performing a reproducible statistical analysis and summarizing results visually</td>
+      <td>Apply standard statistical methods in the analysis of public health information Assess individual data elements and display results effectively and appropriately</td>
+    </tr>
+    <tr>
+      <td>Build a Docker container for running a fully reproducible analysis pipeline</td>
+      <td>Develop public health information systems to support public health efforts</td>
+    </tr>
+    <tr>
+      <td>Execute basic python commands in a Jupyter notebook.</td>
+      <td>Identify software for the interface of data entry and statistical analysis</td>
+    </tr>
+    <tr>
+      <td>Set up an EC2 instance and S3 bucket on AWS suitable for a reproducible data analysis in the cloud.</td>
+      <td>Develop public health information systems to support public health efforts</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="course-policies">COURSE POLICIES</h2>
+
+<p>Students are expected to attend lectures synchronously and ask questions during class.</p>
+
+<p>As the instructor of this course I endeavor to provide an inclusive learning environment. However, if you experience barriers to learning in this course, do not hesitate to discuss them with me and the Office for Equity and Inclusion, 404-727-9877.</p>
+
+<h2 id="rsph-policies">RSPH POLICIES</h2>
+
+<p><strong>Accessibility and Accommodations</strong></p>
+
+<p>Accessibility Services works with students who have disabilities to provide reasonable accommodations. In order to receive consideration for reasonable accommodations, you must contact the Office of Accessibility Services (OAS). It is the responsibility of the student to register with OAS. Please note that accommodations are not retroactive and that disability accommodations are not provided until an accommodation letter has been processed.</p>
+
+<p>Students who registered with OAS and have a letter outlining their academic accommodations are strongly encouraged to coordinate a meeting time with me to discuss a protocol to implement the accommodations as needed throughout the semester. This meeting should occur as early in the semester as possible.</p>
+
+<p>Contact Accessibility Services for more information at (404) 727-9877 or accessibility@emory.edu. Additional information is available at the OAS website at http://equityandinclusion.emory.edu/access/students/index.html</p>
+
+<h2 id="honor-code">Honor Code</h2>
+<p>You are bound by Emory University’s Student Honor and Conduct Code. RSPH requires that all material submitted by a student fulfilling his or her academic course of study must be the original work of the student.  Violations of academic honor include any action by a student indicating dishonesty or a lack of integrity in academic ethics. Academic dishonesty refers to cheating, plagiarizing, assisting other students without authorization, lying, tampering, or stealing in performing any academic work, and will not be tolerated under any circumstances.</p>
+
+<p>The <a href="http://www.sph.emory.edu/cms/current_students/enrollment_services/honor_code.html">RSPH Honor Code</a> states: “<em>Plagiarism is the act of presenting as one’s own work the expression, words, or ideas of another person whether published or unpublished (including the work of another student). A writer’s work should be regarded as his/her own property.</em>”</p>
+
+<h2 id="course-calendar-and-outline">COURSE CALENDAR AND OUTLINE</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Topics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8/20</td>
+      <td>Motivation, text editor</td>
+    </tr>
+    <tr>
+      <td>8/27</td>
+      <td>Command line basics</td>
+    </tr>
+    <tr>
+      <td>9/3</td>
+      <td>Version control using Git/GitHub</td>
+    </tr>
+    <tr>
+      <td>9/10</td>
+      <td>Markdown, pandoc, R Markdown</td>
+    </tr>
+    <tr>
+      <td>9/17</td>
+      <td>GNU Makefiles</td>
+    </tr>
+    <tr>
+      <td>9/24</td>
+      <td>Best coding practices</td>
+    </tr>
+    <tr>
+      <td>10/1</td>
+      <td>R packages</td>
+    </tr>
+    <tr>
+      <td>10/8</td>
+      <td>Containerization (more time?)</td>
+    </tr>
+    <tr>
+      <td>10/15</td>
+      <td>Continuous integration services</td>
+    </tr>
+    <tr>
+      <td>10/22</td>
+      <td>Intro to python</td>
+    </tr>
+    <tr>
+      <td>10/29</td>
+      <td>Jupyter notebooks</td>
+    </tr>
+    <tr>
+      <td>11/5</td>
+      <td>Cloud computing and storage</td>
+    </tr>
+    <tr>
+      <td>11/12</td>
+      <td>Cluster computing</td>
+    </tr>
+    <tr>
+      <td>11/19</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--     <h2 class="footer-heading">INFO550</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li><strong>INFO550</strong></li>
+			<li></li>
+          <li><a href="mailto:benkeser@emory.edu">benkeser@emory.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+ 
+
+         <p class="text">
+Emory University<br />
+Department of Biostatistics and Bioinformatics<br />
+1518 Clifton Rd. NE<br />
+Atlanta, GA 30322<br />
+
+      </div>
+
+      <div class="footer-col  footer-col-3">
+       <ul class="social-media-list">
+     
+
+          
+  <li>
+    <a href="https://github.com/benkeser/info550">
+      <i class="fab fa-github" style="color:gray"></i> benkeser/info550
+    </a>
+  </li>
+
+
+          
+  <li>
+    <a href="https://twitter.com/biosbenk">
+      <i class="fab fa-twitter" style="color:gray"></i> biosbenk
+    </a>
+  </li>
+
+
+          
+
+          
+
+          
+  <li>
+    <a href="https://bit.ly/rsph_benkeser">
+      <i class="fas fa-globe" style="color:gray"></i> bit.ly/rsph_benkeser
+    </a>
+  </li>
+
+
+
+
+       
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  </body>
+
+</html>
+<!-- d.s.m.s.050600.062508.030515.080516.030818 | "Baby, I'm Yours" -->

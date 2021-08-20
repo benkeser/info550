@@ -3,7 +3,8 @@
   <head>
     <title>GNU Make</title>
     <meta charset="utf-8" />
-    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics" />
+    <meta name="author" content="David Benkeser, PhD MPH   Emory University  Department of Biostatistics and Bioinformatics " />
+    <script src="make_files/header-attrs-2.7/header-attrs.js"></script>
     <link href="make_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -181,8 +182,8 @@ ls
 ```
 
 ```
-## cleandata.R
 ## Makefile
+## cleandata.R
 ## raw_data.txt
 ## report.Rmd
 ```
@@ -349,7 +350,7 @@ make report.html
 
 ```
 ## chmod +x cleandata.R &amp;&amp; \
-## Rscript cleandata.R
+## 	Rscript cleandata.R
 ## Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
 ```
 
@@ -361,8 +362,8 @@ ls
 
 ```
 ## rm report.html data.txt
-## cleandata.R
 ## Makefile
+## cleandata.R
 ## raw_data.txt
 ## report.Rmd
 ```
@@ -380,7 +381,7 @@ make clean
 ```
 
 ```
-## make: 'clean' is up to date.
+## make: `clean' is up to date.
 ```
 
 In this case, we need to tell `make` that clean is a `PHONY`. 
@@ -578,6 +579,9 @@ It seems possible that with a slightly more complex call to `sed`, you could eve
   * make `biom_report.Rmd` more human readable;
   * separate data cleaning and figure construction; 
   * document dependencies in `Makefile`.
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
