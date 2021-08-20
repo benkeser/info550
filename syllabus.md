@@ -1,4 +1,4 @@
-# INFO550 FALL 2020 
+# INFO550 FALL 2021
 
 ## Basic information
 
@@ -7,7 +7,8 @@ __COURSE NUMBER:__ INFO550
 __COURSE TITLE__: Data Science Toolkit
 __CREDIT HOURS__: 2 
 __SEMESTER__: Fall 2020
-__CLASS HOURS AND LOCATION__: Thursdays 3:15PM - 5:05PM Claudia Nance Rollins Auditorium and Zoom
+__CLASS HOURS AND LOCATION__: Thursdays 1:00PM - 2:50PM Grace Crum Rollins
+119 and Zoom (see [Canvas](https://canvas.emory.edu/courses/94385) for details)
 __INSTRUCTOR NAME:__ David Benkeser
 __INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
@@ -23,13 +24,17 @@ ___TEACHING ASSISTANT INFORMATION__:
 
 ## COURSE DESCRIPTION
 
-This course is an elective for Masters and PhD students interested in learning some fundamental tools used in modern data science. Together, the tools covered in the course will provide the ability to develop fully reproducible pipelines for data analysis, from data processing and cleaning to analysis to result tables and summaries. By the end of the course students will have learned the tools necessary to: 
+This course is an elective for Masters and PhD students interested in learning
+several fundamental tools used in modern data science. Together, the tools
+covered in the course will provide the ability to develop fully reproducible pipelines for data analysis, from data processing and cleaning to analysis to result tables and summaries. By the end of the course students will have learned the tools necessary to:
 * develop reproducible workflows collaboratively using version control based on Git/GitHub; 
 * execute workflows on a local computer using command line operations, RMarkdown, and GNU Makefiles;
 * execute workflows in a containerized environment using Docker;
 * execute the workflow in a cloud environment using Amazon Web Services EC2 and S3 services. 
 
-Along the way, we will cover a few other tools for data science including best coding practices, basic python, software unit testing, and continuous integration services.
+Time-permitting, we may cover a additional tools for data science including best
+coding practices, basic python, Jupyter notebooks, software unit testing, and
+continuous integration services.
 
 
 ## PRE-REQUISITES
@@ -49,7 +54,6 @@ Given the similarities between python and R, students with a background in pytho
 * Create simple R packages.
 * Build Docker containers and use them to develop containerized workflows.
 * Understand basic uses of bash and python.
-* Utilize Jupyter notebooks.
 * Utilize AWS cloud computing services for computation and storage.
  
 ## CONCENTRATION COMPETENCIES:
@@ -58,7 +62,15 @@ Given the similarities between python and R, students with a background in pytho
 * Identify software for the interface of data entry and statistical analysis
 * Assess individual data elements and display results effectively and appropriately
 * Apply standard statistical methods in the analysis of public health information
- 
+
+## ATTENDANCE POLICY
+
+The class will meet in-person (COVID-permitting) each week. Lectures will also
+be broadcast simultaneously via Zoom. Each lecture will be recorded and posted
+to the course website as soon as possible after class.
+
+Students are free to choose the attendance approach that best suits their
+learning style. However, __synchronous attendance is strongly encouraged__.
 
 ## EVALUATION
 
@@ -93,9 +105,8 @@ If you have questions about the suitability of a project, please contact the pro
 
 ## GRADING
 
-Each week, an assignment will be given to develop a new aspect of the analysis pipeline. Each student will be responsible for turning in a weekly update of their pipeline. Submissions will occur in the form of a tagged GitHub repository online.
-
-Each week, every student will be assigned to peer review another student’s submission and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.
+Each week, an assignment will be given to develop a new aspect of the analysis
+pipeline. We will often use peer grading to evaluate submissions and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.
 
 __Example assignment__:
 
@@ -128,7 +139,8 @@ B- = 80 – 83%
 C = 65 – 80%
 F = <65%
 
-final grades are not rounded and the lower limit of each letter grade is inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
+Final grades are not rounded and the lower limit of each letter grade is
+inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
 
  
 ## COURSE STRUCTURE
@@ -176,19 +188,20 @@ The [RSPH Honor Code](http://www.sph.emory.edu/cms/current_students/enrollment_s
 
 ## COURSE CALENDAR AND OUTLINE
 
+It is difficult to provide an exact schedule, as we will modify pace/content to
+reflect the needs of the class. Here is a rough outline of topics you might
+expect and when to expect them.
+
 | Date  | Topics                           |
 |-------|----------------------------------|
-| 8/20  | Motivation, text editor          |
-| 8/27  | Command line basics              |
-| 9/3   | Version control using Git/GitHub |
-| 9/10  | Markdown, pandoc, R Markdown     |
-| 9/17  | GNU Makefiles                    |
-| 9/24  | Best coding practices            |
-| 10/1  | R packages                       |
-| 10/8  | Containerization (more time?)    |
-| 10/15 | Continuous integration services  |
-| 10/22 | Intro to python                  |
-| 10/29 | Jupyter notebooks                |
-| 11/5  | Cloud computing and storage      |
-| 11/12 | Cluster computing                |
-| 11/19 |                                  |
+| 8/26  | Motivation, text editor          |
+| 9/2-9 | Command line basics              |
+| 9/9-16| R Markdown                       |
+| 9/23-30| Version control using Git/GitHub |
+| 9/30-10/7 |  GNU Makefiles                  |
+| 10/7-14 | Best coding practices/project organization |
+| 10/14-21| Amazon web services           |
+| 10/28-11/4 | Containerization            |
+| 11/11-18| Introduction to python      |
+| 11/18 | Jupyter notebooks        |
+| 12/2  | Additional topics |
