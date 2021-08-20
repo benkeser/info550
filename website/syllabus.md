@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Syllabus Fall 2020
+title: Syllabus Fall 2021
 permalink: /syllabus/
 header-includes:
   - \usepackage{hyperref}
@@ -11,25 +11,30 @@ output:
 
 [Download a pdf copy of syllabus](../syllabus.pdf)
 
-# INFO550 FALL 2021
-
 ## Basic information
 
 __DEPARTMENT:__ Biostatistics and Bioinformatics
+
 __COURSE NUMBER:__ INFO550                                          
+
 __COURSE TITLE__: Data Science Toolkit
+
 __CREDIT HOURS__: 2 
+
 __SEMESTER__: Fall 2021
+
 __CLASS HOURS AND LOCATION__: Thursdays 1:00PM - 2:50PM Grace Crum Rollins
 119 and Zoom (see [Canvas](https://canvas.emory.edu/courses/94385) for details)
+
 __INSTRUCTOR NAME:__ David Benkeser
+
 __INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
 * __PHONE__: (404)712-9975
 * __SCHOOL ADDRESS OR MAILBOX LOCATION__: GCR 1518-002-3AA
 * __OFFICE HOURS__: TBA
 
-___TEACHING ASSISTANT INFORMATION__: 
+__TEACHING ASSISTANT INFORMATION__: 
 * __NAME__: Sohail Nizam 
 * __EMAIL__: sohail.nizam@emory.edu
 * __OFFICE HOURS__: TBA
