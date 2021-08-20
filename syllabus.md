@@ -149,13 +149,13 @@ The TA/professor will review each peer review and submission and assign a grade 
 
 __Grade scale__:
 
-A = 93 -- 100%
-A- = 90 -- 93%
-B+ = 87 – 90%
-B = 83 – 87%
-B- = 80 – 83%
-C = 65 – 80%
-F = <65%
+* A = 93 -- 100%
+* A- = 90 -- 93%
+* B+ = 87 – 90%
+* B = 83 – 87%
+* B- = 80 – 83%
+* C = 65 – 80%
+* F = <65%
 
 Final grades are not rounded and the lower limit of each letter grade is
 inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
