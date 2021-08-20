@@ -6,7 +6,7 @@ __DEPARTMENT:__ Biostatistics and Bioinformatics
 __COURSE NUMBER:__ INFO550                                          
 __COURSE TITLE__: Data Science Toolkit
 __CREDIT HOURS__: 2 
-__SEMESTER__: Fall 2020
+__SEMESTER__: Fall 2021
 __CLASS HOURS AND LOCATION__: Thursdays 1:00PM - 2:50PM Grace Crum Rollins
 119 and Zoom (see [Canvas](https://canvas.emory.edu/courses/94385) for details)
 __INSTRUCTOR NAME:__ David Benkeser
