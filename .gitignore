@@ -7,9 +7,11 @@ homework/**/*.pdf
 homework/**/*.css
 website/.jekyll-cache/*
 website/_site/*
+website/syllabus.pdf
 .DS_Store*
 lectures/.DS_Store
 homework/*.DS_Store*
+lectures/**/*.sh
 
 homework/02_hw
 homework/03_hw

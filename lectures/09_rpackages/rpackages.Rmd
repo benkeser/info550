@@ -4,7 +4,7 @@ author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory Univ
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-packages)'
 tldr: "SAS maintainers HATE them. This one weird trick will allow you to distribute your software for free."
 recording: ""
-start: ""
+start: "0:0:0"
 reading: "r-packages"
 breakoutsoln: ""
 output:

@@ -4,7 +4,7 @@ author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory Univ
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#git-and-github) <br> `r icon::fa("code")` <a href="versioncontrol.sh" download="versioncontrol.sh" style="color:white">Code chunks</a> '
 tldr: "Stop saving fifty copies of the same file with different names."
 recording: ""
-start: ""
+start: "0:0:0"
 reading: "git"
 breakoutsoln: ""
 output:

@@ -4,7 +4,7 @@ author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory Univ
 date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#command-line) <br> `r icon::fa("code")` <a href="commandline.sh" download="commandline.sh" style="color:white">Code chunks</a>'
 tldr: "The command line may look scary, but it is your friend."
 recording: ""
-start: ""
+start: "0:0:0"
 reading: "command-line"
 breakoutsoln: ""
 output:
