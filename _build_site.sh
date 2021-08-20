@@ -14,5 +14,6 @@ website/_build.sh
 # run website/_deploy.sh local
 website/_deploy.sh local
 
-# rm info550/info550 dir
-rm -rf $TRAVIS_BUILD_DIR/../../build_dir
+# rm build_directory
+pwd
+rm -rf $TRAVIS_BUILD_DIR/../../../build_dir
