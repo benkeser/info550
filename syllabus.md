@@ -184,9 +184,28 @@ Develop public health information systems to support public health efforts |
 
 ## COURSE POLICIES
 
-Students are expected to attend lectures synchronously and ask questions during class. 
+Students are expected to attend lectures synchronously if able and ask questions
+during class. 
 
 As the instructor of this course I endeavor to provide an inclusive learning environment. However, if you experience barriers to learning in this course, do not hesitate to discuss them with me and the Office for Equity and Inclusion, 404-727-9877.  
+
+### Teaching and learning during the pandemic
+
+Some of you may need to be off campus for some portion of the semester.  I want our classroom community to thrive no matter the classroom delivery method or your individual methods of participating in class. I cannot guarantee an identical experience for students who cannot be physically in the classroom or an experience that is identical to pre-pandemic semesters, but my goal is to treat all students equitably and to ensure grading is clear, consistent, and fair for all of you.
+
+As always, communication is important. I commit to responding to emails within
+48 hours of receipt, and my intention to respond faster than that most of the
+time. I may be slower on weekends and over holidays. Likewise, if your situation
+changes regarding health, housing, or in any other regard with respect to your ability to participate in the class, please contact the appropriate Emory student support organization first and then me as soon as feasible. It is easier for me to address your needs if I know about them as soon as they arise. This does not mean I can successfully respond to every request for consideration, but I emphasize that my goal is to treat you all equitably and do what I can to help you succeed in this course.
+
+### Classroom safety
+
+Everybody must keep their face mask on at all times when they are indoors on campus, and this includes in our classroom.  Your face mask must cover your nose, mouth, and chin, and should fit snugly.    Due to the necessity of keeping your PPE on, eating and drinking is forbidden in the classroom.  Please read this Emory advice about quality and fit of mask.
+
+### Health considerations
+
+At the very first sign of not feeling well, stay at home and reach out for a health consultation. Please consult the campus FAQ for how to get the health consultation. As you know, Emory does contact tracing if someone has been diagnosed with COVID-19. A close contact is defined as someone you spend more than 15 minutes with, at a distance less than 6 feet, not wearing facial coverings. This typically means your roommates, for example. However, your classmates are not close contacts as long as we are following the personal protective equipment protocols in the classroom: wearing facial coverings, staying six feet apart.
+
 
 ## RSPH POLICIES
 
