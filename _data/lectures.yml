@@ -2,7 +2,7 @@
   dirname: 00_intro
   filename: intro
   reading: ''
-  recording: ''
+  recording: 91596f73-024b-4e58-93ae-ad90011887f7
   recording_url: front-matter
   start: 0:0:0
   title: Front Matter
@@ -11,7 +11,7 @@
   dirname: 01_motivation
   filename: motivation
   reading: reproducible-research
-  recording: ''
+  recording: 14eacd99-52d6-4992-bdce-ad900121700d
   recording_url: motivation
   start: 0:0:0
   title: Motivation
@@ -20,7 +20,7 @@
   dirname: 02_texteditor
   filename: texteditor
   reading: text-editors
-  recording: ''
+  recording: ade65506-5999-4165-97e9-ad90012e4cf2
   recording_url: text-editors
   start: 0:0:0
   title: Text editors
