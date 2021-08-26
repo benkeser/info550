@@ -199,6 +199,13 @@ Generalizability refers to taking conclusions from your study population
 and generalizing them to a new population. 
 
 ---
+class: title-slide, center, inverse, middle
+background-color: #84754e
+
+*You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.*
+<div> - Karen Cranston
+
+---
 
 ## Why should I care?
 
@@ -221,10 +228,10 @@ that any mistakes made were likely honest.
 
 ---
 class: title-slide, center, inverse, middle
-background-color: #84754e
+background-color: #d9d9d6
 
-*You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.*
-<div> - Karen Cranston
+*This is not rocket science. There is computer code that evaluates the algorithm. There is data. And when you plug the data into that code, you should be able to get the answers back that you have reported. And to the extent that you can’t do that, there is a problem in one or both of those items.*
+<div> - Lisa McShane
 
 ---
 
