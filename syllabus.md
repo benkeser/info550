@@ -32,12 +32,12 @@ __INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
 * __PHONE__: (404)712-9975
 * __SCHOOL ADDRESS OR MAILBOX LOCATION__: GCR 1518-002-3AA
-* __OFFICE HOURS__: TBA
+* __OFFICE HOURS__: Mondays 12-1PM (location: GCR 322 or Zoom)
 
 __TEACHING ASSISTANT INFORMATION__: 
 * __NAME__: Sohail Nizam 
 * __EMAIL__: sohail.nizam@emory.edu
-* __OFFICE HOURS__: TBA
+* __OFFICE HOURS__: Wednesdays 9-10AM (location: TBD)
  
 
 ## COURSE DESCRIPTION
