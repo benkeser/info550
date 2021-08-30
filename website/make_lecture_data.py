@@ -134,6 +134,7 @@ make_data(input_dir, "homework")
 # make pages for additional videos
 video_links = {
   "vim-survival-guide" : "16e493ae-2574-4eb9-b48e-ac2501201b59",
+  "installing-wsl" : "b727d059-1996-4456-be5f-ad940005ea62",
   "installing-r-wsl" : "67d7ed3a-ca99-441e-8bd8-ac3300efb3cd"
 }
 

@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-due: "2021/08/31"
+due: "2021/09/07"
 submit: "https://canvas.emory.edu/courses/94385/assignments/521388"
 header-includes:
   - \usepackage{hyperref}
@@ -23,7 +23,45 @@ Questions 1 and 2 below require no submission. Question 3 should be typed up __i
 
 2. Install the following software on your computer:
 
-* TBD...
+__If you are on a Mac__
+
+The following will walk you through the process of installing XCode tools and the [Homebrew package management system](https://brew.sh/) on your computer and setting the default shell to `bash`.
+
+* Find the Terminal program on your computer. When it launches, copy/paste (using hotkeys?!) the following command and press `Return`.
+
+```bash
+xcode-select —install
+```
+
+* Copy/paste the following command and press `Return`.
+
+```bash 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+* Once the installation completes, copy/paste the following two commands, one at a time.
+
+```bash
+brew upgrade  
+brew install bash
+```
+
+* Once the installation completes, copy/paste the following command. You may be prompted to enter a password. This command will fail if you do not have administrative rights to your computer. Contact David if this is the case.
+
+```bash
+echo $(brew --prefix)/bin/bash | sudo tee -a /private/etc/shells
+```
+
+* Finally, execute the following command, where you replace `your-username` with your actual user name. You may (again) be prompted for a password.
+
+```bash
+sudo chpass -s /usr/local/bin/bash $(whoami)
+```
+
+__If you are on a Windows machine__
+
+* Follow the [video Sohail made](https://benkeser.github.io/info550/recordings/installing-wsl) to install Windows Subsystem for Linux.
+
 
 3. Write a paragraph or two description of your workflow for the class project. Your description should include:
 
