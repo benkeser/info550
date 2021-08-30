@@ -1,7 +1,7 @@
 ---
 title: "R Markdown for reproducible reports"
 author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-markdown)'
+date: 'INFO550<br><br>`r icons::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#r-markdown)'
 tldr: "Writing reproducible reports has never been easier."
 recording: ""
 start: "0:0:0"
