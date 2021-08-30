@@ -1,7 +1,7 @@
 ---
 title: "Intro to python"
 author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#python)'
+date: 'INFO550<br><br>`r icons::fontawesome("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::fontawesome("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#python)'
 tldr: "Do you start counting at 0? Love to see pandas at the zoo? python is for you!"
 recording: ""
 start: "0:0:0"

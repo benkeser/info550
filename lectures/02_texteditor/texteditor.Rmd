@@ -1,7 +1,7 @@
 ---
 title: "Text editors"
 author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: 'INFO550<br><br>`r icon::fa("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icon::fa("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#text-editors)'
+date: 'INFO550<br><br>`r icons::fontawesome("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::fontawesome("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#text-editors)'
 tldr: "Good text editors make your life a lot easier."
 recording: "ade65506-5999-4165-97e9-ad90012e4cf2"
 start: "0:0:0"
