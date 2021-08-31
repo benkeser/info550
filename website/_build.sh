@@ -6,7 +6,7 @@
 # remove the bit about downloading pdf
 
 sed '/Download a pdf copy of syllabus/d' ${TRAVIS_BUILD_DIR}/website/syllabus.md > ${TRAVIS_BUILD_DIR}/website/syllabus_mod.md
-Rscript -e "setwd('${TRAVIS_BUILD_DIR}/website/'); rmarkdown::render('syllabus_mod.md', output_file = 'syllabus.pdf')"
+Rscript -e "renv::activate(); setwd('${TRAVIS_BUILD_DIR}/website/'); rmarkdown::render('syllabus_mod.md', output_file = 'syllabus.pdf')"
 rm ${TRAVIS_BUILD_DIR}/website/syllabus_mod.md
 
 #--------------------------------------------------------
