@@ -1,7 +1,7 @@
 ---
 title: "Cloud computing using AWS"
 author: "David Benkeser, PhD MPH<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: 'INFO550<br><br>`r icons::fontawesome("link")` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::fontawesome("book")` [.white[Additional reading]](https://benkeser.github.io/info550/readings#aws)'
+date: 'INFO550<br><br>`r renv::activate("../.."); icons::icon_style(icons::fontawesome("link"), fill = '#ffffff')` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::icon_style(icons::fontawesome("book"), fill = '#ffffff')` [.white[Additional reading]](https://benkeser.github.io/info550/readings#aws)'
 tldr: "Jeff Bezos has a better computer than you and for the right price, he will let you use it."
 recording: ""
 start: "0:0:0"
