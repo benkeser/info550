@@ -24,7 +24,7 @@ do
 	FILE_PATH=${RMD_FILE%/*}
 	FILE_NAME=${RMD_FILE##*/}
 	# build rmarkdown slides
-	Rscript -e "setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
+	Rscript -e "renv::activate('info550'); setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
 	# grab bash code from slides if it exists
 	BASH_FILE_NAME="$(echo "${FILE_NAME}" | cut -f 1 -d '.').sh"
 	if [ -f "${TRAVIS_BUILD_DIR}/${FILE_PATH}/.grab-bash" ]; then
@@ -37,7 +37,7 @@ for RMD_FILE in ${RMD_HOMEWORK_FILES}
 do 
 	FILE_PATH=${RMD_FILE%/*}
 	FILE_NAME=${RMD_FILE##*/}
-	Rscript -e "setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
+	Rscript -e "renv::activate('info550'); setwd('${TRAVIS_BUILD_DIR}/${FILE_PATH}/'); rmarkdown::render('${FILE_NAME}')"
 done
 
 # make a directory for recording information
