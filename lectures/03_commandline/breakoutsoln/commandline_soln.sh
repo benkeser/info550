@@ -73,7 +73,6 @@ for name in "Rom" "Jul" "Apoth"
 do
 	lines=$(grep "$name\." rj.txt | wc -l)
 	echo "$name has $lines lines" >> num_lines.txt
-	echo "" >> num_lines.txt
 done
 #--- end script.sh ---#
 
