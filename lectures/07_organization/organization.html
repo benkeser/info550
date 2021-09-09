@@ -52,6 +52,7 @@ Project organization may seem a rather dull/pedantic topic for a data science cl
 * Use meaningful file names.
 * Use YYYY-MM-DD date formatting.
 * .red[No absolute paths.]
+* .red[Use a package management system.]
 
 ???
 
@@ -137,7 +138,8 @@ analysis/ &lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; sandbox/exploratory.R &lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp; ref_papers/ &lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp; Makefile &lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp; README.md
+&amp;nbsp;&amp;nbsp;&amp;nbsp; README.md &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; renv
 ]
 
 ???
@@ -303,6 +305,8 @@ Sets "the bones" of a formal analysis in place while allowing for some creative 
 
 From the outset, stop and think about what you want to do. Start filling in details from there. That simple approach will increase efficiency and reproducibility. 
 
+---
+
 ### Exploring data
 
 Other helpful ideas for formalizing exploratory data analysis:
@@ -314,6 +318,127 @@ Other helpful ideas for formalizing exploratory data analysis:
   * and document what they contain! 
 * `knitr::spin` 
   * writing `.R` scripts with rendered-able comments 
+
+---
+
+### The `here` package
+
+.red[No absolute paths.]
+* Absolute paths are the enemy of project reproducibility.
+
+For `R` projects, the [`here`](https://here.r-lib.org/) package provides a simple way to use relative file paths.
+* Read [Jenny Bryan and James Hester's chapter](https://rstats.wtf/project-oriented-workflow.html) on project-oriented work-flows.
+
+The use of `here` is dead-simple and best illustrated by example.
+
+---
+
+### The `here` package
+
+Consider this simple project structure.
+
+.code-box[
+my_project/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; data/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; my_data.csv &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; output/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; R/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; R/my_analysis.R &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; Rmd/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Rmd/my_report.Rmd &lt;br&gt;
+]
+
+Here, the folder `my_project` is the __root directory__.
+* Where `.git` lives
+* All file paths should be .green[relative] to `my_project`!
+
+---
+
+### The `here` package
+
+Each `R` script or `Rmd` report, should contain a call to `here::i_am('path/to/this/file')` at the top.
+* `path/to/this/file` should be replaced with the path .green[relative] to the project's __root directory__.
+* `here::i_am` means use function `i_am` from `here`package.
+
+For example, the file `R/my_analysis.R` might look like this.
+
+````
+# include at top of script
+here::i_am('R/my_analysis.R')
+
+# now add all your great R code...
+````
+
+---
+
+### The `here` package
+
+`Rmd/my_report.Rmd` should include an `R` chunk that calls `i_am`.
+
+````
+---
+output: html_document
+---
+
+```{r}
+here::i_am('Rmd/my_report.Rmd')
+```
+
+&lt;!-- Now the rest of your Rmd code --&gt;
+````
+
+---
+
+### The `here` package
+
+The call to `i_am` establishes the __root directory__.
+* Subsequent file paths can be made using the `here` function.
+
+For example, `my_analysis.R` might look like this.
+
+````
+# include at top of script
+here::i_am('R/my_analysis.R')
+
+# load data
+my_data &lt;- read.csv(here::here('data', 'my_data.csv'))
+
+# do some analysis to get results
+
+# save results
+save(my_results, file = here::here('output', 'my_results.RData'))
+````
+
+???
+
+You can check what `here` thinks the root directory is by printing the output of `here::here()`.
+
+---
+
+### The `renv` package
+
+.red[Use a package management system.]
+
+To increase reproducibility of a project, we must keep track of what packages are used.
+* Want to avoid chasing down 100 errors like this:
+
+.code-box[
+.red[Error in library(ggplot2) : there is no package called ‘ggplot2’] &lt;br&gt;
+]
+
+The [`renv` package](https://rstudio.github.io/renv/articles/renv.html) is useful to this end.
+
+---
+
+### The `renv` package
+
+
+
+
+
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

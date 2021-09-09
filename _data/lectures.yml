@@ -25,7 +25,7 @@
   start: 0:0:0
   title: Text editors
   tldr: Good text editors make your life a lot easier.
-- breakoutsoln: ''
+- breakoutsoln: commandline_soln.sh
   dirname: 03_commandline
   filename: commandline
   reading: command-line
