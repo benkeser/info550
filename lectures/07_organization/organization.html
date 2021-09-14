@@ -432,7 +432,179 @@ The [`renv` package](https://rstudio.github.io/renv/articles/renv.html) is usefu
 
 ### The `renv` package
 
+Download the &lt;a href='example_project.zip' download&gt;`example_project`&lt;/a&gt; folder.
 
+.code-box[
+example_project/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; Makefile &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; figs/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; R/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; R/barchart.R &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; Rmd/ &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Rmd/report.Rmd &lt;br&gt;
+]
+
+If you scan the code, you will see we need __three R packages__.
+* `here`, `wesanderson`, `knitr`, and `rmarkdown`
+
+---
+
+### The `renv` package
+
+Open an `R` session from the `example_project` folder. 
+* Install the `renv` package if needed.
+
+Initialize the project by running the following command.
+
+
+```r
+renv::init()
+```
+
+You will see a lot of output. What just happened??
+
+---
+
+### `renv.lock` file
+
+You should now see __lockfile__, `example_project/renv.lock`.
+
+````
+{
+  "R": {
+    "Version": "4.0.3",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "base64enc": {
+      "Package": "base64enc",
+      "Version": "0.1-3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "543776ae6848fde2f48ff3816d0628bc"
+    },
+  ...
+````
+
+---
+
+### `renv.lock` file
+
+This __lockfile__ records all of the information about packages needed by your project.
+* Version of package, where was it installed from, etc...
+
+How does it know?
+* `renv` scans all files in your project directory.
+* Looks for `library`, `require`, or `package::function`.
+
+---
+
+### `.Rprofile`
+
+We also see `example_project/.Rprofile`, containing one line.
+
+
+```r
+source("renv/activate.R")
+```
+
+We have not talked about `.Rprofile`'s because they are generally antithetical to reproducible research.
+
+When `R` starts, it searchers for `.Rprofile` and runs what it finds.
+* Use this to change various options, always load packages, etc...
+
+In this case, whenever we start `R` in `example_project`, we __activate__ our `R` environment.
+* Telling `R` where packages for this project are saved, etc...
+* Details are not too important.
+
+---
+
+### `renv` folder
+
+You will also see a folder `example_project/renv/`.
+* This folder contains your __project library__.
+
+`renv` tries to be clever about installing packages.
+* Already have a package installed elsewhere? `renv` will link to it.
+* Otherwise, package is installed in `renv/library`.
+
+Note that `renv/.gitignore` ensures packages not put under version control.
+
+---
+
+### Activating `renv`
+
+`renv` will automatically be active in any `R` session that is run from the `example_project` directory.
+* Recall the presence and function of `.Rprofile`.
+
+To activate in an `R` session run from elsewhere: `renv::activate('path/to/renv')`.
+
+For using `renv` with R Markdown projects, this is important!
+* Either need to `activate` in a code chunk.
+* Or use `knitr::opts_knit$set(root.dir = here::here())` (assuming the project root contains your `renv` project library).
+
+---
+
+### Collaborating with `renv`
+
+A typical `renv` collaborative workflow on GitHub:
+
+* .usera[User A] initializes the lockfile using `renv::init()`.
+* .usera[User A] commits `renv.lock`, `.Rprofile`, and `renv/activate.R` and pushes to GitHub.
+* .userb[User B] pulls from GitHub, opens `R`, and uses `renv::restore()` to synchronize their local project directory.
+* .userb[User B] adds new packages to code, uses `renv::snapshot()` to record changes to `renv.lock`
+* .userb[User B] commits `renv.lock` and pushes to GitHub.
+* .usera[User A] pulls from GitHub, opens `R`, and uses `renv::restore()` to synchronize their local project directory.
+* ...
+
+---
+
+### Breakout exercise
+
+With a partner, choose .usera[User A] and .userb[User B].
+
+.usera[User A] 
+* initialize the lockfile for `example_project`
+* use `git init` to initialize version control of `example_project`
+* create a GitHub repository for `example_project`
+* invite .userb[User B] to be a collaborator on the repository
+* commit all files locally and push to repository
+
+---
+
+### Breakout exercise
+
+.userb[User B]
+* create a fork of .usera[User A]'s repository
+* `git clone` the fork to your local machine
+* use `renv::restore()` to synchronize your package library
+* use `renv::remove` to remove `wesanderson` from the lockfile
+* replace lines 4-5 of `barchart.R` with the following and save
+
+
+```r
+library(RColorBrewer)
+colors &lt;- brewer.pal(3, "Dark2")
+```
+
+* use `renv::snapshot()` to update the lockfile
+* commit changes and push to your fork
+* submit a PR to .usera[User A]'s repository
+
+---
+
+### Breakout exercise
+
+.usera[User A]
+* review .userb[User B]'s PR and merge it when satisfied
+* pull the new code to your local machine
+* use `renv::restore()` to synchronize your package library
+* confirm that you can build `report.html`
 
 
 

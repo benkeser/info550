@@ -1,0 +1,22 @@
+---
+title: "A fascinating mtcars graph"
+author: "David Benkeser"
+output: html_document
+---
+
+```{r, include = FALSE}
+here::i_am("Rmd/report.Rmd")
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+## Executive summary
+
+We looked at the `mtcars` data for the ten-thousandth time. 
+
+## Figure
+
+We made a great figure!
+
+```{r, echo = FALSE}
+knitr::include_graphics(here::here("figs", "barchart.png"))
+```

@@ -280,6 +280,14 @@ ul li {
   color: #348338;
   font-weight: 600;
 }
+.usera {
+  color: #006c5b;
+  font-weight: 600;
+}
+.userb {
+  color: #6d2077;
+  font-weight: 600;
+}
 .code-box {
   display: inline-block;
   width: 95%;
