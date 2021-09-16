@@ -34,11 +34,11 @@
   start: 0:0:0
   title: Unix command line
   tldr: The command line may look scary, but it is your friend.
-- breakoutsoln: ''
+- breakoutsoln: example.Rmd
   dirname: 04_rmarkdown
   filename: rmarkdown
-  reading: ''
-  recording: ''
+  reading: r-markdown
+  recording: 097aee6b-9898-4b40-8b1c-ada50118a797
   recording_url: r-markdown-for-reproducible-reports
   start: 0:0:0
   title: R Markdown for reproducible reports

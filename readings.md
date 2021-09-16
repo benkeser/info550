@@ -28,6 +28,7 @@ permalink: /readings/
 	* [Sublime Text 3 Cheat Sheet](https://www.shortcutfoo.com/app/dojos/sublime-text-3-win/cheatsheet)
 	* [7 shortcuts of a highly effective Sublime Text user](https://kirankoduru.github.io/python/sublime-text-ninja.html)
 	* [Sublime Text Tutorial](https://www.tutorialspoint.com/sublime_text/index.htm)
+	* [Putting a WSL Terminal in Sublime Text](/info550/recordings/wsl-in-sublime)
 * [__Notepad++__](https://notepad-plus-plus.org/downloads/)
 	* [Notepad++ cheatsheet](http://www.cheat-sheets.org/saved-copy/Notepad++_Cheat_Sheet.pdf)
 	* [User manual](https://npp-user-manual.org/docs/getting-started/)
