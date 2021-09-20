@@ -12,6 +12,8 @@ output:
     css: xaringan-themer.css
     nature:
       titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: tomorrow-night-blue
+      highlightLanguage: bash
 
 ---
 
@@ -43,19 +45,24 @@ style_mono_accent(
 
 ## An interactive way to create reports
 
-* foo
-* bar
-* baz
-
+Imagine taking a compiled Rmarkdown report and typing directly into each code or markdown chunk!
+ 
+* Run code chunks one at a time
+* Make changes to text, figures, and other output without recompiling each time
+* Write bash code within the notebook to install packages
+* Easily embed HTML into text chunks 
+* Share your report as HTML, PDF, and more
+* Share your notebook so others build off your work 
 
 
 ---
 
 ## JSON files
 
-* foo
-* bar
-* baz
+* Jupyter Notebooks are saved as .ipynb files
+* .ipynb files are just JSON (Java Script Object Notation) files
+* JSON files are just plain text and thus can be read/created in any programming language
+* For python users: syntax looks just like a python dictionary
 
 
 
@@ -63,13 +70,31 @@ style_mono_accent(
 
 ## Opening Jupyter Notebooks
 
+* Navigate to your project directory and run this command in terminal
+
+```{bash, openjn, eval = FALSE}
+jupyter notebook
+```
+
+* A browser window will open with address `http://localhost:8888/tree`
+* You should see the files that live in the directory you ran the command from
+
+
+SCREENSHOT HERE
 
 
 ---
 
 ## Kernels
 
+From the Jupyter Notebook docs:
 
+"Kernels are programming language specific processes that run independently and interact with the Jupyter Applications and their user interfaces."
+
+Find a list of all available kernels [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). We are most interested in:
+
+* Ipython
+* IRKernel
 
 
 ---
