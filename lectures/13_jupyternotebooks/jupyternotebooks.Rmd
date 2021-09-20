@@ -1,0 +1,103 @@
+---
+title: "Jupyter Notebooks"
+author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
+date: "Foo"
+tldr: "Quick use your mouse a little while David isn't looking!"
+recording: ""
+reading: ""
+breakoutsoln: ""
+start: "0:0:0"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+extra_css <- list(
+    "ul" = list(`margin-bottom` = "0.5em",
+      `margin-top` = "0.5em"),
+        "p" = list(`margin-bottom` = "0.25em"),
+        "ul li" = list(`margin-bottom` = "10px"),
+        "a" = list(color = "#007dba"),
+        "a:hover" = list("text-decoration" = "underline"),
+        ".green" = list(color = "#348338"),
+        ".red" = list(color = "#da291c")
+)
+style_mono_accent(
+  base_color = "#012169",
+  header_font_google = google_font("DM Sans"),
+  text_font_google   = google_font("DM Sans", "400", "400i"),
+  code_font_google   = google_font("Courier Prime"),
+  extra_css = extra_css
+)
+```
+<style type="text/css">
+.remark-slide-content {
+    font-size: 22px
+}
+</style>
+
+## An interactive way to create reports
+
+* foo
+* bar
+* baz
+
+
+
+---
+
+## JSON files
+
+* foo
+* bar
+* baz
+
+
+
+---
+
+## Opening Jupyter Notebooks
+
+
+
+---
+
+## Kernels
+
+
+
+
+---
+
+## Keyboard Shortcuts
+
+
+
+
+---
+
+## Magics
+
+
+
+
+---
+
+## Sharing notebooks
+
+
+
+
+---
+
+## Exporting notebooks
+
+
+
+
+
