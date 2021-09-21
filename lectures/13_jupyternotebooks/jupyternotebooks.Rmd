@@ -1,8 +1,7 @@
 ---
 title: "Jupyter Notebooks"
 author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-date: "Foo"
-tldr: "Quick use your mouse a little while David isn't looking!"
+tldr: ""
 recording: ""
 reading: ""
 breakoutsoln: ""
@@ -60,7 +59,7 @@ Imagine taking a compiled Rmarkdown report and typing directly into each code or
 ## JSON files
 
 * Jupyter Notebooks are saved as .ipynb files
-* .ipynb files are just JSON (Java Script Object Notation) files
+* .ipynb files are JSON (Java Script Object Notation) files
 * JSON files are just plain text and thus can be read/created in any programming language
 * For python users: syntax looks just like a python dictionary
 
@@ -97,18 +96,27 @@ Find a list of all available kernels [here](https://github.com/jupyter/jupyter/w
 * IRKernel
 
 
+
 ---
 
 ## Keyboard Shortcuts
 
+There are tons of shortcuts! Don't need to learn them all.
+
+<center>
+```{r, echo = FALSE, out.width = "600px"}
+knitr::include_graphics("jn_keyboard.png")
+```
+</center>
+---
+
+## Magics (only for Ipython)
 
 
 
 ---
 
-## Magics
-
-
+## IRDisplay (only for IRkernel)
 
 
 ---
@@ -124,5 +132,10 @@ Find a list of all available kernels [here](https://github.com/jupyter/jupyter/w
 
 
 
+---
 
+## Notebooks Online
+
+* [mybinder](https://jupyter.org/try)
+* [Google Colab](https://colab.research.google.com/) (Not quite JN but similar functionality)
 
