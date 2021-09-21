@@ -47,11 +47,17 @@ style_mono_accent(
 Imagine taking a compiled Rmarkdown report and typing directly into each code or markdown chunk!
  
 * Run code chunks one at a time
-* Make changes to text, figures, and other output without recompiling each time
+* Make changes to text, figures, and other output without fully recompiling each time
 * Write bash code within the notebook to install packages
 * Easily embed HTML into text chunks 
 * Share your report as HTML, PDF, and more
 * Share your notebook so others build off your work 
+
+---
+
+## Jupyter Notebooks vs. Rmarkdown
+
+
 
 
 ---
@@ -79,8 +85,11 @@ jupyter notebook
 * You should see the files that live in the directory you ran the command from
 
 
-SCREENSHOT HERE
-
+<center>
+```{r, echo = FALSE, out.width = "600px"}
+knitr::include_graphics("open_jn.png")
+```
+</center>
 
 ---
 
@@ -96,6 +105,21 @@ Find a list of all available kernels [here](https://github.com/jupyter/jupyter/w
 * IRKernel
 
 
+---
+
+## Closing Jupyter Notebooks
+
+* Closing the browser tab will not stop the server or shutdown notebooks 
+* Ctrl + c stops the server and shuts down all running notebooks
+* Shutting down a notebook kills the R/Python session
+* To keep the server running, the terminal window we ran `jupyter notebook` from must be kept open
+
+<center>
+```{r, echo = FALSE, out.width = "500px"}
+knitr::include_graphics("jn_running.png")
+```
+</center>
+
 
 ---
 
@@ -110,19 +134,49 @@ knitr::include_graphics("jn_keyboard.png")
 </center>
 ---
 
-## Magics (only for Ipython)
+## Displaying output with repr
 
 
 
 ---
 
-## IRDisplay (only for IRkernel)
+## Magics (only for Ipython)
+
+Magics are special commands that add functionality not readily available by just writing Python code and using the JN interface.
+
+* Line magics start with `%`
+* Cell magics stare with `%%`
+* Run `%lsmagic` in a cell to list all available magics
+* Many many magics!
+* `%%bash` turns the whole cell into a bash cell
+* `%who_ls` lists all objects saved in the notebook
+* `%timeit` provides a convenient way to time your code
+
+---
+
+## IRkernel magics?
+
+.center[*We don’t and won’t support %%cell magic like %%HTML.*]
+
+.center[\- The IRkernel dev team]
+
+* Use the `system()` function to write bash code
+* html
+
+---
+
+## Animated plots
+
+http://www.fundata.kr/python/ipython-notebook-tutorial/index.html
+
+
+---
+## rpy2: R and Python in the same notebook?? 
 
 
 ---
 
 ## Sharing notebooks
-
 
 
 
@@ -132,10 +186,35 @@ knitr::include_graphics("jn_keyboard.png")
 
 
 
+
 ---
+
+## Exporting code only
+
+
+
+---
+
+## Breakout Exercise 2
+
+Here we'll work with the youtube video at this link: https://www.youtube.com/embed/dQw4w9WgXcQ
+
+
+* Start a jupyter notebook session
+* Start one Ipython kernel and one IRkernel
+* Use a line magic to embed the video in the Ipython notebook (Hint: `%%HTML`)
+* Use IRDisplay to embed the video in the IRkernel notebook (Hint: `IRdisplay::display_html()`)
+* Save both notebooks as HTML files (save as something besides Untitled)
+* Send both HTML files to someone in your breakout room
+* Recieve two HTML files from someone in your breakout room
+* Open the HTML files and watch the video
+
+
+---
+
 
 ## Notebooks Online
 
-* [mybinder](https://jupyter.org/try)
-* [Google Colab](https://colab.research.google.com/) (Not quite JN but similar functionality)
+* [mybinder](https://jupyter.org/try) (Just for playing around)
+* [Google Colab](https://colab.research.google.com/) (Not exactly JN but similar functionality, free access to CPUs/GPUs, and pre-built enviroments for DS courtesy of Google!)
 
