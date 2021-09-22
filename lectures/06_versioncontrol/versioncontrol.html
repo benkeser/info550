@@ -221,7 +221,17 @@ git init
 ```
 
 ```
-## Initialized empty Git repository in /Users/dbenkes/tmp_gitdir/.git/
+## hint: Using 'master' as the name for the initial branch. This default branch name
+## hint: is subject to change. To configure the initial branch name to use in all
+## hint: of your new repositories, which will suppress this warning, call:
+## hint: 
+## hint: 	git config --global init.defaultBranch &lt;name&gt;
+## hint: 
+## hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+## hint: 'development'. The just-created branch can be renamed via this command:
+## hint: 
+## hint: 	git branch -m &lt;name&gt;
+## Initialized empty Git repository in /Users/davidbenkeser/tmp_gitdir/.git/
 ```
 
 
@@ -232,9 +242,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 0
-## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 16 16:34 .
-## drwxr-xr-x+ 48 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 16 16:34 ..
-*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 16 16:34 .git
+## drwxr-xr-x   3 davidbenkeser  staff    96B Sep 21 21:06 .
+## drwxr-xr-x+ 66 davidbenkeser  staff   2.1K Sep 21 21:06 ..
+*## drwxr-xr-x   9 davidbenkeser  staff   288B Sep 21 21:06 .git
 ```
 
 ???
@@ -268,7 +278,6 @@ git status
 ## 
 ## Untracked files:
 ##   (use "git add &lt;file&gt;..." to include in what will be committed)
-## 
 ## 	README.md
 ## 	silly_shell.sh
 ## 
@@ -305,12 +314,10 @@ git status
 ## 
 *## Changes to be committed:
 ##   (use "git rm --cached &lt;file&gt;..." to unstage)
-## 
 ## 	new file:   README.md
 ## 
 ## Untracked files:
 ##   (use "git add &lt;file&gt;..." to include in what will be committed)
-## 
 ## 	silly_shell.sh
 ```
 
@@ -332,7 +339,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) e45f51e] added README to repo
+## [master (root-commit) 021d20b] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -378,9 +385,9 @@ git log
 ```
 
 ```
-## commit e45f51e7ea22fbaa6c40a7fd6366e9dd85e4c937
-## Author: Benkeser &lt;benkeser@emory.edu&gt;
-## Date:   Thu Sep 16 16:34:06 2021 -0400
+## commit 021d20bf8457f5ade26fdde228e737937f339d4a
+## Author: David Benkeser &lt;benkeser@emory.edu&gt;
+## Date:   Tue Sep 21 21:06:10 2021 -0400
 ## 
 ##     added README to repo
 ```
@@ -423,7 +430,6 @@ git status
 ## On branch master
 ## Untracked files:
 ##   (use "git add &lt;file&gt;..." to include in what will be committed)
-## 
 ## 	.gitignore
 ## 	silly_shell.sh
 ## 
@@ -510,7 +516,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 6a0d0f4] update the README
+## [devel 46dc787] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -566,7 +572,7 @@ git merge devel
 ```
 
 ```
-## Updating e45f51e..6a0d0f4
+## Updating 021d20b..46dc787
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -668,7 +674,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel cd6c31d] great info, not cool info.
+## [devel b173bf9] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -710,7 +716,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 5c7ee81] excellent info, not cool info.
+## [master 56d32c3] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -807,7 +813,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 8e3063c] fixed merge conflicts
+## [master a91661d] fixed merge conflicts
 ```
 
 ???

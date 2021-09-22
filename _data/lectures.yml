@@ -44,7 +44,16 @@
   title: R Markdown for reproducible reports
   tldr: Writing reproducible reports has never been easier.
 - breakoutsoln: ''
-  dirname: 05_versioncontrol
+  dirname: 05_jupyternotebooks
+  filename: jupyternotebooks
+  reading: ''
+  recording: ''
+  recording_url: jupyter-notebooks
+  start: 0:0:0
+  title: Jupyter Notebooks
+  tldr: Let's get interactive! If only so we can use the phrase 'real time'
+- breakoutsoln: ''
+  dirname: 06_versioncontrol
   filename: versioncontrol
   reading: git
   recording: ''
@@ -53,7 +62,7 @@
   title: Version control using git and GitHub
   tldr: Stop saving fifty copies of the same file with different names.
 - breakoutsoln: ''
-  dirname: 06_make
+  dirname: 07_make
   filename: make
   reading: ''
   recording: ''
@@ -61,15 +70,6 @@
   start: 0:0:0
   title: GNU Make
   tldr: Make is a program for organizing projects and dependencies in code.
-- breakoutsoln: ''
-  dirname: 07_organization
-  filename: organization
-  reading: project-organization
-  recording: ''
-  recording_url: project-organization
-  start: 0:0:0
-  title: Project organization
-  tldr: Consistently organize your projects now. You will thank yourself later.
 - breakoutsoln: ''
   dirname: 08_codestyle
   filename: codestyle
@@ -81,7 +81,16 @@
   tldr: Write your code for humans to read. No one else will read it, but you might,
     later.
 - breakoutsoln: ''
-  dirname: 09_rpackages
+  dirname: 08_organization
+  filename: organization
+  reading: project-organization
+  recording: ''
+  recording_url: project-organization
+  start: 0:0:0
+  title: Project organization
+  tldr: Consistently organize your projects now. You will thank yourself later.
+- breakoutsoln: ''
+  dirname: 10_rpackages
   filename: rpackages
   reading: r-packages
   recording: ''
@@ -91,7 +100,7 @@
   tldr: SAS maintainers HATE them. This one weird trick will allow you to distribute
     your software for free.
 - breakoutsoln: ''
-  dirname: 10_docker
+  dirname: 11_docker
   filename: docker
   reading: docker
   recording: ''
@@ -100,7 +109,7 @@
   title: Docker for reproducible research
   tldr: Software is code, so ship software with your code for full reproducibility.
 - breakoutsoln: ''
-  dirname: 11_python
+  dirname: 12_python
   filename: python
   reading: python
   recording: ''
@@ -109,7 +118,7 @@
   title: Intro to python
   tldr: Do you start counting at 0? Love to see pandas at the zoo? python is for you!
 - breakoutsoln: ''
-  dirname: 12_aws
+  dirname: 13_aws
   filename: aws
   reading: aws
   recording: ''
