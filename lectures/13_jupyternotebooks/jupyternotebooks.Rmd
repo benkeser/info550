@@ -48,7 +48,7 @@ style_mono_accent(
 Imagine taking a compiled Rmarkdown report and typing directly into each code or markdown chunk!
  
 * Run code chunks one at a time
-* Make changes to text, figures, and other output without fully recompiling each time
+* Make changes to text, figures, and other output without recompiling
 * Write bash code within the notebook to install packages
 * Easily embed HTML into text chunks 
 * Share your report as HTML, PDF, and more
@@ -79,9 +79,9 @@ Jupyter Notebooks is best for:
 ## JSON files
 
 * Jupyter Notebooks are saved as .ipynb files
-* .ipynb files are JSON (Java Script Object Notation) files
+* .ipynb files are [JSON](https://www.json.org/json-en.html) (Java Script Object Notation) files
 * JSON files are just plain text and thus can be read/created in any programming language
-* For python users: syntax looks just like a python dictionary
+* For python users: syntax looks just like a [python dictionary](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
 
 
@@ -96,7 +96,7 @@ jupyter notebook
 ```
 
 * A browser window will open with address `http://localhost:8888/tree`
-* You should see the files that live in the directory you ran the command from
+* You should see the files that live in the current directory
 
 
 <center>
@@ -115,24 +115,28 @@ From the Jupyter Notebook docs:
 
 Find a list of all available kernels [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels). We are most interested in:
 
-* Ipython
-* IRKernel
+* [Ipython](https://ipython.org/)
+* [IRKernel](https://irkernel.github.io/)
 
 
 ---
 
 ## Closing Jupyter Notebooks
 
-* Closing the browser tab will not stop the server or shutdown notebooks 
-* Ctrl + c stops the server and shuts down all running notebooks
-* Shutting down a notebook kills the R/Python session
+.pull-left[
+* Closing the browser tab .red[will not stop the server] or shutdown notebooks 
+* __Ctrl + c__ stops the server and shuts down all running notebooks
+* Shutting down a notebook .red[kills the R/Python session]
 * To keep the server running, the terminal window we ran `jupyter notebook` from must be kept open
+]
 
-<center>
+.pull-right[
+
 ```{r, echo = FALSE, out.width = "500px"}
 knitr::include_graphics("jn_running.png")
 ```
-</center>
+
+]
 
 
 ---
@@ -149,6 +153,8 @@ knitr::include_graphics("jn_running.png")
 ## Keyboard Shortcuts
 
 There are tons of shortcuts! Don't need to learn them all.
+
+<br> 
 
 <center>
 ```{r, echo = FALSE, out.width = "600px"}
@@ -179,6 +185,8 @@ Magics are special commands that add functionality not readily available by just
 
 .center[\- The IRkernel dev team]
 
+<br> 
+
 * Use the `system()` function to write bash code
 * Use the `IRdisplay` library to embed images, html, etc
 
@@ -203,7 +211,7 @@ import ipywidgets as widgets
 
 ## Widgets (Ipython only)
 
-Example: The `interact` widget generates UI controls for function arguments then calls the function with those arguments when you manipulate the controls interactively
+__Example__: The `interact` widget generates UI controls for function arguments then calls the function with those arguments when you manipulate the controls interactively
 
 ```{bash, interactive_plot, eval = FALSE}
 from ipywidgets import *
@@ -226,7 +234,11 @@ interact(update);
 
 ---
 
-## Interactive plots with plotly (Ipython or IRkernel)
+## Interactive plots with plotly 
+
+[`plotly`](https://plotly.com/) is a great library for making interactive plots.
+* [Example plots for R](https://plotly.com/r/)
+* [Example plots for python](https://plotly.com/python/)
 
 ```{r, plotly_ex, eval = FALSE}
 
@@ -246,12 +258,13 @@ plot_ly(ds, x = x, y = y, mode = "markers", split = group, size = size, type = '
 
 ```
 
+* Works with both Ipython and IRkernel!
 
 ---
 
-## rpy2: R and Python in the same notebook?? 
+## R and Python in the same notebook
 
-Can't choose between R and Python? Use them both at the same time in one notebook!
+R and python can be used in the same notebook via [`rpy2`](https://rpy2.github.io/).
 
 ```{bash, installrpy2, eval = FALSE}
 pip install rpy2
@@ -293,9 +306,10 @@ ggplot(df, aes(x=reorder(cups_of_coffee,productivity), y=productivity)) + geom_c
 
 * We can export to many different file formats for static viewing
 
+<br> 
 
 <center>
-```{r, echo = FALSE, out.width = "500px"}
+```{r, echo = FALSE, out.width = "400px"}
 knitr::include_graphics("jn_file_formats.png")
 ```
 </center>
@@ -323,6 +337,9 @@ Here we'll work with the youtube video at this link: https://www.youtube.com/emb
 
 ## Notebooks Online
 
-* [mybinder](https://jupyter.org/try) (Just for playing around)
-* [Google Colab](https://colab.research.google.com/) (Not exactly JN but similar functionality, free access to CPUs/GPUs, and pre-built enviroments for DS courtesy of Google!)
+* [mybinder](https://jupyter.org/try) 
+  * Just for playing around
+* [Google Colab](https://colab.research.google.com/) 
+  * Not exactly JN but similar functionality 
+  * Free access to CPUs/GPUs, and pre-built enviroments
 
