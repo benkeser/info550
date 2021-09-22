@@ -1,7 +1,7 @@
 ---
 title: "Jupyter Notebooks"
 author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
-tldr: ""
+tldr: "Let's get interactive! If only so we can use the phrase 'real time'"
 recording: ""
 reading: ""
 breakoutsoln: ""

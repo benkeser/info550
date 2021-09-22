@@ -169,6 +169,20 @@ permalink: /readings/
 * [Software Carpentry: Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
 
 
+## Jupyter Notebooks
+
+* [Jupyter Notebooks Docs](https://jupyter.org/)
+* [Try Jupyter in Browser](https://jupyter.org/try)
+* [Basic Tutorial](https://www.dataquest.io/blog/jupyter-notebook-tutorial/)
+* [Video Tutorial](https://www.youtube.com/watch?v=HW29067qVWk)
+* [IRkernel Docs](https://irkernel.github.io/installation/)
+* [IRDisplay Docs](https://cran.r-project.org/web/packages/IRdisplay/index.html)
+* [Ipython Magics Docs](https://ipython.readthedocs.io/en/stable/interactive/magics.html)
+* [Ipython Widgets Docs](https://ipywidgets.readthedocs.io/en/latest/index.html)
+* [R Plotly Tutorial](https://plotly.com/r/using-r-in-jupyter-notebooks/)
+* [rpy2 Tutorial](https://anderfernandez.com/en/blog/how-to-program-with-python-and-r-in-the-same-jupyter-notebook/)
+* [Google Colab](colab.research.google.com)
+
 ## AWS
 
 * [Install `awscli` (version 2)](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
