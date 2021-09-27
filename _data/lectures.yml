@@ -46,8 +46,8 @@
 - breakoutsoln: ''
   dirname: 05_jupyternotebooks
   filename: jupyternotebooks
-  reading: ''
-  recording: ''
+  reading: jupyter-notebooks
+  recording: 3025a2bc-a635-486a-95f7-adb0014056da
   recording_url: jupyter-notebooks
   start: 0:0:0
   title: Jupyter Notebooks
