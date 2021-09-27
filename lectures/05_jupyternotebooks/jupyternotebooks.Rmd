@@ -3,8 +3,8 @@ title: "Jupyter Notebooks"
 author: "Sohail Nizam<br> <span style = 'font-size: 50%;'> Emory University<br> Department of Biostatistics and Bioinformatics </span>"
 date: 'INFO550<br><br>`r renv::activate("../.."); icons::icon_style(icons::fontawesome("link"), fill = '#ffffff')` [.white[bit.ly/info550]](https://bit.ly/info550) <br> `r icons::icon_style(icons::fontawesome("book"), fill = '#ffffff')` [.white[Additional reading]](https://benkeser.github.io/info550/readings#jupyter-notebooks) '
 tldr: "Let's get interactive! If only so we can use the phrase 'real time'"
-recording: ""
-reading: ""
+recording: "3025a2bc-a635-486a-95f7-adb0014056da"
+reading: "jupyter-notebooks"
 breakoutsoln: ""
 start: "0:0:0"
 output:
