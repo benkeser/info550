@@ -212,9 +212,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 0
-## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 30 12:16 .
-## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 30 12:16 ..
-*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 30 12:16 .git
+## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 30 12:44 .
+## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 30 12:44 ..
+*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 30 12:44 .git
 ```
 
 ???
@@ -333,7 +333,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) 721cb32] added README to repo
+## [master (root-commit) 43ebaf6] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -379,9 +379,9 @@ git log
 ```
 
 ```
-## commit 721cb3201f21362a875a706f2ebe49254499b667
+## commit 43ebaf600f13186ca1c26e47951a5cf89f224693
 ## Author: Benkeser &lt;benkeser@emory.edu&gt;
-## Date:   Thu Sep 30 12:16:28 2021 -0400
+## Date:   Thu Sep 30 12:44:58 2021 -0400
 ## 
 ##     added README to repo
 ```
@@ -511,7 +511,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 655df75] update the README
+## [devel fffc987] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -567,7 +567,7 @@ git merge devel
 ```
 
 ```
-## Updating 721cb32..655df75
+## Updating 43ebaf6..fffc987
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -669,7 +669,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel aba0571] great info, not cool info.
+## [devel 2e2b29f] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -711,7 +711,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 63fd48b] excellent info, not cool info.
+## [master 81c27e6] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -808,7 +808,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master a025ee2] fixed merge conflicts
+## [master 0b7112a] fixed merge conflicts
 ```
 
 ???
@@ -951,14 +951,29 @@ git merge friend
 git push origin master
 ```
 
+---
+
+### `fetch` vs. `pull`
+
+If you trust the PR code, you can merge directly on GitHub.
+* Then need to update your local repository with the changes.
+
+Two ways of updating local repository with PR-related code.
+* `git fetch`
+
+  * Download code separately from your local repository.
+  * Have to explicitly `merge` into your local repository.
+
+* `git pull`
+  * `fetch` and `merge` at the same time
+  * Faster, but .red[no chance to verify that the code works] before updating your local repository.
+
 ???
 
-If you trust your friend, you can use `git pull friend master`. 
-* `git pull` does a `git fetch` and `git merge` all in one.
-
-I use `git pull` when I'm working on the same repository from two different computers (e.g., my laptop and a remote computer) to keep code tracked between  the two. If you have Dropbox, then this is not needed, as Dropbox will  automatically sync. 
+I use `git pull` when I'm working on the same repository from two different computers (e.g., my laptop and a remote computer) to keep code tracked between the two. If you have Dropbox, then this is not needed, as Dropbox will automatically sync. 
 
 Best practice is to use `git fetch` always. 
+
 
 ---
 

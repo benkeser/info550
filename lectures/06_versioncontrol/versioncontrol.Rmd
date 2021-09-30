@@ -860,14 +860,29 @@ git merge friend
 git push origin master
 ```
 
+---
+
+### `fetch` vs. `pull`
+
+If you trust the PR code, you can merge directly on GitHub.
+* Then need to update your local repository with the changes.
+
+Two ways of updating local repository with PR-related code.
+* `git fetch`
+
+  * Download code separately from your local repository.
+  * Have to explicitly `merge` into your local repository.
+
+* `git pull`
+  * `fetch` and `merge` at the same time
+  * Faster, but .red[no chance to verify that the code works] before updating your local repository.
+
 ???
 
-If you trust your friend, you can use `git pull friend master`. 
-* `git pull` does a `git fetch` and `git merge` all in one.
-
-I use `git pull` when I'm working on the same repository from two different computers (e.g., my laptop and a remote computer) to keep code tracked between  the two. If you have Dropbox, then this is not needed, as Dropbox will  automatically sync. 
+I use `git pull` when I'm working on the same repository from two different computers (e.g., my laptop and a remote computer) to keep code tracked between the two. If you have Dropbox, then this is not needed, as Dropbox will automatically sync. 
 
 Best practice is to use `git fetch` always. 
+
 
 ---
 
