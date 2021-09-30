@@ -1,0 +1,45 @@
+---
+title: "Homework 3"
+due: "2020/10/07"
+submit: "https://canvas.emory.edu/courses/94385/assignments/545052"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+For this assignment please submit to Canvas your GitHub user name / your repository name (e.g., `benkeser/my_project_repository`).
+
+1. Create a GitHub repository for your class project and push all files needed to execute your data analysis project and produce a report to GitHub. Right now, this could only include your `.Rmd` produced in the last homework and a data set. 
+
+Your repo should include file called `README.md` that contains detailed instructions on how to execute your analysis. This README should explicitly spell out what software/packages need to be installed prior to running the analysis and contain bash code that is required to execute the analysis. See the [example repository](https://github.com/benkeser/info550project) for an example. 
+
+2. After the assignment due date, your repository will be peer-graded. To successfully complete the peer grade you must:
+
+- Fork the assigned repository
+- Clone the repository
+- Attempt to follow the `README.md` instructions to execute the analysis
+- File an issue on your peer's repository that includes any error messages that you ran into or anything that is unclear from their README. If there are no errors, still file an issue that reports no errors.
+
+Some hints:
+
+* Avoid absolute paths. Note that if you run an `R` session from the command line, then the working directory for the session is whatever folder `R` was run from. 
+* When peer grading, don't chase down the solution to errors (unless you really want to help your peer out!). If they happen, just report them in your issue.
+
+If you need to anonymize your data to post publicly to GitHub, you could try the following:
+
+```{r, eval = FALSE}
+# say you have a data.frame called dat where rows are individuals 
+# and columns are features
+# set a seed that only you know -- don't save it anywhere
+set.seed(124125)
+n <- nrow(dat)
+new_dat <- dat
+for(j in 1:ncol(dat)){
+	shuffle_idx <- sample(1:n)
+	new_dat[,j] <- dat[shuffle_idx, j]
+}
+# new dat now contains data formatted like your original data, but 
+# where each column has been randomly shuffled. use this version in 
+# your repository
+``` 
