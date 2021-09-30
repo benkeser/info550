@@ -72,6 +72,36 @@ get used to it now.
 
 ---
 
+### Git
+
+__git__ is a formal system for version control.
+
+* developed by Linus Torvalds, the developer of Linux
+* can be used to track any content, but intended for __plain text files__
+  * source code, data analysis code, manuscripts, websites, presentations 
+
+Why git?
+* fast, offline, good at merging changes, industry standard
+
+???
+
+Git was originally developed to manage the source code for Linux.
+
+Most features of git are aimed towards tracking changes made to plain
+text code. It's not very useful to look at the raw source code of a 
+`.pdf` or `.docx` file. Though these files can definitely still be tracked
+by git. 
+
+I use git for all my software projects, most all data analysis projects, 
+some manuscripts (see previous comments), and for managing this courses 
+website.
+
+Git uses very clever caching systems, which make it incredibly fast and 
+lightweight (i.e., doesn't eat up all your computer's memory). It works
+offline (Dropbox does not).
+
+---
+
 ### Terminology
 
 * __Repository__ 
@@ -136,56 +166,6 @@ easily access past versions of software. Etc...
 
 ---
 
-### Git
-
-__git__ is a formal system for version control.
-
-* developed by Linus Torvalds, the developer of Linux
-* can be used to track any content, but intended for __plain text files__
-  * source code, data analysis code, manuscripts, websites, presentations 
-
-Why git?
-* fast, offline, good at merging changes, industry standard
-
-???
-
-Git was originally developed to manage the source code for Linux.
-
-Most features of git are aimed towards tracking changes made to plain
-text code. It's not very useful to look at the raw source code of a 
-`.pdf` or `.docx` file. Though these files can definitely still be tracked
-by git. 
-
-I use git for all my software projects, most all data analysis projects, 
-some manuscripts (see previous comments), and for managing this courses 
-website.
-
-Git uses very clever caching systems, which make it incredibly fast and 
-lightweight (i.e., doesn't eat up all your computer's memory). It works
-offline (Dropbox does not).
-
----
-
-### Basic git workflow
-
-* Make modifications to files. Save files.
-* `git status`
-  * shows what files have changed since your last commit
-* `git add` 
-  * tell git which files to add to this commit
-* `git commit -m "I fixed so many things!"`
-  * make a commit with a message `-m`
-* `git push origin master`
-  * `push` the `master` branch to the `origin` remote
-
-???
-
-These are the git commands you will use 90-95\% of the time (unless you 
-are heavily involved in collaborative production of software). We will talk 
-through each of these steps in depth and what they mean.
-
----
-
 ### Configuring git
 
 The first time you use `git`, you will need to configure. 
@@ -199,7 +179,7 @@ git config --global user.email "janedoe@emory.edu"
 ```
 
 * Other options to consider:
-  * `core.editor` controls which editor is used
+  * [`core.editor`](https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git) controls which editor is used
   * `core.excludesFile` controls file types that are ignored (more later) 
   * all options [in docs](https://git-scm.com/docs/git-config)
 
@@ -232,15 +212,36 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 0
-## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 27 16:45 .
-## drwxr-xr-x+ 48 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 27 16:45 ..
-*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 27 16:45 .git
+## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 30 12:16 .
+## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 30 12:16 ..
+*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 30 12:16 .git
 ```
 
 ???
 
 All the information about a repository is stored in this `.git` directory. 
 Don't ask me how. It's just magic, as far as I can tell.
+
+---
+
+
+### Basic git workflow
+
+* Make modifications to files. Save files.
+* `git status`
+  * shows what files have changed since your last commit
+* `git add` 
+  * tell git which files to add to this commit
+* `git commit -m "I fixed so many things!"`
+  * make a commit with a message `-m`
+* `git push origin master`
+  * `push` the `master` branch to the `origin` remote
+
+???
+
+These are the git commands you will use 90-95\% of the time (unless you 
+are heavily involved in collaborative production of software). We will talk 
+through each of these steps in depth and what they mean.
 
 ---
 
@@ -332,7 +333,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) 291b1bf] added README to repo
+## [master (root-commit) 721cb32] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -378,9 +379,9 @@ git log
 ```
 
 ```
-## commit 291b1bfd24de14c249de019d44286a777b5cb98b
+## commit 721cb3201f21362a875a706f2ebe49254499b667
 ## Author: Benkeser &lt;benkeser@emory.edu&gt;
-## Date:   Mon Sep 27 16:45:38 2021 -0400
+## Date:   Thu Sep 30 12:16:28 2021 -0400
 ## 
 ##     added README to repo
 ```
@@ -510,7 +511,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 15fb05d] update the README
+## [devel 655df75] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -566,7 +567,7 @@ git merge devel
 ```
 
 ```
-## Updating 291b1bf..15fb05d
+## Updating 721cb32..655df75
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -668,7 +669,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 8c4ef3e] great info, not cool info.
+## [devel aba0571] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -710,7 +711,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 9ae43ec] excellent info, not cool info.
+## [master 63fd48b] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -807,7 +808,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 80e3f29] fixed merge conflicts
+## [master a025ee2] fixed merge conflicts
 ```
 
 ???
@@ -856,7 +857,7 @@ Community-oriented __collaborative__ coding projects.
 
 Services like Dropbox provide continuous online back-up of saved file, as we've said, git only provides back up at certain points. GitHub allows for this backup to go online. I.e., if your computer blows up, you'll still be able to pull down your coding project. 
 
-Personally, I use git within Dropbox folders. I hardly ever use Dropbox to revert to saved versions of files, because I save files after every sentenceI type out of habit. However, I very often use git revert when developing code. 
+Personally, I use git within Dropbox folders. I hardly ever use Dropbox to revert to saved versions of files, because I save files after every sentence I type out of habit. However, I very often use git revert when developing code. 
 
 ---
 
@@ -1072,7 +1073,7 @@ This is a very common situation. Ideally, there will be no conflicts and you can
 
 ### Breakout exercise
 
-Download &lt;a href="https://raw.githubusercontent.com/benkeser/info550/master/lectures/05_versioncontrol/github_exercise.md" download&gt;`github_exercise`&lt;/a&gt;.
+Download &lt;a href="https://raw.githubusercontent.com/benkeser/info550/master/lectures/06_versioncontrol/github_exercise.md" download&gt;`github_exercise`&lt;/a&gt;.
 * With your breakout partner, follow the instructions.
 * Determine who is User A and who is User B.
 * Practice the workflows we've just learned!
