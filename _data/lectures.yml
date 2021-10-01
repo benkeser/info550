@@ -56,7 +56,7 @@
   dirname: 06_versioncontrol
   filename: versioncontrol
   reading: git
-  recording: ''
+  recording: 73484cd8-39de-451f-9ce2-adb301186437
   recording_url: version-control-using-git-and-github
   start: 0:0:0
   title: Version control using git and GitHub

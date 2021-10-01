@@ -346,7 +346,7 @@ Other helpful ideas for formalizing exploratory data analysis:
 * `.Rhistory` files
   * all the commands used in an R session
 * Informal `.Rmd` documents. 
-  * easy way to organize code and comments into readable format
+  * easy way to organize code/comments into readable format
 * `save` intermediate objects and workspaces
   * and document what they contain! 
 * `knitr::spin` 
@@ -391,7 +391,7 @@ Here, the folder `my_project` is the __root directory__.
 
 Each `R` script or `Rmd` report, should contain a call to `here::i_am('path/to/this/file')` at the top.
 * `path/to/this/file` should be replaced with the path .green[relative] to the project's __root directory__.
-* `here::i_am` means use function `i_am` from `here`package.
+* `here::i_am` means use function `i_am` from `here` package.
 
 For example, the file `R/my_analysis.R` might look like this.
 

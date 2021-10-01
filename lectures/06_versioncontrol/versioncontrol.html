@@ -212,9 +212,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 0
-## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Sep 30 17:14 .
-## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Sep 30 17:14 ..
-*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Sep 30 17:14 .git
+## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Oct  1 14:49 .
+## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Oct  1 14:49 ..
+*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Oct  1 14:49 .git
 ```
 
 ???
@@ -333,7 +333,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) 08131f8] added README to repo
+## [master (root-commit) 2e30ad8] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -379,9 +379,9 @@ git log
 ```
 
 ```
-## commit 08131f8740018c4094f07c959ff95bc8ccdbb470
+## commit 2e30ad8130fe43e5005a0c8b59cfcd946497317f
 ## Author: Benkeser &lt;benkeser@emory.edu&gt;
-## Date:   Thu Sep 30 17:14:36 2021 -0400
+## Date:   Fri Oct 1 14:49:05 2021 -0400
 ## 
 ##     added README to repo
 ```
@@ -511,7 +511,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel 1fa5959] update the README
+## [devel b322ff6] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -567,7 +567,7 @@ git merge devel
 ```
 
 ```
-## Updating 08131f8..1fa5959
+## Updating 2e30ad8..b322ff6
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -669,7 +669,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel c44e67d] great info, not cool info.
+## [devel 00f1089] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -711,7 +711,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 0ba8e75] excellent info, not cool info.
+## [master 5a8376d] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -808,7 +808,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master c8a81fe] fixed merge conflicts
+## [master 6e9fcad] fixed merge conflicts
 ```
 
 ???
@@ -966,7 +966,7 @@ Two ways of updating local repository with PR-related code.
 
 * `git pull`
   * `fetch` and `merge` at the same time
-  * Faster, but .red[no chance to verify that the code works] before updating your local repository.
+  * Faster, but .red[no chance to verify that the code works]g before updating your local repository.
 
 ???
 
