@@ -883,6 +883,13 @@ I use `git pull` when I'm working on the same repository from two different comp
 
 Best practice is to use `git fetch` always. 
 
+---
+
+### PR workflow visualized
+
+.center[
+<iframe src="https://emory-my.sharepoint.com/personal/dbenkes_emory_edu/_layouts/15/Doc.aspx?sourcedoc={42c1835d-98d0-4b3a-a9a7-d115df0b605d}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="800px" height="505px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+]
 
 ---
 

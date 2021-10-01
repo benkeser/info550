@@ -212,9 +212,9 @@ ls -lha ~/tmp_gitdir
 
 ```
 ## total 0
-## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Oct  1 14:49 .
-## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Oct  1 14:49 ..
-*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Oct  1 14:49 .git
+## drwxr-xr-x   3 dbenkes  EMORYUNIVAD\Domain Users    96B Oct  1 15:47 .
+## drwxr-xr-x+ 49 dbenkes  EMORYUNIVAD\Domain Users   1.5K Oct  1 15:47 ..
+*## drwxr-xr-x  10 dbenkes  EMORYUNIVAD\Domain Users   320B Oct  1 15:47 .git
 ```
 
 ???
@@ -333,7 +333,7 @@ git commit -m "added README to repo"
 ```
 
 ```
-## [master (root-commit) 2e30ad8] added README to repo
+## [master (root-commit) a7a8808] added README to repo
 ##  1 file changed, 2 insertions(+)
 ##  create mode 100644 README.md
 ```
@@ -379,9 +379,9 @@ git log
 ```
 
 ```
-## commit 2e30ad8130fe43e5005a0c8b59cfcd946497317f
+## commit a7a880846bbe52bfbc47178754408d02dc0e121a
 ## Author: Benkeser &lt;benkeser@emory.edu&gt;
-## Date:   Fri Oct 1 14:49:05 2021 -0400
+## Date:   Fri Oct 1 15:47:32 2021 -0400
 ## 
 ##     added README to repo
 ```
@@ -511,7 +511,7 @@ git commit -m "update the README"
 ```
 
 ```
-## [devel b322ff6] update the README
+## [devel 342f204] update the README
 ##  1 file changed, 1 insertion(+)
 ```
 
@@ -567,7 +567,7 @@ git merge devel
 ```
 
 ```
-## Updating 2e30ad8..b322ff6
+## Updating a7a8808..342f204
 ## Fast-forward
 ##  README.md | 1 +
 ##  1 file changed, 1 insertion(+)
@@ -669,7 +669,7 @@ git commit -m "great info, not cool info."
 
 ```
 ## Switched to branch 'devel'
-## [devel 00f1089] great info, not cool info.
+## [devel 8197bd4] great info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -711,7 +711,7 @@ git commit -m "excellent info, not cool info."
 
 ```
 ## Switched to branch 'master'
-## [master 5a8376d] excellent info, not cool info.
+## [master 4da81f5] excellent info, not cool info.
 ##  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -808,7 +808,7 @@ git commit -m "fixed merge conflicts"
 ```
 
 ```
-## [master 6e9fcad] fixed merge conflicts
+## [master aed5792] fixed merge conflicts
 ```
 
 ???
@@ -974,6 +974,13 @@ I use `git pull` when I'm working on the same repository from two different comp
 
 Best practice is to use `git fetch` always. 
 
+---
+
+### PR workflow visualized
+
+.center[
+&lt;iframe src="https://emory-my.sharepoint.com/personal/dbenkes_emory_edu/_layouts/15/Doc.aspx?sourcedoc={42c1835d-98d0-4b3a-a9a7-d115df0b605d}&amp;amp;action=embedview&amp;amp;wdAr=1.7777777777777777" width="800px" height="505px" frameborder="0"&gt;This is an embedded &lt;a target="_blank" href="https://office.com"&gt;Microsoft Office&lt;/a&gt; presentation, powered by &lt;a target="_blank" href="https://office.com/webapps"&gt;Office&lt;/a&gt;.&lt;/iframe&gt;
+]
 
 ---
 
