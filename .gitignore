@@ -12,7 +12,7 @@ website/syllabus.pdf
 lectures/.DS_Store
 homework/*.DS_Store*
 lectures/**/*.sh
-
+lectures/**/**/*.pptx
 homework/04_hw
 homework/05_hw
 homework/06_hw
