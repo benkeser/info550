@@ -252,7 +252,7 @@ data.txt: cleandata.R raw_data.txt
   * `cd dir` on one line, execute file in `dir` on next; .red[will not work!]
 * from docs: .red[cannot] expect actions to be performed in sequence
 * use `&& \` breaks commands over multiple lines
-  * commands separated by `&&` run synchronously with each running only if the last does not fail
+  * commands separated by `&&` run sequentially with each running only if the last does not fail
   * `\` is an escape character; bash ignores the new line
 
 ---
