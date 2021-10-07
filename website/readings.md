@@ -81,8 +81,7 @@ permalink: /readings/
 * [Oh Sh*t, Git!?!](https://ohshitgit.com/)
 * [Connecting to GitHub with ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 * [Configuring ssh credentials for GitHub](/info550/recordings/ssh-credentials-for-github)
-* [Another video illustrating connecting to GitHub with ssh]
-(https://www.youtube.com/watch?v=WgZIv5HI44o)
+* [Another video illustrating connecting to GitHub with ssh](https://www.youtube.com/watch?v=WgZIv5HI44o)
 * [Karl Broman's git/github guide](https://kbroman.org/github_tutorial/)
 * [Pro Git](https://git-scm.com/book/en/v2)
 * [Software carpentry notes on git](https://github.com/swcarpentry/DEPRECATED-boot-camps/blob/master/version-control/git/git-and-github/instructor_notes.md)
