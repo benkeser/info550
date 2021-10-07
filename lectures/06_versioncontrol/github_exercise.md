@@ -18,7 +18,7 @@ We'll work in pairs: **User A** and **User B**
         touch ReadMe.md
         [edit the file]
         git add ReadMe.md
-        git commit
+        git commit -m "first commit"
 
 - Go to your GitHub account and create a new repository
 
@@ -44,11 +44,11 @@ We'll work in pairs: **User A** and **User B**
         cd TestRepo
         [change/copy files]
         git add [filenames]
-        git commit
+        git commit -m "user b first commit"
 
 - Push the changes to GitHub
 
-        git push
+        git push origin master
 
 - Make a pull request:
 
@@ -64,7 +64,7 @@ We'll work in pairs: **User A** and **User B**
 
 - Connect to User B's repository
 
-        git remote add userB git://github.com/userB/TestRepo
+        git remote add userB https://github.com/userB/TestRepo
 
 - Fetch the changes from User B
 
@@ -91,7 +91,7 @@ We'll work in pairs: **User A** and **User B**
 
 - Push the work to github.
 
-        git push
+        git push origin master
 
 - Make another change to the file; then `add`, `commit`, and `push`.
 
@@ -99,7 +99,7 @@ We'll work in pairs: **User A** and **User B**
 
 - Add a connection to User A's repository
 
-        git remote add userA git://github.com/userA/TestRepo
+        git remote add userA https://github.com/userA/TestRepo
 
 - Fetch User A's latest
 
@@ -109,14 +109,14 @@ We'll work in pairs: **User A** and **User B**
 
         git checkout -b userA userA/master
 
-- Test things
+- Test out the code (i.e., make sure all the files in the repo look as expected)
 
 - Checkout your master, merge the change from User A, and push to
   github.
 
         git checkout master
         git merge userA
-        git push
+        git push origin master
 
 ## 5. Users A and B
 
@@ -152,4 +152,4 @@ We'll work in pairs: **User A** and **User B**
 
 - Push back to github
 
-        git push
+        git push origin master
