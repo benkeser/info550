@@ -570,9 +570,12 @@ With a partner, choose .usera[User A] and .userb[User B].
 
 .usera[User A] 
 * initialize the lockfile for `example_project`
+  * open `R` in `example_project` and run `renv::init()`
 * use `git init` to initialize version control of `example_project`
 * create a GitHub repository for `example_project`
-* invite .userb[User B] to be a collaborator on the repository
+* add the GitHub repository as a remote to your local repository
+  * .small[`git add remote https://github.com/usera/example_project.git`]
+  * .small[`git add remote git@github.com:usera/example_project.git`]
 * commit all files locally and push to repository
 
 ---
@@ -582,8 +585,19 @@ With a partner, choose .usera[User A] and .userb[User B].
 .userb[User B]
 * create a fork of .usera[User A]'s repository
 * `git clone` the fork to your local machine
-* use `renv::restore()` to synchronize your package library
-* use `renv::remove` to remove `wesanderson` from the lockfile
+* `cd` into `example_project` and open `R`
+* run `renv::restore()` to synchronize package library
+* confirm that you can build the report
+  * run `make report` from `example_project` directory
+  * open `Rmd/report.html` to confirm correct build
+
+---
+
+### Breakout exercise
+
+.userb[User B] now wants to change the colors of the graph
+* open `R` in `example_project` directory
+* run `renv::remove('wesanderson')` to remove the `wesanderson` package from the lockfile
 * replace lines 4-5 of `barchart.R` with the following and save
 
 
@@ -592,7 +606,8 @@ library(RColorBrewer)
 colors &lt;- brewer.pal(3, "Dark2")
 ```
 
-* use `renv::snapshot()` to update the lockfile
+* open `R` in `example_project` and run `renv::status()`
+* run `renv::snapshot()` to add `RColorBrewer` to the lockfile
 * commit changes and push to your fork
 * submit a PR to .usera[User A]'s repository
 
@@ -601,16 +616,96 @@ colors &lt;- brewer.pal(3, "Dark2")
 ### Breakout exercise
 
 .usera[User A]
-* review .userb[User B]'s PR and merge it when satisfied
-* pull the new code to your local machine
-* use `renv::restore()` to synchronize your package library
-* confirm that you can build `report.html`
+* add a remote linking to user B's repository
+  * .small[`git remote add userb https://github.com/userb/example_project.git`]
+* `fetch` .userb[User B]'s `master` branch
+  * .small[`git fetch userb master`]
+* `checkout` .userb[User B]'s `master` branch
+  * .small[`git checkout remotes/userb/master`]
+
+---
+
+### Breakout exercise
+
+.usera[User A]
+
+* `cd` into `example_project` and open `R`
+* run `renv::restore()` to synchronize your package library
+* confirm that you can build the report
+  * run `make report` from `example_project` directory
+  * open `Rmd/report.html` to confirm correct build
+
+---
+
+### Breakout exercise
+
+.usera[User A]
+
+* if the report builds correctly, create a local branch named `userb` from .userb[User B]'s `master` branch
+  * .small[`git checkout -b userb`]
+* `merge` .userb[User B]'s `master` into your `master` 
+  * .small[`git checkout master`]
+  * .small[`git merge userb`]
+* close the PR by pushing to GitHub
+  * .small[`git push origin master`]
+
+---
+
+### Breakout exercise
+
+.usera[User A] has changed their mind about the colors!
+
+* open `R` in `example_project` directory
+* run `renv::remove('RColorBrewer')` to remove `RColorBrewer` from the lockfile
+* replace lines 4-5 of `barchart.R` with the following and save
 
 
+```r
+colors &lt;- c("red", "blue", "green")
+```
+* confirm that you can build the report
+  * run `make report` from `example_project` directory
+  * open `Rmd/report.html` to confirm correct build
+* if the report builds correctly, `commit` and `push`
 
+---
 
+### Breakout exercise
 
+.userb[User B]
 
+* add a remote linking to user A's repository
+  * .small[`git remote add usera https://github.com/usera/example_project.git`]
+* `fetch` .usera[User A]'s `master` branch
+  * .small[`git fetch usera master`]
+* `checkout` .usera[User A]'s `master` branch
+  * .small[`git checkout remotes/usera/master`]
+
+---
+
+### Breakout exercise
+
+.userb[User B]
+
+* `cd` into `example_project` and open `R`
+* run `renv::status()` and, if needed, `renv::restore()` to synchronize your package library
+* confirm that you can build the report
+  * run `make report` from `example_project` directory
+  * open `Rmd/report.html` to confirm correct build
+
+---
+
+### Breakout exercise
+
+.userb[User B]
+
+* if the report builds correctly, create a local branch named `usera` from .usera[User A]'s `master` branch
+  * .small[`git checkout -b usera`]
+* `merge` .usera[User A]'s `master` into your `master` 
+  * .small[`git checkout master`]
+  * .small[`git merge usera`]
+* update your fork of the repository by pushing to GitHub
+  * .small[`git push origin master`]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
