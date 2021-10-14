@@ -61,11 +61,11 @@
   start: 0:0:0
   title: Version control using git and GitHub
   tldr: Stop saving fifty copies of the same file with different names.
-- breakoutsoln: ''
+- breakoutsoln: example_soln.zip
   dirname: 07_make
   filename: make
-  reading: ''
-  recording: ''
+  reading: gnu-makefiles
+  recording: 3675d659-7bb0-48b1-a642-adc101190cbd
   recording_url: gnu-make
   start: 0:0:0
   title: GNU Make
