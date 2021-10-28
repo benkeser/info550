@@ -605,8 +605,8 @@ With a partner, choose .usera[User A] and .userb[User B].
 * use `git init` to initialize version control of `example_project`
 * create a GitHub repository for `example_project`
 * add the GitHub repository as a remote to your local repository
-  * .small[`git add remote https://github.com/usera/example_project.git`]
-  * .small[`git add remote git@github.com:usera/example_project.git`]
+  * .small[`git remote add origin https://github.com/usera/example_project.git`]
+  * .small[`git remote add origin git@github.com:usera/example_project.git`]
 * commit all files locally and push to repository
 
 ---
@@ -637,6 +637,7 @@ colors <- brewer.pal(3, "Dark2")
 ```
 
 * open `R` in `example_project` and run `renv::status()`
+* if prompted, run `install.packages("RColorBrewer")` 
 * run `renv::snapshot()` to add `RColorBrewer` to the lockfile
 * commit changes and push to your fork
 * submit a PR to .usera[User A]'s repository
@@ -692,6 +693,7 @@ colors <- brewer.pal(3, "Dark2")
 ```{r, eval = FALSE}
 colors <- c("red", "blue", "green")
 ```
+* open `R` and run `renv::status()` and `renv::snapshot()`
 * confirm that you can build the report
   * run `make report` from `example_project` directory
   * open `Rmd/report.html` to confirm correct build
