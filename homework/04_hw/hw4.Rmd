@@ -1,0 +1,70 @@
+---
+title: "Homework 4"
+due: "2020/11/08"
+submit: "https://canvas.emory.edu/courses/94385/assignments/552419"
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+For this assignment please submit to Canvas your GitHub user name / your repository name (e.g., `benkeser/my_project_repository`).
+
+Update your GitHub repository to adhere to principles of project organization that we have discussed in class. In particular,
+
+* Your project directory should have a coherent folder structure. I.e., you should not have data/code/Makefile/README all stored in a single folder.
+* Your project directory should include a `Makefile`. The first recipe included in the `Makefile` should produce your R Markdown report.
+* Your project code should not contain any absolute file paths. It should instead use the `here` package to appropriately define file paths.
+* Your project directory should include an `renv.lock` lockfile that records information on all packages needed to compile your report. The directory should also include all additional `renv` associated files (i.e., `renv/activate.R` and `.Rprofile`).
+* Your project code should adhere as best as possible to the coding guidelines we have been discussing (e.g., self-documenting code, comments describing why and not what the code is doing, variables with informative names, etc...)
+* Your project directory should include a `README.md` that includes instructions for how to produce your report (e.g., description of how to `restore` the package environment, what `make` command to run to produce the report, etc...).
+
+After the assignment due date, your repository will be peer-graded. To peer grade, you should complete each of the following:
+
+- Fork the assigned repository
+- Clone the repository
+- Read the `README.md` instructions to understand the project organization (\~ 5 minutes)
+- Read the `Makefile` to understand the components of the analysis (\~ 5 minutes)
+- Restore the package environment using `renv`
+- Browse the source code associated with the project (all `Rmd` and `R` files) for \~10 minutes.
+- Use `make` to generate your peer's report.
+
+To complete the peer review, file an issue on your peer's repository. The issue should include a [task list](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-task-lists) indicating which of the assignment requirements are completed in the repository. You should copy the code below into a GitHub comment and replace `[ ]` with `[x]` to indicate the item is completed. 
+
+````
+- [ ] The repository contains an informative README.
+- [ ] The repository contains a coherent organization structure.
+- [ ] The repository includes a Makefile.
+- [ ] The repository contains an renv.lock file.
+- [ ] The repository adheres to best practices for coding.
+- [ ] I was able to restore the package environment.
+- [ ] I was able to build the project report.
+````
+
+If a box is not checked, provide comments on why. An example peer graded issue is shown below:
+
+````
+- [x] The repository contains an informative README.
+- [ ] The repository contains a coherent organization structure.
+	- All files are included in a single directory, which makes it difficult to find relevant files.
+- [x] The repository includes a Makefile.
+- [x] The repository contains an renv.lock file.
+- [ ] The repository adheres to best practices for coding.
+	- Variables are not always given informative names and the code contains too many comments.
+- [x] I was able to restore the package environment.
+- [ ] I was able to build the project report.
+	- I ran into an error that said: package `ggplot2` not available.
+````
+
+After you have submitted your issue on GitHub, __copy the link to the issue__ into a comment on Canvas.
+
+You will be graded based on the following scale:
+
+* Does the project have an informative README (3pt)
+* Does the project contain a Makefile (3pt)
+* Is the project organized (3pt)
+* Does the project contain `renv`-associated files (3pt)
+* Did the peer reviewer note any file path-related errors (1pt)
+* Can the package environment be restored by the peer grader (1pt)
+* Does the repository adhere to best coding practices (1pt)
+* Was the peer review completed on time (issue filed on GitHub and linked as a comment in Canvas)? (5pt)
