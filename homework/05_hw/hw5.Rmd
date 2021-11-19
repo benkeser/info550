@@ -1,0 +1,48 @@
+---
+title: "Final project"
+due: "2020/12/03"
+submit: ""
+header-includes:
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,urlcolor=blue}
+output: pdf_document
+---
+
+For this assignment please submit to Canvas your GitHub user name / your repository name (e.g., `benkeser/my_project_repository`).
+
+Create a Docker image that builds your project report. Your image should:
+
+- include whatever software/packages are needed to build your report;
+- have an entry point (`CMD`) that builds your report;
+- be available at a public DockerHub repository.
+
+
+Update your GitHub repository to include
+
+- your `Dockerfile` that was used to build your image;
+- a `README.md` detailing how to `pull` the image from DockerHub, how to build the report (including retrieving it from the container);
+
+
+After the assignment due date, your repository will be peer-graded. To peer grade, you should complete each of the following:
+
+- `pull` the image from DockerHub;
+- follow instructions in `README.md` to build the report;
+- confirm that the report compiled correctly.
+
+To complete the peer review, file an issue on your peer's repository. The issue should include a [task list](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-task-lists) indicating which of the assignment requirements are completed in the repository. You should copy the code below into a GitHub comment and replace `[ ]` with `[x]` to indicate the item is completed. 
+
+````
+- [ ] The repository's README explained how to download the Docker image.
+- [ ] The README explained how to build and retrieve the report. 
+- [ ] The report built without error and could be retrieved.
+````
+
+If a box is not checked, provide comments on why. 
+
+After you have submitted your issue on GitHub, __copy the link to the issue__ into a comment on Canvas.
+
+You will be graded based on the following scale:
+
+* The repository's README clearly explained how to download the Docker image. (5pt)
+* The README explained how to build and retrieve the report. (5pt)
+* The report built without error and could be retrieved. (30pt)
