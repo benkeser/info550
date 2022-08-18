@@ -1,0 +1,129 @@
+- breakoutsoln: ''
+  dirname: 00_intro
+  filename: intro
+  reading: ''
+  recording: 91596f73-024b-4e58-93ae-ad90011887f7
+  recording_url: front-matter
+  start: 0:0:0
+  title: Front Matter
+  tldr: Everything you need to know about the course.
+- breakoutsoln: ''
+  dirname: 01_motivation
+  filename: motivation
+  reading: reproducible-research
+  recording: 14eacd99-52d6-4992-bdce-ad900121700d
+  recording_url: motivation
+  start: 0:0:0
+  title: Motivation
+  tldr: Why we should be motivated to improve reproducibility in our research.
+- breakoutsoln: ''
+  dirname: 02_texteditor
+  filename: texteditor
+  reading: text-editors
+  recording: ade65506-5999-4165-97e9-ad90012e4cf2
+  recording_url: text-editors
+  start: 0:0:0
+  title: Text editors
+  tldr: Good text editors make your life a lot easier.
+- breakoutsoln: ''
+  dirname: 03_commandline
+  filename: commandline
+  reading: command-line
+  recording: 246dfd8f-c50f-4102-ada2-ad9701187327
+  recording_url: unix-command-line
+  start: 0:0:0
+  title: Unix command line
+  tldr: The command line may look scary, but it is your friend.
+- breakoutsoln: ''
+  dirname: 04_rmarkdown
+  filename: rmarkdown
+  reading: r-markdown
+  recording: 097aee6b-9898-4b40-8b1c-ada50118a797
+  recording_url: r-markdown-for-reproducible-reports
+  start: 0:0:0
+  title: R Markdown for reproducible reports
+  tldr: Writing reproducible reports has never been easier.
+- breakoutsoln: ''
+  dirname: 05_jupyternotebooks
+  filename: jupyternotebooks
+  reading: jupyter-notebooks
+  recording: 3025a2bc-a635-486a-95f7-adb0014056da
+  recording_url: jupyter-notebooks
+  start: 0:0:0
+  title: Jupyter Notebooks
+  tldr: Let's get interactive! If only so we can use the phrase 'real time'
+- breakoutsoln: ''
+  dirname: 06_versioncontrol
+  filename: versioncontrol
+  reading: git
+  recording: 73484cd8-39de-451f-9ce2-adb301186437
+  recording_url: version-control-using-git-and-github
+  start: 0:0:0
+  title: Version control using git and GitHub
+  tldr: Stop saving fifty copies of the same file with different names.
+- breakoutsoln: ''
+  dirname: 07_make
+  filename: make
+  reading: gnu-makefiles
+  recording: 3675d659-7bb0-48b1-a642-adc101190cbd
+  recording_url: gnu-make
+  start: 0:0:0
+  title: GNU Make
+  tldr: Make is a program for organizing projects and dependencies in code.
+- breakoutsoln: ''
+  dirname: 08_codestyle
+  filename: codestyle
+  reading: coding-style
+  recording: 5f89add5-a50d-4e39-a2bb-adc801199294
+  recording_url: coding-in-style
+  start: 0:0:0
+  title: Coding in style
+  tldr: Write your code for humans to read. No one else will read it, but you might,
+    later.
+- breakoutsoln: ''
+  dirname: 08_organization
+  filename: organization
+  reading: project-organization
+  recording: 7a2ff6e6-b5b3-4c17-8d9a-adc8012cdf7a
+  recording_url: project-organization
+  start: 0:0:0
+  title: Project organization
+  tldr: Consistently organize your projects now. You will thank yourself later.
+- breakoutsoln: ''
+  dirname: 10_rpackages
+  filename: rpackages
+  reading: r-packages
+  recording: ''
+  recording_url: writing-r-packages
+  start: 0:0:0
+  title: Writing R packages
+  tldr: SAS maintainers HATE them. This one weird trick will allow you to distribute
+    your software for free.
+- breakoutsoln: ''
+  dirname: 11_docker
+  filename: docker
+  reading: docker
+  recording: bf677dfb-a196-482e-b636-addd012935d9
+  recording_url: docker-for-reproducible-research
+  start: 0:0:0
+  title: Docker for reproducible research
+  tldr: Software is code, so ship software with your code for full reproducibility.
+- breakoutsoln: ''
+  dirname: 12_python
+  filename: python
+  reading: python
+  recording: ''
+  recording_url: intro-to-python
+  start: 0:0:0
+  title: Intro to python
+  tldr: Do you start counting at 0? Love to see pandas at the zoo? python is for you!
+- breakoutsoln: ''
+  dirname: 13_aws
+  filename: aws
+  reading: aws
+  recording: ''
+  recording_url: cloud-computing-using-aws
+  start: 0:0:0
+  title: Cloud computing using AWS
+  tldr: Jeff Bezos has a better computer than you and for the right price, he will
+    let you use it.
