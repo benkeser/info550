@@ -21,10 +21,9 @@ __COURSE TITLE__: Data Science Toolkit
 
 __CREDIT HOURS__: 2 
 
-__SEMESTER__: Fall 2021
+__SEMESTER__: Fall 2022
 
-__CLASS HOURS AND LOCATION__: Thursdays 1:00PM - 2:50PM Grace Crum Rollins
-119 and Zoom (see [Canvas](https://canvas.emory.edu/courses/94385) for details)
+__CLASS HOURS AND LOCATION__: Thursdays 3:00PM - 4:50PM 1525 Clifton Building, Alperin Auditorium
 
 __INSTRUCTOR NAME:__ David Benkeser
 
@@ -32,12 +31,12 @@ __INSTRUCTOR CONTACT INFORMATION__
 * __EMAIL__: benkeser@emory.edu 
 * __PHONE__: (404)712-9975
 * __SCHOOL ADDRESS OR MAILBOX LOCATION__: GCR 1518-002-3AA
-* __OFFICE HOURS__: Mondays 12-1PM (location: GCR 322 or Zoom)
+* __OFFICE HOURS__: TBD (location: GCR 322 or Zoom)
 
 __TEACHING ASSISTANT INFORMATION__: 
-* __NAME__: Sohail Nizam 
-* __EMAIL__: sohail.nizam@emory.edu
-* __OFFICE HOURS__: Wednesdays 9-10AM (location: TBD)
+* __NAME__: Mingze Liu
+* __EMAIL__: mingze.liu@emory.edu
+* __OFFICE HOURS__: TBD (location: TBD)
  
 
 ## COURSE DESCRIPTION
@@ -48,11 +47,10 @@ covered in the course will provide the ability to develop fully reproducible pip
 * develop reproducible workflows collaboratively using version control based on Git/GitHub; 
 * execute workflows on a local computer using command line operations, RMarkdown, and GNU Makefiles;
 * execute workflows in a containerized environment using Docker;
-* execute the workflow in a cloud environment using Amazon Web Services EC2 and S3 services. 
+* execute the workflow in a cloud environment using Amazon Web Services EC2 and S3 services;
+* have confidence in seeking out help online to understand new data science tools. 
 
-Time-permitting, we may cover a additional tools for data science including best
-coding practices, basic python, Jupyter notebooks, software unit testing, and
-continuous integration services.
+Time-permitting, we may cover a additional tools for data science including basic python, Jupyter notebooks, cluster computing, R package development, or other related topics.
 
 
 ## PRE-REQUISITES
@@ -71,7 +69,7 @@ Given the similarities between python and R, students with a background in pytho
 * Produce reproducible workflows for data cleaning, analysis and report generation  using the suite of tools learned in the class.
 * Create simple R packages.
 * Build Docker containers and use them to develop containerized workflows.
-* Understand basic uses of bash and python.
+* Understand basic uses of bash.
 * Utilize AWS cloud computing services for computation and storage.
  
 ## CONCENTRATION COMPETENCIES:
@@ -83,20 +81,31 @@ Given the similarities between python and R, students with a background in pytho
 
 ## ATTENDANCE POLICY
 
-The class will meet in-person (COVID-permitting) each week. Lectures will also
-be broadcast simultaneously via Zoom. Each lecture will be recorded and posted
-to the course website as soon as possible after class.
+The class will meet in-person each week. 
 
-Students are free to choose the attendance approach that best suits their
-learning style. However, __synchronous attendance is strongly encouraged__.
+It is expected that students will attend the vast majority of classes synchronously and in-person. In general, there will not be a Zoom link available for in-class sessions. If you have exentuating circumstances that prevent synchronous attendance, please discuss with the professor ahead of time so temporary Zoom accommodations can be made.
+
+If there is no way to attend synchronously, it is the student's responsibility to contact the professor to develop a plan for making up in-class assignments.
+
 
 ## EVALUATION
 
-Students will be evaluated based weekly homework assignments. These assignments will mostly be related to developing a single project over the course of the semester. Each student should pick an analysis or workflow that they want to develop into a reproducible pipeline. The assignments will be graded week-by-week and will develop into a fully reproducible pipeline that can be executed in a containerized environment both locally and on the cloud.
+Students will be evaluated based weekly assignments and a semester-long project. Submission of homeworks and assignments will occur via Canvas.
+
+### Weekly assignments
+
+The weekly assignments will consist of two types of exercise.
+
+1. Pre-read exercises: these are short, low stakes assignments designed to test very basic understanding of the preparation material each week. These assignments will generally be due before class begins each week. __I suggest reading through the pre-read exercises prior to going through the prepartion material__.
+2. In class exercises: these will generally be group assignments that happen in-class and should be turned in during class time. These will usually be graded for completion, rather than correctness.
+
+### Final project
+
+Students will develop a single project over the course of the semester. Each student should pick an analysis or workflow that they want to develop into a reproducible pipeline. The assignments will be graded week-by-week and will develop into a fully reproducible pipeline that can be executed in a containerized environment both locally and on the cloud.
 
 Ideally, students enrolled in the course will have an existing analysis or data cleaning/visualization problem that they can use for the course (e.g., a thesis or dissertation project), so that the developments throughout the semester are specifically relevant to each student.
 
-### Project requirements
+#### Project requirements
 
 Each project must involve the following three components (examples follow each separate component):
 
@@ -104,7 +113,7 @@ Each project must involve the following three components (examples follow each s
 * Data analysis – e.g., making a Table 1 with descriptive summaries of key elements of the data; fitting regression models that answer scientific questions of interest; training machine learning algorithm and summarizing performance.
 * Report writing – a report must be generated in the end that includes at least one table and at least one figure, along with writing.
 
-### FAQ on project selection:
+#### FAQ on project selection:
 
 __Q__: *What if I don’t have a data set/workflow to use?*
 
@@ -121,33 +130,29 @@ __A__: No. Basic analyses are fine. The goal is not to evaluate the contents of 
 If you have questions about the suitability of a project, please contact the professor.
 
 
-## GRADING
+#### Final project grading
 
-Each week, an assignment will be given to develop a new aspect of the analysis
-pipeline. We will often use peer grading to evaluate submissions and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week. An example is below.
+The final project will be developed over the course of five separate assignments throughout the semester.
 
-__Example assignment__:
+Students will be responsible for producing:
 
-Write an Rmarkdown script that performs your analysis and generates an html report detailing the results. Include a README that describes (1) the process needed to compile the report; (2) any packages that need to be installed to compile the report; (3) the expected output of the report. Push your repository to your GitHub account and tag the final release "hw2."
+1. (15 points) An R Markdown document that successfully compiles locally.
+2. (15 points) A well-organized and documented GitHub repository that hosts the project
+3. (15 points) A Make file that documents and can be used to compile the report
+4. (15 points) An renv lockfile that handles package management for the project
+5. (40 points) A publicly available Docker container that executes the analysis
 
-__Example grading rubric__:
+Often, peer grading will be used to evaluate submissions and provide comments/feedback on its usability. Remember that the overarching goal is to develop workflows that are reproducible and easy for another researcher (or you, at a future date) to use. As such, you will be evaluating your peers on the usability of their submission each week. A standardized rubric for peer review will be provided each week as necessary. Students will receive points towards their own assignment by completing the peer grade.
 
-You have been assigned Student X for peer reviewer (GitHub user id: studentX). Clone the tagged release hw2 from the master branch of the repository studentX/info550 from GitHub. Please score your peer on the rubric below:
+### Grade composition
 
-* Were you able to successfully clone the repository? Yes = 1pt, No = 0pt
-	* If No, describe what errors you encountered.
-* Rate the README on its readability. Do you clearly understand the steps needed to compile the report? Clear = 3pt; Some aspects unclear = 2pt; Many aspects unclear = 1pt; No README/not at all clear = 0pt.
-	* If some aspects rated as unclear, what were they?
+Your grade will be determined as follows:
 
-* Did the report successfully compile? Yes, with no effort on my part = 3pt; Yes, with some effort on my part (e.g., changing file paths, anything that took < 2 min.) = 2pt; No = 0pt.
-	* If any effort was required, describe what you had to do. If not able to compile, describe the errors encountered.
+* 50% final project
+* 25% pre-read assignments
+* 25% in-class assignments
 
-
-* Did the report contain at least one figure and one table? Yes = 3pt; No = 0pt.
- 
-The TA/professor will review each peer review and submission and assign a grade accordingly. Each student will receive a grade our of 10 points for their own pipeline (based on peer /TA review) and will receive an additional 10 points for completing their peer review on time. Thus, each assignment will be scored as a percentage of 20 total points. Each weekly assignment will be worth 10% of the final grade.
-
-__Grade scale__:
+### Grade scale
 
 * A = 93 -- 100%
 * A- = 90 -- 93%
@@ -163,7 +168,8 @@ inclusive, so e.g., 93.0 is an A, while 92.9 is an A-.
  
 ## COURSE STRUCTURE
 
-The course will be organized into weekly lectures consisting of a combination of electronic slides and demonstrations. Students are expected to ask and answer questions in class. Classes will contain regular breaks for small group breakouts where small assignments will be given for students to complete together. The idea of these breakouts is to engage with your classmates and work through coding exercises together. Exercises will often be structured in a way that forces your group to go beyond what is included in the class notes and seek help online to figure out how to complete. Students should bring a laptop to in person class and be prepared to follow along with demonstrations and breakout groups.
+
+This semester, I will attempt to implement a [flipped classroom](https://bokcenter.harvard.edu/flipped-classrooms). That is, much of the traditional, lecture-based content will be delivered outside of regular class hours, while in-class time will be devoted in large part to group exercises. Students will have weekly preparation to complete that may include watching videos and completing practice exercises. It is expected that students come to class prepared to engage in the in-class exercises. Because of the emphasis on in-class activities, synchronous attendance is required for success in this course.
 
 Example assignments are shown below along with the associated core competency.
 
@@ -184,8 +190,7 @@ Develop public health information systems to support public health efforts |
 
 ## COURSE POLICIES
 
-Students are expected to attend lectures synchronously if able and ask questions
-during class. 
+Students are expected to attend lectures synchronously if able. 
 
 As the instructor of this course I endeavor to provide an inclusive learning environment. However, if you experience barriers to learning in this course, do not hesitate to discuss them with me and the Office for Equity and Inclusion, 404-727-9877.  
 
@@ -197,10 +202,6 @@ As always, communication is important. I commit to responding to emails within
 48 hours of receipt, and my intention to respond faster than that most of the
 time. I may be slower on weekends and over holidays. Likewise, if your situation
 changes regarding health, housing, or in any other regard with respect to your ability to participate in the class, please contact the appropriate Emory student support organization first and then me as soon as feasible. It is easier for me to address your needs if I know about them as soon as they arise. This does not mean I can successfully respond to every request for consideration, but I emphasize that my goal is to treat you all equitably and do what I can to help you succeed in this course.
-
-### Classroom safety
-
-Everybody must keep their face mask on at all times when they are indoors on campus, and this includes in our classroom.  Your face mask must cover your nose, mouth, and chin, and should fit snugly.    Due to the necessity of keeping your PPE on, eating and drinking is forbidden in the classroom.  Please read this Emory advice about quality and fit of mask.
 
 ### Health considerations
 
